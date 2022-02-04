@@ -1,0 +1,19 @@
+{
+    "require": {
+        "altorouter/altorouter": "^2.0",
+        "filp/whoops": "^2.14"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "App/Controllers",
+            "App\\Config\\": "App/Config",
+            "App\\Models\\": "App/Models"
+        }
+
+
+},
+    "require-dev": {
+        "symfony/var-dumper": "^6.0"
+    }
+}
