@@ -5,9 +5,9 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
+use App\Controllers\ProductController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
-use App\Models\UserModel;
 
 $router = new AltoRouter;
 
@@ -22,6 +22,12 @@ $router->map( 'GET', '/register', function(){
 
 $router->map( 'POST', '/register', function(){$model = new UserController; $model->register();
 });
+
+$router->map( 'GET', '/product/[i:id]', function($id){
+    $product = new ProductController;
+	$product->product($id);
+});
+
 
 // $router->map( 'GET', '/contact', function(){Shop::contact();}, 'contact');
 // $router->map( 'POST', '/register', function(){Shop::setUser();}, 'contact');

@@ -197,8 +197,10 @@ class ProductModel extends Database
         return $this;
     }
 
-    public function setProducts(){
-        
+    public function getProducts(){
+
+        return $this->run('SELECT * FROM products WHERE id = ?', [$this->id])->fetch();
+
     }
 
 }
