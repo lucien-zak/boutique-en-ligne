@@ -7,6 +7,7 @@ $whoops->register();
 
 use App\Controllers\ShopController as Shop;
 use App\Models\Model;
+use App\Models\UserModel;
 
 $router = new AltoRouter;
 
@@ -17,7 +18,7 @@ $router->map( 'GET', '/', function(){
 $router->map( 'GET', '/register', function(){Shop::register();
 }, 'register');
 
-$router->map( 'GET', '/test', function(){$model = new Model; dump($model->find(1));
+$router->map( 'GET', '/test', function(){$model = new UserModel; dump($model->find(1));
 });
 // $router->map( 'GET', '/contact', function(){Shop::contact();}, 'contact');
 // $router->map( 'POST', '/register', function(){Shop::setUser();}, 'contact');

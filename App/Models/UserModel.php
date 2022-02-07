@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Config\Database;
 
-class UserModel 
+class UserModel extends Database
 {
 
     protected $firstname;
@@ -40,4 +40,12 @@ class UserModel
     }
 
 
+    public function find($id)
+    {
+        $stmt =  $this->run("SELECT * FROM users WHERE id = ?" ,[$id]);
+        $test = $stmt->fetchAll();
+
+        return $test;
+
+    }
 }

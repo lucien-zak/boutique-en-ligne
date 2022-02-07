@@ -20,14 +20,21 @@ class Database
 
     //Generic function:
 
-    public function find($id)
+
+    public function __call($method, $args)
     {
-        $stmt =  $this->connect()->prepare("SELECT * FROM users WHERE id = ?");
-        $stmt->execute(array($id));
-        $test = $stmt->fetchAll();
-
-        return $test;
-
+        return call_user_func_array(array($this->pdo, $method), $args);
     }
 
+    public function run($sql, $args = [])
+    {
+        if (!$args)
+        {
+             return $this->query($sql);
+        }
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute($args);
+        return $stmt;
+    }
 }
+
