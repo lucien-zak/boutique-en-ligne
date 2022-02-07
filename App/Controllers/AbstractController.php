@@ -12,10 +12,7 @@ class AbstractController {
 
     }
 
-    static function EmptyFields()
-    {
-        
-    }
+    
 
 
 }

@@ -45,8 +45,20 @@ class UserModel extends Database
     }
 
 
-    public function setUser()
+    protected function setUser()
     {
         $stmt =  $this->run('INSERT INTO `users`( `firstname`, `name`, `email`, `password`, `adress`) VALUES (?, ?, ?, ?, ?)' ,[$this->firstname, $this->name, $this->email, $this->password, $this->adress]);
+    }
+
+    protected function checkEmail()
+    {
+        $stmt = $this->run("SELECT `email` FROM `users` WHERE email = ?" , [$this->email]);
+
+        if($stmt->rowCount() > 0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
