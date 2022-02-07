@@ -2,47 +2,41 @@
 
 namespace App\Models;
 
-use App\Config\Db;
+use App\Config\Database;
 
-class UserModel extends Db 
+class UserModel 
 {
 
-    public function __construct()
+    protected $firstname;
+    protected $name;
+    protected $email;
+    protected $password;
+    protected $adress;
+
+
+    protected function setFirstname($firstname)
     {
-        $this->Db = Db::instance();
+        $this->firstname = $firstname;
     }
 
-    public function checkEmail($email)
+    protected function setname($name)
     {
-        $stmt = $this->Db->run("SELECT * FROM users WHERE email = ?", [$email]);
-        if($stmt->rowCount() > 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        $this->name = $name;
     }
 
-    public function setUser($firstname, $name, $email, $password, $adress)
+    protected function setEmail($email)
     {
-        return $this->Db->run( "INSERT INTO `users`(`id`, `firstname`, `name`, `email`, `password`, `adress`) VALUES ( ?, ?, ?, ?, ?, ?)", [$firstname, $name, $email, $password, $adress]);    
+        $this->email = $email;
     }
 
-    public function checkLogs($email, $password)
+    protected function setPassword($password)
     {
-        return $this->Db->run("SELECT * FROM `users` WHERE `email` = ? AND `password` = ? " , [$email, $password]);    
+        $this->password = $password;
     }
 
-    public function getInfosById($id)
+    protected function setAdress($adress)
     {
-        return $this->Db->run("SELECT * FROM users WHERE id = ? " , [$id]);    
-    }
-
-    public function updateUser($firstname, $name, $email, $password, $id)
-    {
-        return $this->Db->run("UPDATE `users` SET `firstname`= ? , `name`= ? , `email`= ? , `password`= ?  WHERE `id`= ? " , [$firstname, $name, $email, $password, $id]);    
+        $this->adress = $adress;
     }
 
 

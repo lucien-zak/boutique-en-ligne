@@ -2,28 +2,20 @@
 
 namespace App\Models;
 
-use App\Config\Db;
+use App\Config\Database;
 
-class Model
+class Model extends Database
 {
+   
 
-    private $Db;
-
-    public function __construct()
+    public function find($id)
     {
-        $this->Db = Db::instance();}
+        $stmt =  $this->connect()->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->execute(array($id));
+        $test = $stmt->fetchAll();
 
-    public function find($table,$id)
-    {
-        return $this->Db->run("SELECT * FROM ? WHERE id = ?", [$table,$id])->fetch();
+        return $test;
 
     }
-
-    public function findAll()
-    {
-        return $this->Db->run("SELECT * FROM products")->fetchAll();
-
-    }
-
 
 }

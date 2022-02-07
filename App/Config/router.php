@@ -6,6 +6,7 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 use App\Controllers\ShopController as Shop;
+use App\Models\Model;
 
 $router = new AltoRouter;
 
@@ -15,8 +16,11 @@ $router->map( 'GET', '/', function(){
 
 $router->map( 'GET', '/register', function(){Shop::register();
 }, 'register');
+
+$router->map( 'GET', '/test', function(){$model = new Model; dump($model->find(1));
+});
 // $router->map( 'GET', '/contact', function(){Shop::contact();}, 'contact');
-//$router->map( 'POST', '/register', function(){Shop::setUser();}, 'contact');
+// $router->map( 'POST', '/register', function(){Shop::setUser();}, 'contact');
 
 // match current request url
 $match = $router->match();
