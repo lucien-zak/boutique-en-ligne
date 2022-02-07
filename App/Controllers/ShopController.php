@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Model as Model;
 
 class ShopController
 {

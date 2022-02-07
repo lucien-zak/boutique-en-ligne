@@ -47,7 +47,7 @@ class UserModel extends Database
 
     protected function setUser()
     {
-        $stmt =  $this->run('INSERT INTO `users`( `firstname`, `name`, `email`, `password`, `adress`) VALUES (?, ?, ?, ?, ?)' ,[$this->firstname, $this->name, $this->email, $this->password, $this->adress]);
+        return $stmt =  $this->run('INSERT INTO `users`( `firstname`, `name`, `email`, `password`, `adress`) VALUES (?, ?, ?, ?, ?)' ,[$this->firstname, $this->name, $this->email, $this->password, $this->adress]);
     }
 
     protected function checkEmail()
