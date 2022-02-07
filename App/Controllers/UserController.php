@@ -20,18 +20,44 @@ class UserController extends UserModel
         {
             $message = "champs vides";
             AbstractController::render('register', $params=['message' =>$message] );
+            exit();
         }
-        if($this->checkEmail()==false){
+        elseif($this->checkEmail()==false){
             $message = "email déjà utilisé";
             AbstractController::render('register', $params=['message' =>$message] );    
+            exit();
+        }
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $message = "L'adresse email est considérée comme invalide.";
+            AbstractController::render('register', $params=['message' =>$message] );    
+            exit();
+        }
+        elseif($password!==$passwordRep){
+            $message = "Les mots de passe ne sont pas identiques";
+            AbstractController::render('register', $params=['message' =>$message] );    
+            exit();
         }
         else{
             $this->setUser();
             $message = "Bien Inscrit";
             AbstractController::render('login', $params=['message' =>$message] );
-
         }
     }
 
+
+    public function login()
+    {
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+        $this->setEmail($email)->setPassword($password);
+
+        if(empty($this->name) || empty($this->password))
+        {
+            $message = "champs vides";
+            AbstractController::render('register', $params=['message' =>$message] );
+            exit();
+        }
+        
+    }
 
 }

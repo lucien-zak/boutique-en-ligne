@@ -23,8 +23,8 @@ $router->map( 'GET', '/register', function(){
 $router->map( 'POST', '/register', function(){$model = new UserController; $model->register();
 });
 
-// $router->map( 'GET', '/contact', function(){Shop::contact();}, 'contact');
-// $router->map( 'POST', '/register', function(){Shop::setUser();}, 'contact');
+
+
 
 // match current request url
 $match = $router->match();

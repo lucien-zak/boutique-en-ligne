@@ -5,7 +5,7 @@ isset($params['message'])?$params['message']:'';
 <form action="/register" method="post">
     <input type="text" name="firstname" >
     <input type="text" name="name" >
-    <input type="email" name="email" >
+    <input type="text" name="email" >
     <input type="password" name="password" >  
     <input type="password" name="passwordRep" >    
     <input type="text" name="adress" >

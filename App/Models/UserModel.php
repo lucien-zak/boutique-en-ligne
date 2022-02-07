@@ -61,4 +61,5 @@ class UserModel extends Database
             return true;
         }
     }
+    
 }
