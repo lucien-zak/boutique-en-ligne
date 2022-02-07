@@ -13,6 +13,11 @@ $router->map( 'GET', '/', function(){
     Shop::home();
 });
 
+$router->map( 'GET', '/register', function(){Shop::register();
+}, 'register');
+// $router->map( 'GET', '/contact', function(){Shop::contact();}, 'contact');
+//$router->map( 'POST', '/register', function(){Shop::setUser();}, 'contact');
+
 // match current request url
 $match = $router->match();
 
@@ -23,6 +28,8 @@ if( is_array($match) && is_callable( $match['target'] ) ) {
 	call_user_func_array( $match['target'], $match['params'] ); 
 } else {
 	// no route was matched
+	echo '404';
+
 	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
 

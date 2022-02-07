@@ -10,11 +10,15 @@ class ShopController
     public static function home()
     {
         $titrepage = 'test';
-        $result = New Model;
-        $result = $result->findAll();
-        $params = ['css' => $result, 'titre' => $titrepage];
+        $params = ['titre' => $titrepage];
         return AbstractController::render('index', $params);
     }
 
-    
+    public static function register()
+    {
+        $titrepage = 'register';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('register', $params);
+    }    
+
 }

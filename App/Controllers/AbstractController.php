@@ -11,4 +11,6 @@ class AbstractController {
         require "../App/Views/footer.view.php";
 
     }
+
+
 }

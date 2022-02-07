@@ -5,5 +5,6 @@ dump($params);
 
 ?>
 
-<h1>Page Acceuil</h1>
+<h1>Page Accueil</h1>
 <p>Bonjour </p>
+<a href="/register">inscription</a>
