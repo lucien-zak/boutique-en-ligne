@@ -1,6 +1,6 @@
 
 
-<form action="../Controllers/RegisterController.php" method="post">
+<form action="/register" method="post">
     <input type="text" name="firstname" >
     <input type="text" name="name" >
     <input type="text" name="email" >

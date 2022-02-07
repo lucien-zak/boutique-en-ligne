@@ -17,35 +17,36 @@ class UserModel extends Database
     protected function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+        return $this;
     }
 
     protected function setname($name)
     {
         $this->name = $name;
+        return $this;
     }
 
     protected function setEmail($email)
     {
         $this->email = $email;
+        return $this;
     }
 
     protected function setPassword($password)
     {
         $this->password = $password;
+        return $this;
     }
 
     protected function setAdress($adress)
     {
         $this->adress = $adress;
+        return $this;
     }
 
 
-    public function find($id)
+    public function setUser()
     {
-        $stmt =  $this->run("SELECT * FROM users WHERE id = ?" ,[$id]);
-        $test = $stmt->fetchAll();
-
-        return $test;
-
+        $stmt =  $this->run('INSERT INTO `users`( `firstname`, `name`, `email`, `password`, `adress`) VALUES (?, ?, ?, ?, ?)' ,[$this->firstname, $this->name, $this->email, $this->password, $this->adress]);
     }
 }

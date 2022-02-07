@@ -1,27 +1,15 @@
 <?php
 namespace App\Controllers;
 
-use App\Models ;
+use App\Models\UserModel ;
 
-class RegisterController extends UserModel
+class UserController extends UserModel
 {
-
-
-    public function setUserContr()  
-    {     
-        $result = new UserModel;
-        $firstname = "test2";
-        $name = "test2";
-        $email = "test2";
-        $password = "test2";
-        $adress = "test2";
-
-        $result->setUser($firstname, $name, $email, $password, $adress);
-    }
-
-    public static function register()
+    
+    public function register()
     {
-        
+        $this->setFirstname($_POST['firstname'])->setname($_POST['name'])->setEmail($_POST['email'])->setPassword($_POST['password'])->setAdress($_POST['adress']);
+        $this->setUser();
     }
 
 
