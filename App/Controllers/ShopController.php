@@ -16,5 +16,14 @@ class ShopController
         return AbstractController::render('index', $params);
     }
 
+    public static function error()
+    {
+        $titrepage = 'Error 404';
+        $result = New Model;
+        $result = $result->findAll();
+        $params = ['css' => $result, 'titre' => $titrepage];
+        return AbstractController::render('error', $params);
+    }
+
     
 }
