@@ -22,7 +22,7 @@
                         </a>
                     </div>
                     <div class="button">
-                        <a href="/account/login" class="">
+                        <a href="/account/register" class="">
                             Inscription
                         </a>
                     </div>
