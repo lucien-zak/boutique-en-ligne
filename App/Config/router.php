@@ -25,9 +25,7 @@ if( is_array($match) && is_callable( $match['target'] ) ) {
 	call_user_func_array( $match['target'], $match['params'] ); 
 } else {
 	// no route was matched
-	echo '404';
-
-	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+    Shop::error();
 }
 
 
