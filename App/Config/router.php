@@ -16,11 +16,11 @@ $router->map( 'GET', '/', function(){
 });
 
 
-$router->map( 'GET', '/register', function(){
+$router->map( 'GET', '/account/register', function(){
     Shop::register();
 });
 
-$router->map( 'POST', '/register', function(){
+$router->map( 'POST', '/account/register', function(){
 	$model = new UserController; $model->register();
 });
 
@@ -29,11 +29,11 @@ $router->map( 'GET', '/product/[i:id]', function($id){
 	$product->product($id);
 });
 
-$router->map( 'GET', '/login', function(){
+$router->map( 'GET', '/account/login', function(){
     Shop::login();
 });
 
-$router->map( 'POST', '/login', function(){$model = new UserController; $model->login();
+$router->map( 'POST', '/account/login', function(){$model = new UserController; $model->login();
 });
 
 $router->map( 'GET', '/account', function(){
