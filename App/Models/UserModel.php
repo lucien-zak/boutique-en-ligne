@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use PDO;
 use App\Config\Database;
 
 class UserModel extends Database
@@ -91,12 +91,17 @@ class UserModel extends Database
     }
     
     protected function checkLogs()
-    {
-       return $this->run("SELECT * FROM `users` WHERE `email` = ? AND `password` = ? " , [$this->email, $this->password]);
+    { 
+        return $this->run("SELECT * FROM `users` WHERE `email` = ? AND `password` = ? " , [$this->email, $this->password]);
     }
 
     protected function getInfosById($id)
     {
-       return $this->run("SELECT * FROM `users` WHERE `id` = ? " , [$this->id]);
+        return $this->run("SELECT * FROM `users` WHERE `id` = ? " , [$this->id]);
+    }
+
+    public function checkPassword($email)
+    {
+        return $this->run("SELECT * FROM `users` WHERE `email`= ?" , [$email]);
     }
 }

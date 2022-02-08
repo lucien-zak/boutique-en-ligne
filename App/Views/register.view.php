@@ -1,6 +1,6 @@
 
 
-<form action="/register" method="post">
+<form action="/account/register" method="post">
     <input type="text" name="firstname" >
     <input type="text" name="name" >
     <input type="text" name="email" >
