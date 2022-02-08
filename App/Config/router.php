@@ -55,11 +55,8 @@ if( is_array($match) && is_callable( $match['target'] ) ) {
     Shop::error();
 }
 
-
 // match current request url
 $match = $router->match();
-
-
 
 // call closure or throw 404 status
 if( is_array($match) && is_callable( $match['target'] ) ) {
@@ -70,6 +67,4 @@ if( is_array($match) && is_callable( $match['target'] ) ) {
 
 	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
-
-
 ?>

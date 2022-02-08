@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Controllers;
+
 class ShopController
 {
 
     public static function home()
     {
         $titrepage = 'Accueil';
+        $titrepage = 'test';
         $params = ['titre' => $titrepage];
         return AbstractController::render('index', $params);
     }
@@ -53,6 +55,5 @@ class ShopController
         $params = ['titre' => $titrepage];
         return AbstractController::render('error', $params);
     }
-
 }
 ?>

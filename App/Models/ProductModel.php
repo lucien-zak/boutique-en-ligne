@@ -202,6 +202,4 @@ class ProductModel extends Database
         return $this->run('SELECT * FROM products WHERE id = ?', [$this->id])->fetch();
 
     }
-
 }
-?>

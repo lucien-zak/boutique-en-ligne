@@ -99,6 +99,4 @@ class UserModel extends Database
     {
        return $this->run("SELECT * FROM `users` WHERE `id` = ? " , [$this->id]);
     }
-
-
 }

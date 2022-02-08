@@ -15,5 +15,4 @@ class ProductController extends ProductModel
         return AbstractController::render('product', $params);
     }
 }
-
 ?>
