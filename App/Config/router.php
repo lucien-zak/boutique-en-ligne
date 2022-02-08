@@ -20,12 +20,20 @@ $router->map( 'GET', '/register', function(){
     Shop::register();
 });
 
-$router->map( 'POST', '/register', function(){$model = new UserController; $model->register();
+$router->map( 'POST', '/register', function(){
+	$model = new UserController; $model->register();
 });
 
 $router->map( 'GET', '/product/[i:id]', function($id){
     $product = new ProductController;
 	$product->product($id);
+});
+
+$router->map( 'GET', '/login', function(){
+    Shop::login();
+});
+
+$router->map( 'POST', '/login', function(){$model = new UserController; $model->login();
 });
 
 

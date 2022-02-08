@@ -2,12 +2,15 @@
 namespace App\Controllers;
 
 use App\Models\UserModel ;
+use PDO;
 
 class UserController extends UserModel
 {
     
+    //fonction qui permet de s'inscrire et qui définie les conditions a remplir
     public function register()
     {
+        //sécurisation des $POST
         $firstname = htmlspecialchars($_POST['firstname']);
         $name = htmlspecialchars($_POST['name']);
         $email = htmlspecialchars($_POST['email']);
@@ -15,7 +18,8 @@ class UserController extends UserModel
         $passwordRep = htmlspecialchars($_POST['passwordRep']);
         $adress = htmlspecialchars($_POST['adress']);
 
-        $this->setFirstname($firstname)->setname($name)->setEmail($email)->setPassword($password)->setAdress($adress);
+        //Ici je set mes instance  pour pouvoir les réutiliser. 
+        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($password)->setAdress($adress);
         if(empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep) || empty($this->adress))
         {
             $message = "champs vides";
@@ -44,18 +48,40 @@ class UserController extends UserModel
         }
     }
 
-
+    //fonction qui vérifie que l'utilisateur est bien inscrit
     public function login()
     {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
         $this->setEmail($email)->setPassword($password);
 
-        if(empty($this->name) || empty($this->password))
+        if(empty($this->email) || empty($this->password))
         {
             $message = "champs vides";
-            AbstractController::render('register', $params=['message' =>$message] );
+            AbstractController::render('login', $params=['message' =>$message] );
             exit();
+        }
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $message = "L'adresse email est considérée comme invalide.";
+            AbstractController::render('login', $params=['message' =>$message] );
+        }    
+        elseif($this->checkLogs()->rowCount() == 0)
+        {
+            $message = "Email ou mot de passe incorrect";
+            AbstractController::render('login', $params=['message' =>$message] );
+        }
+        else 
+        {
+            session_start();
+            $user = $this->checkLogs()->fetchAll(PDO::FETCH_ASSOC);
+            
+            $_SESSION['id'] = $user['0']['id'];
+            $_SESSION['firstname'] = $user['0']['firstname'];
+            $_SESSION['name'] = $user['0']['name'];
+            $_SESSION['email'] = $user['0']['email'];
+
+            $message = "okok";
+            AbstractController::render('index', $params=['message' =>$message] );
         }
         
     }

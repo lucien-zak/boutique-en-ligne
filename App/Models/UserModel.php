@@ -20,7 +20,7 @@ class UserModel extends Database
         return $this;
     }
 
-    protected function setname($name)
+    protected function setName($name)
     {
         $this->name = $name;
         return $this;
@@ -31,6 +31,7 @@ class UserModel extends Database
         $this->email = $email;
         return $this;
     }
+    
 
     protected function setPassword($password)
     {
@@ -42,6 +43,33 @@ class UserModel extends Database
     {
         $this->adress = $adress;
         return $this;
+    }
+
+    protected function getFirstname()
+    {
+        return $this->firstname;
+
+    }
+
+    protected function getName()
+    {
+        return $this->name;
+    }
+
+    protected function getEmail()
+    {
+        return $this->email;
+    }
+    
+
+    protected function getPassword()
+    {
+        return $this->password;
+    }
+
+    protected function getAdress()
+    {
+        return $this->adress;
     }
 
 
@@ -62,4 +90,15 @@ class UserModel extends Database
         }
     }
     
+    protected function checkLogs()
+    {
+       return $this->run("SELECT * FROM `users` WHERE `email` = ? AND `password` = ? " , [$this->email, $this->password]);
+    }
+
+    protected function getInfosById($id)
+    {
+       return $this->run("SELECT * FROM `users` WHERE `id` = ? " , [$this->id]);
+    }
+
+
 }

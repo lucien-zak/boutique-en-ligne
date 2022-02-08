@@ -20,4 +20,18 @@ class ShopController
         return AbstractController::render('register', $params);
     }    
 
+    public static function login()
+    {
+        $titrepage = 'login';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('login', $params);
+    }
+    
+    public static function profil()
+    {
+        $titrepage = 'profil';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('profil', $params);
+    }
+
 }
