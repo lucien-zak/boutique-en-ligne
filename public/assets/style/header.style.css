@@ -19,7 +19,7 @@
         background-color: #202020;
     }
 
-    header > nav > a {
+    nav > a {
         width : 20%;
         padding: 15px;
         font-size: 30px;
@@ -30,7 +30,7 @@
         color: #fff;
     }
 
-    #selected, header > nav > a:hover {
+    #selected, nav > a:hover {
         color: #FC7E1F;
     }
 
