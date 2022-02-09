@@ -34,6 +34,9 @@ class Database
         }
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute($args);
+        if($stmt === false ){
+            return [];
+        }
         return $stmt;
     }
 }

@@ -1,4 +1,6 @@
-<?php !empty($session)?dump($_SESSION):'' ?>
+
+<?php 
+ !empty($_SESSION)?dump($_SESSION):'' ?>
 <?= isset($params['message'])?$params['message']:''; ?>
 
 <!-- <form action="/account/profil" method="POST">
@@ -29,7 +31,7 @@
         <section class="home">
             <div class="container">
                 <h3>MODIFICATION DE VOTRE COMPTE</h3>
-                <form action="/account/register" method="POST">
+                <form action="/account/profil" method="POST">
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
@@ -54,6 +56,11 @@
                         <div class="box">
                             <div class="left"></div>
                             <input type="password" name="passwordRep" placeholder="Confirmez le mot de passe">
+                            <div class="right"></div>
+                        </div>
+                        <div class="box">
+                            <div class="left"></div>
+                            <input type="text" name="adress" placeholder="adress">
                             <div class="right"></div>
                         </div>
                     </div>

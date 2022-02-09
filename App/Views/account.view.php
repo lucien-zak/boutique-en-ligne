@@ -1,4 +1,5 @@
 <?php
+
     if(isset($_POST['logout'])) {
         header('Location:./logout.view.php');
     }
@@ -42,11 +43,31 @@
                 <div class="buttons-container">
                     <form action="/account/profil" method="POST">
                         <div class="buttons-container">
-                            <button class="button" type="submit">Mes Informations</button>
-                            <button class="button" type="submit">Mes Adresses</button>
-                            <button class="button" type="submit">Moyen de paiements</button>
-                            <button class="button" type="submit">Mes Commandes</button>
-                            <button class="button" name="logout" type="submit">Se déconnecter</button>
+                        <div class="button">
+                                <a href="/Products" class="">
+                                    Mes Informations
+                                </a>
+                            </div>
+                            <div class="button">
+                                <a href="/Products" class="">
+                                    Mes Adresses
+                                </a>
+                            </div>
+                            <div class="button">
+                                <a href="/Products" class="">
+                                    Moyen de paiements
+                                </a>
+                            </div>
+                            <div class="button">
+                                <a href="/Products" class="">
+                                    Mes Commandes
+                                </a>
+                            </div>
+                            <div class="button">
+                                <a href="/logout" class="">
+                                    Se déconnecter
+                                </a>
+                            </div>
                         </div>
                     </form>
                 </div>
