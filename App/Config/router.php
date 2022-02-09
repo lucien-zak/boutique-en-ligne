@@ -15,7 +15,6 @@ $router->map( 'GET', '/', function(){
     Shop::home();
 });
 
-
 $router->map( 'GET', '/account/register', function(){
     Shop::register();
 });
