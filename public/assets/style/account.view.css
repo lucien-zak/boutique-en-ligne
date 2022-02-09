@@ -34,7 +34,7 @@
         font-weight: 10;
     }
 
-    section.home > div.container > h3 {
+    h3 {
         font-family: 'Jetbrain-R';
         font-weight: 10;
     }
@@ -52,6 +52,23 @@
         width: 40%;
     }
 
+    a.box-add {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    span.box-icon {
+        font-size: 400%;
+        margin: 10%;
+    }
+
+    i.icon {
+        color: #FC7E1F;
+    }
 
     /*///////////////////////////////////////////////////////////////////*/
     /* SECTION BUTTON INPUT TEXTENTRY */

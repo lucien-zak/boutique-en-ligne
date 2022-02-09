@@ -47,23 +47,37 @@ class ShopController
 
     public static function address()
     {
-        $titrepage = 'Adresses';
+        $titrepage = 'Vos Adresses';
         $params = [ 'titre' => $titrepage];
         return AbstractController::render('account.address', $params);
     }
 
     public static function orders()
     {
-        $titrepage = 'Commandes';
+        $titrepage = 'Vos Commandes';
         $params = [ 'titre' => $titrepage];
         return AbstractController::render('account.orders', $params);
     }
 
     public static function payements()
     {
-        $titrepage = 'Paiements';
+        $titrepage = 'Vos Paiements';
         $params = [ 'titre' => $titrepage];
         return AbstractController::render('account.payements', $params);
+    }
+
+    public static function payements_add()
+    {
+        $titrepage = 'Ajout d\'une Carte Bancaire';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('account.payements.add', $params);
+    }
+
+    public static function payements_edit()
+    {
+        $titrepage = 'Modification d\'une Carte Bancaire';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('account.payements.edit', $params);
     }
 
     //

@@ -37,22 +37,22 @@
                     <form action="/account/profil" method="POST">
                         <div class="buttons-container">
                         <div class="button">
-                                <a href="/Products" class="">
+                                <a href="/account/profil" class="">
                                     Mes Informations
                                 </a>
                             </div>
                             <div class="button">
-                                <a href="/Products" class="">
+                                <a href="/account/addresses" class="">
                                     Mes Adresses
                                 </a>
                             </div>
                             <div class="button">
-                                <a href="/Products" class="">
+                                <a href="/account/payements" class="">
                                     Moyen de paiements
                                 </a>
                             </div>
                             <div class="button">
-                                <a href="/Products" class="">
+                                <a href="/account/orders" class="">
                                     Mes Commandes
                                 </a>
                             </div>

@@ -59,17 +59,17 @@ $router->map( 'POST', '/account/profil', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map( 'GET', '/account/addresses', function(){
-    Shop::profil();
+    Shop::address();
 });
 
 $router->map( 'POST', '/account/addresses', function(){
-    $model = new UserController; $model->addresses();
+    $model = new UserController; $model->address();
 });
 
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map( 'GET', '/account/orders', function(){
-    Shop::profil();
+    Shop::orders();
 });
 
 $router->map( 'POST', '/account/orders', function(){
@@ -79,11 +79,27 @@ $router->map( 'POST', '/account/orders', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map( 'GET', '/account/payements', function(){
-    Shop::profil();
+    Shop::payements();
 });
 
 $router->map( 'POST', '/account/payements', function(){
     $model = new UserController; $model->payements();
+});
+
+$router->map( 'GET', '/account/payements/add', function(){
+    Shop::payements_add();
+});
+
+$router->map( 'POST', '/account/payements/add', function(){
+    $model = new UserController; $model->payements_add();
+});
+
+$router->map( 'GET', '/account/payements/edit', function(){
+    Shop::payements_edit();
+});
+
+$router->map( 'POST', '/account/payements/edit', function(){
+    $model = new UserController; $model->payements_edit();
 });
 
 /////////////////////////////////////////////////////////////////////////////
