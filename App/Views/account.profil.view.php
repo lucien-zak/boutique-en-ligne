@@ -1,6 +1,4 @@
 
-<?php 
- !empty($_SESSION)?dump($_SESSION):'' ?>
 <?= isset($params['message'])?$params['message']:''; ?>
 
 <!-- <form action="/account/profil" method="POST">

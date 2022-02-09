@@ -1,10 +1,3 @@
-<?php
-
-    if(isset($_POST['logout'])) {
-        header('Location:./logout.view.php');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
