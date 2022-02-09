@@ -1,7 +1,5 @@
 <?php !empty($session)?dump($_SESSION):'' ?>
 
-<?= isset($params['message'])?$params['message']:''; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +54,7 @@
                     <div class="buttons-container">
                         <button class="button" type="submit">Inscription</button>
                         <div class="button">
-                            <a href="/account/register" class="">
+                            <a href="/account/login" class="">
                                Déjà un compte?
                             </a>
                         </div>
