@@ -9,7 +9,7 @@ class UserController extends UserModel
     
     public function __construct()
     {
-        session_start();
+      
     }
 
     //fonction qui permet de s'inscrire et qui définie les conditions a remplir
@@ -125,7 +125,7 @@ class UserController extends UserModel
 
         $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setAdress($adress)->setId($id);
         
-        if(empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep) || empty($this->adress))
+        if(!empty($this->firstname) && !empty($this->name) && !empty($this->email) && !empty($this->password) && !empty($passwordRep) && !empty($this->adress))
         {
             if($password==$passwordRep) 
             {
@@ -146,6 +146,10 @@ class UserController extends UserModel
                 else{
                     $this->updateUser();
                     header("location:/account");
+                    $_SESSION['firstname'] = $firstname;
+                    $_SESSION['name'] = $name;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['adress'] = $adress;
                 }
             }
             else{
