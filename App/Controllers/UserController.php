@@ -100,7 +100,9 @@ class UserController extends UserModel
             $_SESSION['adress'] = $user['0']['adress'];
 
             // $message = "okok";'message' =>$message
-            AbstractController::render('account', $params=['titre' =>'profil' ] );
+            AbstractController::render('account', $params=['titre' =>$titrepage ] );
+            dump($_SESSION);
+            // header('/account');
         }  
     }
 

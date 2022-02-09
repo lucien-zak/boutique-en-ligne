@@ -30,7 +30,8 @@ $router->map( 'GET', '/account/login', function(){
     Shop::login();
 });
 
-$router->map( 'POST', '/account/login', function(){$model = new UserController; $model->login();
+$router->map( 'POST', '/account/login', function(){
+    $model = new UserController; $model->login();
 });
 
 /////////////////////////////////////////////////////////////////////////////

@@ -1,3 +1,9 @@
+<?php
+    if(isset($_POST['logout'])) {
+        header('Location:./logout.view.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +46,7 @@
                             <button class="button" type="submit">Mes Adresses</button>
                             <button class="button" type="submit">Moyen de paiements</button>
                             <button class="button" type="submit">Mes Commandes</button>
-                            <button class="button" type="submit">Se déconnecter</button>
+                            <button class="button" name="logout" type="submit">Se déconnecter</button>
                         </div>
                     </form>
                 </div>
