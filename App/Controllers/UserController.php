@@ -15,10 +15,13 @@ class UserController extends UserModel
         $name = htmlspecialchars($_POST['name']);
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
+
         $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
+
         $passwordRep = htmlspecialchars($_POST['passwordRep']);
         $adress = htmlspecialchars($_POST['adress']);
         $titrepage = 'register';
+
         //Ici je set mes instance  pour pouvoir les réutiliser. 
         $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setAdress($adress);
         if(empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep) || empty($this->adress))
@@ -27,7 +30,7 @@ class UserController extends UserModel
             AbstractController::render('register', $params=['titre' =>$titrepage ,'message' =>$message] );
             exit();
         }
-        elseif($this->checkEmail()==false){
+        if($this->checkEmail()==false){
             $message = "email déjà utilisé";
             AbstractController::render('register', $params=['titre' =>$titrepage ,'message' =>$message] );    
             exit();
@@ -59,29 +62,33 @@ class UserController extends UserModel
         
         $this->setEmail($email)->setPassword($passwordbdd['password']);
 
-        if(empty($this->email) || empty($this->password))
+        if(empty($this->email) || empty($password))
         {
             $message = "champs vides";
             AbstractController::render('login', $params=['titre' =>$titrepage ,'message' =>$message] );
             exit();
         }
-
-        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) )
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL) )
         {
             $message = "L'adresse email est considérée comme invalide.";
             AbstractController::render('login', $params=['titre' =>$titrepage ,'message' =>$message] );
-        }    
+        } 
+        elseif($this->checkEmail()==false)
+        {
+            if(!password_verify($password, $passwordbdd['password']))
+            {
+                $message = "mot de passe incorrect";
+                AbstractController::render('login', $params=['message' =>$message] );
+                exit();
+            }  
+        }
+           
         elseif($this->checkLogs()->rowCount() == 0)
         {
             $message = "Email ou mot de passe incorrect";
             AbstractController::render('login', $params=['titre' =>$titrepage ,'message' =>$message] );
         }
-        elseif(!password_verify($password, $passwordbdd['password']))
-        {
-            $message = "mot de passe incorrect";
-            AbstractController::render('login', $params=['message' =>$message] );
-            exit();
-        } 
+        
         else 
         {
             session_start();
@@ -94,20 +101,51 @@ class UserController extends UserModel
             $_SESSION['adress'] = $user['0']['adress'];
 
             $message = "okok";
-            // AbstractController::render('index', $params=['titre' =>'index' ,'message' =>$message] );
+            AbstractController::render('profil', $params=['titre' =>'profil' ,'message' =>$message] );
         }  
     }
 
-    public function update()
+    public function profil()
     {
+        session_start();
+        $id = $_SESSION['id'];
         $firstname = htmlspecialchars($_POST['firstname']);
         $name = htmlspecialchars($_POST['name']);
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
+        $passwordhashed = password_hash($password, PASSWORD_DEFAULT); 
         $passwordRep = htmlspecialchars($_POST['passwordRep']);
         $adress = htmlspecialchars($_POST['adress']);
+        $titrepage = 'profil';
 
-
+        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setAdress($adress)->setId($id);
+        
+        if(empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep) || empty($this->adress))
+        {
+            $message = "champs vides";
+            AbstractController::render('profil', $params=['titre' =>$titrepage ,'message' =>$message] );
+            exit();
+        }
+        elseif($this->checkEmail()==false){
+            $emailbdd = $this->getInfosById($id)->fetch(PDO::FETCH_ASSOC);
+            $emailbdd['email'];
+            if($email == $_SESSION['email']){   
+                $this->updateUser();
+                $message = "Bien changé";
+                AbstractController::render('index', $params=['titre' =>$titrepage ,'message' =>$message] );
+                exit();
+            }
+            else{
+                $message = "email déjà utilisé";
+                AbstractController::render('profil', $params=['titre' =>$titrepage ,'message' =>$message] );    
+                exit();
+            } 
+        }
+        else{
+            $this->updateUser();
+            $message = "Bien changé";
+            AbstractController::render('index', $params=['titre' =>$titrepage ,'message' =>$message] );
+        }
     }
 
 }

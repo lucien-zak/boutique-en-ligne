@@ -13,9 +13,9 @@ class ShopController
         return AbstractController::render('index', $params);
     }
 
-    //
+    //  
     //  ACCOUNT
-    //
+    //  
 
     public static function account()
     {
@@ -54,6 +54,13 @@ class ShopController
         $titrepage = 'Error 404';
         $params = ['titre' => $titrepage];
         return AbstractController::render('error', $params);
+    }
+
+    public static function logout()
+    {
+        $titrepage = 'logout';
+        $params = ['titre' => $titrepage];
+        return AbstractController::render('logout', $params);
     }
 }
 ?>

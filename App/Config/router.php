@@ -36,12 +36,23 @@ $router->map( 'GET', '/account/login', function(){
 $router->map( 'POST', '/account/login', function(){$model = new UserController; $model->login();
 });
 
+$router->map( 'GET', '/account/profil', function(){
+    Shop::profil();
+});
+
+$router->map( 'POST', '/account/profil', function(){$model = new UserController; $model->profil();
+});
+
 $router->map( 'GET', '/account', function(){
     Shop::account();
 });
 
 $router->map( 'GET', '/error', function(){
     Shop::error();
+});
+
+$router->map( 'GET', '/logout', function(){
+    Shop::logout();
 });
 
 // match current request url

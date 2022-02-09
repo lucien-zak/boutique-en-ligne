@@ -19,7 +19,7 @@
         <section class="home">
             <div class="container">
                 <h3>CRÉATION DE VOTRE COMPTE</h3>
-                <form action="/account/login" method="POST">
+                <form action="/account/register" method="POST">
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="lastname" placeholder="Nom">
+                            <input type="text" name="name" placeholder="Nom">
                             <div class="right"></div>
                         </div>
                         <div class="box">
@@ -43,7 +43,12 @@
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="password" name="password2" placeholder="Confirmez le mot de passe">
+                            <input type="password" name="passwordRep" placeholder="Confirmez le mot de passe">
+                            <div class="right"></div>
+                        </div>
+                        <div class="box">
+                            <div class="left"></div>
+                            <input type="text" name="adress" placeholder="Entrer votre adresse">
                             <div class="right"></div>
                         </div>
                     </div>

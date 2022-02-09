@@ -13,7 +13,10 @@ class UserModel extends Database
     protected $password;
     protected $adress;
 
-
+    protected function setId($id){
+        $this->id = $id;
+        return $this;
+    }
     protected function setFirstname($firstname)
     {
         $this->firstname = $firstname;
@@ -75,7 +78,7 @@ class UserModel extends Database
 
     protected function setUser()
     {
-        return $this->run('INSERT INTO `users`( `firstname`, `name`, `email`, `password`, `adress`) VALUES (?, ?, ?, ?, ?)' ,[$this->firstname, $this->name, $this->email, $this->password, $this->adress]);
+        return $this->run('INSERT INTO `users`( `firstname`, `name`, `email`, `password`, `adress`) VALUES (?, ?, ?, ?, ?)' , [$this->firstname, $this->name, $this->email, $this->password, $this->adress]);
     }
 
     protected function checkEmail()
@@ -103,5 +106,10 @@ class UserModel extends Database
     public function checkPassword($email)
     {
         return $this->run("SELECT * FROM `users` WHERE `email`= ?" , [$email]);
+    }
+
+    public function updateUser()
+    {
+        return $this->run("UPDATE `users` SET `firstname`= ?, `name`= ?, `email`= ?, `password`= ?, `adress`= ?  WHERE `id`= ? " , [$this->firstname, $this->name, $this->email, $this->password, $this->adress, $this->id]);
     }
 }
