@@ -6,12 +6,6 @@ use PDO;
 
 class UserController extends UserModel
 {
-    
-    public function __construct()
-    {
-        session_start();
-    }
-
     //fonction qui permet de s'inscrire et qui définie les conditions a remplir
     public function register()
     {
@@ -77,7 +71,7 @@ class UserController extends UserModel
                     {
                         $this->setPassword($passwordbdd['password']);
                         $user = $this->checkLogs()->fetchAll(PDO::FETCH_ASSOC);
-                        // session_start();
+
                         $_SESSION['id'] = $user['0']['id'];
                         $_SESSION['firstname'] = $user['0']['firstname'];
                         $_SESSION['name'] = $user['0']['name'];
