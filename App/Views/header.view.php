@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <header>
     <nav>
         <a href="/"><i class="fas fa-home"></i></a>
