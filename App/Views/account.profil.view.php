@@ -1,7 +1,7 @@
 <?php !empty($session)?dump($_SESSION):'' ?>
 <?= isset($params['message'])?$params['message']:''; ?>
 
-<form action="/account/profil" method="POST">
+<!-- <form action="/account/profil" method="POST">
     <input type="text" name="firstname" >
     <input type="text" name="name" >
     <input type="text" name="email" >
@@ -10,7 +10,7 @@
     <input type="text" name="adress" >
     <input type="submit">
 </form>
-<a href="/logout">deco</a>
+<a href="/logout">deco</a> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +19,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $params['titre'] ?> - Vinyl Génération</title>
-    <link rel="stylesheet" href="./assets/style/account.view.css">
-    <link rel="stylesheet" href="./assets/style/header.style.css">
-    <link rel="stylesheet" href="./assets/style/normalize.css">
+    <link rel="stylesheet" href="../assets/style/account.view.css">
+    <link rel="stylesheet" href="../assets/style/header.style.css">
+    <link rel="stylesheet" href="../assets/style/normalize.css">
 <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
 </head>
 <body>

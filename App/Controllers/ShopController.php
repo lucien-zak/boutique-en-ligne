@@ -26,23 +26,44 @@ class ShopController
 
     public static function register()
     {
-        $titrepage = 'register';
+        $titrepage = 'Register';
         $params = [ 'titre' => $titrepage];
         return AbstractController::render('register', $params);
     }    
 
     public static function login()
     {
-        $titrepage = 'login';
+        $titrepage = 'Connexion';
         $params = [ 'titre' => $titrepage];
         return AbstractController::render('login', $params);
     }
     
     public static function profil()
     {
-        $titrepage = 'profil';
+        $titrepage = 'Profil';
         $params = [ 'titre' => $titrepage];
-        return AbstractController::render('profil', $params);
+        return AbstractController::render('account.profil', $params);
+    }
+
+    public static function address()
+    {
+        $titrepage = 'Adresses';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('account.address', $params);
+    }
+
+    public static function orders()
+    {
+        $titrepage = 'Commandes';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('account.orders', $params);
+    }
+
+    public static function payements()
+    {
+        $titrepage = 'Paiements';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('account.payements', $params);
     }
 
     //

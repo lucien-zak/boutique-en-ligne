@@ -91,7 +91,7 @@ class UserController extends UserModel
         else 
         {
             $this->setEmail($email)->setPassword($passwordbdd['password']);
-            session_start();
+            // session_start();
             $user = $this->checkLogs()->fetchAll(PDO::FETCH_ASSOC);
             $_SESSION['id'] = $user['0']['id'];
             $_SESSION['firstname'] = $user['0']['firstname'];
@@ -100,13 +100,13 @@ class UserController extends UserModel
             $_SESSION['adress'] = $user['0']['adress'];
 
             // $message = "okok";'message' =>$message
-            AbstractController::render('profil', $params=['titre' =>'profil' ] );
+            AbstractController::render('account', $params=['titre' =>'profil' ] );
         }  
     }
 
     public function profil()
     {
-        session_start();
+        // session_start();
         $id = $_SESSION['id'];
         $firstname = htmlspecialchars($_POST['firstname']);
         $name = htmlspecialchars($_POST['name']);
@@ -124,15 +124,11 @@ class UserController extends UserModel
             // $message = "champs vides";'message' =>$message
             AbstractController::render('profil', $params=['titre' =>$titrepage] );
             exit();
-        }
-
-        elseif($password!==$passwordRep)
-        {
+        } elseif($password!==$passwordRep) {
             // $message = "champs vides";'message' =>$message
             AbstractController::render('profil', $params=['titre' =>$titrepage ] );
-        }
-
-        elseif($this->checkEmail()==false){
+            exit();
+        } elseif($this->checkEmail()==false){
             $emailbdd = $this->getInfosById($id)->fetch(PDO::FETCH_ASSOC);
             $emailbdd['email'];
             if($email == $_SESSION['email']){   
@@ -140,19 +136,16 @@ class UserController extends UserModel
                 // $message = "Bien changé";'message' =>$message
                 AbstractController::render('index', $params=['titre' =>$titrepage ] );
                 exit();
-            }
-            else{
+            } else{
                 // $message = "email déjà utilisé";'message' =>$message
                 AbstractController::render('profil', $params=['titre' =>$titrepage ] );    
                 exit();
             } 
-        }
-
-        else{
+        } else {
             $this->updateUser();
             // $message = "Bien changé";'message' =>$message
             AbstractController::render('index', $params=['titre' =>$titrepage ] );
+            exit();
         }
     }
-
 }

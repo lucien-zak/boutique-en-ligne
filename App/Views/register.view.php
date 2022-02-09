@@ -50,7 +50,6 @@
                             <div class="right"></div>
                         </div>
                     </div>
-                    
                     <div class="buttons-container">
                         <button class="button" type="submit">Inscription</button>
                         <div class="button">
