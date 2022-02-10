@@ -34,7 +34,7 @@
     <main>
         <section class="home">
             <div class="container profil">
-                <img class="logo-user" src="../assets/img/icons/users/<?= isset($_SESSION['profilPicture']) ? $_SESSION['profilPicture'] : 'user-default.png' ?>" alt="">
+                <img class="logo-user" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
                 <h3>MODIFICATION DE VOTRE COMPTE</h3>
                 <form action="/account/profil" enctype="multipart/form-data" method="POST">
                     <div class="entry-container">
@@ -64,23 +64,16 @@
                             <div class="right"></div>
                         </div>
                         <div class="box profil">
-                            <!-- <input type="submit" name="fileButton" id="uploadFile" value="Choisir sa photo de profil"> -->
-                            <!-- <input type="file" name="uploadFile" id="uploadBtn" class="uploadPicture" accept=".png, .jpeg, .jpg"> -->
-                            
                             <div class="left"></div>
                             <div class="fileUpload btn btn-primary">
                                 <span>Choisir sa photo de profil</span>
-                                <input id="uploadBtn" type="file" class="upload" />
+                                <input id="uploadBtn" type="file" name="picture" class="upload" accept=".png, .jpeg, .jpg">
                             </div>
                             <div class="right"></div>
                         </div>
                     </div>
                     <div class="buttons-container">
-                        <div class="button">
-                            <a href="/account/login" class="">
-                                Sauvegarder
-                            </a>
-                        </div>
+                        <button class="button" type="submit">Sauvegarder</button>
                     </div>
                 </form>
             </div>

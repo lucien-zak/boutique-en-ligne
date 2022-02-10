@@ -108,7 +108,7 @@ class UserModel extends Database
         return $this->run("SELECT * FROM `users` WHERE `email`= ?" , [$email]);
     }
 
-    public function updateUser()
+    public function updateUser() 
     {
         return $this->run("UPDATE `users` SET `firstname`= ?, `name`= ?, `email`= ?, `password`= ?, `profil_img`= ?  WHERE `id`= ? " , [$this->firstname, $this->name, $this->email, $this->password, $this->profil_img, $this->id]);
     }
