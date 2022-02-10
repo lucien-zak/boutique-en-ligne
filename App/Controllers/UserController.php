@@ -18,12 +18,12 @@ class UserController extends UserModel
         $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
 
         $passwordRep = htmlspecialchars($_POST['passwordRep']);
-        $adress = htmlspecialchars($_POST['adress']);
+        $profil_img = "user-default";
         $titrepage = 'register';
 
         //Ici je set mes instance  pour pouvoir les réutiliser. 
-        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setAdress($adress);
-        if(empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep) || empty($this->adress))
+        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img($profil_img);
+        if(empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep))
         {
             // $message = "champs vides";'message' =>$message
             AbstractController::render('register', $params=['titre' =>$titrepage ] );
@@ -76,7 +76,7 @@ class UserController extends UserModel
                         $_SESSION['firstname'] = $user['0']['firstname'];
                         $_SESSION['name'] = $user['0']['name'];
                         $_SESSION['email'] = $user['0']['email'];
-                        $_SESSION['adress'] = $user['0']['adress'];
+                        $_SESSION['profil_img'] = $user['0']['profil_img'];
                         header("location:/account");    
                         exit(); 
                     }
@@ -114,12 +114,12 @@ class UserController extends UserModel
         $password = htmlspecialchars($_POST['password']);
         $passwordhashed = password_hash($password, PASSWORD_DEFAULT); 
         $passwordRep = htmlspecialchars($_POST['passwordRep']);
-        $adress = htmlspecialchars($_POST['adress']);
+        $profil_img = "";
         $titrepage = 'profil';
 
-        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setAdress($adress)->setId($id);
+        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img($profil_img)->setId($id);
         
-        if(!empty($this->firstname) && !empty($this->name) && !empty($this->email) && !empty($this->password) && !empty($passwordRep) && !empty($this->adress))
+        if(!empty($this->firstname) && !empty($this->name) && !empty($this->email) && !empty($this->password) && !empty($passwordRep) && !empty($this->profil_img))
         {
             if($password==$passwordRep) 
             {
@@ -143,7 +143,7 @@ class UserController extends UserModel
                     $_SESSION['firstname'] = $firstname;
                     $_SESSION['name'] = $name;
                     $_SESSION['email'] = $email;
-                    $_SESSION['adress'] = $adress;
+                    $_SESSION['profil_img'] = $profil_img;
                 }
             }
             else{

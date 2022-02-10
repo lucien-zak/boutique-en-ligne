@@ -11,7 +11,7 @@ class UserModel extends Database
     protected $name;
     protected $email;
     protected $password;
-    protected $adress;
+    protected $profil_img;
 
     protected function setId($id){
         $this->id = $id;
@@ -42,9 +42,9 @@ class UserModel extends Database
         return $this;
     }
 
-    protected function setAdress($adress)
+    protected function setProfil_img($profil_img)
     {
-        $this->adress = $adress;
+        $this->profil_img = $profil_img;
         return $this;
     }
 
@@ -70,15 +70,15 @@ class UserModel extends Database
         return $this->password;
     }
 
-    protected function getAdress()
+    protected function getProfil_img()
     {
-        return $this->adress;
+        return $this->profil_img;
     }
 
 
     protected function setUser()
     {
-        return $this->run('INSERT INTO `users`( `firstname`, `name`, `email`, `password`, `adress`) VALUES (?, ?, ?, ?, ?)' , [$this->firstname, $this->name, $this->email, $this->password, $this->adress]);
+        return $this->run('INSERT INTO `users`( `firstname`, `name`, `email`, `password`, `profil_img`) VALUES (?, ?, ?, ?, ?)' , [$this->firstname, $this->name, $this->email, $this->password, $this->profil_img]);
     }
 
     protected function checkEmail()
@@ -110,6 +110,6 @@ class UserModel extends Database
 
     public function updateUser()
     {
-        return $this->run("UPDATE `users` SET `firstname`= ?, `name`= ?, `email`= ?, `password`= ?, `adress`= ?  WHERE `id`= ? " , [$this->firstname, $this->name, $this->email, $this->password, $this->adress, $this->id]);
+        return $this->run("UPDATE `users` SET `firstname`= ?, `name`= ?, `email`= ?, `password`= ?, `profil_img`= ?  WHERE `id`= ? " , [$this->firstname, $this->name, $this->email, $this->password, $this->profil_img, $this->id]);
     }
 }

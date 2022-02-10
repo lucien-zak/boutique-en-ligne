@@ -44,11 +44,6 @@
                             <input type="password" name="passwordRep" placeholder="Confirmez le mot de passe">
                             <div class="right"></div>
                         </div>
-                        <div class="box">
-                            <div class="left"></div>
-                            <input type="text" name="adress" placeholder="Entrer votre adresse">
-                            <div class="right"></div>
-                        </div>
                     </div>
                     <div class="buttons-container">
                         <button class="button" type="submit">Inscription</button>
