@@ -1,7 +1,8 @@
 <?php
+
 namespace App\Controllers;
 
-use App\Models\UserModel ;
+use App\Models\UserModel;
 use PDO;
 
 class UserController extends UserModel
@@ -23,31 +24,27 @@ class UserController extends UserModel
 
         //Ici je set mes instance  pour pouvoir les réutiliser. 
         $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img($profil_img);
-        if(empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep))
-        {
+        if (empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep)) {
             // $message = "champs vides";'message' =>$message
-            AbstractController::render('register', $params=['titre' =>$titrepage ] );
+            AbstractController::render('register', $params = ['titre' => $titrepage]);
             exit();
         }
-        if($this->checkEmail()==false){
+        if ($this->checkEmail() == false) {
             // $message = "email déjà utilisé";'message' =>$message
-            AbstractController::render('register', $params=['titre' =>$titrepage ] );    
+            AbstractController::render('register', $params = ['titre' => $titrepage]);
             exit();
-        }
-        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             // $message = "L'adresse email est considérée comme invalide.";'message' =>$message
-            AbstractController::render('register', $params=['titre' =>$titrepage ] );    
+            AbstractController::render('register', $params = ['titre' => $titrepage]);
             exit();
-        }
-        elseif($password!==$passwordRep){
+        } elseif ($password !== $passwordRep) {
             // $message = "Les mots de passe ne sont pas identiques";'message' =>$message
-            AbstractController::render('register', $params=['titre' =>$titrepage ] );    
+            AbstractController::render('register', $params = ['titre' => $titrepage]);
             exit();
-        }
-        else{
+        } else {
             $this->setUser();
             // $message = "Bien Inscrit";'message' =>$message
-            AbstractController::render('login', $params=['titre' =>$titrepage ] );
+            AbstractController::render('login', $params = ['titre' => $titrepage]);
         }
     }
 
@@ -61,14 +58,10 @@ class UserController extends UserModel
 
         $this->setEmail($email);
 
-        if(!empty($email) && !empty($password))
-        {
-            if(filter_var($email, FILTER_VALIDATE_EMAIL))
-            {
-                if($this->checkEmail()==false)
-                {
-                    if(password_verify($password, $passwordbdd['password'])==true)
-                    {
+        if (!empty($email) && !empty($password)) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                if ($this->checkEmail() == false) {
+                    if (password_verify($password, $passwordbdd['password']) == true) {
                         $this->setPassword($passwordbdd['password']);
                         $user = $this->checkLogs()->fetchAll(PDO::FETCH_ASSOC);
 
@@ -77,30 +70,26 @@ class UserController extends UserModel
                         $_SESSION['name'] = $user['0']['name'];
                         $_SESSION['email'] = $user['0']['email'];
                         $_SESSION['profil_img'] = $user['0']['profil_img'];
-                        header("location:/account");    
-                        exit(); 
-                    }
-                    else{
-                        $message = "mot de passe ou email incorrect";
-                        AbstractController::render('login', $params=['message' => $message ,'titre' =>$titrepage ] );
+                        header("location:/account");
                         exit();
-                    }        
-                }
-                else{
+                    } else {
+                        $message = "mot de passe ou email incorrect";
+                        AbstractController::render('login', $params = ['message' => $message, 'titre' => $titrepage]);
+                        exit();
+                    }
+                } else {
                     $message = "mot de passe ou email incorrect";
-                    AbstractController::render('login', $params=['titre' =>$titrepage ] );
+                    AbstractController::render('login', $params = ['titre' => $titrepage]);
                     exit();
                 }
-            }
-            else{
+            } else {
                 $message = "mauvais format email";
-                AbstractController::render('login', $params=['titre' =>$titrepage ] );
+                AbstractController::render('login', $params = ['titre' => $titrepage]);
                 exit();
             }
-        }
-        else{
+        } else {
             $message = "champs vides";
-            AbstractController::render('login', $params=['titre' =>$titrepage ] );
+            AbstractController::render('login', $params = ['titre' => $titrepage]);
             exit();
         }
     }
@@ -112,51 +101,88 @@ class UserController extends UserModel
         $name = htmlspecialchars($_POST['name']);
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
-        $passwordhashed = password_hash($password, PASSWORD_DEFAULT); 
+        $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
         $passwordRep = htmlspecialchars($_POST['passwordRep']);
-        $profil_img = "";
+
+
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        $fileName = $_FILES['picture']['name'];
+        $fileTmpName = $_FILES['picture']['tmp_name'];
+        $fileSize = $_FILES['picture']['size'];
+        $fileError = $_FILES['picture']['error'];
+        $fileType = $_FILES['picture']['type'];
+        $allowed = array('jpg', 'jpeg', 'png');
+
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
+
+        if(in_array($fileActualExt, $allowed)){
+            if($fileError === 0){
+                if($fileSize < 10000000){
+                    $fileNameNew = md5(uniqid(rand(), true));
+                    $fileDestination = "./assets/img/icons/users/".$fileNameNew. "." .$fileActualExt;
+
+                    $resultat = move_uploaded_file($fileTmpName, $fileDestination);
+                    
+                    if($resultat) {
+                        if($_SESSION['profil_img'] != 'user-default.png') {
+                            unlink('./assets/img/icons/users/'.$_SESSION['profil_img']);
+                        }
+                        $profil_img = empty($_FILES['picture']) ? $_SESSION['profil_img'] : $fileNameNew. "." .$fileActualExt;
+                    } else {
+                        $profil_img = $_SESSION['profil_img'];
+                    }
+                } else {
+                    $profil_img = $_SESSION['profil_img'];
+                }
+            } else {
+                $profil_img = $_SESSION['profil_img'];
+            }
+        }
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+
+        
+        var_dump($profil_img);
+        
         $titrepage = 'profil';
 
         $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img($profil_img)->setId($id);
-        
-        if(!empty($this->firstname) && !empty($this->name) && !empty($this->email) && !empty($this->password) && !empty($passwordRep) && !empty($this->profil_img))
-        {
-            if($password==$passwordRep) 
-            {
-                if($this->checkEmail()==false)
-                {
+
+        if (!empty($this->firstname) && !empty($this->name) && !empty($this->email) && !empty($this->password) && !empty($passwordRep)) {
+            if ($password == $passwordRep) {
+                if ($this->checkEmail() == false) {
                     $emailbdd = $this->getInfosById($id)->fetch(PDO::FETCH_ASSOC);
-                    $emailbdd['email'];
-                    if($email == $emailbdd){   
+                    $emailb = $emailbdd['email'];
+                    if ($email == $emailb) {
                         $this->updateUser();
-                        header("location:/account");
-                    } 
-                    else{
+
+                        $_SESSION['firstname'] = $firstname;
+                        $_SESSION['name'] = $name;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['profil_img'] = $profil_img;
                         
-                        AbstractController::render('account.profil', $params=['titre' =>$titrepage ] );    
+                        header("location:/account");
+                    } else {
+                        AbstractController::render('account.profil', $params = ['titre' => $titrepage]);
                         exit();
-                    } 
-                } 
-                else{
+                    }
+                } else {
                     $this->updateUser();
-                    header("location:/account");
                     $_SESSION['firstname'] = $firstname;
                     $_SESSION['name'] = $name;
                     $_SESSION['email'] = $email;
                     $_SESSION['profil_img'] = $profil_img;
+                    header("location:/account");
                 }
-            }
-            else{
-                AbstractController::render('account.profil', $params=['titre' =>$titrepage ] );    
+            } else {
+                AbstractController::render('account.profil', $params = ['titre' => $titrepage]);
                 exit();
             }
-        }
-        else{
-            AbstractController::render('account.profil', $params=['titre' =>$titrepage ] );    
+        } else {
+            AbstractController::render('account.profil', $params = ['titre' => $titrepage]);
             exit();
-        } 
-
-    } 
-           
-    
+        }
+    }
 }
