@@ -29,7 +29,7 @@
         <section class="home">
             <div class="container">
                 <h3>AJOUT D'UNE CARTE BANCAIRE</h3>
-                <form action="/account/profil" method="POST">
+                <form action="/account/payements" method="POST">
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>

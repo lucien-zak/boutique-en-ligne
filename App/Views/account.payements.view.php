@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../assets/style/account.view.css">
     <link rel="stylesheet" href="../assets/style/header.style.css">
     <link rel="stylesheet" href="../assets/style/normalize.css">
-    <script src="https://kit.fontawesome.com/53bdaa6800.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
@@ -42,7 +42,7 @@
                 <div class="box-top">
                     <h3>VOS CARTES BANCAIRES</h3>
                     <a>
-                        <i class="icon fa-thin fa-plus"></i>
+                        <i class="icon fas fa-plus"></i>
                     </a>
                 </div>
             </div>
