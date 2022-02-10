@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <?php } else { ?>
-                <img class="logo-user" src="./assets/img/icons/user-default.png" alt="">
+                <img class="logo-user" src="../assets/img/icons/users/<?= isset($_SESSION['profilPicture']) ? $_SESSION['profilPicture'] : 'user-default.png' ?>" alt="">
                 <h2 class="user-title">Bienvenue <?= $_SESSION['firstname'] ?></h2>
                 <div class="buttons-container">
                     <form action="/account/profil" method="POST">
