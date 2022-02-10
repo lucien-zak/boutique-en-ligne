@@ -33,12 +33,7 @@
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="firstname" placeholder="Prénom">
-                            <div class="right"></div>
-                        </div>
-                        <div class="box">
-                            <div class="left"></div>
-                            <input type="text" name="name" placeholder="Nom">
+                            <input type="text" name="fullname" placeholder="Nom complet">
                             <div class="right"></div>
                         </div>
                         <div class="box">
@@ -48,8 +43,28 @@
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="number" name="password" placeholder="Mois">
-                            <input type="number" name="password" placeholder="Année">
+                            <select name="expiration_year" >
+                                <?php
+                                $currentmonth = date("Y");
+                                for($i=$currentmonth; $i<$currentmonth+10; $i++)
+                                {
+                                    echo "<option value='$i'>$i</option>";
+                                }
+                                ?>
+                            </select>
+                            <select name="expiration_month" >
+                                <?php
+                                for($i=1; $i<=12; $i++)
+                                {
+                                    if($i<10){
+                                        echo "<option value='$i'>0$i</option>";
+                                    }
+                                    else{
+                                        echo "<option value='$i'>$i</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
                             <div class="right"></div>
                         </div>
                         <div class="box">
@@ -60,9 +75,7 @@
                     </div>
                     <div class="buttons-container">
                         <div class="button">
-                            <a href="/account/login" class="">
-                                Sauvegarder
-                            </a>
+                            <input type="submit" >
                         </div>
                     </div>
                 </form>
