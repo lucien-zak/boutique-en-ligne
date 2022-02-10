@@ -77,7 +77,7 @@ class UserController extends UserModel
                         $_SESSION['name'] = $user['0']['name'];
                         $_SESSION['email'] = $user['0']['email'];
                         $_SESSION['adress'] = $user['0']['adress'];
-                        header("location:/account/profil");
+                        header("location:/account");    
                         exit(); 
                     }
                     else{
