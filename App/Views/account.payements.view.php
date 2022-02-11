@@ -42,13 +42,6 @@ use App\Controllers\CardsController;
                 <!-- </a> -->
             <!-- </div> -->
         <?php  
-        // foreach($_SESSION['cards'] as $card)
-        // {
-        //     echo "$card[full_name] <br>";
-        //     echo "$card[card_number] <br>";
-        //     echo "$card[expiration_date] <br>";
-        // }
-
         $control = new CardsController;
         $UserCards = $control->AllUserCards();
         foreach($UserCards as $card)

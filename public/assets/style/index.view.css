@@ -8,11 +8,19 @@
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    body {
+        background-color:  #131313;
+    }
+    
+    main {
+		height: 100vh;
+        background-color:  #131313;
+    }
     section.home > div.container {
         background-color: #131313;
 
         width: 100%;
-        height: 100%;
+        height: 100vh;
 
         display: flex;
         align-items: center;
@@ -32,6 +40,7 @@
     section.home > div.container > h2 {
         font-family: 'Jetbrain-R';
         font-weight: 10;
+        margin: 0;
     }
 
     section.home > div.container > img {

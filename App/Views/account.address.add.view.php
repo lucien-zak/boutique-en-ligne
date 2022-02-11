@@ -33,7 +33,7 @@
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="type" placeholder="Donnez un titre a cette adresse">
+                            <input type="text" name="type" placeholder="Nom de l'adresse">
                             <div class="right"></div>
                         </div>
                         <div class="box">
@@ -63,9 +63,7 @@
                         </div>
                     </div>
                     <div class="buttons-container">
-                        <div class="button">
-                            <input type="submit" >
-                        </div>
+                        <button class="button" name="submit" type="submit">Ajouter l'adresse</button>
                     </div>
                 </form>
             </div>

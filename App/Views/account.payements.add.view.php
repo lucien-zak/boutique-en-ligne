@@ -41,18 +41,10 @@
                             <input type="text" name="number" placeholder="Numéro de carte">
                             <div class="right"></div>
                         </div>
-                        <div class="box">
-                            <div class="left"></div>
-                            <select name="expiration_year" >
-                                <?php
-                                $currentmonth = date("Y");
-                                for($i=$currentmonth; $i<$currentmonth+10; $i++)
-                                {
-                                    echo "<option value='$i'>$i</option>";
-                                }
-                                ?>
-                            </select>
-                            <select name="expiration_month" >
+                        <div class="container">
+                            <div class="box">
+                                <div class="left"></div>
+                                <select name="expiration_month" >
                                 <?php
                                 for($i=1; $i<=12; $i++)
                                 {
@@ -64,8 +56,22 @@
                                     }
                                 }
                                 ?>
-                            </select>
-                            <div class="right"></div>
+                                </select>
+                                <div class="right"></div>
+                            </div>
+                            <div class="box">
+                                <div class="left"></div>
+                                <select name="expiration_year" >
+                                    <?php
+                                    $currentmonth = date("Y");
+                                    for($i=$currentmonth; $i<$currentmonth+10; $i++)
+                                    {
+                                        echo "<option value='$i'>$i</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <div class="right"></div>
+                            </div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
@@ -74,9 +80,7 @@
                         </div>
                     </div>
                     <div class="buttons-container">
-                        <div class="button">
-                            <input type="submit" >
-                        </div>
+                        <button class="button" name="submit" type="submit">Ajouter la carte</button>
                     </div>
                 </form>
             </div>

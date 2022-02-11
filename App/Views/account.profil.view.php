@@ -1,17 +1,6 @@
 
 <?= isset($params['message'])?$params['message']:''; ?>
 
-<!-- <form action="/account/profil" method="POST">
-    <input type="text" name="firstname" >
-    <input type="text" name="name" >
-    <input type="text" name="email" >
-    <input type="password" name="password" >  
-    <input type="password" name="passwordRep" >    
-    <input type="text" name="adress" >
-    <input type="submit">
-</form>
-<a href="/logout">deco</a> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,8 +23,8 @@
     <main>
         <section class="home">
             <div class="container profil">
-                <img class="logo-user" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
-                <h3>MODIFICATION DE VOTRE COMPTE</h3>
+                <h3>MODIFICATION DE VOTRE COMPTE</h3><br><br>
+                <img class="avatar" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
                 <form action="/account/profil" enctype="multipart/form-data" method="POST">
                     <div class="entry-container">
                         <div class="box">
