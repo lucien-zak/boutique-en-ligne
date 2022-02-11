@@ -52,6 +52,13 @@ class ShopController
         return AbstractController::render('account.address', $params);
     }
 
+    public static function addressAdd()
+    {
+        $titrepage = 'Ajout d\'une Adresse';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('account.address.add', $params);
+    }
+
     public static function orders()
     {
         $titrepage = 'Vos Commandes';

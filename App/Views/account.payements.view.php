@@ -1,6 +1,10 @@
 
 <?= isset($params['message'])?$params['message']:''; ?>
 
+<?php
+use App\Controllers\CardsController;
+
+?>
 <!-- <form action="/account/profil" method="POST">
     <input type="text" name="firstname" >
     <input type="text" name="name" >
@@ -37,7 +41,23 @@
                     <!-- <h3>AJOUTER UNE CARTE BANCAIRE</h3> -->
                 <!-- </a> -->
             <!-- </div> -->
+        <?php  
+        // foreach($_SESSION['cards'] as $card)
+        // {
+        //     echo "$card[full_name] <br>";
+        //     echo "$card[card_number] <br>";
+        //     echo "$card[expiration_date] <br>";
+        // }
 
+        $control = new CardsController;
+        $UserCards = $control->AllUserCards();
+        foreach($UserCards as $card)
+        {
+            echo "$card[full_name] <br>";
+            echo "$card[card_number] <br>";
+            echo "$card[expiration_date] <br>";
+        }
+        ?>
             <div class="container-top">
                 <div class="box-top">
                     <h3>VOS CARTES BANCAIRES</h3>
@@ -50,3 +70,6 @@
     </main>
 </body>
 </html>
+<?php
+
+
