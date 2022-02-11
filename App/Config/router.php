@@ -10,6 +10,8 @@ session_start();
 use App\Controllers\ProductController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
+use App\Controllers\CardsController;
+use App\Controllers\AdressController;
 
 $router = new AltoRouter;
 
@@ -66,6 +68,14 @@ $router->map( 'POST', '/account/addresses', function(){
     $model = new UserController; $model->address();
 });
 
+$router->map( 'GET', '/account/addresses/add', function(){
+    Shop::addressAdd();
+});
+
+$router->map( 'POST', '/account/addresses/add', function(){
+    $model = new AdressController; $model->NewAdress();
+});
+
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map( 'GET', '/account/orders', function(){
@@ -83,7 +93,7 @@ $router->map( 'GET', '/account/payements', function(){
 });
 
 $router->map( 'POST', '/account/payements', function(){
-    $model = new UserController; $model->payements();
+    $model = new CardsController; $model->AllUserCards();
 });
 
 $router->map( 'GET', '/account/payements/add', function(){
@@ -91,7 +101,7 @@ $router->map( 'GET', '/account/payements/add', function(){
 });
 
 $router->map( 'POST', '/account/payements/add', function(){
-    $model = new UserController; $model->payements_add();
+    $model = new CardsController; $model->NewCard();
 });
 
 $router->map( 'GET', '/account/payements/edit', function(){

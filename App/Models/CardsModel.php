@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 
 use App\Config\Database;
 
@@ -8,44 +9,47 @@ class CardsModel extends Database
     protected $full_name;
     protected $card_number;
     protected $expiration_date;
-    protected $ccv;
+    protected $cvv;
     protected $id_user;
 
-    public function setFull_name($full_name)
+    protected function setFull_name($full_name)
     {
         $this->full_name = $full_name;
         return $this;
     }
 
-    public function setCard_number($card_number)
+    protected function setCard_number($card_number)
     {
         $this->card_number = $card_number;
         return $this;
     }
 
-    public function setExpiration_date($expiration_date)
+    protected function setExpiration_date($expiration_date)
     {
         $this->expiration_date = $expiration_date;
         return $this;
     }
 
-    public function setCcv($ccv)
+    protected function setCvv($cvv)
     {
-        $this->ccv = $ccv;
+        $this->cvv = $cvv;
         return $this;
     }
 
-    public function setId_user($id_user)
+    protected function setId_user($id_user)
     {
         $this->id_user = $id_user;
         return $this;
     }
 
-    public function setNewCard()
+    protected function setNewCard()
     {
-        return $this->run('INSERT INTO `cards`( `full_name`, `card_number`, `expiration_date`, `ccv`, `id_user`) VALUES (?, ?, ?, ?, ?)' , [$this->full_name, $this->card_number, $this->expiration_date, $this->ccv, $this->id_user]);
+        return $this->run('INSERT INTO `cards`( `full_name`, `card_number`, `expiration_date`, `cvv`, `id_user`) VALUES (?, ?, ?, ?, ?)' , [$this->full_name, $this->card_number, $this->expiration_date, $this->cvv, $this->id_user]);
     }
 
-    
+    public function getCards()
+    {
+        return $this->run("SELECT * FROM `cards` WHERE `id_user`= ? " , [$this->id_user]);
+    }
 
 }
