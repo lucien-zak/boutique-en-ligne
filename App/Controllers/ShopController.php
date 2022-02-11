@@ -7,8 +7,7 @@ class ShopController
 
     public static function home()
     {
-        $titrepage = 'Accueil';
-        $titrepage = 'test';
+        $titrepage = 'Accueil'; 
         $params = ['titre' => $titrepage];
         return AbstractController::render('index', $params);
     }
