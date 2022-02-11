@@ -111,7 +111,6 @@ class UserController extends UserModel
         $fileTmpName = $_FILES['picture']['tmp_name'];
         $fileSize = $_FILES['picture']['size'];
         $fileError = $_FILES['picture']['error'];
-        $fileType = $_FILES['picture']['type'];
         $allowed = array('jpg', 'jpeg', 'png');
 
         $fileExt = explode('.', $fileName);
@@ -128,8 +127,7 @@ class UserController extends UserModel
                     if($resultat) {
                         if($_SESSION['profil_img'] != 'user-default.png') {
                             if(file_exists('./assets/img/icons/users/'.$_SESSION['profil_img'])) {
-                                unlink('./assets/img/icons/users/'.$_SESSION['profil_img']);
-                                
+                                unlink('./assets/img/icons/users/'.$_SESSION['profil_img']);   
                             }
                         }
                         $profil_img = empty($_FILES['picture']) ? $_SESSION['profil_img'] : $fileNameNew. "." .$fileActualExt;
@@ -146,9 +144,6 @@ class UserController extends UserModel
         ////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////
 
-        
-        var_dump($profil_img);
-        
         $titrepage = 'profil';
 
         $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img($profil_img)->setId($id);
