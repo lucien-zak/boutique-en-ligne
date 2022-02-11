@@ -127,7 +127,10 @@ class UserController extends UserModel
                     
                     if($resultat) {
                         if($_SESSION['profil_img'] != 'user-default.png') {
-                            unlink('./assets/img/icons/users/'.$_SESSION['profil_img']);
+                            if(file_exists('./assets/img/icons/users/'.$_SESSION['profil_img'])) {
+                                unlink('./assets/img/icons/users/'.$_SESSION['profil_img']);
+                                
+                            }
                         }
                         $profil_img = empty($_FILES['picture']) ? $_SESSION['profil_img'] : $fileNameNew. "." .$fileActualExt;
                     } else {
