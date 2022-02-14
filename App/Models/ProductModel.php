@@ -197,9 +197,20 @@ class ProductModel extends Database
         return $this;
     }
 
-    public function getProducts(){
+    public function getProduct(){
 
-        return $this->run('SELECT * FROM products WHERE id = ?', [$this->id])->fetch();
+        return $this->run('SELECT *, products.id FROM products INNER JOIN `artists` ON products.id_artist = artists.id WHERE products.id = ? AND slug = ?', [$this->id, $this->slug])->fetch();
 
     }
+
+    public function getProducts(){
+
+        return $this->run("SELECT *, products.id FROM `products` INNER JOIN `artists` ON products.id_artist = artists.id")->fetchAll();
+
+    }
+
+
+
+
+
 }

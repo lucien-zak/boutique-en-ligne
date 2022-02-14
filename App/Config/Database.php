@@ -28,10 +28,10 @@ class Database
 
     public function run($sql, $args = [])
     {
-        if (!$args)
-        {
-             return $this->query($sql);
-        }
+        // if (!$args)
+        // {
+        //      return $this->query($sql);
+        // }
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute($args);
         if($stmt === false ){

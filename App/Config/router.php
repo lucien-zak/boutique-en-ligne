@@ -22,10 +22,17 @@ $router->map( 'GET', '/', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 
-$router->map( 'GET', '/product/[i:id]', function($id){
+$router->map( 'GET', '/product/[a:slug]-[i:id]', function($slug, $id){
     $product = new ProductController;
-	$product->product($id);
+	$product->product($id, $slug);
 });
+
+$router->map( 'GET', '/products', function(){
+    $product = new ProductController;
+	$product->products();
+});
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 
