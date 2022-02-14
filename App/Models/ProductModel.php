@@ -6,18 +6,13 @@ use App\Config\Database;
 
 class ProductModel extends Database
 {
-<<<<<<< Updated upstream
     protected $id;
-=======
-
->>>>>>> Stashed changes
     protected $name;
     protected $description;
     protected $price;
     protected $slug;
     protected $id_tags;
     protected $id_category;
-<<<<<<< Updated upstream
     protected $id_sub_category;
     protected $stock;
 
@@ -41,11 +36,6 @@ class ProductModel extends Database
     {
         return $this->id;
     }
-=======
-    protected $id_subcategory;
-    protected $stock;
-
->>>>>>> Stashed changes
 
     /**
      * Get the value of name
@@ -168,7 +158,6 @@ class ProductModel extends Database
     }
 
     /**
-<<<<<<< Updated upstream
      * Get the value of id_sub_category
      */ 
     public function getId_sub_category()
@@ -184,23 +173,6 @@ class ProductModel extends Database
     public function setId_sub_category($id_sub_category)
     {
         $this->id_sub_category = $id_sub_category;
-=======
-     * Get the value of id_subcategory
-     */ 
-    public function getId_subcategory()
-    {
-        return $this->id_subcategory;
-    }
-
-    /**
-     * Set the value of id_subcategory
-     *
-     * @return  self
-     */ 
-    public function setId_subcategory($id_subcategory)
-    {
-        $this->id_subcategory = $id_subcategory;
->>>>>>> Stashed changes
 
         return $this;
     }
@@ -224,13 +196,10 @@ class ProductModel extends Database
 
         return $this;
     }
-<<<<<<< Updated upstream
 
     public function getProducts(){
 
         return $this->run('SELECT * FROM products WHERE id = ?', [$this->id])->fetch();
 
     }
-=======
->>>>>>> Stashed changes
 }
