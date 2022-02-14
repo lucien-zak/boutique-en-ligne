@@ -97,12 +97,13 @@ $router->map( 'POST', '/account/orders', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map( 'GET', '/account/payements', function(){
-    Shop::payements();
+    $newAddress = new CardsController;
+    $newAddress->AllUserCards();
 });
 
-$router->map( 'POST', '/account/payements', function(){
-    $model = new CardsController; $model->AllUserCards();
-});
+// $router->map( 'POST', '/account/payements', function(){
+//     $model = new CardsController; $model->AllUserCards();
+// });
 
 $router->map( 'GET', '/account/payements/add', function(){
     Shop::payements_add();

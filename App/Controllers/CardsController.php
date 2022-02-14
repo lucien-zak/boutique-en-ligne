@@ -61,8 +61,10 @@ class CardsController extends CardsModel
         $titrepage = "Cards";
         $id_user = $_SESSION['id'];
         $this->setId_user($id_user);
-        $req = $this->getAllById_user();
-        return AbstractController::render('account.address' , ['data'=>$req]);    
+        $data = $this->getAllById_user();
+        $params = [ 'data'=> $data , 'titre' => $titrepage];
+
+        return AbstractController::render('account.payements' , $params);    
         
     }
 

@@ -42,9 +42,7 @@ use App\Controllers\CardsController;
                 <!-- </a> -->
             <!-- </div> -->
         <?php  
-        $control = new CardsController;
-        $UserCards = $control->AllUserCards();
-        foreach($UserCards as $card)
+        foreach($params['data'] as $card)
         {
             echo "$card[full_name] <br>";
             echo "$card[card_number] <br>";

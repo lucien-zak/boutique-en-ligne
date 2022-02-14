@@ -47,9 +47,4 @@ class CardsModel extends Database
         return $this->run('INSERT INTO `cards`( `full_name`, `card_number`, `expiration_date`, `cvv`, `id_user`) VALUES (?, ?, ?, ?, ?)' , [$this->full_name, $this->card_number, $this->expiration_date, $this->cvv, $this->id_user]);
     }
 
-    public function getCards()
-    {
-        return $this->run("SELECT * FROM `cards` WHERE `id_user`= ? " , [$this->id_user]);
-    }
-
 }

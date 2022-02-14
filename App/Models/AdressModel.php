@@ -61,5 +61,9 @@ class AdressModel extends Database
         return $this->run('INSERT INTO `adresses` ( `type`, `full_name`, `adress`, `additional_adress`, `postal_code`, `city`, `id_user`) VALUES (?, ?, ?, ?, ?, ?, ?)' , [$this->type, $this->full_name, $this->adress, $this->additional_adress, $this->postal_code, $this->city, $this->id_user]);
     }
 
+    protected function checkAddress($id_user)
+    {
+        return $this->run("SELECT * FROM `adresses` WHERE `id_user` = ? " , [$id_user])->rowCount();
+    }
 
 }

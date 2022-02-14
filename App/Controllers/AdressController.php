@@ -45,9 +45,9 @@ class AdressController extends AdressModel
         
         $id_user = $_SESSION['id'];
         $this->setId_user($id_user);
-
         $data = $this->getAllById_user();
-        $params = [ 'data'=> $data , 'titre' => $titrepage];
+        $nb = $this->checkAddress($id_user);
+        $params = [ 'nb'=>$nb , 'data'=> $data , 'titre' => $titrepage];
         return AbstractController::render('account.address', $params);
 
     }

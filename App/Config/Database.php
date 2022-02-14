@@ -38,7 +38,7 @@ class Database
 
     public function getAllById_user()
     {
-        return $this->run("SELECT * FROM $this->table WHERE `id_user`= ? " , [$this->id_user])->fetchAll();
+        return $this->run("SELECT * FROM $this->table WHERE `id_user`= ? " , [$this->id_user])->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getAll()
