@@ -44,12 +44,7 @@ class ShopController
         return AbstractController::render('account.profil', $params);
     }
 
-    public static function address()
-    {
-        $titrepage = 'Vos Adresses';
-        $params = [ 'titre' => $titrepage];
-        return AbstractController::render('account.address', $params);
-    }
+    
 
     public static function addressAdd()
     {
