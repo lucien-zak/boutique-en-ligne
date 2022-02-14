@@ -18,7 +18,7 @@
     <main>
         <section class="home">
             <div class="container">
-                <h3>CONNEXION À VOTRE COMPTE</h3>
+                <h3 class="title">CONNEXION À VOTRE COMPTE</h3>
                 <form action="/account/login" method="POST">
                     <div class="entry-container">
                         <div class="box">

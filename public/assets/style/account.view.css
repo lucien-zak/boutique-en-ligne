@@ -8,25 +8,48 @@
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    body {
+        background-color:  #131313;
+    }
+    
+    main {
+        background-color:  #131313;
+		height: 80vh;
+    }
+	
+	main.resize {
+		height: 100vh;
+	}
+	
     section.home > div.container {
         background-color: #131313;
 
         width: 100%;
-        height: 94%;
+        height: 100vh;
 
         display: flex;
         align-items: center;
-        justify-content: center; 
+        justify-content: flex-start; 
         flex-direction: column;
         color: #fff;
 
         text-align: left;
     }
+	
+    section.home > div.center {
+        justify-content: center;
+    }
+
 
     section.home > div.profil {
-        height: 105%;
+        height: 100vh;
         justify-content: flex-start;
-        padding-top: 10%; 
+        padding-top: 5vh; 
+		padding-bottom: 15vh; 
+    }
+
+    section.home > div.customer {
+        justify-content: flex-start;
     }
 
     section.home > div.container-top {
@@ -60,6 +83,12 @@
         flex-direction: column;
         gap: 25px;
     }
+	
+	h3.title {
+		font-family: 'Jetbrain-R';
+        font-weight: 10;
+		margin-top: 10%;
+	}
 
     section.home > div.container > h2 {
         font-family: 'Jetbrain-R';
@@ -74,15 +103,25 @@
     section.home > div.container > img {
         width: 100%;
     }
+    
+    section.home > div.container > img.avatar {
+        width: 40%;
+    }
+    
+    section.home > div.container > img.avatar-profil {
+		width: 128px;
+    	height: 128px;
+		margin-top: 3vh;
+		border-radius: 100%;
+    	border: double 7px;
+		
+    }
 
     section.home > div.container > h2.user-title {
         margin-top: 10%;
         margin-bottom: 15%;
     }
 
-    section.home > div.container > img.logo-user {
-        width: 40%;
-    }
 
     a.box-add {
         display: flex;
@@ -118,7 +157,7 @@
         position: relative;
     }
     
-    div.entry-container > div.box > input, label {
+    div.entry-container > div.box > input, label, select {
         position: relative;
         width: 270px;
         height: 6.28%;
@@ -137,7 +176,7 @@
         outline: none;
     }
 
-    div.entry-container > div.box > div.left:before {
+    div.box > div.left:before {
         position: absolute;
         content: "";
         top: 0px;
@@ -150,7 +189,7 @@
         z-index: 100;
     }
 
-    div.entry-container > div.box > div.left:after {
+    div.box > div.left:after {
         position: absolute;
         content: "";
         bottom: 0px;
@@ -163,7 +202,7 @@
         z-index: 100;
     }
 
-    div.entry-container > div.box > div.right:before {
+    div.box > div.right:before {
         position: absolute;
         content: "";
         top: 0px;
@@ -176,7 +215,7 @@
         z-index: 100;
     }
 
-    div.entry-container > div.box > div.right:after {
+    div.box > div.right:after {
         content: "";
         position: absolute;
         bottom: 0px;
@@ -196,6 +235,23 @@
         text-transform: uppercase;
         font-size: 80%;
         margin-top: 6%;
+    }
+
+    div.entry-container > div.container {
+        width: 270px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'Comfortaa-R';
+        text-transform: uppercase;
+    }
+
+    div.entry-container > div.container > div.box {
+        position: relative;
+    }
+
+    div.entry-container > div.container > div.box > select {
+        width: 125px;
     }
 
     /*///////////////////////////////////////////////////////////////////*/
@@ -240,7 +296,6 @@
     div.buttons-container > button.button {
         position: relative;
         width: 270px;
-        height: 6.28%;
         background-color: #FC7E1F;
         text-align: center;
         padding: 10px;
@@ -251,6 +306,12 @@
         font-size: 20px;
         border: none;
     }
+
+    div.buttons-container > button.edit {
+        width: 170px;
+        margin-bottom: 15px;
+    }
+
 
     div.buttons-container > button.button:before {
         position: absolute;

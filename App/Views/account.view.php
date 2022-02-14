@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <main>
+    <?php if( !$_SESSION ) { ?>
+	<main>
         <section class="home">
             <div class="container">
-                <?php if( !$_SESSION ) { ?>
                 <img src="./assets/img/icons/logo-enterprise-1.png" alt="">
                 <div class="buttons-container">
                     <div class="button">
@@ -30,8 +30,14 @@
                         </a>
                     </div>
                 </div>
-                <?php } else { ?>
-                <img class="logo-user" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
+			</div>
+        </section>
+	</main>
+    <?php } else { ?>
+	<main class="resize">
+		<section class="home">
+            <div class="container">
+                <img class="avatar-profil" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
                 <h2 class="user-title">Bienvenue <?= $_SESSION['firstname'] ?></h2>
                 <div class="buttons-container">
                     <form action="/account/profil" method="POST">
@@ -64,10 +70,10 @@
                         </div>
                     </form>
                 </div>
-                <?php } ?>
-            </div>
+			</div>
         </section>
     </main>
+	<?php } ?>
 </body>
 
 </html>

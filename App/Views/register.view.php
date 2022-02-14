@@ -13,10 +13,10 @@
 <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <main>
+    <main class="resize">
         <section class="home">
             <div class="container">
-                <h3>CRÉATION DE VOTRE COMPTE</h3>
+                <h3 class="title">CRÉATION DE VOTRE COMPTE</h3>
                 <form action="/account/register" method="POST">
                     <div class="entry-container">
                         <div class="box">
