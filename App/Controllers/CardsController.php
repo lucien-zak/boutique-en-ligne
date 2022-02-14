@@ -57,12 +57,13 @@ class CardsController extends CardsModel
 
     public function AllUserCards()
     {
+        $this->table = "cards";
         $titrepage = "Cards";
         $id_user = $_SESSION['id'];
         $this->setId_user($id_user);
-        $req = $this->getCards();
-        $res= $req->fetchAll(PDO::FETCH_ASSOC);
-        return $res;    
+        $req = $this->getAllById_user();
+        return AbstractController::render('account.address' , ['data'=>$req]);    
+        
     }
 
     //fonction pour delete a faire plus tard

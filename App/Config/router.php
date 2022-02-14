@@ -68,12 +68,13 @@ $router->map( 'POST', '/account/profil', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map( 'GET', '/account/addresses', function(){
-    Shop::address();
+    $newAddress = new AdressController;
+    $newAddress->AllUserAdresses();
 });
 
-$router->map( 'POST', '/account/addresses', function(){
-    $model = new UserController; $model->address();
-});
+// $router->map( 'POST', '/account/addresses', function(){
+//     $model = new UserController; $model->address();
+// });
 
 $router->map( 'GET', '/account/addresses/add', function(){
     Shop::addressAdd();

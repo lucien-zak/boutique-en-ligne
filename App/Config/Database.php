@@ -28,15 +28,21 @@ class Database
 
     public function run($sql, $args = [])
     {
-        // if (!$args)
-        // {
-        //      return $this->query($sql);
-        // }
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute($args);
         if($stmt === false ){
             return [];
         }
         return $stmt;
+    }
+
+    public function getAllById_user()
+    {
+        return $this->run("SELECT * FROM $this->table WHERE `id_user`= ? " , [$this->id_user])->fetchAll();
+    }
+
+    public function getAll()
+    {
+        return $this->run("SELECT * FROM $this->table ")->fetchAll(PDO::FETCH_ASSOC);
     }
 }

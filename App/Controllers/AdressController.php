@@ -41,12 +41,26 @@ class AdressController extends AdressModel
     public function AllUserAdresses()
     {
         $titrepage = "Adresses";
+        $this->table = "adresses";
+        
         $id_user = $_SESSION['id'];
         $this->setId_user($id_user);
-        $req = $this->getAdresses();
-        $res= $req->fetchAll(PDO::FETCH_ASSOC);
-        return $res;    
+
+        $data = $this->getAllById_user();
+        $params = [ 'data'=> $data , 'titre' => $titrepage];
+        return AbstractController::render('account.address', $params);
+
     }
-    
+
+    // public static function address()
+    // {
+    //     $titrepage = 'Vos Adresses';
+    //     $data = new AdressModel();
+       
+    //     $data->setId_user($_SESSION['id']);
+    //     $data->getAllById_user();
+    //     dump($data); die();
+    //      $params = [ 'data'=> $data , 'titre' => $titrepage];
+    // }
 
 }
