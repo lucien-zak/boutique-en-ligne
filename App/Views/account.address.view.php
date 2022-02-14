@@ -1,14 +1,5 @@
-<!-- function pour Check si y a une adresse -->
-<!-- function pour Add une adresse  -->
-<!-- function pour Edit une adresse -->
-<!-- function pour Delete une adresse -->
-
 <?php
-
 use App\Controllers\AdressController;
-
-$control = new AdressController;
-$UserAdresses = $control->AllUserAdresses();
 ?>
 
 
@@ -23,12 +14,6 @@ $UserAdresses = $control->AllUserAdresses();
     <link rel="stylesheet" href="../assets/style/header.style.css">
     <link rel="stylesheet" href="../assets/style/normalize.css">
     <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
-
-    <script>
-        document.getElementById("uploadBtn").onchange = function () {
-            document.getElementById("uploadFile").value = this.value;
-        };
-    </script>
 </head>
 <body>
     <main>
@@ -54,7 +39,7 @@ $UserAdresses = $control->AllUserAdresses();
                 <form action="/account/profil" enctype="multipart/form-data" method="POST">
                     <div class="entry-container">
                         <?php
-                            foreach($UserAdresses as $adress)
+                            foreach($params as $adress)
                             {
                                 echo '
                                 <div class="box profil">

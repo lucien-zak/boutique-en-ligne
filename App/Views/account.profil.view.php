@@ -24,7 +24,7 @@
         <section class="home">
             <div class="container profil">
                 <h3>MODIFICATION DE VOTRE COMPTE</h3><br><br>
-                <img class="avatar" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
+                <img class="avatar-profil" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
                 <form action="/account/profil" enctype="multipart/form-data" method="POST">
                     <div class="entry-container">
                         <div class="box">
