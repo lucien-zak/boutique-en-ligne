@@ -13,8 +13,7 @@
 <body>
     <main>
         <section class="home">
-            <!-- Faire une condition pour savoir si une carte à déjà été ajouté. -->
-            <?php if($params['nb'] < 1) { ?>
+        <?php if($params['nb'] < 1) { ?>
             <div class="container">
                 <a class="box-add" href="/account/addresses/add">
                     <span class="box-icon fa-stack">
@@ -24,7 +23,7 @@
                     <h3>AJOUTER UNE ADRESSE</h3>
                 </a>
             </div>
-            <?php } else { ?>
+        <?php } else { ?>
             <div class="container customer">
             <div class="container-top">
                 <div class="box-top">
@@ -61,7 +60,7 @@
                     </div>
                 </form>
             </div>
-            <?php } ?>
+        <?php } ?>
         </section>
     </main>
 </body>
