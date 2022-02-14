@@ -47,4 +47,13 @@ class CardsModel extends Database
         return $this->run('INSERT INTO `cards`( `full_name`, `card_number`, `expiration_date`, `cvv`, `id_user`) VALUES (?, ?, ?, ?, ?)' , [$this->full_name, $this->card_number, $this->expiration_date, $this->cvv, $this->id_user]);
     }
 
+    protected function checkCard($id_user)
+    {
+        return $this->run("SELECT * FROM `cards` WHERE `id_user` = ? " , [$id_user])->rowCount();
+    }
+
+    protected function deleteCard($id_user) {
+        return $this->run('DELETE FROM `cards` WHERE `id_user` = ? AND `card_number` = ?' [$id_user]);
+    }
+
 }

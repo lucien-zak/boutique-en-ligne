@@ -30,7 +30,7 @@ class CardsController extends CardsModel
         {
             if(ctype_digit($_POST['number']) && strlen($_POST['number'])==16)
             {
-                if(ctype_digit($_POST['cvv']) && strlen($_POST['cvv '])==3)
+                if(ctype_digit($_POST['cvv']) && strlen($_POST['cvv'])==3)
                 {
                     $this->setFull_name($full_name)->setCard_number($card_number)->setExpiration_date($expiration_date)->setCvv($cvv)->setId_user($id_user);
                     $this->setNewCard();
@@ -62,10 +62,10 @@ class CardsController extends CardsModel
         $id_user = $_SESSION['id'];
         $this->setId_user($id_user);
         $data = $this->getAllById_user();
-        $params = [ 'data'=> $data , 'titre' => $titrepage];
+        $nb = $this->checkCard($id_user);
+        $params = ['nb' => $nb, 'data'=> $data, 'titre' => $titrepage];
 
-        return AbstractController::render('account.payements' , $params);    
-        
+        return AbstractController::render('account.payements', $params); 
     }
 
     //fonction pour delete a faire plus tard
