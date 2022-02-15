@@ -128,6 +128,9 @@ $router->map( 'GET', '/account', function(){
 });
 
 /////////////////////////////////////////////////////////////////////////////
+$router->map( 'GET', '/rate', function(){
+    Shop::rate();
+});
 
 $router->map( 'GET', '/error', function(){
     Shop::error();

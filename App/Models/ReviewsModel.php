@@ -39,8 +39,9 @@ class ReviewsModel extends Database
 
     protected function setReview()
     {
-        
+        return $this->run('INSERT INTO `reviews`( `comment`, `Mark`, `report`, `id_user`, `id_product`) VALUES (?, ?, ?, ?, ?)' , [$this->comment, $this->mark, $this->report, $this->id_user, $this->id_product]);
     }
-
+                
+    
 
 }
