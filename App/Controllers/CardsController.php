@@ -25,6 +25,8 @@ class CardsController extends CardsModel
         $cvv = $_POST['cvv'];
         $crypted_cvv = password_hash($_POST['cvv'] , PASSWORD_BCRYPT);
         $id_user = $_SESSION['id'];
+        $error = 0;
+        $four_last = substr($card_number, -4);
 
         if(!empty($full_name) && !empty($card_number) && !empty($expiration_date) && !empty($cvv))
         {
@@ -32,7 +34,19 @@ class CardsController extends CardsModel
             {
                 if(ctype_digit($_POST['cvv']) && strlen($_POST['cvv'])==3)
                 {
-                    $this->setFull_name($full_name)->setCard_number($card_number)->setExpiration_date($expiration_date)->setCvv($cvv)->setId_user($id_user);
+                    $four_last = [];
+                    for($i = 12; $i < strlen($_POST['number']); $i++) {
+                        array_push($four_last, $_POST['number'][$i]);
+                    }
+
+                    if($_POST['number'][0] == 5) {
+                        $this->setFull_name($full_name)->setCard_number($card_number)->setFourLast($four_last)->setExpiration_date($expiration_date)->setCvv($cvv)->setError($error)->setType('MasterCard')->setId_user($id_user);
+                    } else if($_POST['number'][0] == 4) {
+                        $this->setFull_name($full_name)->setCard_number($card_number)->setFourLast($four_last)->setExpiration_date($expiration_date)->setCvv($cvv)->setError($error)->setType('Visa')->setId_user($id_user);
+                    } else {
+                        $this->setFull_name($full_name)->setCard_number($card_number)->setFourLast($four_last)->setExpiration_date($expiration_date)->setCvv($cvv)->setError($error)->setType('MasterCard')->setId_user($id_user);
+                    }
+
                     $this->setNewCard();
                     header("location:/account");
                     exit();

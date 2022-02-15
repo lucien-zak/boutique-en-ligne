@@ -8,9 +8,12 @@ class CardsModel extends Database
 
     protected $full_name;
     protected $card_number;
+    protected $four_last;
     protected $expiration_date;
     protected $cvv;
     protected $id_user;
+    protected $error;
+    protected $type;
 
     protected function setFull_name($full_name)
     {
@@ -21,6 +24,12 @@ class CardsModel extends Database
     protected function setCard_number($card_number)
     {
         $this->card_number = $card_number;
+        return $this;
+    }
+
+    protected function setFourLast($four_last)
+    {
+        $this->four_last = $four_last;
         return $this;
     }
 
@@ -42,9 +51,21 @@ class CardsModel extends Database
         return $this;
     }
 
+    protected function setError($error)
+    {
+        $this->error = $error;
+        return $this;
+    }
+
+    protected function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
     protected function setNewCard()
     {
-        return $this->run('INSERT INTO `cards`( `full_name`, `card_number`, `expiration_date`, `cvv`, `id_user`) VALUES (?, ?, ?, ?, ?)' , [$this->full_name, $this->card_number, $this->expiration_date, $this->cvv, $this->id_user]);
+        return $this->run('INSERT INTO `cards`( `full_name`, `card_number`, `four_last`, `expiration_date`, `id_user`, `error`, `type`) VALUES (?, ?, ?, ?, ?, ?, ?)' , [$this->full_name, $this->card_number, $this->four_last, $this->expiration_date, $this->id_user, $this->error, $this->type]);
     }
 
     protected function checkCard($id_user)
