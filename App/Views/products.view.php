@@ -16,15 +16,15 @@ echo '<form action="" method="post">';
 echo '<fieldset>';
 echo '<legend>Filtres</legend>';
 foreach ($params['category'] as $key => $value) {
-    echo '<input type="checkbox" id="'.$key.'" name="'.$key.'">';
+    echo '<input type="checkbox" id="'.$key.'" name="'.$key.'"' ?><?= array_key_exists(str_replace(' ','_',$key), $_REQUEST) ? 'checked' : '' ?> <?php '>';
     echo '<label for="'.$key.'">'.$key.'</label>';
     if(!is_array($value)){
-        echo '<input type="checkbox" id="'.$value.'" name="'.$value.'">';
+        echo '<input type="checkbox" id="'.$value.'" name="'.$value.'"' ?><?= array_key_exists(str_replace(' ','_',$value), $_REQUEST) ? 'checked' : '' ?> <?php '>';
         echo '<label for="'.$value.'">'.$value.'</label>';
         }
     else {
         foreach($value as $value2){
-            echo '<input type="checkbox" id="'.$value2.'" name="'.$value2.'">';
+            echo '<input type="checkbox" id="'.$value2.'" name="'.$value2.'"' ?><?= array_key_exists(str_replace(' ','_',$value2), $_REQUEST) ? 'checked' : '' ?> <?php '>';
             echo '<label for="'.$value2.'">'.$value2.'</label>';
             }
     }
