@@ -6,7 +6,7 @@ use App\Models\ProductModel;
 
 class ProductController extends ProductModel
 {
-    public function product($id,$slug)
+    public function product($id, $slug)
     {
         $titrepage = 'Produit';
         $this->setId($id);
@@ -21,42 +21,45 @@ class ProductController extends ProductModel
         $titrepage = 'Produits';
         $listproducts = $this->getProducts();
         $listcategory = $this->getCategory();
-        $list2 = [];
-        // dump($listcategory); 
-        foreach ($listcategory as $key => $value){
-            if(!array_key_exists($value->categorie, $list2)){
-            $list2 += [$value->categorie => $value->sub_categorie];
-        }
-        else {
-            $list2 = array_merge_recursive($list2, [$value->categorie => $value->sub_categorie]);
-        }
-    }
-        $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $list2];
+        $sortedlist = [];
+        $sortedlist = $this->sort_category($listcategory);        
+        $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist];
         return AbstractController::render('products', $params);
     }
 
     public function productsbycategory()
     {
         $titrepage = 'Produits';
-        $listproducts = $this->getProductsByCategory($_REQUEST);
+        $listproducts = $this->getProductsByCategory();
         $listcategory = $this->getCategory();
-        $list2 = [];
-        // dump($listcategory); 
-        foreach ($listcategory as $key => $value){
-            if(!array_key_exists($value->categorie, $list2)){
-            $list2 += [$value->categorie => $value->sub_categorie];
-        }
-        else {
-            $list2 = array_merge_recursive($list2, [$value->categorie => $value->sub_categorie]);
-        }
+        $sortedlist = $this->sort_category($listcategory);
+        $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist];
+        return AbstractController::render('products', $params);
     }
-        $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $list2];
+
+    public function productsbysearch()
+    {
+        $titrepage = 'Produits';
+        $listproducts = $this->getProductsBySearch();
+        $listcategory = $this->getCategory();
+        $sortedlist = $this->sort_category($listcategory);
+        $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist];
         return AbstractController::render('products', $params);
     }
 
 
 
-
+    private function sort_category($listcategory)
+    {   
+        $sortedlist = [];
+        foreach ($listcategory as $key => $value) {
+            if (!array_key_exists($value->categorie, $sortedlist)) {
+                $sortedlist += [$value->categorie => $value->sub_categorie];
+            } else {
+                $sortedlist = array_merge_recursive($sortedlist, [$value->categorie => $value->sub_categorie]);
+            }
+        }
+        return $sortedlist;
+    }
 
 }
-?>

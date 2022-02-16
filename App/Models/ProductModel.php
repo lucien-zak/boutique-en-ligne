@@ -203,7 +203,7 @@ class ProductModel extends Database
                             FROM products
                             INNER JOIN `artists` ON products.id_artist = artists.id
                             WHERE products.id = ? AND slug = ?',
-                            [$this->id, $this->slug])->fetch();
+            [$this->id, $this->slug])->fetch();
     }
 
     public function getProducts()
@@ -228,12 +228,14 @@ class ProductModel extends Database
                             ORDER BY categorie")->fetchAll();
     }
 
-    public function getProductsByCategory(){
+    public function getProductsByCategory()
+    {
 
         $sql = 'SELECT *, products.id FROM `products` INNER JOIN `artists` ON products.id_artist = artists.id INNER JOIN `categories` ON products.id_categorie = categories.id INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie ';
         if (!empty($_REQUEST)) {
             $i = 0;
             foreach ($_REQUEST as $key => $value) {
+                $key = str_replace('_', ' ', $key);
                 if ($i == 0) {
                     $sql .= "WHERE categories.categorie = '$key' OR sub_categorie.sub_categorie = '$key' ";
                     $i++;
@@ -244,6 +246,12 @@ class ProductModel extends Database
         }
         $sql .= 'GROUP BY products.id';
         dump($sql);
-        return $this->run($sql)->fetchAll();    }
+        return $this->run($sql)->fetchAll();}
+
+    public function getProductsBySearch()
+    {
+        $sql = 'SELECT *, products.id FROM `products` INNER JOIN `artists` ON products.id_artist = artists.id INNER JOIN `categories` ON products.id_categorie = categories.id INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie WHERE categorie LIKE :search OR name LIKE :search';
+        return $this->run($sql, [':search' => $_REQUEST['search'].'%'] )->fetchAll();
+    }
 
 }

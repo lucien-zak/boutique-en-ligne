@@ -34,7 +34,12 @@ $router->map( 'GET', '/products', function(){
 
 $router->map( 'POST', '/products', function(){
 	$product = new ProductController;
-	$product->productsbycategory();
+	if (!array_key_exists('search', $_REQUEST)) {
+        $product->productsbycategory();
+    }
+	else {
+		$product->productsbysearch();
+	}
 });
 
 
