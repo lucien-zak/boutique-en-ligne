@@ -22,6 +22,8 @@
 
   padding: 18px;
   margin-top: 30px;
+  font-family: 'Space Mono', monospace;
+
 }
 
 .card__part {
@@ -180,4 +182,8 @@
 .card:hover .card__back {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
+}
+
+.button {
+  margin-top: 10px;
 }

@@ -38,34 +38,39 @@
                             <?php } ?>
                         </div>
                         <div class="card-container">
-                            <?php foreach ($params['data'] as $card) {?>
-                            <div class="card">
-                                <div class="card__front card__part <?= $card['type'] ?>">
-                                    <img class="card__front-square card__square" src="../assets/img/icons/<?= $card['type'] ?>-Logo.png">
-                                    <p class="card_numer">**** **** **** <?= $card['four_last'] ?></p>
-                                    <div class="card__space-75">
-                                        <span class="card__label">Card holder</span>
-                                        <p class="card__info"><?= $card['full_name'] ?></p>
-                                    </div> 
-                                    <div class="card__space-25">
-                                        <span class="card__label">Expires</span>
-                                        <p class="card__info"><?= $card['expiration_date'] ?></p>
+                            <?php foreach ($params['data'] as $card) { ?>
+                                <div class="card">
+                                    <div class="card__front card__part <?= $card['type'] ?>">
+                                        <img class="card__front-square card__square" src="../assets/img/icons/<?= $card['type'] ?>-Logo.png">
+                                        <p class="card_numer">**** **** **** <?= $card['four_last'] ?></p>
+                                        <div class="card__space-75">
+                                            <span class="card__label">Card holder</span>
+                                            <p class="card__info"><?= $card['full_name'] ?></p>
+                                        </div>
+                                        <div class="card__space-25">
+                                            <span class="card__label">Expires</span>
+                                            <p class="card__info"><?= $card['expiration_date'] ?></p>
+                                        </div>
                                     </div>
-                                </div>
-    
-                                <div class="card__back card__part <?= $card['type'] ?>">
-                                    <div class="card__black-line"></div>
-                                    <div class="card__back-content">
-                                        <div class="card__secret">
-                                            <p class="card__secret--last">420</p>
+
+                                    <div class="card__back card__part <?= $card['type'] ?>">
+                                        <div class="card__black-line"></div>
+                                        <div class="card__back-content">
+                                            <div class="card__secret">
+                                                <p class="card__secret--last">420</p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="buttons-container">
+                                            <button class="button edit" type="submit">Supprimer</button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <?php } ?>
                         </div>
+                    <?php } ?>
                     </div>
-                <?php } ?>
+                </div>
+            <?php } ?>
         </section>
     </main>
 </body>
