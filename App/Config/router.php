@@ -12,6 +12,7 @@ use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
 use App\Controllers\CardsController;
 use App\Controllers\AdressController;
+use App\Controllers\CartController;
 
 $router = new AltoRouter;
 
@@ -113,12 +114,17 @@ $router->map( 'POST', '/account/payements/add', function(){
     $model = new CardsController; $model->NewCard();
 });
 
-$router->map( 'GET', '/account/payements/edit', function(){
-    Shop::payements_edit();
-});
+// $router->map( 'GET', '/account/payements/edit', function(){
+//     Shop::payements_edit();
+// });
 
 $router->map( 'POST', '/account/payements/edit', function(){
     $model = new UserController; $model->payements_edit();
+});
+/////////////////////////////////////////////////////////////////////////////
+
+$router->map( 'GET', '/account/cart', function(){
+    $model = new CartController; $model->cart();
 });
 
 /////////////////////////////////////////////////////////////////////////////

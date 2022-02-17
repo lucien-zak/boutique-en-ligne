@@ -8,5 +8,7 @@ echo '<h4>Date de sortie du produit : '.$params['product']->date.'</h4>';
 echo "<h5>Nom de l'artiste du produit : ".$params['product']->artist.'</h5>';
 echo '<h6>Retour à la liste des produits : <a href="/products">ICI</a></h6>';
 echo '</div>';
-
+echo "<form action='/account/cart' method='POST'>
+      <input type='submit' name=$params[product]->>
+      </form>"
 ?>
