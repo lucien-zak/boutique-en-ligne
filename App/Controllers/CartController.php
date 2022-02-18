@@ -6,21 +6,18 @@ use App\Models\ProductModel;
 class CartController extends ProductModel
 {
 
-    public function cart()
+    private function cart()
     {    
-        if(!isset($_SESSION['panier'])){
+        if(!isset($_SESSION['cart'])){
             $_SESSION['cart'] = array();
-            $_SESSION['cart']['name'] = array();
-            $_SESSION['cart']['price'] = array();
-            $_SESSION['cart']['quantity'] = array();
-            AbstractController::render('account.cart', $params = ['titre' => "cart"]);
         }
         
     }
     
-    public function addProduct($name, $quantity, $price)
+    public function addProduct()
     {
-        
+        $this->cart();
+        return array_push($_SESSION['cart'],$_REQUEST);
     }
 
 }

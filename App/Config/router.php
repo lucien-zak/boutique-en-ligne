@@ -28,6 +28,14 @@ $router->map( 'GET', '/product/[a:slug]-[i:id]', function($slug, $id){
 	$product->product($id, $slug);
 });
 
+$router->map( 'POST', '/product/[a:slug]-[i:id]', function($slug, $id){
+    $product = new ProductController;
+    $cart = new CartController;
+    $cart->addProduct();
+	$product->product($id, $slug);
+});
+
+
 $router->map( 'GET', '/products', function(){
     $product = new ProductController;
 	$product->products();
@@ -50,6 +58,13 @@ $router->map( 'GET', '/products/category/[a:category]', function($category){
 });
 
 /////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+
 
 
 $router->map( 'GET', '/account/login', function(){
