@@ -113,6 +113,8 @@ class UserController extends UserModel
         $fileError = $_FILES['picture']['error'];
         $allowed = array('jpg', 'jpeg', 'png');
 
+        $profil_img = $_SESSION['profil_img'];
+
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
 
@@ -146,7 +148,7 @@ class UserController extends UserModel
 
         $titrepage = 'profil';
 
-        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img($profil_img)->setId($id);
+        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img(!empty($_FILES['picture'] ? $_SESSION['profil_img'] : $profil_img))->setId($id);
 
         if (!empty($this->firstname) && !empty($this->name) && !empty($this->email) && !empty($this->password) && !empty($passwordRep)) {
             if ($password == $passwordRep) {

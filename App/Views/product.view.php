@@ -9,5 +9,7 @@ echo "<h5>Nom de l'artiste du produit : ".$params['product']->artist.'</h5>';
 echo '<h6>Retour à la liste des produits : <a href="/products">ICI</a></h6>';
 echo '<h6>Catégorie : <a href="/products/category/'.$params['product']->categorie.'">'.$params['product']->categorie.'</a></h6>';
 echo '</div>';
-
+echo "<form action='/account/cart' method='POST'>
+      <input type='submit' name=$params[product]->>
+      </form>"
 ?>

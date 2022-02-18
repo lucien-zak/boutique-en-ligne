@@ -9,17 +9,17 @@ class AdressController extends AdressModel
     public function NewAdress()
     {
         $titrepage = "add address";
-        $type = $_POST['type'];
-        $full_name = $_POST['full_name'];
-        $adress = $_POST['adress'];
-        $additional_adress = $_POST['additional_adress'];
-        $postal_code = $_POST['postal_code'];
-        $city = $_POST['city'];
-        $id_user = $_SESSION['id'];
+        $type = htmlspecialchars($_POST['type']);
+        $full_name = htmlspecialchars($_POST['full_name']);
+        $adress = htmlspecialchars($_POST['adress']);
+        $additional_adress = htmlspecialchars($_POST['additional_adress']);
+        $postal_code = htmlspecialchars($_POST['postal_code']);
+        $city = htmlspecialchars($_POST['city']);
+        $id_user = htmlspecialchars($_SESSION['id']);
 
         if(!empty($type) && !empty($full_name) && !empty($adress) && !empty($postal_code) && !empty($city))
         {
-            if(ctype_digit($_POST['postal_code'])==true)
+            if(ctype_digit($postal_code)==true)
             {
                 $this->setType($type)->setFull_name($full_name)->setAdress($adress)->setAdditional_adress($additional_adress)->setPostal_code($postal_code)->setCity($city)->setId_user($id_user);
                 $this->setUserAdress();
@@ -45,22 +45,10 @@ class AdressController extends AdressModel
         
         $id_user = $_SESSION['id'];
         $this->setId_user($id_user);
-
         $data = $this->getAllById_user();
-        $params = [ 'data'=> $data , 'titre' => $titrepage];
+        $nb = $this->checkAddress($id_user);
+        $params = ['nb'=>$nb, 'data'=> $data, 'titre' => $titrepage];
+
         return AbstractController::render('account.address', $params);
-
     }
-
-    // public static function address()
-    // {
-    //     $titrepage = 'Vos Adresses';
-    //     $data = new AdressModel();
-       
-    //     $data->setId_user($_SESSION['id']);
-    //     $data->getAllById_user();
-    //     dump($data); die();
-    //      $params = [ 'data'=> $data , 'titre' => $titrepage];
-    // }
-
 }

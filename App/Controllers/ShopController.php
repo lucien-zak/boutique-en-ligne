@@ -37,6 +37,13 @@ class ShopController
         return AbstractController::render('login', $params);
     }
     
+    public static function rate()
+    {
+        $titrepage = 'rate';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('rate', $params);
+    }
+
     public static function profil()
     {
         $titrepage = 'Profil';

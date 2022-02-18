@@ -16,29 +16,37 @@ class CardsController extends CardsModel
     public function NewCard()
     {
         $titrepage = "Add card";
-        $full_name = $_POST['fullname'];
+        $full_name =  htmlspecialchars($_POST['fullname']);
 
-        $card_number = $_POST['number'];
-        $crypted_number = password_hash($card_number , PASSWORD_BCRYPT);
-        $expiration_date = "$_POST[expiration_month]/$_POST[expiration_year]";
+        $card_number = htmlspecialchars($_POST['number']);
+        $expiration_date = htmlentities("$_POST[expiration_month]/$_POST[expiration_year]");
 
-        $cvv = $_POST['cvv'];
-        $crypted_cvv = password_hash($_POST['cvv'] , PASSWORD_BCRYPT);
+        $cvv = htmlspecialchars($_POST['cvv']);
         $id_user = $_SESSION['id'];
+        $error = 0;
+        $four_last = substr($card_number, -4);
 
         if(!empty($full_name) && !empty($card_number) && !empty($expiration_date) && !empty($cvv))
         {
-            if(ctype_digit($_POST['number']) && strlen($_POST['number'])==16)
+            if(ctype_digit($card_number) && strlen($card_number)==16)
             {
-                if(ctype_digit($_POST['cvv']) && strlen($_POST['cvv '])==3)
+                if(ctype_digit($cvv) && strlen($cvv)==3)
                 {
-                    $this->setFull_name($full_name)->setCard_number($card_number)->setExpiration_date($expiration_date)->setCvv($cvv)->setId_user($id_user);
+                    if($card_number[0] == 5) {
+                        $this->setFull_name($full_name)->setCard_number($card_number)->setFourLast($four_last)->setExpiration_date($expiration_date)->setCvv($cvv)->setError($error)->setType('MasterCard')->setId_user($id_user);
+                    } else if($card_number[0] == 4) {
+                        $this->setFull_name($full_name)->setCard_number($card_number)->setFourLast($four_last)->setExpiration_date($expiration_date)->setCvv($cvv)->setError($error)->setType('Visa')->setId_user($id_user);
+                    } else {
+                        $this->setFull_name($full_name)->setCard_number($card_number)->setFourLast($four_last)->setExpiration_date($expiration_date)->setCvv($cvv)->setError($error)->setType('MasterCard')->setId_user($id_user);
+                    }
+
                     $this->setNewCard();
                     header("location:/account");
                     exit();
                 }
                 else{
-                    $message = "Le CVV doit etre strictement composé de 3 chiffres";
+                    $message = "Le CVV 
+                    doit etre strictement composé de 3 chiffres";
                     AbstractController::render('account.payements.add', $params = ['message' => $message ,'titre' => $titrepage]);
                     exit();
                 }
@@ -61,9 +69,11 @@ class CardsController extends CardsModel
         $titrepage = "Cards";
         $id_user = $_SESSION['id'];
         $this->setId_user($id_user);
-        $req = $this->getAllById_user();
-        return AbstractController::render('account.address' , ['data'=>$req]);    
-        
+        $data = $this->getAllById_user();
+        $nb = $this->checkCard($id_user);
+        $params = ['nb' => $nb, 'data'=> $data, 'titre' => $titrepage];
+
+        return AbstractController::render('account.payements', $params); 
     }
 
     //fonction pour delete a faire plus tard
