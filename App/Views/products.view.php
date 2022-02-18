@@ -1,18 +1,18 @@
 <?php
-dump($_POST);
+var_dump($_POST);
 // print_r($params['products'][0]->name);
 echo '<fieldset>';
 echo '<legend>Filtres</legend>';
-echo '<form action="" method="post">';
+echo '<form action="/products" method="post">';
 foreach ($params['category'] as $key => $value) {
-    echo '<input type="checkbox" id="' . $key . '" name="' . $key . '"'?><?=array_key_exists(str_replace(' ', '_', $key), $_REQUEST) ? 'checked' : ''?> <?php '>';
+    echo '<input type="checkbox" id="' . $key . '" name="' . $key . '"'?><?=array_key_exists(str_replace(' ', '_', $key), $_REQUEST) ? 'checked' : ''?> <?php echo '>';
     echo '<label for="' . $key . '">' . $key . '</label>';
     if (!is_array($value)) {
-        echo '<input type="checkbox" id="' . $value . '" name="' . $value . '"'?><?=array_key_exists(str_replace(' ', '_', $value), $_REQUEST) ? 'checked' : ''?> <?php '>';
+        echo '<input type="checkbox" id="' . $value . '" name="' . $value . '"'?><?=array_key_exists(str_replace(' ', '_', $value), $_REQUEST) ? 'checked' : ''?> <?php echo '>';
         echo '<label for="' . $value . '">' . $value . '</label>';
     } else {
         foreach ($value as $value2) {
-            echo '<input type="checkbox" id="' . $value2 . '" name="' . $value2 . '"'?><?=array_key_exists(str_replace(' ', '_', $value2), $_REQUEST) ? 'checked' : ''?> <?php '>';
+            echo '<input type="checkbox" id="' . $value2 . '" name="' . $value2 . '"'?><?=array_key_exists(str_replace(' ', '_', $value2), $_REQUEST) ? 'checked' : ''?> <?php echo '>';
             echo '<label for="' . $value2 . '">' . $value2 . '</label>';
         }
     }
@@ -42,7 +42,3 @@ for ($i = 0; count($params['products']) > $i; $i++) {
 
 ?>
 
-<form action="/products" method="POST">
-    <input type="checkbox" name="test">
-    <input type="submit" value="">
-</form>

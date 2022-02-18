@@ -15,6 +15,7 @@ class ProductModel extends Database
     protected $id_category;
     protected $id_sub_category;
     protected $stock;
+    public $args = "";
 
     /**
      * Set the value of id
@@ -202,6 +203,7 @@ class ProductModel extends Database
         return $this->run(' SELECT *, products.id
                             FROM products
                             INNER JOIN `artists` ON products.id_artist = artists.id
+                            INNER JOIN `categories` ON products.id_categorie = categories.id
                             WHERE products.id = ? AND slug = ?',
             [$this->id, $this->slug])->fetch();
     }
@@ -230,7 +232,10 @@ class ProductModel extends Database
 
     public function getProductsByCategory()
     {
-
+        if ($this->args != ""){
+            $sql = 'SELECT *, products.id FROM `products` INNER JOIN `artists` ON products.id_artist = artists.id INNER JOIN `categories` ON products.id_categorie = categories.id INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie WHERE categorie = ? ';
+            return $this->run($sql,[$this->args])->fetchAll();
+        }
         $sql = 'SELECT *, products.id FROM `products` INNER JOIN `artists` ON products.id_artist = artists.id INNER JOIN `categories` ON products.id_categorie = categories.id INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie ';
         if (!empty($_REQUEST)) {
             $i = 0;
@@ -245,7 +250,6 @@ class ProductModel extends Database
             }
         }
         $sql .= 'GROUP BY products.id';
-        dump($sql);
         return $this->run($sql)->fetchAll();}
 
     public function getProductsBySearch()

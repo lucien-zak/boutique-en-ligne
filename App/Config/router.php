@@ -42,8 +42,11 @@ $router->map( 'POST', '/products', function(){
 	}
 });
 
-
-
+$router->map( 'GET', '/products/category/[a:category]', function($category){
+    $product = new ProductController;
+    $product->args = $category;
+    $product->productsbycategory();
+});
 
 /////////////////////////////////////////////////////////////////////////////
 
