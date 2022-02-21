@@ -19,7 +19,7 @@ class CartController extends ProductModel
 
         if (!array_key_exists($_REQUEST['id'], $_SESSION['cart'])) {
             $_SESSION['cart'][$_REQUEST['id']]['quantity'] = $_REQUEST['quantity'];
-            $_SESSION['cart'][$_REQUEST['id']]['price'] = $_REQUEST['price'];
+            $_SESSION['cart'][$_REQUEST['id']]['slug'] = $_REQUEST['slug'];
         }
         else {
             $_SESSION['cart'][$_REQUEST['id']]['quantity'] = $_SESSION['cart'][$_REQUEST['id']]['quantity'] + $_REQUEST['quantity'];
@@ -30,6 +30,13 @@ class CartController extends ProductModel
         $titrepage = 'Panier'; 
         $params = ['titre' => $titrepage];
         return AbstractController::render('account.cart', $params);
+
+    }
+
+    public function get_products_from_cart(){
+        if (isset($_SESSION['cart'])){
+
+        }
 
     }
 

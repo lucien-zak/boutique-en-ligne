@@ -254,8 +254,13 @@ class ProductModel extends Database
 
     public function getProductsBySearch()
     {
-        $sql = 'SELECT *, products.id FROM `products` INNER JOIN `artists` ON products.id_artist = artists.id INNER JOIN `categories` ON products.id_categorie = categories.id INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie WHERE categorie LIKE :search OR name LIKE :search';
-        return $this->run($sql, [':search' => $_REQUEST['search'].'%'] )->fetchAll();
+        $sql = 'SELECT *, products.id 
+                FROM `products` 
+                INNER JOIN `artists` ON products.id_artist = artists.id 
+                INNER JOIN `categories` ON products.id_categorie = categories.id 
+                INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie 
+                WHERE categorie LIKE :search OR name LIKE :search OR artist LIKE :search';
+                return $this->run($sql, [':search' => $_REQUEST['search'].'%'] )->fetchAll();
     }
 
 }
