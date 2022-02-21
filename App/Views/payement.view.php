@@ -9,5 +9,5 @@
         </form>
 
         <script src="https://js.stripe.com/v3/"></script>
-        <script src="./Controllers/script.js"></script>
+        <script src="./assets/script/script.js"></script>
     </body>
