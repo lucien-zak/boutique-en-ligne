@@ -6,13 +6,13 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 session_start();
-
 use App\Controllers\ProductController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
 use App\Controllers\CardsController;
 use App\Controllers\AdressController;
 use App\Controllers\CartController;
+use App\Controllers\PayementController;
 
 $router = new AltoRouter;
 
@@ -137,6 +137,16 @@ $router->map( 'POST', '/account/payements/edit', function(){
 $router->map( 'GET', '/account/cart', function(){
     $model = new CartController; $model->cart();
 });
+
+/////////////////////////////////////////////////////////////////////////////
+
+$router->map( 'GET', '/payement', function(){
+    $model = new PayementController; $model->setStripe();
+});
+
+// $router->map( 'POST', '/account/payements/edit', function(){
+//     $model = new UserController; $model->payements_edit();
+// });
 
 /////////////////////////////////////////////////////////////////////////////
 
