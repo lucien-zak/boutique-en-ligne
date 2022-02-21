@@ -101,9 +101,10 @@ class ShopController
 
     public static function logout()
     {
-        $titrepage = 'logout';
-        $params = ['titre' => $titrepage];
-        return AbstractController::render('logout', $params);
+        // $titrepage = 'logout';
+        // $params = ['titre' => $titrepage];
+        // return AbstractController::render('logout', $params);
+        session_destroy();
     }
 }
 ?>

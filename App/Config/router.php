@@ -153,7 +153,8 @@ $router->map( 'POST', '/account/payements/edit', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map( 'GET', '/account/cart', function(){
-    $model = new CartController; $model->cart();
+    $cart = new CartController; 
+    $cart->cart();
 });
 
 /////////////////////////////////////////////////////////////////////////////

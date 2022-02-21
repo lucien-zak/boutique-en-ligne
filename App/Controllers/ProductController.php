@@ -9,10 +9,11 @@ class ProductController extends ProductModel
     public function product($id, $slug)
     {
         $titrepage = 'Produit';
-        $this->setId($id);
-        $this->setSlug($slug);
-        $res = $this->getProduct();
-        $params = ['titre' => $titrepage, 'product' => $res];
+        $product = $this->setId($id);
+        $product =$this->setSlug($slug);
+        $product =$this->getProduct();
+        $stock = 1;
+        $params = ['titre' => $titrepage, 'product' => $product];
         return AbstractController::render('product', $params);
     }
 
