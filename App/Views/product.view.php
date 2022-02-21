@@ -1,6 +1,6 @@
 <?php 
-if (isset($_SESSION['cart'][$params['product']->id]['quantity'])){
-    $stock = $params['product']->stock - $_SESSION['cart'][$params['product']->id]['quantity'];
+if (isset($_SESSION['cart'][$params['product']->slug.'-'.$params['product']->id]['quantity'])){
+    $stock = $params['product']->stock - $_SESSION['cart'][$params['product']->slug.'-'.$params['product']->id]['quantity'];
 }
 else {
     $stock = $params['product']->stock;
@@ -17,8 +17,11 @@ echo '<h6>
 
 <form action="" method="post">
 <input type="number" name="quantity" min="0" max="'.$stock.'">
-<input type="text" value="'.$params['product']->id.'" name="id" id="" hidden>
+<input type="text" value="'.$params['product']->price.'" name="price" id="" hidden>
+<input type="text" value="'.$params['product']->artist.'" name="artist" id="" hidden>
+<input type="text" value="'.$params['product']->name.'" name="name" id="" hidden>
 <input type="text" value="'.$params['product']->slug.'" name="slug" id="" hidden>
+<input type="text" value="'.$params['product']->id.'" name="id" id="" hidden>
 <input type="submit" value="Ajouter le produit au panier">
 </form>
 

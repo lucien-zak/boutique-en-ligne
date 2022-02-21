@@ -12,7 +12,6 @@ class ProductController extends ProductModel
         $product = $this->setId($id);
         $product =$this->setSlug($slug);
         $product =$this->getProduct();
-        $stock = 1;
         $params = ['titre' => $titrepage, 'product' => $product];
         return AbstractController::render('product', $params);
     }
