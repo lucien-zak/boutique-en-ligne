@@ -28,13 +28,6 @@ $router->map( 'GET', '/product/[a:slug]-[i:id]', function($slug, $id){
 	$product->product($id, $slug);
 });
 
-$router->map( 'POST', '/product/[a:slug]-[i:id]', function($slug, $id){
-    $product = new ProductController;
-    $cart = new CartController;
-    $cart->addProduct();
-	$product->product($id, $slug);
-});
-
 
 $router->map( 'GET', '/products', function(){
     $product = new ProductController;
@@ -59,6 +52,16 @@ $router->map( 'GET', '/products/category/[a:category]', function($category){
 
 /////////////////////////////////////////////////////////////////////////////
 
+
+$router->map( 'POST', '/cart/add/[a:slug]-[i:id]', function($slug, $id){
+    $cart = new CartController;
+    $cart->addProduct();
+});
+
+$router->map( 'POST', '/cart/modify/[a:slug]-[i:id]', function($slug, $id){
+    $cart = new CartController;
+    $cart->update_product_cart($slug,$id);
+});
 
 
 

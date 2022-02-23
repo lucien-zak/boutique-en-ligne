@@ -6,6 +6,12 @@ use App\Models\ProductModel;
 class CartController extends ProductModel
 {
 
+    public function __construct()
+    {
+        $this->init_cart();
+
+    }
+
     private function init_cart()
     {
         if (!isset($_SESSION['cart'])) {
@@ -15,7 +21,6 @@ class CartController extends ProductModel
 
     public function addProduct()
     {
-        $this->init_cart();
 
         if (!array_key_exists($_REQUEST['slug'] . '-' . $_REQUEST['id'], $_SESSION['cart'])) {
             $_SESSION['cart'][$_REQUEST['slug'] . '-' . $_REQUEST['id']]['quantity'] = $_REQUEST['quantity'];
@@ -26,6 +31,7 @@ class CartController extends ProductModel
         } else {
             $_SESSION['cart'][$_REQUEST['slug'] . '-' . $_REQUEST['id']]['quantity'] = $_SESSION['cart'][$_REQUEST['slug'] . '-' . $_REQUEST['id']]['quantity'] + $_REQUEST['quantity'];
         }
+        header('location:'.$_SERVER["HTTP_REFERER"].'');
     }
 
     public function cart()
@@ -52,13 +58,36 @@ class CartController extends ProductModel
         return $products;
     }
 
+    public function update_product_cart($slug,$id){
+        if ($_REQUEST['quantity'] == 0){
+            unset($_SESSION['cart'][$slug.'-'.$id]);
+        }
+        else {
+            $_SESSION['cart'][$slug.'-'.$id]['quantity'] = $_REQUEST['quantity'];
+        }
+        return header('location:'.$_SERVER["HTTP_REFERER"].'');
+
+    }
+
     static function count_product_cart(){
+        
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
         $countproduct = [];
         foreach ($_SESSION['cart'] as $product){
             array_push($countproduct, $product['quantity']);
         }
         $count = array_sum($countproduct);
         return $count;
+    }
+
+    static function total_product_cart(){
+        $total = [];
+        foreach ($_SESSION['cart'] as $product){
+            array_push($total, $product['quantity'] * $product['price'] );
+        }
+        return array_sum($total);
     }
 
 }

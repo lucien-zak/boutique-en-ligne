@@ -15,7 +15,7 @@ echo '<h6>Retour à la liste des produits : <a href="/products">ICI</a></h6>';
 echo '<h6>Il reste '.$stock.' articles en stock';
 echo '<h6>
 
-<form action="" method="post">
+<form action="/cart/add/'.$params['product']->slug.'-'.$params['product']->id.'" method="post">
 <input type="number" name="quantity" min="0" max="'.$stock.'">
 <input type="text" value="'.$params['product']->price.'" name="price" id="" hidden>
 <input type="text" value="'.$params['product']->artist.'" name="artist" id="" hidden>
