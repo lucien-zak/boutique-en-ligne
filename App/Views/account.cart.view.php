@@ -1,8 +1,4 @@
 <?php
-
-use App\Controllers\AbstractController;
-use App\Controllers\CartController;
-
 dump($_SESSION);
 dump($params);
 for ($i = 0; count($params['products']) > $i; $i++) {
@@ -24,9 +20,8 @@ for ($i = 0; count($params['products']) > $i; $i++) {
     echo 'Total du produit :  '.$params['products'][$i]->price * $_SESSION['cart'][$params['products'][$i]->slug.'-'. $params['products'][$i]->id]['quantity'].'$';
     }
 
-    echo '<H2>Total du panier : '.CartController::total_product_cart().' $ </H2>';
+    echo '<H2>Total du panier : '.App\Controllers\CartController::total_product_cart().' $ </H2>';
 
-// dump($_SESSION['cart']['enfe-1']);
 
 
 

@@ -44,8 +44,7 @@ class AdressController extends AdressModel
         $this->table = "adresses";
         
         $id_user = $_SESSION['id'];
-        $this->setId_user($id_user);
-        $data = $this->getAllById_user();
+        $data = $this->setId_user($id_user)->getAllById_user();
         $nb = $this->checkAddress($id_user);
         $params = ['nb'=>$nb, 'data'=> $data, 'titre' => $titrepage];
 

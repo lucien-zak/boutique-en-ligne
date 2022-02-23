@@ -49,9 +49,7 @@ class CartController extends ProductModel
         if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $slugid => $quantity) {
                 $slugid = explode('-', $slugid);
-                $product = $this->setId($slugid[1]);
-                $product = $this->setSlug($slugid[0]);
-                $product = $this->getProduct();
+                $product = $this->setId($slugid[1])->setSlug($slugid[0])->getProduct();
                 array_push($products, $product);
             }
         }
