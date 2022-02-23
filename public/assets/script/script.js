@@ -1,6 +1,6 @@
 
 window.onload = () => {
-    // Variables
+
     let stripe = Stripe('pk_test_51KTkiULE6khc7hP3a9xaMqkQJzBS1R3akv8qTDjtfmt38DHPxlb4lxMPnjQLgX28IqPzZglIKucpOTVDOTsEaqnO00lekGKQkF')
     let elements = stripe.elements()
     let redirect = "/"
