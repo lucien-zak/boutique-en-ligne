@@ -6,13 +6,12 @@ use App\Models\ProductModel;
 
 class ProductController extends ProductModel
 {
-    public function product($id, $slug)
+    public function product($id, $slug, $code = 0)
     {
         $titrepage = 'Produit';
-        $this->setId($id);
-        $this->setSlug($slug);
-        $res = $this->getProduct();
-        $params = ['titre' => $titrepage, 'product' => $res];
+        $product = $this->setId($id)->setSlug($slug)->getProduct();
+        $message = AbstractController::message($code);
+        $params = ['titre' => $titrepage, 'product' => $product, 'message' => $message];
         return AbstractController::render('product', $params);
     }
 

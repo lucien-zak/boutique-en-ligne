@@ -1,4 +1,9 @@
-<?php !empty($session)?dump($_SESSION):'' ?>
+<?php !empty($session)?dump($_SESSION):'';
+
+dump($_SERVER);
+?>
+
+
 
 <?= isset($params['message'])?$params['message']:''; ?>
 

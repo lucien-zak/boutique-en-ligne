@@ -7,12 +7,14 @@ $whoops->register();
 
 session_start();
 
+use App\Controllers\AbstractController;
 use App\Controllers\ProductController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
 use App\Controllers\CardsController;
 use App\Controllers\AdressController;
 use App\Controllers\CartController;
+use App\Controllers\PayementController;
 
 $router = new AltoRouter;
 
@@ -23,10 +25,16 @@ $router->map( 'GET', '/', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 
-$router->map( 'GET', '/product/[a:slug]-[i:id]', function($slug, $id){
+$router->map( 'GET', '/product/[a:slug]-[i:id]-[i:code]', function($slug, $id, $code = ''){
+    $product = new ProductController;
+	$product->product($id, $slug, $code);
+});
+
+$router->map( 'GET', '/product/[a:slug]-[i:id]', function($slug, $id,){
     $product = new ProductController;
 	$product->product($id, $slug);
 });
+
 
 $router->map( 'GET', '/products', function(){
     $product = new ProductController;
@@ -43,10 +51,31 @@ $router->map( 'POST', '/products', function(){
 	}
 });
 
+$router->map( 'GET', '/products/category/[a:category]', function($category){
+    $product = new ProductController;
+    $product->args = $category;
+    $product->productsbycategory();
+});
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+$router->map( 'POST', '/cart/add/[a:slug]-[i:id]', function($slug, $id){
+    $cart = new CartController;
+    $message = 'test';
+    $cart->addProduct();
+});
+
+$router->map( 'POST', '/cart/modify/[a:slug]-[i:id]', function($slug, $id){
+    $cart = new CartController;
+    $cart->update_product_cart($slug,$id);
+});
+
 
 
 
 /////////////////////////////////////////////////////////////////////////////
+
 
 
 $router->map( 'GET', '/account/login', function(){
@@ -135,8 +164,31 @@ $router->map( 'POST', '/account/payements/edit', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map( 'GET', '/account/cart', function(){
-    $model = new CartController; $model->cart();
+    $cart = new CartController; 
+    $cart->cart();
 });
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+$router->map( 'POST', '/order/delivrery', function(){
+    AbstractController::is_connected();
+    dump($_SESSION);
+    echo 'livraison';
+});
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+$router->map( 'GET', '/payement', function(){
+    $model = new PayementController; $model->setStripe();
+});
+
+// $router->map( 'POST', '/account/payements/edit', function(){
+//     $model = new UserController; $model->payements_edit();
+// });
 
 /////////////////////////////////////////////////////////////////////////////
 

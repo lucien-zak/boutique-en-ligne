@@ -67,6 +67,13 @@ class ShopController
         return AbstractController::render('account.orders', $params);
     }
 
+    public static function payement()
+    {
+        $titrepage = 'Transaction';
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render('payement', $params);
+    }
+
     public static function payements()
     {
         $titrepage = 'Vos Paiements';
@@ -101,9 +108,10 @@ class ShopController
 
     public static function logout()
     {
-        $titrepage = 'logout';
-        $params = ['titre' => $titrepage];
-        return AbstractController::render('logout', $params);
+        // $titrepage = 'logout';
+        // $params = ['titre' => $titrepage];
+        // return AbstractController::render('logout', $params);
+        session_destroy();
     }
 }
 ?>
