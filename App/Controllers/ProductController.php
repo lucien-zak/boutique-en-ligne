@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ProductModel;
-
+ 
 class ProductController extends ProductModel
 {
     public function product($id, $slug, $code = 0)
@@ -11,7 +11,7 @@ class ProductController extends ProductModel
         $titrepage = 'Produit';
         $product = $this->setId($id)->setSlug($slug)->getProduct();
         $message = AbstractController::message($code);
-        $params = ['titre' => $titrepage, 'product' => $product, 'message' => $message];
+        $params = ['titre' => $titrepage, 'product' => $product, 'message' => $message, 'css' => 'product'];
         return AbstractController::render('product', $params);
     }
 
@@ -22,7 +22,7 @@ class ProductController extends ProductModel
         $listcategory = $this->getCategory();
         $sortedlist = [];
         $sortedlist = $this->sort_category($listcategory);        
-        $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist];
+        $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist, 'css' => 'products'];
         return AbstractController::render('products', $params);
     }
 

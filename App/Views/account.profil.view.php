@@ -1,45 +1,32 @@
 
 <?= isset($params['message'])?$params['message']:''; ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $params['titre'] ?> - Vinyl Génération</title>
-    <link rel="stylesheet" href="../assets/style/account.view.css">
-    <link rel="stylesheet" href="../assets/style/header.style.css">
-    <link rel="stylesheet" href="../assets/style/normalize.css">
-    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
-
-    <script>
-        document.getElementById("uploadBtn").onchange = function () {
-            document.getElementById("uploadFile").value = this.value;
-        };
-    </script>
-</head>
+<script>
+    document.getElementById("uploadBtn").onchange = function () {
+        document.getElementById("uploadFile").value = this.value;
+    };
+</script>
 <body>
     <main>
         <section class="home">
             <div class="container profil">
                 <h3>MODIFICATION DE VOTRE COMPTE</h3><br><br>
-                <img class="avatar-profil" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
+                <img class="avatar-profil" src="../assets/img/icons/users/<?= isset($_SESSION['user']['profil_img']) ? $_SESSION['user']['profil_img'] : 'user-default.png' ?>" alt="">
                 <form action="/account/profil" enctype="multipart/form-data" method="POST">
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="firstname" placeholder="Prénom" value="<?= $_SESSION["firstname"] ?>">
+                            <input type="text" name="firstname" placeholder="Prénom" value="<?= $_SESSION['user']["firstname"] ?>">
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="name" placeholder="Nom" value="<?= $_SESSION["name"] ?>">
+                            <input type="text" name="name" placeholder="Nom" value="<?= $_SESSION['user']["name"] ?>">
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="email" name="email" placeholder="Email" value="<?= $_SESSION["email"] ?>">
+                            <input type="email" name="email" placeholder="Email" value="<?= $_SESSION['user']["email"] ?>">
                             <div class="right"></div>
                         </div>
                         <div class="box">

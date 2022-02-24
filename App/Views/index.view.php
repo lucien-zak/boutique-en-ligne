@@ -18,12 +18,12 @@
                 <img src="./assets/img/icons/logo-enterprise-1.png" alt="">
                 <div class="buttons-container">
                     <div class="button">
-                        <a href="/Products" class="">
+                        <a href="/products" class="">
                             Voir tous les produits
                         </a>
                     </div>
                     <div class="button">
-                        <a href="/Products" class="">
+                        <a href="/products" class="">
                             En savoirs plus
                         </a>
                     </div>

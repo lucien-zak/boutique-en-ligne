@@ -65,17 +65,18 @@ class UserController extends UserModel
                         $this->setPassword($passwordbdd['password']);
                         $user = $this->checkLogs()->fetchAll(PDO::FETCH_ASSOC);
 
-                        $_SESSION['id'] = $user['0']['id'];
-                        $_SESSION['firstname'] = $user['0']['firstname'];
-                        $_SESSION['name'] = $user['0']['name'];
-                        $_SESSION['email'] = $user['0']['email'];
-                        $_SESSION['profil_img'] = $user['0']['profil_img'];
+                        $_SESSION['user']['id'] = $user['0']['id'];
+                        $_SESSION['user']['firstname'] = $user['0']['firstname'];
+                        $_SESSION['user']['name'] = $user['0']['name'];
+                        $_SESSION['user']['email'] = $user['0']['email'];
+                        $_SESSION['user']['profil_img'] = $user['0']['profil_img'];
                         // if (isset($_SERVER["HTTP_REFERER"])){
                         //     $url = $_SERVER["HTTP_REFERER"];
                         //     header("location:".$url."");
                         //     exit();
 
                         // }
+
                         header("location:/account");
                         exit();
                     } else {
@@ -102,7 +103,7 @@ class UserController extends UserModel
 
     public function profil()
     {
-        $id = $_SESSION['id'];
+        $id = $_SESSION['user']['id'];
         $firstname = htmlspecialchars($_POST['firstname']);
         $name = htmlspecialchars($_POST['name']);
         $email = htmlspecialchars($_POST['email']);
@@ -119,7 +120,7 @@ class UserController extends UserModel
         $fileError = $_FILES['picture']['error'];
         $allowed = array('jpg', 'jpeg', 'png');
 
-        $profil_img = $_SESSION['profil_img'];
+        $profil_img = $_SESSION['user']['profil_img'];
 
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
@@ -133,20 +134,20 @@ class UserController extends UserModel
                     $resultat = move_uploaded_file($fileTmpName, $fileDestination);
                     
                     if($resultat) {
-                        if($_SESSION['profil_img'] != 'user-default.png') {
-                            if(file_exists('./assets/img/icons/users/'.$_SESSION['profil_img'])) {
-                                unlink('./assets/img/icons/users/'.$_SESSION['profil_img']);   
+                        if($_SESSION['user']['profil_img'] != 'user-default.png') {
+                            if(file_exists('./assets/img/icons/users/'.$_SESSION['user']['profil_img'])) {
+                                unlink('./assets/img/icons/users/'.$_SESSION['user']['profil_img']);   
                             }
                         }
-                        $profil_img = empty($_FILES['picture']) ? $_SESSION['profil_img'] : $fileNameNew. "." .$fileActualExt;
+                        $profil_img = empty($_FILES['picture']) ? $_SESSION['user']['profil_img'] : $fileNameNew. "." .$fileActualExt;
                     } else {
-                        $profil_img = $_SESSION['profil_img'];
+                        $profil_img = $_SESSION['user']['profil_img'];
                     }
                 } else {
-                    $profil_img = $_SESSION['profil_img'];
+                    $profil_img = $_SESSION['user']['profil_img'];
                 }
             } else {
-                $profil_img = $_SESSION['profil_img'];
+                $profil_img = $_SESSION['user']['profil_img'];
             }
         }
         ////////////////////////////////////////////////////////////////
@@ -154,7 +155,7 @@ class UserController extends UserModel
 
         $titrepage = 'profil';
 
-        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img(!empty($_FILES['picture'] ? $_SESSION['profil_img'] : $profil_img))->setId($id);
+        $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img(!empty($_FILES['picture'] ? $_SESSION['user']['profil_img'] : $profil_img))->setId($id);
 
         if (!empty($this->firstname) && !empty($this->name) && !empty($this->email) && !empty($this->password) && !empty($passwordRep)) {
             if ($password == $passwordRep) {
@@ -164,10 +165,10 @@ class UserController extends UserModel
                     if ($email == $emailb) {
                         $this->updateUser();
 
-                        $_SESSION['firstname'] = $firstname;
-                        $_SESSION['name'] = $name;
-                        $_SESSION['email'] = $email;
-                        $_SESSION['profil_img'] = $profil_img;
+                        $_SESSION['user']['firstname'] = $firstname;
+                        $_SESSION['user']['name'] = $name;
+                        $_SESSION['user']['email'] = $email;
+                        $_SESSION['user']['profil_img'] = $profil_img;
                         
                         header("location:/account");
                     } else {
@@ -176,10 +177,10 @@ class UserController extends UserModel
                     }
                 } else {
                     $this->updateUser();
-                    $_SESSION['firstname'] = $firstname;
-                    $_SESSION['name'] = $name;
-                    $_SESSION['email'] = $email;
-                    $_SESSION['profil_img'] = $profil_img;
+                    $_SESSION['user']['firstname'] = $firstname;
+                    $_SESSION['user']['name'] = $name;
+                    $_SESSION['user']['email'] = $email;
+                    $_SESSION['user']['profil_img'] = $profil_img;
                     header("location:/account");
                 }
             } else {
@@ -190,5 +191,11 @@ class UserController extends UserModel
             AbstractController::render('account.profil', $params = ['titre' => $titrepage]);
             exit();
         }
+    }
+
+    public function logout() 
+    {
+        session_destroy();
+        header("location:/");
     }
 }
