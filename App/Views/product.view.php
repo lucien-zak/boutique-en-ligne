@@ -1,4 +1,5 @@
 <?php 
+dump($params);
 if (isset($_SESSION['cart'][$params['product']->slug.'-'.$params['product']->id]['quantity'])){
     $stock = $params['product']->stock - $_SESSION['cart'][$params['product']->slug.'-'.$params['product']->id]['quantity'];
 }
@@ -16,7 +17,7 @@ echo '<h6>Il reste '.$stock.' articles en stock';
 echo '<h6>
 
 <form action="/cart/add/'.$params['product']->slug.'-'.$params['product']->id.'" method="post">
-<input type="number" name="quantity" min="0" max="'.$stock.'">
+<input value="1" type="number" name="quantity" min="1" max="'.$stock.'">
 <input type="text" value="'.$params['product']->price.'" name="price" id="" hidden>
 <input type="text" value="'.$params['product']->artist.'" name="artist" id="" hidden>
 <input type="text" value="'.$params['product']->name.'" name="name" id="" hidden>

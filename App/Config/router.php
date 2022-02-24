@@ -6,6 +6,8 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 session_start();
+
+use App\Controllers\AbstractController;
 use App\Controllers\ProductController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
@@ -23,7 +25,12 @@ $router->map( 'GET', '/', function(){
 /////////////////////////////////////////////////////////////////////////////
 
 
-$router->map( 'GET', '/product/[a:slug]-[i:id]', function($slug, $id){
+$router->map( 'GET', '/product/[a:slug]-[i:id]-[i:code]', function($slug, $id, $code = ''){
+    $product = new ProductController;
+	$product->product($id, $slug, $code);
+});
+
+$router->map( 'GET', '/product/[a:slug]-[i:id]', function($slug, $id,){
     $product = new ProductController;
 	$product->product($id, $slug);
 });
@@ -55,6 +62,7 @@ $router->map( 'GET', '/products/category/[a:category]', function($category){
 
 $router->map( 'POST', '/cart/add/[a:slug]-[i:id]', function($slug, $id){
     $cart = new CartController;
+    $message = 'test';
     $cart->addProduct();
 });
 
@@ -161,6 +169,18 @@ $router->map( 'GET', '/account/cart', function(){
 });
 
 /////////////////////////////////////////////////////////////////////////////
+
+
+
+$router->map( 'POST', '/order/delivrery', function(){
+    AbstractController::is_connected();
+    dump($_SESSION);
+    echo 'livraison';
+});
+
+
+/////////////////////////////////////////////////////////////////////////////
+
 
 $router->map( 'GET', '/payement', function(){
     $model = new PayementController; $model->setStripe();

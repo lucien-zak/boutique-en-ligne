@@ -36,7 +36,7 @@ for ($i = 0; count($params['products']) > $i; $i++) {
     echo '<h3>Prix du produit : ' . $params['products'][$i]->price . ' $</h3>';
     echo '<h4>Date de sortie du produit : ' . $params['products'][$i]->date . '</h4>';
     echo "<h5>Nom de l'artiste du produit : " . $params['products'][$i]->artist . '</h5>';
-    echo '<h6>En savoir plus : <a href="/product/' . $params["products"][$i]->slug . '-' . $params["products"][$i]->id . '">ICI</a></h6>';
+    echo '<h6>En savoir plus : <a href="/product/' . $params["products"][$i]->slug . '-' . $params["products"][$i]->id.'-0'.'">ICI</a></h6>';
     echo '</div>';
 }
 
