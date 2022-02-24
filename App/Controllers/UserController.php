@@ -70,12 +70,12 @@ class UserController extends UserModel
                         $_SESSION['name'] = $user['0']['name'];
                         $_SESSION['email'] = $user['0']['email'];
                         $_SESSION['profil_img'] = $user['0']['profil_img'];
-                        // if (isset($_SERVER["HTTP_REFERER"])){
-                        //     $url = $_SERVER["HTTP_REFERER"];
-                        //     header("location:".$url."");
-                        //     exit();
+                        if (isset($_SESSION["continue_path"])){
+                            $url = $_SESSION["continue_path"];
+                            header("location:".$url."");
+                            exit();
 
-                        // }
+                        }
                         header("location:/account");
                         exit();
                     } else {

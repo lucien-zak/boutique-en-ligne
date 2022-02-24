@@ -172,7 +172,7 @@ $router->map( 'GET', '/account/cart', function(){
 
 
 
-$router->map( 'POST', '/order/delivrery', function(){
+$router->map( 'POST|GET', '/order/delivrery', function(){
     AbstractController::is_connected();
     dump($_SESSION);
     echo 'livraison';

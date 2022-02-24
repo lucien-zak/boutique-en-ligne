@@ -35,9 +35,10 @@ class AbstractController
 
     public static function is_connected(){
         if (isset($_SESSION['id']) ){
-            return TRUE;
+            unset($_SESSION['continue_path']);
         }
         else {
+            $_SESSION['continue_path'] = $_SERVER["HTTP_REFERER"];
             header('location:/account/login');
         }
     }
