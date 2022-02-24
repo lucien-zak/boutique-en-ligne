@@ -1,6 +1,4 @@
 <?php
-dump($_POST);
-// print_r($params['products'][0]->name);
 echo '<fieldset>';
 echo '<legend>Filtres</legend>';
 echo '<form action="" method="post">';
@@ -28,21 +26,33 @@ echo '<input type="search" name="search" id="search">';
 echo '<label for="search"></label>';
 echo '<input type="submit" value="search">';
 echo '</fieldset>';
-
-for ($i = 0; count($params['products']) > $i; $i++) {
-    echo '<div class="product">';
-    echo '<h1>Nom du produit : ' . $params['products'][$i]->name . '</h1>';
-    echo '<h2>Description du produit : ' . $params['products'][$i]->description . '</h2>';
-    echo '<h3>Prix du produit : ' . $params['products'][$i]->price . ' $</h3>';
-    echo '<h4>Date de sortie du produit : ' . $params['products'][$i]->date . '</h4>';
-    echo "<h5>Nom de l'artiste du produit : " . $params['products'][$i]->artist . '</h5>';
-    echo '<h6>En savoir plus : <a href="/product/' . $params["products"][$i]->slug . '-' . $params["products"][$i]->id . '">ICI</a></h6>';
-    echo '</div>';
-}
-
 ?>
 
-<form action="/products" method="POST">
-    <input type="checkbox" name="test">
-    <input type="submit" value="">
-</form>
+<link rel="stylesheet" href="../assets/style/product.view.css">
+
+</head>
+<body>
+    <div class="product-container">
+    <?php
+        for ($i = 0; count($params['products']) > $i; $i++) {?>
+            <a class="product" href="/product/<?= $params["products"][$i]->slug . "-" . $params["products"][$i]->id ?>">
+                <div class="right"></div>
+                <div class="content">
+                    <img src="../assets/img/products/<?= $params['products'][$i]->slug . "-" . $params["products"][$i]->id ?>.png"></img>
+                    <div class="info">
+                        <div class="box">
+                            <h3><?= $params['products'][$i]->artist ?></h3>
+                            <h2><?= $params['products'][$i]->name ?></h2>
+                            <h3>Sortie le <?= $params['products'][$i]->date ?></h3>
+                            <h5><?= $params['products'][$i]->price ?>€</h5>
+                        </div>
+                        <button class="button" href="/account/login">Ajouter au panier</button>
+                    </div>
+                </div>
+                <div class="left"></div>
+            </a>
+        <?php } ?>
+    </div>
+</body>
+</html>
+

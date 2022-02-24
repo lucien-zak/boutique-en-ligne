@@ -1,0 +1,167 @@
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    * {
+        color: #fff;
+    }
+
+    div.product-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    a.product {
+        width: 92vw;
+        height: 25vh;
+        margin-top: 18px;
+        background-color: #2B2B2B;
+        text-decoration: none;
+
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    a.product > .right:before {
+        position: absolute;
+        content: "";
+        top: 10px;
+        left: 10px;
+        width: 15px ;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        z-index: 100;
+    }
+
+    a.product > .right:after {
+        position: absolute;
+        content: "";
+        bottom: 10px;
+        left: 10px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-left: 2px solid white;
+        z-index: 100;
+    }
+
+    a.product > .left:before {
+        position: absolute;
+        content: "";
+        top: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+        z-index: 100;
+    }
+
+    a.product > .left:after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+        z-index: 100;
+    }
+
+    a.product div.content {
+        width: 94%;
+        height: 90%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    a.product div.content div.info {
+        width: 44%;
+        height: 89%;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+
+        text-align: left;
+    }
+
+    a.product div.content div.info div.box {
+        height: 13vh;
+        width: 100%;
+    }
+
+    a.product div.content > img {
+        width: 40vw;
+        height: 20vh;
+    }
+
+    a.product div.content div.info div.box  > h3, a.product div.content div.info div.box > h2, a.product div.content div.info div.box > h5 {
+        margin: 0;
+        margin-bottom: 9px;
+        font-family: 'Comfortaa-R';
+    }
+
+    a.product div.content div.info div.box h2 {
+        font-size: 24px;
+    }
+
+    a.product div.content div.info div.box > h3 {
+        font-size: 12px;
+    }
+
+    a.product div.content div.info div.box > h5 {
+        font-size: 20px;
+    }
+
+    button.button {
+        position: relative;
+        width: 100%;
+        background-color: #FC7E1F;
+        text-align: center;
+        font-size: 11px;
+        padding: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-family: 'Comfortaa-R';
+        margin-top: 10px;
+        text-decoration: none;
+        border: none;
+    }
+
+    button.button:before {
+        position: absolute;
+        content: "";
+        top: 5px;
+        left: 5px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+    }
+
+    button.button:after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+    }
+}

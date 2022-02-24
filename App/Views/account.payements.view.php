@@ -57,7 +57,7 @@
                                         <div class="card__black-line"></div>
                                         <div class="card__back-content">
                                             <div class="card__secret">
-                                                <p class="card__secret--last">420</p>
+                                                <p class="card__secret--last">***</p>
                                             </div>
                                         </div>
                                         <br>
