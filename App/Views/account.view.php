@@ -1,5 +1,9 @@
+<?php
+dump($_SESSION);
+?>
+
 <body>
-    <?php if( !$_SESSION ) { ?>
+    <?php if( !isset($_SESSION['user']) ) { ?>
 	<main>
         <section class="home">
             <div class="container">
