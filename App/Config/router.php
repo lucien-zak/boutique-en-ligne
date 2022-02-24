@@ -206,7 +206,8 @@ $router->map( 'GET', '/error', function(){
 });
 
 $router->map( 'GET', '/logout', function(){
-    Shop::logout();
+    $user = new UserController; 
+    $user->logout();
 });
 
 /////////////////////////////////////////////////////////////////////////////

@@ -41,6 +41,4 @@ class AbstractController
             header('location:/account/login');
         }
     }
-
-
 }
