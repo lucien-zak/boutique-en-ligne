@@ -22,7 +22,7 @@ class CardsController extends CardsModel
         $expiration_date = htmlentities("$_POST[expiration_month]/$_POST[expiration_year]");
 
         $cvv = htmlspecialchars($_POST['cvv']);
-        $id_user = $_SESSION['id'];
+        $id_user = $_SESSION['user']['id'];
         $error = 0;
         $four_last = substr($card_number, -4);
 
@@ -67,7 +67,7 @@ class CardsController extends CardsModel
     {
         $this->table = "cards";
         $titrepage = "Cards";
-        $id_user = $_SESSION['id'];
+        $id_user = $_SESSION['user']['id'];
         $this->setId_user($id_user);
         $data = $this->getAllById_user();
         $nb = $this->checkCard($id_user);

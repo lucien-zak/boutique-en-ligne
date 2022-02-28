@@ -38,7 +38,7 @@ class CartController extends ProductModel
     {
         $titrepage = 'Panier';
         $products = $this->get_products_from_cart();
-        $params = ['titre' => $titrepage, 'products' => $products];
+        $params = ['titre' => $titrepage, 'products' => $products, 'css' => 'cart'];
         return AbstractController::render('account.cart', $params);
 
     }

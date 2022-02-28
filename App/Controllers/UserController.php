@@ -165,7 +165,7 @@ class UserController extends UserModel
                         
                         header("location:/account");
                     } else {
-                        AbstractController::render('account.profil', $params = ['titre' => $titrepage]);
+                        AbstractController::render('account.profil', $params = ['titre' => $titrepage, 'css' => 'account']);
                         exit();
                     }
                 } else {
@@ -177,11 +177,11 @@ class UserController extends UserModel
                     header("location:/account");
                 }
             } else {
-                AbstractController::render('account.profil', $params = ['titre' => $titrepage]);
+                AbstractController::render('account.profil', $params = ['titre' => $titrepage, 'css' => 'account']);
                 exit();
             }
         } else {
-            AbstractController::render('account.profil', $params = ['titre' => $titrepage]);
+            AbstractController::render('account.profil', $params = ['titre' => $titrepage, 'css' => 'account']);
             exit();
         }
     }

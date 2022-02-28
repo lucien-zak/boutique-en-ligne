@@ -47,7 +47,7 @@ class ShopController
     public static function profil()
     {
         $titrepage = 'Profil';
-        $params = [ 'titre' => $titrepage];
+        $params = [ 'titre' => $titrepage, 'css' => 'account'];
         return AbstractController::render('account.profil', $params);
     }
 
