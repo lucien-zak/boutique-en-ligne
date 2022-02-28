@@ -20,4 +20,6 @@ class PayementController
         $data = $intent;
         AbstractController::render('payement', $params = ['data'=> $data, 'titre' => $titrepage]);
     }
+
+    
 }

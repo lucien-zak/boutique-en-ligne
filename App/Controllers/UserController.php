@@ -70,6 +70,12 @@ class UserController extends UserModel
                         $_SESSION['user']['name'] = $user['0']['name'];
                         $_SESSION['user']['email'] = $user['0']['email'];
                         $_SESSION['user']['profil_img'] = $user['0']['profil_img'];
+                        if (isset($_SESSION["continue_path"])){
+                            $url = $_SESSION["continue_path"];
+                            header("location:".$url."");
+                            exit();
+
+                        }
                         header("location:/account");
                         exit();
                     } else {

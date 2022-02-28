@@ -1,6 +1,7 @@
 <?php !empty($session)?dump($_SESSION):'';
 
 dump($_SERVER);
+dump($_SESSION);
 ?>
 
 

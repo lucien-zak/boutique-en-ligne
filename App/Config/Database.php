@@ -43,6 +43,6 @@ class Database
 
     public function getAll()
     {
-        return $this->run("SELECT * FROM $this->table ")->fetchAll(PDO::FETCH_ASSOC);
+        return $this->run("SELECT * FROM `$this->table` ")->fetchAll(PDO::FETCH_ASSOC);
     }
 }

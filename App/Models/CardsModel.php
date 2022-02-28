@@ -14,6 +14,7 @@ class CardsModel extends Database
     protected $id_user;
     protected $error;
     protected $type;
+    protected $table = 'cards';
 
     protected function setFull_name($full_name)
     {
@@ -45,7 +46,7 @@ class CardsModel extends Database
         return $this;
     }
 
-    protected function setId_user($id_user)
+    public function setId_user($id_user)
     {
         $this->id_user = $id_user;
         return $this;
@@ -65,16 +66,18 @@ class CardsModel extends Database
 
     protected function setNewCard()
     {
-        return $this->run('INSERT INTO `cards`( `full_name`, `card_number`, `four_last`, `expiration_date`, `id_user`, `error`, `type`) VALUES (?, ?, ?, ?, ?, ?, ?)' , [$this->full_name, $this->card_number, $this->four_last, $this->expiration_date, $this->id_user, $this->error, $this->type]);
+        return $this->run('INSERT INTO `cards`( `full_name`, `card_number`, `four_last`, `expiration_date`, `id_user`, `error`, `type`) VALUES (?, ?, ?, ?, ?, ?, ?)', [$this->full_name, $this->card_number, $this->four_last, $this->expiration_date, $this->id_user, $this->error, $this->type]);
     }
 
     protected function checkCard($id_user)
     {
-        return $this->run("SELECT * FROM `cards` WHERE `id_user` = ? " , [$id_user])->rowCount();
+        return $this->run("SELECT * FROM `cards` WHERE `id_user` = ? ", [$id_user])->rowCount();
     }
 
-    protected function deleteCard($id_user) {
-        return $this->run('DELETE FROM `cards` WHERE `id_user` = ? AND `card_number` = ?' [$id_user]);
+    protected function deleteCard($id_user)
+    {
+
+        return $this->run('DELETE FROM `cards` WHERE `id_user` = ? AND `card_number` = ?'[$id_user]);
     }
 
 }

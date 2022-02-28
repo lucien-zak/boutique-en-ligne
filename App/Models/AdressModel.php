@@ -12,7 +12,7 @@ class AdressModel extends Database
     protected $postal_code;
     protected $city;
     protected $id_user;
-    protected $table;
+    protected $table = 'adresses';
 
     protected function setType($type)
     {
@@ -50,7 +50,7 @@ class AdressModel extends Database
         return $this;
     }
 
-    protected function setId_user($id_user)
+    public function setId_user($id_user)
     {
         $this->id_user = $id_user;
         return $this;
@@ -61,9 +61,15 @@ class AdressModel extends Database
         return $this->run('INSERT INTO `adresses` ( `type`, `full_name`, `adress`, `additional_adress`, `postal_code`, `city`, `id_user`) VALUES (?, ?, ?, ?, ?, ?, ?)' , [$this->type, $this->full_name, $this->adress, $this->additional_adress, $this->postal_code, $this->city, $this->id_user]);
     }
 
-    protected function checkAddress($id_user)
+    protected function checkAddress()
     {
-        return $this->run("SELECT * FROM `adresses` WHERE `id_user` = ? " , [$id_user])->rowCount();
+        return $this->run("SELECT * FROM `adresses` WHERE `id_user` = ? " , [$this->id_user])->rowCount();
     }
+
+    public function getAdressById_user()
+    {
+        return $this->run("SELECT * FROM adresses WHERE `id_user`= $this->id_user " )->fetchAll();
+    }
+
 
 }

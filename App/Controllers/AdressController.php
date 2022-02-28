@@ -23,6 +23,11 @@ class AdressController extends AdressModel
             {
                 $this->setType($type)->setFull_name($full_name)->setAdress($adress)->setAdditional_adress($additional_adress)->setPostal_code($postal_code)->setCity($city)->setId_user($id_user);
                 $this->setUserAdress();
+                if (isset($_SESSION['continue_path'])) {
+                    $url = $_SESSION['continue_path'];
+                    header("location:$url");
+                    exit();
+                }
                 header("location:/account");
                 exit();
             }
