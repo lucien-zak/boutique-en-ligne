@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use PDO;
 use App\Config\Database;
 
 class ProductModel extends Database
@@ -263,4 +263,43 @@ class ProductModel extends Database
                 return $this->run($sql, [':search' => $_REQUEST['search'].'%'] )->fetchAll();
     }
 
+    ////Table secondaires //
+
+    protected function getReviewsById()
+    {
+        return $this->run("SELECT * FROM `reviews` WHERE `id_product`= ?" , [$this->id])->fetchAll();
+    }
+
+    protected function getSub_ReviewsById($id)
+    {
+        return $this->run("SELECT * FROM `sub_reviews` WHERE `id_review`= ?" , [$id])->fetchAll();
+    }
+
+    protected function setFavorites($id_user)
+    {
+        return $this->run("INSERT INTO `favorites`(`id_product`, `id_user`) VALUES (?, ?)" , [$this->id , $id_user]);
+    }
+
+    protected function checkFavorites($id_user)
+    {
+        $stmt = $this->run('SELECT * FROM `favorites` WHERE `id_product`= ? AND `id_user`= ? ' , [$this->id , $id_user])->rowCount();
+        if($stmt > 0) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    protected function deleteFavorites($id_user)
+    {
+        return $this->run('DELETE FROM `favorites` WHERE `id_product`= ? AND `id_user`= ? ' , [$this->id , $id_user]);
+    }
+
+    protected function avgRatingProduct()
+    {
+        return $this->run('SELECT AVG(`mark`) FROM `reviews` WHERE `id_product` = ?' , [$this->id])->fetch(PDO::FETCH_ASSOC);
+    }
 }
