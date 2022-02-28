@@ -1,7 +1,3 @@
-<?php
-dump($_SESSION);
-?>
-
 <body>
     <?php if( !isset($_SESSION['user']) ) { ?>
 	<main>
@@ -24,10 +20,10 @@ dump($_SESSION);
         </section>
 	</main>
     <?php } else { ?>
-	<main class="resize">
-		<section class="home">
-            <div class="container">
-                <img class="avatar-profil" src="../assets/img/icons/users/<?= isset($_SESSION['profil_img']) ? $_SESSION['profil_img'] : 'user-default.png' ?>" alt="">
+    <main>
+        <section class="home">
+            <div class="container profil">
+                <img class="avatar-profil" src="../assets/img/icons/users/<?= isset($_SESSION['user']['profil_img']) ? $_SESSION['user']['profil_img'] : 'user-default.png' ?>" alt="">
                 <div class="buttons-container">
                     <form action="/account/profil" method="POST">
                         <div class="buttons-container">

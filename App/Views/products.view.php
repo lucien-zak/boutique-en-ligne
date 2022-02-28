@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 echo '<fieldset>';
 echo '<legend>Filtres</legend>';
 echo '<form action="/products" method="post">';
@@ -19,17 +19,14 @@ foreach ($params['category'] as $key => $value) {
 echo '<input type="submit" value="Filtrez">';
 echo '</form>';
 echo '</fieldset>';
-echo '<fieldset>';
-echo '<legend>Recherche</legend>';
-echo '<form action="" method="post">';
-echo '<input type="search" name="search" id="search">';
-echo '<label for="search"></label>';
-echo '<input type="submit" value="search">';
-echo '</fieldset>';
-?>
+?> -->
 
 </head>
 <body>
+    <form action="/products" method="post">
+        <input type="search" name="search" id="search" placeholder="Your Search">
+        <a id="filter" href=""><i class="fas fa-filter"></i></a>
+    </form>
     <div class="product-container">
     <?php
         for ($i = 0; count($params['products']) > $i; $i++) {?>
