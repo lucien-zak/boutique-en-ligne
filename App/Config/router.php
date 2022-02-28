@@ -57,7 +57,6 @@ $router->map( 'POST', '/product/sub_reviewadd/[i:id_review]', function($id_revie
     $review->NewSub_review($id_review);
 });
 
-$router->map( 'GET', '/products', function(){
 $router->map('GET', '/products', function () {
     $product = new ProductController;
     $product->products();
