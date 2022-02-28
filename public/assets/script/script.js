@@ -24,7 +24,7 @@ window.onload = () => {
         }
     })
 
-    //
+    // 
     cardButton.addEventListener("click", () => {
         stripe.handleCardPayment(
             clientSecret, card, {

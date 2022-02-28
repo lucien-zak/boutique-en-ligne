@@ -10,8 +10,37 @@ class ProductController extends ProductModel
     {
         $titrepage = 'Produit';
         $product = $this->setId($id)->setSlug($slug)->getProduct();
-        $params = ['titre' => $titrepage, 'product' => $product];
+        $sub_reviews = $this->displaySub_Reviews(); 
+        $reviews = $this->getReviewsById();
+        $favorites = $this->checkFavorites($_SESSION['id']);
+        $averageRating = $this->avgRatingProduct($id);
+        $params = ['titre' => $titrepage, 'product' => $product , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
         return AbstractController::render('product', $params);
+    }
+
+    public function displaySub_Reviews()
+    {
+        $reviews = $this->getReviewsById();
+
+        foreach($reviews as $review)
+        {
+            if(!isset($sub_review[$review->id]))
+            {
+                $sub_reviews[$review->id] = [];
+            }
+            $sub_review = $this->getSub_ReviewsById($review->id);
+            foreach($sub_review as $value)
+            {
+                array_push($sub_reviews[$review->id], $value);
+            }
+        }
+        if(!empty($sub_reviews))
+        {
+            return $sub_reviews;
+        }
+        else{
+            return [];
+        }
     }
 
     public function products()
@@ -58,6 +87,40 @@ class ProductController extends ProductModel
             }
         }
         return $sortedlist;
+    }
+
+    //// TABLE FAVORITES ////
+
+    public function addFavorites($id)
+    {   
+
+        $id_user = $_SESSION['id'];
+        $this->setId($id);
+        if($this->checkFavorites($id_user)==false)
+        {
+            $this->setFavorites($id_user);
+            header('location:'.$_SERVER["HTTP_REFERER"].'');
+        }
+        else
+        {
+            header('location:'.$_SERVER["HTTP_REFERER"].'');
+        }
+    }
+
+    public function delFavorites($id)
+    {   
+
+        $id_user = $_SESSION['id'];
+        $this->setId($id);
+        if($this->checkFavorites($id_user)==true)
+        {
+            $this->deleteFavorites($id_user);
+            header('location:'.$_SERVER["HTTP_REFERER"].'');
+        }
+        else
+        {
+            header('location:'.$_SERVER["HTTP_REFERER"].'');
+        }
     }
 
 }

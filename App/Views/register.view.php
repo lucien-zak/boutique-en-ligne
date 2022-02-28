@@ -17,31 +17,31 @@
         <section class="home">
             <div class="container">
                 <h3 class="title">CRÉATION DE VOTRE COMPTE</h3>
-                <form action="/account/register" method="POST">
+                <form action="/account/register" id="register" method="POST">
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="firstname" placeholder="Prénom">
+                            <input type="text" name="firstname" id="firstname" placeholder="Prénom">
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="name" placeholder="Nom">
+                            <input type="text" name="name" id="name" placeholder="Nom">
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="email" name="email" placeholder="Email">
+                            <input type="email" name="email" id="email" placeholder="Email">
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="password" name="password" placeholder="Mot de passe">
+                            <input type="password" name="password" id="password" placeholder="Mot de passe">
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="password" name="passwordRep" placeholder="Confirmez le mot de passe">
+                            <input type="password" name="passwordRep" id="passwordRep" placeholder="Confirmez le mot de passe">
                             <div class="right"></div>
                         </div>
                     </div>
@@ -59,3 +59,5 @@
     </main>
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">

@@ -39,9 +39,28 @@ class ReviewsModel extends Database
 
     protected function setReview()
     {
-        return $this->run('INSERT INTO `reviews`( `comment`, `Mark`, `report`, `id_user`, `id_product`) VALUES (?, ?, ?, ?, ?)' , [$this->comment, $this->mark, $this->report, $this->id_user, $this->id_product]);
+        return $this->run('INSERT INTO `reviews`( `comment`, `mark`, `report`, `id_user`, `id_product`) VALUES (?, ?, ?, ?, ?)' , [$this->comment, $this->mark, $this->report, $this->id_user, $this->id_product]);
     }
-                
-    
 
+    protected $id_review;
+    protected $sub_comment;
+
+    protected function setId_review($id_review)
+    {
+        $this->id_review = $id_review;
+        return $this;
+    }
+
+    protected function setSub_comment($sub_comment)
+    {
+        $this->sub_comment = $sub_comment;
+        return $this;
+    }
+
+        
+    protected function setSub_Review()
+    {
+        return $this->run('INSERT INTO `sub_reviews`( `sub_comment`, `id_review`, `id_user`) VALUES (?, ?, ?)' , [$this->sub_comment, $this->id_review, $this->id_user]);
+    }
+    
 }

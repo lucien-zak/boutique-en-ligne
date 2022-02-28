@@ -13,6 +13,8 @@ use App\Controllers\CardsController;
 use App\Controllers\AdressController;
 use App\Controllers\CartController;
 use App\Controllers\PayementController;
+use App\Controllers\ReviewsController;
+
 
 $router = new AltoRouter;
 
@@ -28,6 +30,25 @@ $router->map( 'GET', '/product/[a:slug]-[i:id]', function($slug, $id){
 	$product->product($id, $slug);
 });
 
+$router->map( 'POST', '/product/favorite_add/[i:id]', function($id){
+    $favorite = new ProductController;
+    $favorite->addFavorites($id);
+});
+
+$router->map( 'POST', '/product/favorite_del/[i:id]', function($id){
+    $favorite = new ProductController;
+    $favorite->delFavorites($id);
+});
+
+$router->map( 'POST', '/product/reviewadd/[i:id_product]', function($id_product){
+    $review = new ReviewsController;
+    $review->NewReview($id_product);
+});
+
+$router->map( 'POST', '/product/sub_reviewadd/[i:id_review]', function($id_review){
+    $review = new ReviewsController;
+    $review->NewSub_review($id_review);
+});
 
 $router->map( 'GET', '/products', function(){
     $product = new ProductController;
