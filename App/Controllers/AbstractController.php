@@ -34,12 +34,20 @@ class AbstractController
     }
 
     public static function is_connected(){
-        if (isset($_SESSION['id']) ){
+        if (isset($_SESSION['user']) ){
             unset($_SESSION['continue_path']);
         }
         else {
             $_SESSION['continue_path'] = $_SERVER["HTTP_REFERER"];
             header('location:/account/login');
+            exit();
+        }
+    }
+
+    public static function redirect_from_referer(){
+
+        if (isset($_SERVER["HTTP_REFERER"])){
+            $_SESSION['continue_path'] = $_SERVER["HTTP_REFERER"];
         }
     }
 }

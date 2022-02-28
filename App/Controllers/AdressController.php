@@ -15,7 +15,7 @@ class AdressController extends AdressModel
         $additional_adress = htmlspecialchars($_POST['additional_adress']);
         $postal_code = htmlspecialchars($_POST['postal_code']);
         $city = htmlspecialchars($_POST['city']);
-        $id_user = htmlspecialchars($_SESSION['id']);
+        $id_user = htmlspecialchars($_SESSION['user']['id']);
 
         if(!empty($type) && !empty($full_name) && !empty($adress) && !empty($postal_code) && !empty($city))
         {
@@ -23,6 +23,11 @@ class AdressController extends AdressModel
             {
                 $this->setType($type)->setFull_name($full_name)->setAdress($adress)->setAdditional_adress($additional_adress)->setPostal_code($postal_code)->setCity($city)->setId_user($id_user);
                 $this->setUserAdress();
+                if (isset($_SESSION['continue_path'])) {
+                    $url = $_SESSION['continue_path'];
+                    header("location:$url");
+                    exit();
+                }
                 header("location:/account");
                 exit();
             }
@@ -43,7 +48,7 @@ class AdressController extends AdressModel
         $titrepage = "Adresses";
         $this->table = "adresses";
         
-        $id_user = $_SESSION['id'];
+        $id_user = $_SESSION['user']['id'];
         $data = $this->setId_user($id_user)->getAllById_user();
         $nb = $this->checkAddress($id_user);
         $params = ['nb'=>$nb, 'data'=> $data, 'titre' => $titrepage];

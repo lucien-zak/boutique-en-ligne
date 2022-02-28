@@ -65,11 +65,11 @@ class UserController extends UserModel
                         $this->setPassword($passwordbdd['password']);
                         $user = $this->checkLogs()->fetchAll(PDO::FETCH_ASSOC);
 
-                        $_SESSION['id'] = $user['0']['id'];
-                        $_SESSION['firstname'] = $user['0']['firstname'];
-                        $_SESSION['name'] = $user['0']['name'];
-                        $_SESSION['email'] = $user['0']['email'];
-                        $_SESSION['profil_img'] = $user['0']['profil_img'];
+                        $_SESSION['user']['id'] = $user['0']['id'];
+                        $_SESSION['user']['firstname'] = $user['0']['firstname'];
+                        $_SESSION['user']['name'] = $user['0']['name'];
+                        $_SESSION['user']['email'] = $user['0']['email'];
+                        $_SESSION['user']['profil_img'] = $user['0']['profil_img'];
                         if (isset($_SESSION["continue_path"])){
                             $url = $_SESSION["continue_path"];
                             header("location:".$url."");
