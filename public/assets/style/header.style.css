@@ -34,6 +34,16 @@
         color: #fff;
     }
 
+    a > h5 {
+        margin: 0;
+        position: absolute;
+        z-index: 100;
+        color: black;
+        padding-left: 1%;
+
+        text-align: center;
+    }
+
     #selected, nav > a:hover {
         color: #FC7E1F;
     }

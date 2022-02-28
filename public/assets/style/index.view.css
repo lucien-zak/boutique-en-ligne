@@ -13,7 +13,6 @@
     }
     
     main {
-		height: 100vh;
         background-color:  #131313;
     }
     section.home > div.container {
@@ -89,4 +88,6 @@
         border-bottom: 2px solid white;
         border-right: 2px solid white;
     }
+
+    
 }

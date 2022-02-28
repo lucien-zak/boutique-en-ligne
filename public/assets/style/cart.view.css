@@ -1,0 +1,353 @@
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* * {
+        color: #fff;
+    } */
+    
+    body > div {
+        width: 100%;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+
+        padding-bottom: 10vh;
+    }
+
+    form > #search {
+        margin-top: 10%;
+        padding: 8%;
+
+        width: 77vw;
+        height: 5.93vh;
+
+        background-color: #2B2B2B;
+        border: none;
+
+        color: #fff;
+        font-family: 'Comfortaa-R';
+    }
+
+    form > #delivery {
+        margin-top: 6%;
+        width: 90vw;
+        height: 5.93vh;
+        background-color: #2B2B2B;
+        border: none;
+        color: #fff;
+        font-family: 'Comfortaa-R';
+    }
+
+    form > #delivery::before {
+        background-image: url(../assets/img/ç);
+    }
+
+    div.container {
+        width: 92vw;
+        height: 25vh;
+        margin-top: 18px;
+        background-color: #2B2B2B;
+        text-decoration: none;
+
+        color: #fff;
+
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    div.result {
+        height: 18vh;
+        border: #fff 1px solid;
+        flex-direction: column;
+    }
+
+    div.result > h3, h4 {
+        margin: 0;
+        margin-bottom: 4%;
+        font-family: 'Comfortaa-R';
+        text-align: center;
+    }
+
+    div.result > h4 {
+        margin: 1%;
+    }
+
+    div.container > .right:before {
+        position: absolute;
+        content: "";
+        top: 10px;
+        left: 10px;
+        width: 15px ;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        z-index: 100;
+    }
+
+    div.container > .right:after {
+        position: absolute;
+        content: "";
+        bottom: 10px;
+        left: 10px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-left: 2px solid white;
+        z-index: 100;
+    }
+
+    div.container > .left:before {
+        position: absolute;
+        content: "";
+        top: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+        z-index: 100;
+    }
+
+    div.container > .left:after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+        z-index: 100;
+    }
+
+    div.container div.content {
+        width: 94%;
+        height: 90%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    div.container div.content div.info {
+        width: 44%;
+        height: 89%;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+
+        text-align: left;
+    }
+
+    div.container div.content div.info div.box {
+        height: 13vh;
+        width: 100%;
+    }
+
+    div.container div.content > img {
+        width: 40vw;
+        height: 20vh;
+    }
+
+    div.container div.content div.info div.box  > h3, div.container div.content div.info div.box > h2, div.container div.content div.info div.box > h5 {
+        margin: 0;
+        margin-bottom: 5px;
+        font-family: 'Comfortaa-R';
+    }
+
+    div.container div.content div.info div.box h2 {
+        font-size: 24px;
+    }
+
+    div.container div.content div.info div.box > h3 {
+        font-size: 12px;
+    }
+
+    div.container div.content div.info div.box > h5 {
+        font-size: 20px;
+    }
+
+    button.button {
+        position: relative;
+        background-color: #FC7E1F;
+        text-align: center;
+        font-size: 11px;
+        padding: 16px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-family: 'Comfortaa-R';
+        margin-left: 10%;
+        text-decoration: none;
+        border: none;
+        color: #fff;
+    }
+
+    button.button:before {
+        position: absolute;
+        content: "";
+        top: 5px;
+        left: 5px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+    }
+
+    button.button:after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+    }
+
+    div.button {
+        position: relative;
+        width: 65vw;
+        background-color: #FC7E1F;
+        text-align: center;
+        padding: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-family: 'Comfortaa-R';
+    }
+
+    div.button > a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 19px;
+        padding: 20px;
+    }
+
+    div.button:before {
+        position: absolute;
+        content: "";
+        top: 5px;
+        left: 5px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+    }
+
+    div.button:after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+    }
+
+    /* /////////////////////////////////////////////////////////////////// */
+
+    form > div > input.number {
+        position: relative;
+        width: 25px;
+        height: 10px;
+        background-color: #2B2B2B;
+        text-align: center;
+        padding: 10px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        font-family: 'Comfortaa-R';
+        color: #fff;
+        font-size: 15px;
+        border: none;
+    }
+
+    form > div.quantity-box {
+        position: relative;
+    }
+
+    div.info > form {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+
+        position: relative;
+    }
+
+    form > div > input.number:focus {
+        outline: none;
+    }
+
+    form > div > div.left:before {
+        position: absolute;
+        content: "";
+        top: 0px;
+        left: 0px;
+        width: 15px ;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        z-index: 100;
+    }
+
+    form > div > div.left:after {
+        position: absolute;
+        content: "";
+        bottom: 0px;
+        left: 0px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-left: 2px solid white;
+        z-index: 100;
+    }
+
+    form > div > div.right:before {
+        position: absolute;
+        content: "";
+        top: 0px;
+        right: 0px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+        z-index: 100;
+    }
+
+    form > div > div.right:after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+        z-index: 100;
+    }
+
+    #green {
+        color: green;
+    }
+
+    #red {
+        color: red;
+    }
+}

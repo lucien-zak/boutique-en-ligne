@@ -3,11 +3,43 @@
         color: #fff;
     }
 
+    body > form {
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form > #search {
+        padding: 4%;
+
+        width: 70vw;
+
+        background-color: #2B2B2B;
+        border: none;
+
+        color: #fff;
+        font-family: 'Comfortaa-R';
+    }
+
+    form > #filter {
+        padding: 4%;
+        margin-left: 4%;
+
+        background-color: #2B2B2B;
+        border: none;
+        color: #fff;
+
+        /* width: 70vw; */
+    }
+
     div.product-container {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
+
+        padding-bottom: 10vh;
     }
 
     a.product {

@@ -12,13 +12,8 @@
         background-color:  #131313;
     }
     
-    main {
-        background-color:  #131313;
-		height: 80vh;
-    }
-	
 	main.resize {
-		height: 100vh;
+        padding-bottom: 10vh;
 	}
 	
     section.home > div.container {
