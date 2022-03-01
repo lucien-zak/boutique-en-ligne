@@ -8,6 +8,7 @@ $whoops->register();
 session_start();
 
 use App\Controllers\AbstractController;
+use App\Controllers\AdminController;
 use App\Controllers\AdressController;
 use App\Controllers\CardsController;
 use App\Controllers\CartController;
@@ -182,6 +183,24 @@ $router->map('GET', '/account/cart', function () {
     $cart = new CartController;
     $cart->cart();
 });
+
+/////////////////////////////////////////////////////////////////////////////
+
+$router->map('GET', '/admin', function () {
+    $admin = new AdminController;
+    $admin->home_admin();
+});
+
+$router->map('GET', '/admin/products', function () {
+    $admin = new AdminController;
+    $admin->products_admin();
+});
+
+$router->map('GET', '/admin/product/modify/[a:slug]-[i:id]', function ($slug, $id) {
+    $product = new AdminController;
+    $product->product_admin($slug, $id);
+});
+
 
 /////////////////////////////////////////////////////////////////////////////
 

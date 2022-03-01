@@ -26,8 +26,9 @@ data-rateyo-score="3">
 <h6>une note moyenne de <?=round($params['rating']['AVG(`mark`)'], 1)?></h6>
 <?php
 echo '<h6>Retour à la liste des produits : <a href="/products">ICI</a></h6>';
-echo '<h6>Il reste '.$stock.' articles en stock';
-echo '<h6>
+if ($stock > 0) {
+    echo '<h6>Il reste '.$stock.' articles en stock';
+    echo '<h6>
 
 <form action="/cart/add/'.$params['product']->slug.'-'.$params['product']->id.'" method="post">
 <input value="1" type="number" name="quantity" min="1" max="'.$stock.'">
@@ -41,6 +42,9 @@ echo '<h6>
 
 
 </h6> ';
+} else {
+    echo "Cet article n'est plus en stock";
+}
 
 echo '<h6>Catégorie : <a href="/products/category/'.$params['product']->categorie.'">'.$params['product']->categorie.'</a></h6>';
 echo '</div>';

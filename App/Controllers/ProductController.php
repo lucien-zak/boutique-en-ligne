@@ -14,7 +14,7 @@ class ProductController extends ProductModel
         $params = ['titre' => $titrepage, 'product' => $product, 'message' => $message, 'css' => 'product'];
         $sub_reviews = $this->displaySub_Reviews(); 
         $reviews = $this->getReviewsById();
-        $favorites = $this->checkFavorites($_SESSION['id']);
+        $favorites = $this->checkFavorites($_SESSION['user']['id']);
         $averageRating = $this->avgRatingProduct($id);
         $params = ['titre' => $titrepage, 'product' => $product , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
         
@@ -51,7 +51,6 @@ class ProductController extends ProductModel
         $titrepage = 'Produits';
         $listproducts = $this->getProducts();
         $listcategory = $this->getCategory();
-        $sortedlist = [];
         $sortedlist = $this->sort_category($listcategory);        
         $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist, 'css' => 'products'];
         return AbstractController::render('products', $params);
@@ -72,7 +71,7 @@ class ProductController extends ProductModel
         $titrepage = 'Produits';
         $listproducts = $this->getProductsBySearch();
         $listcategory = $this->getCategory();
-        $sortedlist = $this->sort_category($listcategory);
+        $sortedlist = AbstractController::sort_category($listcategory);
         $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist];
         return AbstractController::render('products', $params);
     }
@@ -97,7 +96,7 @@ class ProductController extends ProductModel
     public function addFavorites($id)
     {   
 
-        $id_user = $_SESSION['id'];
+        $id_user = $_SESSION['user']['id'];
         $this->setId($id);
         if($this->checkFavorites($id_user)==false)
         {
@@ -113,7 +112,7 @@ class ProductController extends ProductModel
     public function delFavorites($id)
     {   
 
-        $id_user = $_SESSION['id'];
+        $id_user = $_SESSION['user']['id'];
         $this->setId($id);
         if($this->checkFavorites($id_user)==true)
         {

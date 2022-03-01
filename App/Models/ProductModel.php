@@ -16,6 +16,7 @@ class ProductModel extends Database
     protected $id_sub_category;
     protected $stock;
     public $args = "";
+    protected $table;
 
     /**
      * Set the value of id
@@ -204,6 +205,7 @@ class ProductModel extends Database
                             FROM products
                             INNER JOIN `artists` ON products.id_artist = artists.id
                             INNER JOIN `categories` ON products.id_categorie = categories.id
+                            INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie
                             WHERE products.id = ? AND slug = ?',
             [$this->id, $this->slug])->fetch();
     }
