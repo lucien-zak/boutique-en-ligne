@@ -24,12 +24,30 @@ class AdminController extends ProductModel{
         $this->table = 'artists';
         $listartist = $this->getAll();
         $this->table = 'categories';
-        $allcategory = $this->getAll();
-        $this->table = 'sub_categorie';
-        $allsubcategory = $this->getAll();
+        $allcategory = $this->getCategorywithSub();
         $product = $this->setId($id)->setSlug($slug)->getProduct();
-        $params = [ 'titre' => $titrepage, 'product' => $product, 'artists' => $listartist, 'allcategory' => $allcategory, 'allsubcategory' => $allsubcategory ];
+        $params = [ 'titre' => $titrepage, 'product' => $product, 'artists' => $listartist, 'allcategory' => $allcategory];
         return AbstractController::render('admin.product', $params);
+    }
+
+    public function product_admin_update($slug, $id)
+    {
+        $category = explode("/",$_REQUEST['catgory']);
+        $this->setId($id)
+        ->setname($_REQUEST['name'])
+        ->setDescription($_REQUEST['description'])
+        ->setPrice($_REQUEST['price'])
+        ->setRelease($_REQUEST['released'])
+        ->setId_artist($_REQUEST['artist'])
+        ->setId_category($category[0])
+        ->setId_sub_category($category[1])
+        ->setStock($_REQUEST['stock']);
+        $this->update_product();
+    }
+
+    public function product_admin_delete($slug,$id){
+        $this->setSlug($slug)->setId($id);
+        $this->delete_product();
     }
 
 

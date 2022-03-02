@@ -184,7 +184,7 @@ $router->map('GET', '/account/cart', function () {
     $cart->cart();
 });
 
-/////////////////////////////////////////////////////////////////////////////
+//////////////////////////////ADMIN///////////////////////////////////////////////
 
 $router->map('GET', '/admin', function () {
     $admin = new AdminController;
@@ -201,6 +201,19 @@ $router->map('GET', '/admin/product/modify/[a:slug]-[i:id]', function ($slug, $i
     $product->product_admin($slug, $id);
 });
 
+$router->map('POST', '/admin/product/update/[a:slug]-[i:id]', function ($slug, $id) {
+$product = New AdminController;
+$product->product_admin_update($slug,$id);
+echo 'Produits modifiés';
+echo '<a href="/admin/products">Retour aux produits</a>';
+});
+
+$router->map('GET', '/admin/product/delete/[a:slug]-[i:id]', function ($slug, $id) {
+    $product = New AdminController;
+    $product->product_admin_delete($slug,$id);
+    echo 'Produits supprimé';
+    echo '<a href="/admin/products">Retour aux produits</a>';
+    });
 
 /////////////////////////////////////////////////////////////////////////////
 

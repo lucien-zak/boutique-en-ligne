@@ -15,7 +15,7 @@ foreach ($params['products'] as $product)
     echo '<td>'.$product->categorie.'</td>';
     echo '<td>'.$product->sub_categorie.'</td>';
     echo '<td><a href="/admin/product/modify/'.$product->slug.'-'.$product->id.'">Modifier le produit</a></td>';
-    echo '<td><a href="/">Supprimer le produit</a></td>';
+    echo '<td><a href="/admin/product/delete/'.$product->slug.'-'.$product->id.'">Supprimer le produit</a></td>';
     echo '</tr>';
 }
 

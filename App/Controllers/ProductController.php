@@ -75,9 +75,7 @@ class ProductController extends ProductModel
         $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist];
         return AbstractController::render('products', $params);
     }
-
-
-
+    
     private function sort_category($listcategory)
     {   
         $sortedlist = [];

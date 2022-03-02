@@ -10,7 +10,9 @@ class ProductModel extends Database
     protected $name;
     protected $description;
     protected $price;
+    protected $release;
     protected $slug;
+    protected $id_artist;
     protected $id_tags;
     protected $id_category;
     protected $id_sub_category;
@@ -198,6 +200,28 @@ class ProductModel extends Database
         return $this;
     }
 
+    /**
+     * Get the value of release
+     */ 
+    public function getRelease()
+    {
+        return $this->release;
+    }
+
+    /**
+     * Set the value of release
+     *
+     * @return  self
+     */ 
+    public function setRelease($release)
+    {
+        $this->release = $release;
+
+        return $this;
+    }
+
+    
+
     public function getProduct()
     {
 
@@ -207,7 +231,8 @@ class ProductModel extends Database
                             INNER JOIN `categories` ON products.id_categorie = categories.id
                             INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie
                             WHERE products.id = ? AND slug = ?',
-            [$this->id, $this->slug])->fetch();
+                            [$this->id, $this->slug])
+                            ->fetch();
     }
 
     public function getProducts()
@@ -218,7 +243,8 @@ class ProductModel extends Database
                             INNER JOIN `artists` ON products.id_artist = artists.id
                             INNER JOIN `categories` ON products.id_categorie = categories.id
                             INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie
-                            GROUP BY products.id")->fetchAll();
+                            GROUP BY products.id")
+                            ->fetchAll();
 
     }
 
@@ -229,8 +255,20 @@ class ProductModel extends Database
                             FROM `categories`
                             INNER JOIN sub_categorie
                             ON categories.id = sub_categorie.id_categorie
-                            ORDER BY categorie")->fetchAll();
+                            ORDER BY categorie")
+                            ->fetchAll();
     }
+
+    public function getCategorywithSub()
+    {
+
+        return $this->run(" SELECT categories.id AS 'categoriesid', sub_categorie.id AS 'sub_categorieid' ,categorie, sub_categorie FROM `categories` 
+                            INNER JOIN sub_categorie ON categories.id = sub_categorie.id_categorie  
+                            ORDER BY categorie")
+                            ->fetchAll();
+    }
+
+
 
     public function getProductsByCategory()
     {
@@ -263,6 +301,19 @@ class ProductModel extends Database
                 INNER JOIN sub_categorie ON sub_categorie.id = products.id_sub_categorie 
                 WHERE categorie LIKE :search OR name LIKE :search OR artist LIKE :search';
                 return $this->run($sql, [':search' => $_REQUEST['search'].'%'] )->fetchAll();
+    }
+
+    public function update_product()
+    {
+        $sql = "UPDATE `products` SET `name`='".htmlspecialchars($this->name)."',`description`='".htmlspecialchars($this->description)."',`price`=$this->price,`date`='".$this->release."',`id_artist`=$this->id_artist,`id_categorie`=$this->id_category,`id_sub_categorie`=$this->id_sub_category,`stock`=$this->stock WHERE `id` = ? ";
+        // dump($sql);
+        // die();
+        return $this->run($sql,[$this->id]);
+    }
+
+    public function delete_product(){
+        $sql = "DELETE FROM `products` WHERE id = ? AND slug = ?";
+        return $this->run($sql,[$this->id, $this->slug]);
     }
 
     ////Table secondaires //
@@ -302,6 +353,31 @@ class ProductModel extends Database
 
     protected function avgRatingProduct()
     {
-        return $this->run('SELECT AVG(`mark`) FROM `reviews` WHERE `id_product` = ?' , [$this->id])->fetch(PDO::FETCH_ASSOC);
+        return $this->run(' SELECT AVG(`mark`) 
+                            FROM `reviews` 
+                            WHERE `id_product` = ?' , [$this->id]
+                            )->fetch(PDO::FETCH_ASSOC);
+    }
+
+    
+
+    /**
+     * Get the value of id_artist
+     */ 
+    public function getId_artist()
+    {
+        return $this->id_artist;
+    }
+
+    /**
+     * Set the value of id_artist
+     *
+     * @return  self
+     */ 
+    public function setId_artist($id_artist)
+    {
+        $this->id_artist = $id_artist;
+
+        return $this;
     }
 }
