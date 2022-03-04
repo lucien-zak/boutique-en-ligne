@@ -1,4 +1,4 @@
-<!-- <?php
+ <?php
 echo '<fieldset>';
 echo '<legend>Filtres</legend>';
 echo '<form action="/products" method="post">';
@@ -19,7 +19,7 @@ foreach ($params['category'] as $key => $value) {
 echo '<input type="submit" value="Filtrez">';
 echo '</form>';
 echo '</fieldset>';
-?> -->
+?> 
 
 </head>
 <body>

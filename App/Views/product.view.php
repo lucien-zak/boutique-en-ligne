@@ -125,23 +125,26 @@ $sub_reviews = $params['sub_reviews'];
 foreach($reviews as $review)
 {
     ?>
-
     <div class="rateyo3" id= "rating"
     data-rateyo-rating="<?=$review->mark?>"
     data-rateyo-num-stars="5"
     data-rateyo-score="3">
     </div>
-
     <?php
+
     echo $review->comment .'<br>';
+    
     ?>
+    <form method="post" action="/product/review_report/<?=$review->id?>">
+        <input type="submit" value="report">
+    </form>
 
     <form method="post" action='/product/sub_reviewadd/<?=$review->id?>'>
         <input type="text" name="sub_comment">
         <input type="submit">
     </form>
 
-<?php
+    <?php
 
     foreach($sub_reviews[$review->id] as $sub_review)
     {

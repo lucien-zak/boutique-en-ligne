@@ -1,7 +1,6 @@
 <?php
 namespace App\Models;
 use App\Config\Database;
-
 class AdressModel extends Database
 {
 
@@ -71,5 +70,9 @@ class AdressModel extends Database
         return $this->run("SELECT * FROM adresses WHERE `id_user`= $this->id_user " )->fetchAll();
     }
 
+    public function getCurrentAdress($type, $id_user)
+    {
+        return $this->run("SELECT * FROM adresses WHERE `type`= ? AND `id_user`= ?" , [$type , $id_user])->fetch();
+    }
 
 }

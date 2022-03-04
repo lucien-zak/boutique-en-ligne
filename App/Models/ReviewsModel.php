@@ -63,4 +63,13 @@ class ReviewsModel extends Database
         return $this->run('INSERT INTO `sub_reviews`( `sub_comment`, `id_review`, `id_user`) VALUES (?, ?, ?)' , [$this->sub_comment, $this->id_review, $this->id_user]);
     }
     
+    protected function getReport($id)
+    {
+        return $this->run('SELECT `report` FROM `reviews` WHERE `id` = ?' , [$id])->fetch();
+    }
+
+    protected function addReport($report ,$id)
+    {
+        return $this->run('UPDATE `reviews` SET `report`= ?  WHERE `id` = ?' , [$report, $id]);
+    }
 }

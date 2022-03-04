@@ -14,7 +14,7 @@ class ProductController extends ProductModel
         $params = ['titre' => $titrepage, 'product' => $product, 'message' => $message, 'css' => 'product'];
         $sub_reviews = $this->displaySub_Reviews(); 
         $reviews = $this->getReviewsById();
-        $favorites = $this->checkFavorites($_SESSION['id']);
+        $favorites = $this->checkFavorites($_SESSION['user']['id']);
         $averageRating = $this->avgRatingProduct($id);
         $params = ['titre' => $titrepage, 'product' => $product , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
         
@@ -27,7 +27,7 @@ class ProductController extends ProductModel
 
         foreach($reviews as $review)
         {
-            if(!isset($sub_review[$review->id]))
+            if(!isset($sub_reviews[$review->id]))
             {
                 $sub_reviews[$review->id] = [];
             }
@@ -97,7 +97,7 @@ class ProductController extends ProductModel
     public function addFavorites($id)
     {   
 
-        $id_user = $_SESSION['id'];
+        $id_user = $_SESSION['user']['id'];
         $this->setId($id);
         if($this->checkFavorites($id_user)==false)
         {
@@ -113,7 +113,7 @@ class ProductController extends ProductModel
     public function delFavorites($id)
     {   
 
-        $id_user = $_SESSION['id'];
+        $id_user = $_SESSION['user']['id'];
         $this->setId($id);
         if($this->checkFavorites($id_user)==true)
         {

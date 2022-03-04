@@ -1,6 +1,7 @@
-
+<?php dump($params);?>
+            
 <body>
-        <form method="post">
+        <form action="/payement/w" method="post">
             <div id="errors"></div><!--Contiendra les messages d'erreur de paiement-->
             <input type="text" id="cardholder-name" placeholder="Titulaire de la carte">
             <div id="card-elements"></div><!--Contiendra le formulaire de saisie des informations de carte-->
