@@ -196,6 +196,26 @@ $router->map('GET', '/admin/products', function () {
     $admin->products_admin();
 });
 
+$router->map('GET', '/admin/categories', function () {
+    $admin = new AdminController;
+    $admin->categories_admin();
+});
+
+$router->map('GET', '/admin/category/[i:id]', function ($id) {
+    $admin = new AdminController;
+    $admin->category_admin($id);
+});
+
+$router->map('POST', '/admin/subcategory/modify/[i:id]', function ($id) {
+    $product = new AdminController;
+    $product->category_admin_modify($id);
+});
+
+
+
+
+
+
 $router->map('GET', '/admin/product/modify/[a:slug]-[i:id]', function ($slug, $id) {
     $product = new AdminController;
     $product->product_admin($slug, $id);

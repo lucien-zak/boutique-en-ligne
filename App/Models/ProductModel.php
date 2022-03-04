@@ -268,6 +268,10 @@ class ProductModel extends Database
                             ->fetchAll();
     }
 
+    public function update_subcategory(){
+        return $this->run("");
+    }
+
 
 
     public function getProductsByCategory()

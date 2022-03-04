@@ -50,6 +50,39 @@ class AdminController extends ProductModel{
         $this->delete_product();
     }
 
+    public function categories_admin(){
+        $titrepage = 'Panel Admin Catégorie';
+        $this->table = 'categories';
+        $allcategory = $this->getAll();
+        $params = [ 'titre' => $titrepage, 'allcategory' => $allcategory];
+        return AbstractController::render('admin.categories', $params);
+    }
+
+    public function category_admin($id){
+        $titrepage = 'Panel Admin Catégorie';
+        $this->table = 'categories';
+        $categories = $this->getAll();
+        $allcategory = $this->getCategorywithSub();
+        $params = [ 'titre' => $titrepage, 'id' => $id, 'allcategory' => $allcategory, 'categories' => $categories];
+        return AbstractController::render('admin.category', $params);
+    }
+
+    public function category_admin_modify($id){
+        dump($_REQUEST);
+        if ($_REQUEST['action'] == 'Modifier'){
+
+        }
+        // $titrepage = 'Panel Admin Catégorie';
+        // $this->table = 'categories';
+        // $allcategory = $this->getCategorywithSub();
+        // $params = [ 'titre' => $titrepage, 'id' => $id, 'allcategory' => $allcategory];
+        // return AbstractController::render('admin.category', $params);
+    }
+
+
+    
+
+
 
 }
 
