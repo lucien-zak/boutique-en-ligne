@@ -13,7 +13,10 @@
     ?>
     <link rel="stylesheet" href="../assets/style/header.style.css">
     <link rel="stylesheet" href="../assets/style/normalize.css">
-<script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 </head>
 <body>
 <header>
@@ -27,5 +30,3 @@
         <a <?= $params['titre'] == "Account" or "Profil" || "Vos Adresses" || "Vos Paiements" ? "class='color-orange'" : "";?> href="/account"><i class="color fas fa-user"></i></a>
     </nav>
 </header>
-
-<!-- <i class="color fas fa-shopping-cart"></i> -->

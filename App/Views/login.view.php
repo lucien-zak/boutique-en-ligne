@@ -1,11 +1,3 @@
-<?php !empty($session)?dump($_SESSION):'';
-
-dump($_SERVER);
-dump($_SESSION);
-?>
-
-
-
 <?= isset($params['message'])?$params['message']:''; ?>
 
 <!DOCTYPE html>
