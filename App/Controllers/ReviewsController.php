@@ -30,4 +30,13 @@ class ReviewsController extends ReviewsModel
         header('location:'.$_SERVER["HTTP_REFERER"].'');
     }
     
+    //////////////////////////////////////////
+    
+    public function updateReport($id)
+    {
+        $nb = $this->getReport($id);
+        $report = $nb->report+1;
+        $this->addReport($report, $id);
+        header('location:'.$_SERVER["HTTP_REFERER"].'');
+    }
 }

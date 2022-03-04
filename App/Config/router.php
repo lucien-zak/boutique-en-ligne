@@ -57,6 +57,11 @@ $router->map( 'POST', '/product/sub_reviewadd/[i:id_review]', function($id_revie
     $review->NewSub_review($id_review);
 });
 
+$router->map( 'POST', '/product/review_report/[i:id]', function($id){
+    $review = new ReviewsController;
+    $review->updateReport($id);
+});
+
 $router->map('GET', '/products', function () {
     $product = new ProductController;
     $product->products();
@@ -142,9 +147,9 @@ $router->map('POST', '/account/addresses/add', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('GET', '/account/orders', function () {
-    Shop::orders();
-});
+// $router->map('GET', '/account/orders', function () {
+//     Shop::orders();
+// });
 
 $router->map('POST', '/account/orders', function () {
     $model = new UserController; $model->orders();
@@ -198,24 +203,25 @@ $router->map('POST', '/order/verification', function ()
         $command = New CommandController;
         $command->delivery_setrelay();
     }
-    if ($_REQUEST['typedelivery'] == 'Home') {
-        dump($_REQUEST);
+    else {
+        $command = New CommandController;
+        $command->redirect();
     }
 });
 
 $router->map('POST|GET', '/order/resume', function () {
-    AbstractController::is_connected();
-    $command = new CommandController;
-    $command->delivery_choice();
+    $resume = new CommandController;
+    $resume->resumeOrder();
 });
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map('GET', '/payement', function () {
-    $model = new PayementController; $model->setStripe();
+    $model = new PayementController; $model->setStripe2();
+});
+
+$router->map('POST | GET', '/payement/w', function () {
+    dump($_REQUEST);
 });
 
 // $router->map( 'POST', '/account/payements/edit', function(){
