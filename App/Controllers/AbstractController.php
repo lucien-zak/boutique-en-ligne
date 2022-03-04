@@ -11,6 +11,21 @@ class AbstractController
         require "../App/Views/$name.view.php";
         require "../App/Views/footer.view.php";
 
+
+        
+    }
+
+    public static function sort_category($listcategory)
+    {   
+        $sortedlist = [];
+        foreach ($listcategory as $key => $value) {
+            if (!array_key_exists($value->categorie, $sortedlist)) {
+                $sortedlist += [$value->categorie => $value->sub_categorie];
+            } else {
+                $sortedlist = array_merge_recursive($sortedlist, [$value->categorie => $value->sub_categorie]);
+            }
+        }
+        return $sortedlist;
     }
 
     public static function message($code)
