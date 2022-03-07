@@ -14,7 +14,14 @@ class ProductController extends ProductModel
         $params = ['titre' => $titrepage, 'product' => $product, 'message' => $message, 'css' => 'product'];
         $sub_reviews = $this->displaySub_Reviews();
         $reviews = $this->getReviewsById();
-        $favorites = $this->checkFavorites($_SESSION['user']['id']);
+        if(!empty($_SESSION['user']))
+        {
+            $favorites = $this->checkFavorites($_SESSION['user']['id']);
+
+        }
+        else{
+            $favorites = false;
+        }
         $averageRating = $this->avgRatingProduct($id);
         $params = ['titre' => $titrepage, 'css' => 'product', 'product' => $product , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
         
