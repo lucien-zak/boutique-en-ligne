@@ -8,6 +8,7 @@ $whoops->register();
 session_start();
 
 use App\Controllers\AbstractController;
+use App\Controllers\AdminController;
 use App\Controllers\AdressController;
 use App\Controllers\CardsController;
 use App\Controllers\CartController;
@@ -187,6 +188,57 @@ $router->map('GET', '/account/cart', function () {
     $cart = new CartController;
     $cart->cart();
 });
+
+//////////////////////////////ADMIN///////////////////////////////////////////////
+
+$router->map('GET', '/admin', function () {
+    $admin = new AdminController;
+    $admin->home_admin();
+});
+
+$router->map('GET', '/admin/products', function () {
+    $admin = new AdminController;
+    $admin->products_admin();
+});
+
+$router->map('GET', '/admin/categories', function () {
+    $admin = new AdminController;
+    $admin->categories_admin();
+});
+
+$router->map('GET', '/admin/category/[i:id]', function ($id) {
+    $admin = new AdminController;
+    $admin->category_admin($id);
+});
+
+$router->map('POST', '/admin/subcategory/modify/[i:id]', function ($id) {
+    $product = new AdminController;
+    $product->category_admin_modify($id);
+});
+
+
+
+
+
+
+$router->map('GET', '/admin/product/modify/[a:slug]-[i:id]', function ($slug, $id) {
+    $product = new AdminController;
+    $product->product_admin($slug, $id);
+});
+
+$router->map('POST', '/admin/product/update/[a:slug]-[i:id]', function ($slug, $id) {
+$product = New AdminController;
+$product->product_admin_update($slug,$id);
+echo 'Produits modifiés';
+echo '<a href="/admin/products">Retour aux produits</a>';
+});
+
+$router->map('GET', '/admin/product/delete/[a:slug]-[i:id]', function ($slug, $id) {
+    $product = New AdminController;
+    $product->product_admin_delete($slug,$id);
+    echo 'Produits supprimé';
+    echo '<a href="/admin/products">Retour aux produits</a>';
+    });
 
 /////////////////////////////////////////////////////////////////////////////
 

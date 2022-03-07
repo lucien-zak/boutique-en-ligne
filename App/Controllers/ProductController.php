@@ -58,7 +58,6 @@ class ProductController extends ProductModel
         $titrepage = 'Produits';
         $listproducts = $this->getProducts();
         $listcategory = $this->getCategory();
-        $sortedlist = [];
         $sortedlist = $this->sort_category($listcategory);        
         $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist, 'css' => 'products'];
         return AbstractController::render('products', $params);
@@ -79,13 +78,11 @@ class ProductController extends ProductModel
         $titrepage = 'Produits';
         $listproducts = $this->getProductsBySearch();
         $listcategory = $this->getCategory();
-        $sortedlist = $this->sort_category($listcategory);
+        $sortedlist = AbstractController::sort_category($listcategory);
         $params = ['titre' => $titrepage, 'products' => $listproducts, 'category' => $sortedlist];
         return AbstractController::render('products', $params);
     }
-
-
-
+    
     private function sort_category($listcategory)
     {   
         $sortedlist = [];

@@ -7,7 +7,6 @@ else {
     $stock = $params['product']->stock;
 }
 
-
 $reviews = $params['reviews'];
 $sub_reviews = $params['sub_reviews'];
 ?>
