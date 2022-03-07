@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $params['titre'] ?> - Vinyl Génération</title>
-    <link rel="stylesheet" href="../assets/style/index.view.css">
     <?php
     if(isset($params['css'])) {
         echo '<link rel="stylesheet" href="../assets/style/' . $params["css"] . '.view.css">';

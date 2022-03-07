@@ -8,7 +8,7 @@ class ShopController
     public static function home()
     {
         $titrepage = 'Accueil'; 
-        $params = ['titre' => $titrepage];
+        $params = ['titre' => $titrepage, 'css' => 'index'];
         return AbstractController::render('index', $params);
     }
 
@@ -19,21 +19,21 @@ class ShopController
     public static function account()
     {
         $titrepage = 'Account';
-        $params = ['titre' => $titrepage];
+        $params = ['titre' => $titrepage, 'css' => 'account'];
         return AbstractController::render('account', $params);
     }
 
     public static function register()
     {
         $titrepage = 'Register';
-        $params = [ 'titre' => $titrepage];
+        $params = [ 'titre' => $titrepage, 'css' => 'account'];
         return AbstractController::render('register', $params);
     }    
 
     public static function login()
     {
         $titrepage = 'Connexion';
-        $params = [ 'titre' => $titrepage];
+        $params = [ 'titre' => $titrepage, 'css' => 'account'];
         return AbstractController::render('login', $params);
     }
     
@@ -50,8 +50,6 @@ class ShopController
         $params = [ 'titre' => $titrepage, 'css' => 'account'];
         return AbstractController::render('account.profil', $params);
     }
-
-    
 
     public static function addressAdd()
     {
@@ -102,7 +100,7 @@ class ShopController
     public static function error()
     {
         $titrepage = 'Error 404';
-        $params = ['titre' => $titrepage];
+        $params = ['titre' => $titrepage, 'css' => 'error'];
         return AbstractController::render('error', $params);
     }
 

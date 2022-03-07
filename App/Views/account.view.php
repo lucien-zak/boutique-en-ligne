@@ -1,33 +1,32 @@
 <body>
-    <?php if( !isset($_SESSION['user']) ) { ?>
-	<main>
-        <section class="home">
-            <div class="container">
-                <img src="./assets/img/icons/logo-enterprise-1.png" alt="">
-                <div class="buttons-container">
-                    <div class="button">
-                        <a href="/account/login" class="">
-                            Connexion
-                        </a>
-                    </div>
-                    <div class="button">
-                        <a href="/account/register" class="">
-                            Inscription
-                        </a>
+    <?php if (!isset($_SESSION['user'])) { ?>
+        <main>
+            <section class="home">
+                <div class="container">
+                    <img src="./assets/img/icons/logo-enterprise-1.png" alt="">
+                    <div class="buttons-container">
+                        <div class="button">
+                            <a href="/account/login" class="">
+                                Connexion
+                            </a>
+                        </div>
+                        <div class="button">
+                            <a href="/account/register" class="">
+                                Inscription
+                            </a>
+                        </div>
                     </div>
                 </div>
-			</div>
-        </section>
-	</main>
+            </section>
+        </main>
     <?php } else { ?>
-    <main>
-        <section class="home">
+        <main>
             <div class="container profil">
                 <img class="avatar-profil" src="../assets/img/icons/users/<?= isset($_SESSION['user']['profil_img']) ? $_SESSION['user']['profil_img'] : 'user-default.png' ?>" alt="">
                 <div class="buttons-container">
                     <form action="/account/profil" method="POST">
                         <div class="buttons-container">
-                        <div class="button">
+                            <div class="button">
                                 <a href="/account/profil" class="">
                                     Mes Informations
                                 </a>
@@ -55,10 +54,9 @@
                         </div>
                     </form>
                 </div>
-			</div>
-        </section>
-    </main>
-	<?php } ?>
+            </div>
+        </main>
+    <?php } ?>
 </body>
 
 </html>

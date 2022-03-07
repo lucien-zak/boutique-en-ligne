@@ -10,9 +10,6 @@ class AbstractController
         require "../App/Views/header.view.php";
         require "../App/Views/$name.view.php";
         require "../App/Views/footer.view.php";
-
-
-        
     }
 
     public static function sort_category($listcategory)
