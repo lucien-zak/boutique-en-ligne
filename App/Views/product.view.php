@@ -84,8 +84,8 @@ $sub_reviews = $params['sub_reviews'];
             <div class="box-review">
                 <div class="review">
                     <div class="username">
-                        <!-- <img src="../assets/img/icons/users/0d834435910dec1bf31e688a7379cd76.jpg" alt=""> -->
-                        <h3><?= 'user - ' . $review->firstname ?></h3>
+                        <img src="../assets/img/icons/users/<?php $review->profil_img ?>" alt="">
+                        <h3><?= $review->firstname ?></h3>
                         <div class="rateyo3" id= "rating"
                         data-rateyo-rating="<?= $review->mark ?>"
                         data-rateyo-num-stars="5"
@@ -117,13 +117,15 @@ $sub_reviews = $params['sub_reviews'];
                 </div>
                 <?php
                 foreach($sub_reviews[$review->id] as $sub_review)
-                {
-                    echo '<div class="sub-review">';
-                    // echo '<div class="username"> 
-                    // <img src="../assets/img/icons/users/0d834435910dec1bf31e688a7379cd76.jpg" alt="">
-                    echo '<h3>user -'.$sub_review->firstname.' </h3>';
-                    echo '<h4>'.$sub_review->sub_comment.'</h4></div>';
-                }?>
+                { ?>
+                    <div class="sub-review">
+                        <div class="username"> 
+                            <img src="../assets/img/icons/users/<?= $sub_review->profil_img ?>" alt="">
+                            <h3><?= $sub_review->firstname ?></h3>
+                        </div>
+                        <h4><?= $sub_review->sub_comment ?>'</h4>
+                    </div>
+                <?php } ?>
             </div>
         <?php } ?>
     </div>
