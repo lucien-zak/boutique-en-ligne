@@ -9,6 +9,8 @@ foreach ($params['allcategory'] as $category) {
     echo '<tr>';
     echo '<td>' . $category['categorie'] . '</td>';
     echo '<td><a href="/admin/category/'.$category['id'].'">Voir la catégorie</a></td>';
+    echo '<td><a href="/admin/category/delete/'.$category['id'].'">Supprimer la catégorie et les sous-catégorie</a></td>';
+    //admin/category/delete/[i:id]';
     // echo '<td>'.$product->description.'</td>';
     // echo '<td>'.$product->stock.'</td>';
     // echo '<td>'.$product->categorie.'</td>';

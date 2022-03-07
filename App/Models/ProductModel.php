@@ -268,9 +268,24 @@ class ProductModel extends Database
                             ->fetchAll();
     }
 
-    public function update_subcategory(){
-        return $this->run("");
+    public function update_subcategory($category, $sub_category, $id)
+    {
+        return $this->run("UPDATE `sub_categorie` SET `id_categorie`= ? ,`sub_categorie`= ? WHERE `id` = ? ", [$category, $sub_category, $id]);
     }
+
+    public function delete_subcategory($id)
+    {
+        return $this->run("DELETE FROM `sub_categorie` WHERE id = ?", [$id]);
+    }
+
+    public function delete_category($id)
+    {
+        return $this->run("DELETE FROM `categories` WHERE id = ?", [$id]);
+    }
+
+
+
+
 
 
 
