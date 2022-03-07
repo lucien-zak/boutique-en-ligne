@@ -363,10 +363,13 @@ class ProductModel extends Database
     protected function avgRatingProduct()
     {
         return $this->run(' SELECT AVG(`mark`) 
+                            AS `stars`
                             FROM `reviews` 
                             WHERE `id_product` = ?' , [$this->id]
                             )->fetch(PDO::FETCH_ASSOC);
     }
+
+    
 
     /**
      * Get the value of id_artist

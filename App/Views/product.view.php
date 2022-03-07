@@ -1,5 +1,5 @@
 <?php
-dump($params);
+// dump($params);
 if (isset($_SESSION['cart'][$params['product']->slug.'-'.$params['product']->id]['quantity'])){
     $stock = $params['product']->stock - $_SESSION['cart'][$params['product']->slug.'-'.$params['product']->id]['quantity'];
 }
@@ -58,7 +58,7 @@ $sub_reviews = $params['sub_reviews'];
 
     <form action="/product/reviewadd/<?=$params['product']->id?>" method="POST">
         <h2>Soumettre son avis</h2>
-
+        
         <div class="input-container">
             <div class="left"></div>
             <textarea id="input" rows="5" name="comment" placeholder="Décrivez votre avis sur le produit"></textarea>
