@@ -327,14 +327,16 @@ class ProductModel extends Database
         return $this->run("SELECT `reviews`.`id`,
         `reviews`.`comment`,
         `reviews`.`mark`,
-        `users`.`firstname` FROM `reviews` INNER JOIN `users` ON `reviews`.`id_user` = `users`.`id` WHERE `id_product`= ?" , [$this->id])->fetchAll();
+        `users`.`firstname`,
+        `users`.`profil_img` FROM `reviews` INNER JOIN `users` ON `reviews`.`id_user` = `users`.`id` WHERE `id_product`= ?" , [$this->id])->fetchAll();
     }
 
     protected function getSub_ReviewsById($id)
     {
         return $this->run("SELECT `sub_reviews`.`sub_comment`,
         `sub_reviews`.`id`,
-        `users`.`firstname` FROM `sub_reviews` INNER JOIN `users` ON `sub_reviews`.`id_user` = `users`.`id` WHERE `id_review`= ?" , [$id])->fetchAll();
+        `users`.`firstname`,
+        `users`.`profil_img` FROM `sub_reviews` INNER JOIN `users` ON `sub_reviews`.`id_user` = `users`.`id` WHERE `id_review`= ?" , [$id])->fetchAll();
     }
 
     protected function setFavorites($id_user)
@@ -369,7 +371,7 @@ class ProductModel extends Database
                             )->fetch(PDO::FETCH_ASSOC);
     }
 
-    
+
 
     /**
      * Get the value of id_artist
