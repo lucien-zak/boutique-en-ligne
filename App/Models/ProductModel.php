@@ -339,12 +339,19 @@ class ProductModel extends Database
 
     protected function getReviewsById()
     {
-        return $this->run("SELECT * FROM `reviews` WHERE `id_product`= ?" , [$this->id])->fetchAll();
+        return $this->run("SELECT `reviews`.`id`,
+        `reviews`.`comment`,
+        `reviews`.`mark`,
+        `users`.`firstname`,
+        `users`.`profil_img` FROM `reviews` INNER JOIN `users` ON `reviews`.`id_user` = `users`.`id` WHERE `id_product`= ?" , [$this->id])->fetchAll();
     }
 
     protected function getSub_ReviewsById($id)
     {
-        return $this->run("SELECT * FROM `sub_reviews` WHERE `id_review`= ?" , [$id])->fetchAll();
+        return $this->run("SELECT `sub_reviews`.`sub_comment`,
+        `sub_reviews`.`id`,
+        `users`.`firstname`,
+        `users`.`profil_img` FROM `sub_reviews` INNER JOIN `users` ON `sub_reviews`.`id_user` = `users`.`id` WHERE `id_review`= ?" , [$id])->fetchAll();
     }
 
     protected function setFavorites($id_user)
@@ -354,14 +361,14 @@ class ProductModel extends Database
 
     protected function checkFavorites($id_user)
     {
-        $stmt = $this->run('SELECT * FROM `favorites` WHERE `id_product`= ? AND `id_user`= ? ' , [$this->id , $id_user])->rowCount();
+        $stmt = $this->run('SELECT * FROM `favorites` WHERE `id_product`= ? AND `id_user`= ? ' , [$this->id , $id_user])->rowCount();      
         if($stmt > 0) 
         {
-            return true;
+            return 1;
         }
         else
         {
-            return false;
+            return 0;
         }
     }
 
@@ -373,10 +380,13 @@ class ProductModel extends Database
     protected function avgRatingProduct()
     {
         return $this->run(' SELECT AVG(`mark`) 
+                            AS `stars`
                             FROM `reviews` 
                             WHERE `id_product` = ?' , [$this->id]
                             )->fetch(PDO::FETCH_ASSOC);
     }
+
+
 
     /**
      * Get the value of id_artist

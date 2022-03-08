@@ -1,17 +1,23 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\CommandModel;
 use App\Models\AdressModel;
 use App\Models\CardsModel;
 
-class CommandController
+class CommandController extends CommandModel
 {
 
     public function __construct()
     {
         $this->adress = new AdressModel;
         $this->card = new CardsModel;
+    }
+
+    public function allUserCommands()
+    {
+        $this->table = 'command';
+        $this->setId_user($_SESSION['user']['id'])->getAllById_user();
     }
 
     public function delivery_choice()
@@ -76,7 +82,9 @@ class CommandController
     {
         $_SESSION['order']['typedelivery'] = $_REQUEST['typedelivery'];
         $_SESSION['order']['delivery'] = "home";
-        header("location:/order/resume");   
+        header("location:/order/resume");
     }
+
+    
 
 }
