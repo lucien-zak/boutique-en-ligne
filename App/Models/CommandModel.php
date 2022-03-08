@@ -13,6 +13,12 @@ class CommandModel extends Database
     protected $id_payement;
     protected $quantity;
 
+    protected function setDate($date)
+    {
+        $this->date = $date;
+        return $this;
+    }
+
     protected function setCommand_num($command_num)
     {
         $this->command_num = $command_num;
@@ -43,9 +49,9 @@ class CommandModel extends Database
         return $this;
     }
 
-    protected function setId_payement($id_payement)
+    protected function setFour_last($four_last)
     {
-        $this->id_payement = $id_payement;
+        $this->four_last = $four_last;
         return $this;
     }
 
@@ -57,12 +63,7 @@ class CommandModel extends Database
 
     public function setCommand()
     {
-        return $this->run('INSERT INTO `command`( `command_num`, `id_user`, `id_product`, `delivery_adress`, `billing_adress`, `id_payement`, `quantity`) VALUES (?, ?, ?, ?, ?, ?, ?)', [$this->command_num, $this->id_user, $this->id_product, $this->delivery_adress, $this->billing_adress, $this->id_payement, $this->quantity]);
+        return $this->run('INSERT INTO `command`( `date`, `command_num`, `id_user`, `id_product`, `delivery_adress`, `billing_adress`, `four_last`, `quantity`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [$this->date, $this->command_num, $this->id_user, $this->id_product, $this->delivery_adress, $this->billing_adress, $this->four_last, $this->quantity]);
     }
-
-    public function getCommands()
-    {
-        return $this->run('SELECT * FROM `command` WHERE `id_user` = ?', [$this->id_user]);
-    }
-
+    
 }

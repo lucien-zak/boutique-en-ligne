@@ -8,11 +8,6 @@ use PDO;
 class CardsController extends CardsModel
 {
 
-    public function Crypt($number)
-    {
-        // $cryptednumber = substr($number, -4);
-    }
-
     public function NewCard()
     {
         $titrepage = "Add card";
