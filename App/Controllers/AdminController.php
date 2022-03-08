@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Config\Database;
 use App\Models\ProductModel;
 
 class AdminController extends ProductModel
@@ -26,6 +25,17 @@ class AdminController extends ProductModel
     }
 
     public function product_admin($slug,$id){
+        $titrepage = 'Panel Admin produit';
+        $this->table = 'artists';
+        $listartist = $this->getAll();
+        $this->table = 'categories';
+        $allcategory = $this->getCategorywithSub();
+        $product = $this->setId($id)->setSlug($slug)->getProduct();
+        $params = [ 'titre' => $titrepage, 'product' => $product, 'artists' => $listartist, 'allcategory' => $allcategory];
+        return AbstractController::render('admin.product', $params);
+    }
+
+    public function product_admin_preview($slug,$id){
         $titrepage = 'Panel Admin produit';
         $this->table = 'artists';
         $listartist = $this->getAll();

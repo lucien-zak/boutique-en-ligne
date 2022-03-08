@@ -253,7 +253,7 @@ echo '<a href="/admin/products">Retour aux produits</a>';
 });
 
 $router->map('POST', '/admin/product/add', function () {
-    dump($_REQUEST);
+    // dump($_REQUEST);
     // $product = New AdminController;
     // $product->product_admin_add();
     // echo 'Produits modifiés';
