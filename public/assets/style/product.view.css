@@ -160,11 +160,13 @@
     }
 
     #quantity {
-        width: 12vw;
-        height: 6vh;
         background-color: #202020;
         border: none;
         text-align: center;
+		font-size: 100%;
+        padding: 2vw;
+        padding-bottom: 4vw;
+        padding-top: 4vw;
     }
 
     div.input-container > div.left:before {
@@ -231,7 +233,7 @@
         padding-bottom: 20px;
         font-family: 'Comfortaa-R';
         color: #fff;
-        font-size: 12px;
+        font-size: 60%;
         border: none;
     }
 
@@ -345,7 +347,7 @@
         background-color: #2B2B2B;
     }
 
-    #reply-popup {
+    #reply-popup, #admin-review-popup {
         width: 90vw;
         height: 45vh;
 
@@ -365,6 +367,11 @@
         border: 1px solid white;
     }
 
+    button#btn-popup {
+        width: 42vw;
+        font-size: 10px;
+    }
+
     #reply-popup > form {
         display: flex;
         justify-content: center;
@@ -375,7 +382,7 @@
 
     div.ctn  {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         gap: 50px;;
     }

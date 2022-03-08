@@ -1,0 +1,42 @@
+/* ------------------------------------- */
+/* ------------------------------------- */
+        /* PC VERSION */
+/* ------------------------------------- */
+/* ------------------------------------- */
+
+@media only screen and (min-width : 1224px){
+    footer {
+        width: 100%;
+        height: 40vh;
+        
+        background-color: #202020;
+    }
+
+    footer div.backToTop {
+        width: 100%;
+        height: 15%;
+        background-color: #131313;
+    }
+
+    footer div.backToTop > a {
+        width: 100%;
+        height: 100%;
+        color: #797979;
+        text-decoration: none;
+        font-family: 'Comfortaa';
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    footer div.backToTop > a:hover {
+        color: #FC7E1F;
+        transition-duration: 100ms;
+    }
+
+    footer div.container {
+        width: 100%;
+        height: 80%;
+    }
+}

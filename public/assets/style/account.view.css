@@ -55,8 +55,6 @@
         align-items: center;
         justify-content: space-around; 
         flex-direction: row;
-
-        margin-top: 15%;
     }
     
     div.buttons-container {
@@ -137,6 +135,15 @@
 
     div.entry-container > div.box {
         position: relative;
+        background-color: #2B2B2B;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        color: #fff;
+        padding: 3vh;
+        font-family: 'Comfortaa';
     }
     
     div.entry-container > div.box > input, label, select {

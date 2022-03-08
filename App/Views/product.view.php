@@ -96,13 +96,13 @@ $sub_reviews = $params['sub_reviews'];
                     <div class="ctn">
                         <h5 onclick="popupReply()">Répondre à cette avis</h5>
                         <h5></h5>
-                        <h5 onclick="popupReply()">Signaler</h5>
+                        <h5 onclick="popupAdminReview()">Signaler</h5>
                     </div>
                 </div>
                 <div id="reply-popup">
                     <div class="ctn">
                         <h2>Réponse à un avis</h2>
-                        <h2 id="close-btn" onclick="closeBtn()">X</h2>
+                        <h2 id="close-btn" onclick="closeBtn('reply-popup')">X</h2>
                     </div>
                     <form method="post" action='/product/sub_reviewadd/<?= $review->id ?>'>
                         <div class="input-container">

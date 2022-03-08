@@ -12,6 +12,7 @@
     ?>
     <link rel="stylesheet" href="../assets/style/header.style.css">
     <link rel="stylesheet" href="../assets/style/normalize.css">
+    <link rel="stylesheet" href="../assets/style/footer.style.css">
     <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,13 +20,13 @@
 </head>
 <body>
 <header>
+    <h1>Vinyl Génération</h1>
     <nav>
-        <a <?= $params['titre'] == "Accueil" ? "class='color-orange'" : "";?> href="/"><i class="fas fa-home"></i></a>
-        <a <?= $params['titre'] == "Produits" or "Produit" ? "class='color-orange'" : "";?> href="/products"><i class="color fas fa-record-vinyl"></i></a>
-        <a <?= $params['titre'] == "Votre Panier" ? "class='color-orange'" : "";?> href="/account/cart">
-            <i class="fas fa-shopping-cart"></i>
-            <h5><?= App\Controllers\CartController::count_product_cart() ?></h5>
-        </a>
-        <a <?= $params['titre'] == "Account" or "Profil" || "Vos Adresses" || "Vos Paiements" ? "class='color-orange'" : "";?> href="/account"><i class="color fas fa-user"></i></a>
+        <a href="/"><i class="fas fa-home"></i><h4>Accueil</h4></a>
+        <a href="/products"><i class="color fas fa-record-vinyl"></i><h4>Produits</h4></a>
+        <a href="/account/cart"><i class="fas fa-shopping-cart"></i><h4>Panier</h4></a>
+        <a href="/account"><i class="color fas fa-user"></i><h4><?= isset($_SESSION['user']) ? 'Profil' : 'Connexion' ?></h4></a>
     </nav>
 </header>
+
+<!-- <?= App\Controllers\CartController::count_product_cart() ?> -->
