@@ -1,63 +1,261 @@
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    * {
-        color: #fff;
-    }
+* {
+    color: #fff;
+}
 
+body {
+    background-color: #131313;
+}
+
+body > form {
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form > #search {
+    padding: 4%;
+
+    width: 76vw;
+
+    background-color: #2B2B2B;
+    border: none;
+
+    color: #fff;
+    font-family: 'Comfortaa-R';
+}
+
+form > #filter {
+    padding: 4%;
+    margin-left: 4%;
+
+    background-color: #2B2B2B;
+    border: none;
+    color: #fff;
+}
+
+div.product-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    padding-bottom: 10vh;
+}
+
+a.product {
+    width: 92vw;
+    margin-top: 18px;
+    background-color: #2B2B2B;
+    text-decoration: none;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+a.product > .right:before {
+    position: absolute;
+    content: "";
+    top: 10px;
+    left: 10px;
+    width: 15px ;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    z-index: 100;
+}
+
+a.product > .right:after {
+    position: absolute;
+    content: "";
+    bottom: 10px;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    z-index: 100;
+}
+
+a.product > .left:before {
+    position: absolute;
+    content: "";
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    z-index: 100;
+}
+
+a.product > .left:after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    z-index: 100;
+}
+
+a.product div.content {
+    width: 94%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3vh;
+}
+
+a.product div.content div.info {
+    width: 44%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+a.product div.content div.info div.box {
+    height: 13vh;
+}
+
+a.product div.content > img {
+    width: 40vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+a.product div.content div.info div.box  > h3, a.product div.content div.info div.box > h2, a.product div.content div.info div.box > h5 {
+    margin: 0;
+    margin-bottom: 9px;
+    font-family: 'Comfortaa-R';
+}
+
+a.product div.content div.info div.box h2 {
+    font-size: 22px;
+}
+
+a.product div.content div.info div.box > h3 {
+    font-size: 12px;
+}
+
+a.product div.content div.info div.box > h5 {
+    font-size: 20px;
+}
+
+button.button {
+    position: relative;
+    width: 100%;
+    background-color: #FC7E1F;
+    text-align: center;
+    font-size: 11px;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Comfortaa-R';
+    margin-top: 10px;
+    text-decoration: none;
+    border: none;
+}
+
+button.button:before {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+
+button.button:after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+
+@media only screen and (min-width : 1224px){
     body {
         background-color: #131313;
     }
-
+    
     body > form {
-        margin-top: 5%;
+        width: 100%;
+        margin: 0;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        gap: 2vh;
     }
-
+    
     form > #search {
-        padding: 4%;
+        padding: 1%;
 
-        width: 76vw;
-
+        width: 88vw;
+        height: 6vh;
         background-color: #2B2B2B;
         border: none;
-
         color: #fff;
         font-family: 'Comfortaa-R';
     }
-
+    
     form > #filter {
-        padding: 4%;
-        margin-left: 4%;
+        margin: 0;
 
+        padding: 1%;
+        height: 6vh;
+        width: 3vw;
         background-color: #2B2B2B;
         border: none;
         color: #fff;
     }
-
+    
     div.product-container {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        flex-direction: column;
-
-        padding-bottom: 10vh;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2vh;
     }
-
+    
     a.product {
-        width: 92vw;
-        margin-top: 18px;
+        width: 28vw;
+        margin-top: 0;
         background-color: #2B2B2B;
         text-decoration: none;
-
+    
         position: relative;
-
+    
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: row;
     }
-
+    
     a.product > .right:before {
         position: absolute;
         content: "";
@@ -70,7 +268,7 @@
         border-left: 2px solid white;
         z-index: 100;
     }
-
+    
     a.product > .right:after {
         position: absolute;
         content: "";
@@ -83,7 +281,7 @@
         border-left: 2px solid white;
         z-index: 100;
     }
-
+    
     a.product > .left:before {
         position: absolute;
         content: "";
@@ -96,7 +294,7 @@
         border-right: 2px solid white;
         z-index: 100;
     }
-
+    
     a.product > .left:after {
         content: "";
         position: absolute;
@@ -109,69 +307,70 @@
         border-right: 2px solid white;
         z-index: 100;
     }
-
+    
     a.product div.content {
         width: 94%;
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		padding: 3vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2vh;
     }
-
+    
     a.product div.content div.info {
         width: 44%;
-
+    
         display: flex;
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
-
+    
         text-align: left;
     }
-
+    
     a.product div.content div.info div.box {
         height: 13vh;
+        margin-bottom: 2vh;
     }
-
+    
     a.product div.content > img {
-        width: 40vw;
-		padding-top: 1vh;
-		padding-bottom: 1vh;
+        width: 11vw;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
     }
-
+    
     a.product div.content div.info div.box  > h3, a.product div.content div.info div.box > h2, a.product div.content div.info div.box > h5 {
         margin: 0;
         margin-bottom: 9px;
         font-family: 'Comfortaa-R';
     }
-
+    
     a.product div.content div.info div.box h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
-
+    
     a.product div.content div.info div.box > h3 {
-        font-size: 12px;
+        font-size: 16px;
     }
-
+    
     a.product div.content div.info div.box > h5 {
-        font-size: 20px;
+        font-size: 22px;
     }
-
+    
     button.button {
         position: relative;
         width: 100%;
         background-color: #FC7E1F;
         text-align: center;
-        font-size: 11px;
+        font-size: 16px;
         padding: 10px;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 18px;
+        padding-bottom: 18px;
         font-family: 'Comfortaa-R';
         margin-top: 10px;
         text-decoration: none;
         border: none;
     }
-
+    
     button.button:before {
         position: absolute;
         content: "";
@@ -183,7 +382,7 @@
         border-top: 2px solid white;
         border-left: 2px solid white;
     }
-
+    
     button.button:after {
         content: "";
         position: absolute;

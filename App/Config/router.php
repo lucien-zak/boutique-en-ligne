@@ -20,6 +20,9 @@ use App\Controllers\ProductController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
 
+$user = new UserController();
+$user->remember();
+
 $router = new AltoRouter;
 
 $router->map('GET', '/', function () {

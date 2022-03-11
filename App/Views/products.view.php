@@ -2,7 +2,7 @@
 <body>
     <form action="/products" method="post">
         <input type="search" name="search" id="search" placeholder="Your Search">
-        <a id="filter" href=""><i class="fas fa-filter"></i></a>
+        <button id="filter"><i class="fas fa-filter"></i></button>
     </form>
     <div class="product-container">
     <?php
@@ -18,7 +18,13 @@
                             <h3>Sortie le <?= $params['products'][$i]->date ?></h3>
                             <h5><?= $params['products'][$i]->price ?>€</h5>
                         </div>
-                        <button class="button" href="/account/login">Ajouter au panier</button>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary" onclick="window.location.href=''">
+                                <div class="left"></div>
+                                    Ajouter au panier
+                                <div class="right"></div>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="left"></div>

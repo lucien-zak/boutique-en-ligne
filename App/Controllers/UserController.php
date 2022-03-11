@@ -74,8 +74,12 @@ class UserController extends UserModel
                             $url = $_SESSION["continue_path"];
                             header("location:".$url."");
                             exit();
-
                         }
+                        
+                        if(isset($_POST['remember'])) {
+                            setcookie('auth', $user['0']['id'] . '-----' . sha1($user[0]['email'] . $user[0]['password']), time() + 3600 * 24 * 3, '/', 'boutique', false, true);
+                        }
+
                         header("location:/account");
                         exit();
                     } else {
@@ -194,7 +198,27 @@ class UserController extends UserModel
 
     public function logout() 
     {
+        if(isset($_COOKIE['auth'])) {
+            setcookie('auth', '', time() - 3600);
+        }
         session_destroy();
         header("location:/");
+    }
+
+    public function remember() 
+    {
+        if(isset($_COOKIE['auth'])) {
+            $this->table = "users";
+            $user = $this->getAllById($_COOKIE['auth'][0]);
+            
+            $auth = $_COOKIE['auth'];
+            $auth = explode('-----', $auth);
+
+            $key = sha1($user[0]['email'] . $user[0]['password']);
+
+            if($key == $auth[1]) {
+                return $_SESSION['user'] = (array)$user[0];
+            }
+        }
     }
 }

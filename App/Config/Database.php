@@ -36,13 +36,20 @@ class Database
         return $stmt;
     }
 
+    public function getAllById($id)
+    {
+        return $this->run("SELECT * FROM $this->table WHERE `id`= ? " ,[$id])->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getAllById_user()
     {
-        return $this->run("SELECT * FROM $this->table WHERE `id_user`= ? " , [$this->id_user])->fetchAll(PDO::FETCH_ASSOC);
+        return $this->run("SELECT * FROM $this->table WHERE `id`= ? " ,[$this->id_user])->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getAll()
     {
         return $this->run("SELECT * FROM `$this->table` ")->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    
 }

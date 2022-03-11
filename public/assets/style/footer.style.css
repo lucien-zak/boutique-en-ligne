@@ -4,8 +4,15 @@
 /* ------------------------------------- */
 /* ------------------------------------- */
 
+footer {
+    display: none;
+}
+
 @media only screen and (min-width : 1224px){
     footer {
+        display: flex;
+        flex-direction: column;
+
         width: 100%;
         height: 40vh;
         
@@ -15,7 +22,7 @@
     footer div.backToTop {
         width: 100%;
         height: 15%;
-        background-color: #131313;
+        background-color: #101010;
     }
 
     footer div.backToTop > a {
@@ -38,5 +45,49 @@
     footer div.container {
         width: 100%;
         height: 80%;
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    footer div.container > div {
+        width: 40%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        overflow: hidden;
+    }
+
+    footer div.container div.ctn-middle > div > h2, footer div.container div.ctn-right > div > h2 {
+        color: #FC7E1F;
+        font-weight: 1000;
+        font-family: 'Jetbrain-R';
+    }
+
+    footer div.container div.ctn-middle > div, footer div.container div.ctn-right > div {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    footer div.container div.ctn-middle > div > a, footer div.container div.ctn-right > div > a {
+        text-decoration: none;
+        font-family: 'Comfortaa-R';
+        color: #fff;
+        margin: 4px;
+    }
+
+    footer div.container div.ctn-middle > div > a:hover, footer div.container div.ctn-right > div > a:hover {
+        color: #FC7E1F;
+    }
+
+    footer div.container div.ctn-left > img {
+        width: 70%;
     }
 }

@@ -1,88 +1,325 @@
-@font-face {
-    font-family: 'Comfortaa-R';
-    src: url(../fonts/Comfortaa-Regular.ttf);
-}
-@font-face {
-    font-family: 'Jetbrain-R';
-    src: url(../fonts/JetBrainsMonoNL-Regular.ttf) format('truetype');
+span {
+    color: #FC7E1F; 
 }
 
 body {
-    background-color:  #131313;
+    background-color:  #171717;
 }
 
 section.home > div.container {
-    background-color: #171717;
-
     width: 100%;
-    height: 100vh;
+    height: 70vh;
 
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: flex-start; 
     flex-direction: column;
-    color: #fff;
+}
+
+section.home div.container div.brand-infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section.home div.container div.brand-infos div.sub-title {
+    color: #a4a4a4;
+    font-weight: 300;
+    font-size: 1.6em;
+    font-family: 'Comfortaa-R';
+    margin: 3vh;
+}
+section.home div.container div.brand-infos div.title {
+    position: relative;
+    color: #eee;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2em;
+    text-shadow: 1vmin 1vmin 0 #27272744;
+    font-family: 'Jetbrain-R';
+    margin: 3vh;
+}
+section.home div.container div.brand-infos p {
+    color: #a4a4a4;
+    font-weight: 300;
+    font-size: 1.2em;
+    font-family: 'Comfortaa-R';
+    margin: 3vh;
+    text-align: center;
+}
+
+section.home div.container div.home-illustration img.brand-logo {
+    display: none;
+}
+
+section.home div.container div.home-illustration img.brand-sub-logo {
+    display: none;
 }
 
 div.buttons-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 25px;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    gap: 2vh;
 }
 
-section.home > div.container > h2 {
-    font-family: 'Jetbrain-R';
-    font-weight: 10;
-    margin-top: 2vh;
-}
-
-section.home > div.container > img {
-    width: 100%;
-}
-
-div.buttons-container > div.button {
+div.buttons-container > button.btn {
     position: relative;
-    width: 100%;
-    height: 100%;
     background-color: #FC7E1F;
+    border: none;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     padding-top: 15px;
     padding-bottom: 15px;
     font-family: 'Comfortaa-R';
-}
-
-div.buttons-container > div.button > a {
-    text-decoration: none;
     color: #fff;
-    font-size: 20px;
-    padding: 20px;
+    transition-duration: 4s;
 }
 
-div.buttons-container > div.button:before {
+div.buttons-container button.btn div.left:before, section.vitrine div.content div.product div.left:before {
     position: absolute;
     content: "";
-    top: 5px;
-    left: 5px;
+    top: 0px;
+    left: 0px;
     width: 15px;
     height: 15px;
     background: transparent;
     border-top: 2px solid white;
     border-left: 2px solid white;
+    transition-duration: 100ms;
+}
+div.buttons-container button.btn div.left:after, section.vitrine div.content div.product div.left:after {
+    position: absolute;
+    content: "";
+    bottom: 0px;
+    left: 0px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    transition-duration: 100ms;
 }
 
-div.buttons-container > div.button:after {
+div.buttons-container button.btn div.right:before, section.vitrine div.content div.product div.right:before {
     content: "";
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    top: 0px;
+    right: 0px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transition-duration: 100ms;
+}
+div.buttons-container button.btn div.right:after, section.vitrine div.content div.product div.right:after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
     width: 15px;
     height: 15px;
     background: transparent;
     border-bottom: 2px solid white;
     border-right: 2px solid white;
+    transition-duration: 100ms;
+}
+
+/* ///////////////////////////////////// */
+/* /////   HOVER ANIMATION BUTTON  ///// */
+/* ///////////////////////////////////// */
+
+div.buttons-container button.btn:hover div.left:before {
+    top: -10px;
+    left: -10px;
+}
+div.buttons-container button.btn:hover div.left:after {
+    bottom: -10px;
+    left: -10px;
+}
+
+div.buttons-container button.btn:hover div.right:before {
+    top: -10px;
+    right: -10px;
+}
+div.buttons-container button.btn:hover div.right:after {
+    bottom: -10px;
+    right: -10px;
+}
+
+/* ////////////////////////////// */
+/* ////////////////////////////// */
+/* ////////////////////////////// */
+
+section.container {
+
+    background: #1e1e1e;
+    background-image: radial-gradient(#2c2c2c 1px,transparent 1px);
+    background-size: calc(10 * 1px) calc(10 * 1px);
+}
+
+section.vitrine {
+    padding-bottom: 7vh;
+}
+
+section.container > div.section-category {
+    height: 24%;
+}
+
+section.container > div.content {
+    height: 50%;
+}
+
+section.topSeller {
+    background-color:  #171717;
+}
+
+div.section-category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comfortaa';
+}
+
+div.section-category div.section-title {
+    display: inline;
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin: 4vh
+}
+
+div.section-category div.section-title:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 15px;
+    height: 15px;
+    background: 0 0;
+    border-top: 2px solid #ec771c;
+    border-left: 2px solid #ec771c;
+}
+
+div.section-category div.section-title:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: -15px;
+    width: 15px;
+    height: 15px;
+    background: 0 0;
+    border-bottom: 2px solid #ec771c;
+    border-right: 2px solid #ec771c;
+}
+
+section.about div.section-category {
+    flex-direction: column;
+    padding-bottom: 0;
+}
+
+section.about div.section-category div.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 0;
+    color: #fff;
+}
+
+section.about div.section-category div.content div.left > iframe {
+    display: none;
+}
+
+section.about div.section-category div.content div.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    color: #a4a4a4;
+    font-weight: 300;
+    width: 95%;
+    font-size: 1em;
+    font-family: 'Comfortaa-R';
+}
+
+section.about div.section-category div.content div.right > p {
+    margin: 0;
+    margin-bottom: 2vh;
+}
+
+section.vitrine div.content {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3vh;
+
+    padding-bottom: 3vh;
+}
+
+section.vitrine div.content div.product {
+    background-color:  #2B2B2B;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section.vitrine div.content div.product div.ctn {
+    margin: 5vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    font-family: 'Comfortaa';
+}
+
+section.vitrine div.content div.product div.ctn div.top > img {
+    height: 27vh;
+    margin: 1vh;
+}
+
+section.vitrine div.content div.product div.ctn div.middle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+section.vitrine div.content div.product div.ctn div.middle > h2 {
+    margin: 0;
+}
+
+section.vitrine div.content div.product div.ctn div.middle div.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.vitrine div.content div.product div.ctn div.middle div.box > h2 {
+    margin: 0;
+}
+
+
+section.vitrine div.content div.product div.ctn div.bottom {
+    margin: 0;
+}
+
+.wave {
+    width: 100%;
 }
 
 @media only screen and (min-width : 1224px){
@@ -93,82 +330,173 @@ div.buttons-container > div.button:after {
     section.home > div.container {
         width: 100%;
         height: 70vh;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    section.home div.container div.brand-infos div.sub-title {
+        color: #a4a4a4;
+        font-weight: 300;
+        width: 22em;
+        font-size: 1.6em;
+        font-family: 'Comfortaa-R';
+        margin: 0;
+    }
+    section.home div.container div.brand-infos {
+        align-items: flex-start;
+    }
+    section.home div.container div.brand-infos div.title {
+        position: relative;
+        color: #eee;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 3em;
+        text-shadow: 1vmin 1vmin 0 #27272744;
+        font-family: 'Jetbrain-R';
+        margin: 0;
+    }
+    section.home div.container div.brand-infos p {
+        color: #a4a4a4;
+        font-weight: 300;
+        width: 33em;
+        font-size: 1.2em;
+        font-family: 'Comfortaa-R';
+        text-align: left;
+        margin: 0;
+        margin-top: 2vh;
+    }
+
+    section.home div.container div.home-illustration img.brand-logo {
+        display: inherit;
+        position: absolute;
+        animation-name: spin;
+        animation-duration: 5000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear; 
+    }
+
+    @keyframes spin {
+        from{
+            -webkit-transform: rotate(0deg);
+        }
+        to{
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    section.home div.container div.home-illustration img.brand-sub-logo {
+        display: inherit;
+        position: relative;
     }
     
     div.buttons-container {
-        display: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
     }
     
-    section.home > div.container > h2 {
-        display: none;
-    }
-    
-    section.home > div.container > img {
-        display: none;
-    }
-    
-    div.buttons-container > div.button {
+    div.buttons-container > button.btn {
         position: relative;
-        width: 100%;
-        height: 100%;
         background-color: #FC7E1F;
+        border: none;
         text-align: center;
-        padding: 10px;
+        padding: 20px;
         padding-top: 15px;
         padding-bottom: 15px;
         font-family: 'Comfortaa-R';
-    }
-    
-    div.buttons-container > div.button > a {
-        text-decoration: none;
         color: #fff;
-        font-size: 20px;
-        padding: 20px;
+        transition-duration: 4s;
     }
-    
-    div.buttons-container > div.button:before {
+
+    div.buttons-container button.btn div.left:before, section.vitrine div.content div.product div.left:before {
         position: absolute;
         content: "";
-        top: 5px;
-        left: 5px;
+        top: 0px;
+        left: 0px;
         width: 15px;
         height: 15px;
         background: transparent;
         border-top: 2px solid white;
         border-left: 2px solid white;
+        transition-duration: 100ms;
+    }
+    div.buttons-container button.btn div.left:after, section.vitrine div.content div.product div.left:after {
+        position: absolute;
+        content: "";
+        bottom: 0px;
+        left: 0px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-bottom: 2px solid white;
+        border-left: 2px solid white;
+        transition-duration: 100ms;
     }
     
-    div.buttons-container > div.button:after {
+    div.buttons-container button.btn div.right:before, section.vitrine div.content div.product div.right:before {
         content: "";
         position: absolute;
-        bottom: 5px;
-        right: 5px;
+        top: 0px;
+        right: 0px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+        transition-duration: 100ms;
+    }
+    div.buttons-container button.btn div.right:after, section.vitrine div.content div.product div.right:after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
         width: 15px;
         height: 15px;
         background: transparent;
         border-bottom: 2px solid white;
         border-right: 2px solid white;
+        transition-duration: 100ms;
+    }
+    
+    /* ///////////////////////////////////// */
+    /* /////   HOVER ANIMATION BUTTON  ///// */
+    /* ///////////////////////////////////// */
+
+    div.buttons-container button.btn:hover div.left:before {
+        top: -10px;
+        left: -10px;
+    }
+    div.buttons-container button.btn:hover div.left:after {
+        bottom: -10px;
+        left: -10px;
+    }
+    
+    div.buttons-container button.btn:hover div.right:before {
+        top: -10px;
+        right: -10px;
+    }
+    div.buttons-container button.btn:hover div.right:after {
+        bottom: -10px;
+        right: -10px;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    /* ////////////////////////////// */
+    /* ////////////////////////////// */
+    /* ////////////////////////////// */
 
     section.container {
-        height: 80vh;
 
         background: #1e1e1e;
         background-image: radial-gradient(#2c2c2c 1px,transparent 1px);
         background-size: calc(10 * 1px) calc(10 * 1px);
+    }
+
+    section.vitrine {
+        padding-bottom: 7vh;
     }
 
     section.container > div.section-category {
@@ -180,9 +508,6 @@ div.buttons-container > div.button:after {
     }
 
     section.topSeller {
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-        height: 50vh;
         background-color:  #171717;
     }
 
@@ -200,6 +525,7 @@ div.buttons-container > div.button:after {
         font-weight: 500;
         font-size: 1.8em;
         text-transform: uppercase;
+        margin: 4vh
     }
 
     div.section-category div.section-title:before {
@@ -226,11 +552,99 @@ div.buttons-container > div.button:after {
         border-right: 2px solid #ec771c;
     }
 
-    div.section-category div.section-desc {
-
+    section.about div.section-category {
+        flex-direction: column;
+        padding-bottom: 7vh;
     }
 
-    .wave {
+    section.about div.section-category div.content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 5vh;
+        color: #fff;
+    }
+
+    section.about div.section-category div.content div.left > iframe {
+        display: inherit;
+    }
+
+    section.about div.section-category div.content div.right {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        
+        color: #a4a4a4;
+        font-weight: 300;
+        width: 30%;
+        font-size: 1.3em;
+        font-family: 'Comfortaa-R';
+    }
+
+    section.about div.section-category div.content div.right > p {
+        margin: 0;
+        margin-bottom: 2vh;
+    }
+
+    section.vitrine div.content {
         width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 3vh;
+    }
+
+    section.vitrine div.content div.product {
+        background-color:  #2B2B2B;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section.vitrine div.content div.product div.ctn {
+        margin: 2vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        color: #fff;
+        font-family: 'Comfortaa';
+    }
+
+    section.vitrine div.content div.product div.ctn div.top > img {
+        height: 27vh;
+        margin: 1vh;
+    }
+
+    section.vitrine div.content div.product div.ctn div.middle {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    section.vitrine div.content div.product div.ctn div.middle > h2 {
+        margin: 0;
+    }
+
+    section.vitrine div.content div.product div.ctn div.middle div.box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section.vitrine div.content div.product div.ctn div.middle div.box > h2 {
+        margin: 0;
+    }
+
+
+    section.vitrine div.content div.product div.ctn div.bottom {
+        margin: 2vh;;
     }
 }

@@ -19,14 +19,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 </head>
 <body>
-<header>
+<header id="top">
     <h1>Vinyl Génération</h1>
     <nav>
-        <a href="/"><i class="fas fa-home"></i><h4>Accueil</h4></a>
-        <a href="/products"><i class="color fas fa-record-vinyl"></i><h4>Produits</h4></a>
-        <a href="/account/cart"><i class="fas fa-shopping-cart"></i><h4>Panier</h4></a>
-        <a href="/account"><i class="color fas fa-user"></i><h4><?= isset($_SESSION['user']) ? 'Profil' : 'Connexion' ?></h4></a>
+        <a href="/"><i class="fas fas-hidden fa-home"></i><h4>Accueil</h4></a>
+        <a href="/products"><i class="color fas fas-hidden fa-record-vinyl"></i><h4>Produits</h4></a>
+        <a href="/account/cart"><i class="fas fas-hidden fa-shopping-cart"></i><h4>Panier</h4></a>
+        <a href="/account"><i class="color fas fas-hidden fa-user"></i><h4>Compte</h4></a>
     </nav>
 </header>
-
-<!-- <?= App\Controllers\CartController::count_product_cart() ?> -->

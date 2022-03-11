@@ -1,19 +1,6 @@
 <?php !empty($session)?dump($_SESSION):'' ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $params['titre'] ?> - Vinyl Génération</title>
-    <link rel="stylesheet" href="../assets/style/account.view.css">
-    <link rel="stylesheet" href="../assets/style/header.style.css">
-    <link rel="stylesheet" href="../assets/style/normalize.css">
-<script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
-</head>
 <body>
-    <main class="resize">
+    <main>
         <section class="home">
             <div class="container">
                 <h3 class="title">CRÉATION DE VOTRE COMPTE</h3>
@@ -46,18 +33,19 @@
                         </div>
                     </div>
                     <div class="buttons-container">
-                        <button class="button" type="submit">Inscription</button>
-                        <div class="button">
-                            <a href="/account/login" class="">
-                               Déjà un compte?
-                            </a>
-                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            <div class="left"></div>
+                            Inscription
+                            <div class="right"></div>
+                        </button>
+                        <button class="btn btn-primary" onclick="window.location.href='/account/login'">
+                            <div class="left"></div>
+                            Déjà un compte?
+                            <div class="right"></div>
+                        </button>
                     </div>
                 </form>
             </div>
         </section>
     </main>
 </body>
-</html>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">

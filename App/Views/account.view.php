@@ -5,16 +5,16 @@
                 <div class="container">
                     <img src="./assets/img/icons/logo-enterprise-1.png" alt="">
                     <div class="buttons-container">
-                        <div class="button">
-                            <a href="/account/login" class="">
-                                Connexion
-                            </a>
-                        </div>
-                        <div class="button">
-                            <a href="/account/register" class="">
-                                Inscription
-                            </a>
-                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='/account/login'">
+                            <div class="left"></div>
+                            Se connecter
+                            <div class="right"></div>
+                        </button>
+                        <button class="btn btn-primary" onclick="window.location.href='/account/register'">
+                            <div class="left"></div>
+                            Inscription
+                            <div class="right"></div>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -23,37 +23,40 @@
         <main>
             <div class="container profil">
                 <img class="avatar-profil" src="../assets/img/icons/users/<?= isset($_SESSION['user']['profil_img']) ? $_SESSION['user']['profil_img'] : 'user-default.png' ?>" alt="">
-                <div class="buttons-container">
-                    <form action="/account/profil" method="POST">
-                        <div class="buttons-container">
-                            <div class="button">
-                                <a href="/account/profil" class="">
-                                    Mes Informations
-                                </a>
-                            </div>
-                            <div class="button">
-                                <a href="/account/addresses" class="">
-                                    Mes Adresses
-                                </a>
-                            </div>
-                            <div class="button">
-                                <a href="/account/payements" class="">
-                                    Moyen de paiements
-                                </a>
-                            </div>
-                            <div class="button">
-                                <a href="/account/orders" class="">
-                                    Mes Commandes
-                                </a>
-                            </div>
-                            <div class="button">
-                                <a href="/logout" class="">
-                                    Se déconnecter
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    <div class="buttons-container">
+                        <button class="btn btn-primary" onclick="window.location.href='/account/profil'">
+                            <div class="left"></div>
+                            Mes Informations
+                            <div class="right"></div>
+                        </button>
+                        <button class="btn btn-primary" onclick="window.location.href='/account/addresses'">
+                            <div class="left"></div>
+                                Mes Adresses
+                            <div class="right"></div>
+                        </button>
+                        <hr id="line">
+                        <button class="btn btn-primary" onclick="window.location.href='/account/login'">
+                            <div class="left"></div>
+                                Mes Commandes
+                            <div class="right"></div>
+                        </button>
+                        <button class="btn btn-primary" onclick="window.location.href='/account/login'">
+                            <div class="left"></div>
+                                Moyen de paiements
+                            <div class="right"></div>
+                        </button>
+                        <button class="btn btn-primary" onclick="window.location.href='/account/payements'">
+                            <div class="left"></div>
+                                Mes Favoris
+                            <div class="right"></div>
+                        </button>
+                        <hr id="line">
+                        <button class="btn btn-primary" onclick="window.location.href='/logout'">
+                            <div class="left"></div>
+                                Se déconnecter
+                            <div class="right"></div>
+                        </button>
+                    </div>
             </div>
         </main>
     <?php } ?>

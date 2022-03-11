@@ -48,7 +48,11 @@
                     </div>
                 </div>
                 <div class="buttons-container">
-                    <button class="button" type="submit">Sauvegarder</button>
+                    <button class="btn btn-primary" type="submit"">
+                        <div class="left"></div>
+                        Sauvegarder
+                        <div class="right"></div>
+                    </button>
                 </div>
             </form>
         </div>

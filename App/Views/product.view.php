@@ -76,7 +76,7 @@ $sub_reviews = $params['sub_reviews'];
         </div>
     </form>
 
-    <div>
+    <div class="reviews">
     <?php
     if(isset($reviews)) {
         foreach($reviews as $review)
@@ -84,19 +84,18 @@ $sub_reviews = $params['sub_reviews'];
             <div class="box-review">
                 <div class="review">
                     <div class="username">
-                        <img src="../assets/img/icons/users/<?php $review->profil_img ?>" alt="">
+                        <img src="../assets/img/icons/users/<?= $review->profil_img ?>" alt="">
                         <h3><?= $review->firstname ?></h3>
                         <div class="rateyo3" id= "rating"
                         data-rateyo-rating="<?= $review->mark ?>"
                         data-rateyo-num-stars="5"
                         data-rateyo-score="3">
-                        </div>
+                        <h2></h2></div>
                     </div>
                     <h4><?= $review->comment ?></h4>
                     <div class="ctn">
-                        <h5 onclick="popupReply()">Répondre à cette avis</h5>
-                        <h5></h5>
-                        <h5 onclick="popupAdminReview()">Signaler</h5>
+                        <h5 id="btn" onclick="popupReply()">Répondre à cette avis</h5>
+                        <h5 id="btn" onclick="popupAdminReview()">Signaler</h5>
                     </div>
                 </div>
                 <div id="reply-popup">

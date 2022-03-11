@@ -1,23 +1,11 @@
 <?= isset($params['message'])?$params['message']:''; ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Vinyl Génération</title>
-    <link rel="stylesheet" href="../assets/style/account.view.css">
-    <link rel="stylesheet" href="../assets/style/header.style.css">
-    <link rel="stylesheet" href="../assets/style/normalize.css">
-<script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
-</head>
 <body>
     <main>
         <section class="home">
             <div class="container">
                 <h3 class="title">CONNEXION À VOTRE COMPTE</h3>
-                <form action="/account/login" method="POST">
+                <form id="form-login" action="/account/login" method="POST">
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
@@ -30,20 +18,52 @@
                             <div class="right"></div>
                         </div>
                     </div>
-                    
-                    <div class="buttons-container">
-                        <button class="button" type="submit">Se connecter</button>
-                        <div class="button">
-                            <a href="/account/register" class="">
-                               Inscription
-                            </a>
+
+                    <div class="options-ctn">
+                        <div class="remember-box">
+                            <input type="checkbox" name="remember">
+                            <label for="remember"> Se souvenir de moi</label>
                         </div>
-                        <a href="">Vous avez oublié votre mot de passe ?</a>
+                        <h4 onclick="popupPassword()">Mot de passe oublié ?</h4>
+                    </div>
+                    <div class="buttons-container">
+                        <button class="btn btn-primary" type="submit">
+                            <div class="left"></div>
+                            Se connecter
+                            <div class="right"></div>
+                        </button>
+                        <button class="btn btn-primary" onclick="window.location.href='/account/register'">
+                            <div class="left"></div>
+                            Inscription
+                            <div class="right"></div>
+                        </button>
                     </div>
                 </form>
             </div>
         </section>
+        <div id="popup">
+            <div class="container box">
+                <div class="left"></div>
+                <div class="top">
+                    <h3>Mot de passe oublié ?</h3>
+                    <h2 id="closeBtn" onclick="closeBtn('popup')">X</h2>
+                </div>
+                <div class="ctn">
+                    <div class="entry-container">
+                        <div class="box">
+                            <div class="left"></div>
+                            <input type="email" name="email" placeholder="Email">
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="buttons-container">
+                        <button class="button" type="submit">Faire la demande</button>
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+        </div>
     </main>
 </body>
-</html>
 
+<script src="../assets/script/script.js"></script>

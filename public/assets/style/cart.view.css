@@ -1,353 +1,518 @@
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    body {
-        background-color:  #131313;
-    }
-    
+body {
+    background-color:  #131313;
+}
+
+body > div {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    padding-bottom: 10vh;
+}
+
+form > #search {
+    margin-top: 10%;
+    padding: 8%;
+
+    width: 77vw;
+    height: 5.93vh;
+
+    background-color: #2B2B2B;
+    border: none;
+
+    color: #fff;
+    font-family: 'Comfortaa-R';
+}
+
+form > #delivery {
+    margin-top: 6%;
+    width: 90vw;
+    height: 5.93vh;
+    background-color: #2B2B2B;
+    border: none;
+    color: #fff;
+    font-family: 'Comfortaa-R';
+}
+
+form > #delivery::before {
+    background-image: url(../assets/img/ç);
+}
+
+div.container {
+    width: 92vw;
+    height: 25vh;
+    margin-top: 18px;
+    background-color: #2B2B2B;
+    text-decoration: none;
+
+    color: #fff;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+div.result {
+    height: 18vh;
+    border: #fff 1px solid;
+    flex-direction: column;
+}
+
+div.result > h3, h4 {
+    margin: 0;
+    margin-bottom: 4%;
+    font-family: 'Comfortaa-R';
+    text-align: center;
+}
+
+div.result > h4 {
+    margin: 1%;
+}
+
+div.container > .right:before {
+    position: absolute;
+    content: "";
+    top: 10px;
+    left: 10px;
+    width: 15px ;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    z-index: 100;
+}
+
+div.container > .right:after {
+    position: absolute;
+    content: "";
+    bottom: 10px;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    z-index: 100;
+}
+
+div.container > .left:before {
+    position: absolute;
+    content: "";
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    z-index: 100;
+}
+
+div.container > .left:after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    z-index: 100;
+}
+
+div.container div.content {
+    width: 94%;
+    height: 90%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div.container div.content div.info {
+    width: 44%;
+    height: 89%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+div.container div.content div.info div.box {
+    height: 13vh;
+    width: 100%;
+}
+
+div.container div.content > img {
+    width: 40vw;
+    height: 20vh;
+}
+
+div.container div.content div.info div.box  > h3, div.container div.content div.info div.box > h2, div.container div.content div.info div.box > h5 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-family: 'Comfortaa-R';
+}
+
+div.container div.content div.info div.box h2 {
+    font-size: 24px;
+}
+
+div.container div.content div.info div.box > h3 {
+    font-size: 12px;
+}
+
+div.container div.content div.info div.box > h5 {
+    font-size: 20px;
+}
+
+button.button {
+    position: relative;
+    background-color: #FC7E1F;
+    text-align: center;
+    font-size: 11px;
+    padding: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Comfortaa-R';
+    margin-left: 10%;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+}
+
+button.button:before {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+
+button.button:after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+
+div.button {
+    position: relative;
+    width: 65vw;
+    background-color: #FC7E1F;
+    text-align: center;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Comfortaa-R';
+}
+
+div.button > a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 19px;
+    padding: 20px;
+}
+
+div.button:before {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+
+div.button:after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+
+/* /////////////////////////////////////////////////////////////////// */
+
+form > div > input.number {
+    position: relative;
+    width: 25px;
+    height: 10px;
+    background-color: #2B2B2B;
+    text-align: center;
+    padding: 10px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-family: 'Comfortaa-R';
+    color: #fff;
+    font-size: 15px;
+    border: none;
+}
+
+form > div.quantity-box {
+    position: relative;
+}
+
+div.info > form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    position: relative;
+}
+
+div.info > form > div > input.number:focus {
+    outline: none;
+}
+
+div.info > form > div > div.left:before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 15px ;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    z-index: 100;
+}
+
+div.info > form > div > div.left:after {
+    position: absolute;
+    content: "";
+    bottom: 0px;
+    left: 0px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    z-index: 100;
+}
+
+form > div > div.right:before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: 0px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    z-index: 100;
+}
+
+form > div > div.right:after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    z-index: 100;
+}
+
+#green {
+    color: green;
+}
+
+#red {
+    color: red;
+}
+
+div.list {
+    display: none;
+}
+
+@media only screen and (min-width : 1224px){
     body > div {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+
+    body > form {
         width: 100%;
-
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-
-        padding-bottom: 10vh;
-    }
-
-    form > #search {
-        margin-top: 10%;
-        padding: 8%;
-
-        width: 77vw;
-        height: 5.93vh;
-
-        background-color: #2B2B2B;
-        border: none;
-
-        color: #fff;
-        font-family: 'Comfortaa-R';
-    }
-
-    form > #delivery {
-        margin-top: 6%;
-        width: 90vw;
-        height: 5.93vh;
-        background-color: #2B2B2B;
-        border: none;
-        color: #fff;
-        font-family: 'Comfortaa-R';
-    }
-
-    form > #delivery::before {
-        background-image: url(../assets/img/ç);
-    }
-
-    div.container {
-        width: 92vw;
-        height: 25vh;
-        margin-top: 18px;
-        background-color: #2B2B2B;
-        text-decoration: none;
-
-        color: #fff;
-
-        position: relative;
-
+        margin: 0;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: row;
+        gap: 2vh;
+    }
+    
+    form > #search {
+        padding: 1%;
+        margin-top: 2vh;
+
+        width: 63vw;
+        height: 6vh;
+    }
+
+    form > #delivery {
+        padding: 1%;
+        margin-top: 2vh;
+
+        width: 63vw;
+        height: 6vh;
+    }
+
+    div.container {
+        height: 18vw;
+        border: none;
+        width: 90vw;
     }
 
     div.result {
-        height: 18vh;
-        border: #fff 1px solid;
-        flex-direction: column;
-    }
-
-    div.result > h3, h4 {
-        margin: 0;
-        margin-bottom: 4%;
-        font-family: 'Comfortaa-R';
-        text-align: center;
+        width: 100%;
+        height: auto;
+        padding-bottom: 2vh;
+        justify-content: flex-start;
     }
 
     div.result > h4 {
-        margin: 1%;
+        font-size: 20px;
+        text-transform: uppercase;
     }
 
-    div.container > .right:before {
-        position: absolute;
-        content: "";
-        top: 10px;
-        left: 10px;
-        width: 15px ;
-        height: 15px;
-        background: transparent;
-        border-top: 2px solid white;
-        border-left: 2px solid white;
-        z-index: 100;
+    div.container div.content > img {
+        width: 16vw;
+        height: 30vh;
     }
 
-    div.container > .right:after {
-        position: absolute;
-        content: "";
-        bottom: 10px;
-        left: 10px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-bottom: 2px solid white;
-        border-left: 2px solid white;
-        z-index: 100;
-    }
-
-    div.container > .left:before {
-        position: absolute;
-        content: "";
-        top: 10px;
-        right: 10px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-top: 2px solid white;
-        border-right: 2px solid white;
-        z-index: 100;
-    }
-
-    div.container > .left:after {
-        content: "";
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-bottom: 2px solid white;
-        border-right: 2px solid white;
-        z-index: 100;
-    }
-
-    div.container div.content {
-        width: 94%;
-        height: 90%;
-
+    div.ctn-products {
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        width: 63vw;
     }
 
-    div.container div.content div.info {
-        width: 44%;
-        height: 89%;
+    div.no-cart {
+        width: 63vw;
+    }
+
+    div.no-cart > div.container {
+        width: 100%;
+    }
+
+    div.no-cart > div.container > h4 {
+        font-size: 30px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    div.ctn-products div.products-list {
+        width: 100%;
+        gap: 2vh;
 
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        flex-direction: column;
-
-        text-align: left;
     }
 
-    div.container div.content div.info div.box {
-        height: 13vh;
-        width: 100%;
+    div.ctn-products div.recap-list {
+        width: 43%;
     }
 
-    div.container div.content > img {
-        width: 40vw;
-        height: 20vh;
-    }
-
-    div.container div.content div.info div.box  > h3, div.container div.content div.info div.box > h2, div.container div.content div.info div.box > h5 {
-        margin: 0;
-        margin-bottom: 5px;
-        font-family: 'Comfortaa-R';
-    }
-
-    div.container div.content div.info div.box h2 {
-        font-size: 24px;
-    }
-
-    div.container div.content div.info div.box > h3 {
-        font-size: 12px;
-    }
-
-    div.container div.content div.info div.box > h5 {
-        font-size: 20px;
-    }
-
-    button.button {
-        position: relative;
-        background-color: #FC7E1F;
-        text-align: center;
-        font-size: 11px;
-        padding: 16px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        font-family: 'Comfortaa-R';
-        margin-left: 10%;
-        text-decoration: none;
-        border: none;
-        color: #fff;
-    }
-
-    button.button:before {
-        position: absolute;
-        content: "";
-        top: 5px;
-        left: 5px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-top: 2px solid white;
-        border-left: 2px solid white;
-    }
-
-    button.button:after {
-        content: "";
-        position: absolute;
-        bottom: 5px;
-        right: 5px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-bottom: 2px solid white;
-        border-right: 2px solid white;
+    div.product {
+        width: 35vw;
     }
 
     div.button {
-        position: relative;
-        width: 65vw;
-        background-color: #FC7E1F;
-        text-align: center;
-        padding: 10px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        font-family: 'Comfortaa-R';
+        width: 20vw;
     }
 
-    div.button > a {
-        text-decoration: none;
-        color: #fff;
-        font-size: 19px;
-        padding: 20px;
+    button.button {
+        width: 65%;
+        font-size: 16px;
+        padding: 24px;
     }
 
-    div.button:before {
-        position: absolute;
-        content: "";
-        top: 5px;
-        left: 5px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-top: 2px solid white;
-        border-left: 2px solid white;
+    div.quantity-box {
+        width: 24%;
+        height: 100%;
     }
 
-    div.button:after {
-        content: "";
-        position: absolute;
-        bottom: 5px;
-        right: 5px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-bottom: 2px solid white;
-        border-right: 2px solid white;
+    div.quantity-box > input.number {
+        width: 100%;
+        height: 100%;
+        font-size: 20px;
+        padding: 0;
     }
 
-    /* /////////////////////////////////////////////////////////////////// */
-
-    form > div > input.number {
-        position: relative;
-        width: 25px;
-        height: 10px;
-        background-color: #2B2B2B;
-        text-align: center;
-        padding: 10px;
-        padding-top: 18px;
-        padding-bottom: 18px;
-        font-family: 'Comfortaa-R';
-        color: #fff;
-        font-size: 15px;
-        border: none;
-    }
-
-    form > div.quantity-box {
-        position: relative;
+    div.quantity-box > input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
     }
 
     div.info > form {
+        width: 100%;
+        gap: 2vh;
+    }
+
+    div.container div.content div.info div.box > h3, div.container div.content div.info div.box > h2, div.container div.content div.info div.box > h5 {
+        margin: 0vh;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        font-family: 'Comfortaa-R';
+    }
+
+    div.container div.content div.info div.box {
+        height: 20vh;
+    }
+
+    div.container div.content div.info div.box h2 {
+        font-size: 36px;
+    }
+    
+    div.container div.content div.info div.box > h5, div.container div.content div.info div.box > h3 {
+        font-size: 22px;
+    }
+
+    div.list {
         display: flex;
-        justify-content: flex-start;
-        flex-direction: row;
-
-        position: relative;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 95%;
+        margin-bottom: 2vh;
+        font-family: 'Comfortaa-R';
     }
 
-    form > div > input.number:focus {
-        outline: none;
+    div.list > h2 {
+        text-align: center;
     }
 
-    form > div > div.left:before {
-        position: absolute;
-        content: "";
-        top: 0px;
-        left: 0px;
-        width: 15px ;
-        height: 15px;
-        background: transparent;
-        border-top: 2px solid white;
-        border-left: 2px solid white;
-        z-index: 100;
-    }
-
-    form > div > div.left:after {
-        position: absolute;
-        content: "";
-        bottom: 0px;
-        left: 0px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-bottom: 2px solid white;
-        border-left: 2px solid white;
-        z-index: 100;
-    }
-
-    form > div > div.right:before {
-        position: absolute;
-        content: "";
-        top: 0px;
-        right: 0px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-top: 2px solid white;
-        border-right: 2px solid white;
-        z-index: 100;
-    }
-
-    form > div > div.right:after {
-        content: "";
-        position: absolute;
-        bottom: 0px;
-        right: 0px;
-        width: 15px;
-        height: 15px;
-        background: transparent;
-        border-bottom: 2px solid white;
-        border-right: 2px solid white;
-        z-index: 100;
-    }
-
-    #green {
-        color: green;
-    }
-
-    #red {
-        color: red;
+    div.list > hr {
+        width: 40vh;
     }
 }
