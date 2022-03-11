@@ -23,6 +23,7 @@ class CartController extends ProductModel
     {
 
         if (!array_key_exists($_REQUEST['slug'] . '-' . $_REQUEST['id'], $_SESSION['cart'])) {
+            
             $_SESSION['cart'][$_REQUEST['slug'] . '-' . $_REQUEST['id']]['quantity'] = $_REQUEST['quantity'];
             $_SESSION['cart'][$_REQUEST['slug'] . '-' . $_REQUEST['id']]['price'] = $_REQUEST['price'];
             $_SESSION['cart'][$_REQUEST['slug'] . '-' . $_REQUEST['id']]['artist'] = $_REQUEST['artist'];

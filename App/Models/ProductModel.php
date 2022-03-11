@@ -336,8 +336,6 @@ class ProductModel extends Database
     public function update_product()
     {
         $sql = "UPDATE `products` SET `name`='".htmlspecialchars($this->name)."',`description`='".htmlspecialchars($this->description)."',`price`=$this->price,`date`='".$this->release."',`id_artist`=$this->id_artist,`id_categorie`=$this->id_category,`id_sub_categorie`=$this->id_sub_category,`stock`=$this->stock WHERE `id` = ? ";
-        // dump($sql);
-        // die();
         return $this->run($sql,[$this->id]);
     }
 
@@ -415,6 +413,11 @@ class ProductModel extends Database
                             )->fetch(PDO::FETCH_ASSOC);
     }
 
+    protected function moreSold()
+    {
+        return $this->run('SELECT *, SUM(`quantity`) as sold FROM `products_command`  GROUP BY `id_product` ORDER BY `sold` DESC LIMIT 3' );
+    }
+
 
 
     /**
@@ -425,7 +428,8 @@ class ProductModel extends Database
         return $this->id_artist;
     }
 
-    /**
+    /***
+     * 
      * Set the value of id_artist
      *
      * @return  self

@@ -132,4 +132,9 @@ class ProductController extends ProductModel
         }
     }
 
+    public function homeItems()
+    {
+        $moresold = $this->moreSold();
+    }
+
 }

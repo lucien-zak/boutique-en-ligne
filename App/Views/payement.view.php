@@ -1,14 +1,18 @@
-<?php dump($params);?>
-            
 <body>
-        <form action="/payement/w" method="post">
-            <div id="errors"></div><!--Contiendra les messages d'erreur de paiement-->
-            <input type="text" id="cardholder-name" placeholder="Titulaire de la carte">
-            <div id="card-elements"></div><!--Contiendra le formulaire de saisie des informations de carte-->
-            <div id="card-errors" role="alert"></div><!--Contiendra les erreurs relatives à la carte-->
-            <button id="card-button" type="button" data-secret="<?= $params['data']['client_secret'] ?>">Procéder au paiement</button>
-        </form>
-
-        <script src="https://js.stripe.com/v3/"></script>
-        <script src="./assets/script/stripe.js"></script>
-    </body>
+  <div class="container">
+    <h2 class="my-4 text-center">Intro To React Course [$50]</h2>
+    <form action="/payement/charge" method="POST" id="payment-form">
+      <div class="form-row">
+        <div id="card-element" class="form-control">
+          <!-- a Stripe Element will be inserted here. -->
+        </div>
+        <!-- Used to display form errors -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+      <button>Submit Payment</button>
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="./assets/script/stripe2.js"></script>
+</body>

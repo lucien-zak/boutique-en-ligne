@@ -306,12 +306,17 @@ $router->map('POST|GET', '/order/resume', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('GET', '/payement', function () {
-    $model = new PayementController; $model->setStripe2();
+$router->map('POST', '/payement', function () {
+    Shop::payement();
 });
 
-$router->map('POST | GET', '/payement/w', function () {
-    dump($_REQUEST);
+$router->map('GET', '/payement/resume', function () {
+    $resume = new CommandController;
+    $resume->newCommand();
+});
+
+$router->map('POST ', '/payement/charge', function () {
+    $model = new CommandController; $model->setStripe2();  
 });
 
 // $router->map( 'POST', '/account/payements/edit', function(){
@@ -336,6 +341,11 @@ $router->map('GET', '/error', function () {
 $router->map('GET', '/logout', function () {
     $user = new UserController;
     $user->logout();
+});
+
+$router->map('GET', '/test2', function () {
+    $user = new CommandController;
+    $user->test();
 });
 
 /////////////////////////////////////////////////////////////////////////////

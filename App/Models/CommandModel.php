@@ -5,17 +5,24 @@ use App\Config\Database;
 class CommandModel extends Database
 {
 
+    protected $date;
+    protected $full_name; 
     protected $command_num;
     protected $id_user;
-    protected $id_product;
     protected $delivery_adress;
     protected $billing_adress;
-    protected $id_payement;
-    protected $quantity;
+    protected $four_last;
+  
 
     protected function setDate($date)
     {
         $this->date = $date;
+        return $this;
+    }
+
+    protected function setFull_name($full_name)
+    {
+        $this->full_name = $full_name;
         return $this;
     }
 
@@ -28,12 +35,6 @@ class CommandModel extends Database
     protected function setId_user($id_user)
     {
         $this->id_user = $id_user;
-        return $this;
-    }
-
-    protected function setId_product($id_product)
-    {
-        $this->id_product = $id_product;
         return $this;
     }
 
@@ -55,15 +56,60 @@ class CommandModel extends Database
         return $this;
     }
 
+    public function setCommand()
+    {
+        return $this->run('INSERT INTO `command`( `date`, `full_name`, `command_num`, `id_user`, `delivery_adress`, `biling_adress`, `four_last`) VALUES (?, ?, ?, ?, ?, ?, ?)', [$this->date, $this->full_name, $this->command_num, $this->id_user, $this->delivery_adress, $this->billing_adress, $this->four_last]);
+    }
+
+    public function checkNum_Command($command_num)
+    {
+        $sql = $this->run('SELECT `command_num` FROM `command` WHERE `command_num` = ?', [$command_num]);
+        if($sql->rowCount()>0)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    protected function getStockById($id)
+    {
+        return $this->run('SELECT `stock` FROM `products` WHERE `id` = ?'  , [$id])->fetch();
+    }
+    
+    protected function updateStock($id, $quantity)
+    {
+        $prevStock = $this->getStockById($id)->stock;     
+        $stock = $prevStock - $quantity;
+        return $this->run('UPDATE `products` SET `stock`= ? WHERE `id` = ? '  , [$stock , $id]);
+    }
+
+    protected function getCommandByNum()
+    {
+        return $this->run('SELECT * FROM `command` WHERE `command_num` = ?'  , [$this->command_num])->fetch();
+    }
+
+    protected function setId_product($id_product)
+    {
+        $this->id_product = $id_product;
+        return $this;
+    }
+
     protected function setQuantity($quantity)
     {
         $this->quantity = $quantity;
         return $this;
     }
 
-    public function setCommand()
+    protected function setProducts_Command()
     {
-        return $this->run('INSERT INTO `command`( `date`, `command_num`, `id_user`, `id_product`, `delivery_adress`, `billing_adress`, `four_last`, `quantity`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [$this->date, $this->command_num, $this->id_user, $this->id_product, $this->delivery_adress, $this->billing_adress, $this->four_last, $this->quantity]);
+        return $this->run('INSERT INTO `products_command` (`id_product`, `num_command`, `quantity`) VALUES (?, ?, ?)', [$this->id_product, $this->command_num, $this->quantity]);
     }
     
+    protected function getProducts_CommandByNum()
+    {
+        return $this->run('SELECT * FROM `products_command` INNER JOIN `products` ON `products_command`.`id_product` = `products`.`id` WHERE `products_command`.`num_command` = ?'  , [$this->command_num])->fetchAll();
+    }
+
 }
