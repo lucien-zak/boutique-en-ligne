@@ -13,9 +13,7 @@ use App\Controllers\AdressController;
 use App\Controllers\CardsController;
 use App\Controllers\CartController;
 use App\Controllers\CommandController;
-use App\Controllers\PayementController;
 use App\Controllers\ReviewsController;
-
 use App\Controllers\ProductController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
@@ -268,12 +266,17 @@ $router->map('POST|GET', '/order/resume', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('GET', '/payement', function () {
-    $model = new PayementController; $model->setStripe2();
+$router->map('POST', '/payement', function () {
+    Shop::payement();
 });
 
-$router->map('POST | GET', '/payement/w', function () {
-    dump($_REQUEST);
+$router->map('GET', '/payement/resume', function () {
+    $resume = new CommandController;
+    $resume->newCommand();
+});
+
+$router->map('POST ', '/payement/charge', function () {
+    $model = new CommandController; $model->setStripe2();  
 });
 
 // $router->map( 'POST', '/account/payements/edit', function(){
@@ -300,6 +303,11 @@ $router->map('GET', '/logout', function () {
     $user->logout();
 });
 
+$router->map('GET', '/test2', function () {
+    $user = new CommandController;
+    $user->test();
+});
+
 /////////////////////////////////////////////////////////////////////////////
 
 // match current request url
@@ -312,3 +320,4 @@ if (is_array($match) && is_callable($match['target'])) {
     // no route was matched
     Shop::error();
 }
+

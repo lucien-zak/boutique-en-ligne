@@ -4,3 +4,9 @@
 
 dump($params);
 dump($_SESSION);
+
+?>
+
+<form action="/payement" method="POST">
+    <input type="submit">
+</form>

@@ -73,7 +73,7 @@ class ShopController
         $params = [ 'titre' => $titrepage];
         return AbstractController::render('payement', $params);
     }
-
+    
     public static function payements()
     {
         $titrepage = 'Vos Paiements';
