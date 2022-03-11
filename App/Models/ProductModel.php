@@ -268,9 +268,35 @@ class ProductModel extends Database
                             ->fetchAll();
     }
 
-    public function update_subcategory(){
-        return $this->run("");
+    public function update_subcategory($category, $sub_category, $id)
+    {
+        return $this->run("UPDATE `sub_categorie` SET `id_categorie`= ? ,`sub_categorie`= ? WHERE `id` = ? ", [$category, $sub_category, $id]);
     }
+
+    public function insert_subcategory($id, $subcategory)
+    {
+        return $this->run("INSERT INTO `sub_categorie`(`id_categorie`, `sub_categorie`) VALUES (?,?)", [$id,$subcategory]);
+    }
+
+
+    public function delete_subcategory($id)
+    {
+        return $this->run("DELETE FROM `sub_categorie` WHERE id = ?", [$id]);
+    }
+
+    public function delete_category($id)
+    {
+        return $this->run("DELETE FROM `categories` WHERE id = ?", [$id]);
+    }
+
+    public function insert_category($category)
+    {
+        return $this->run("INSERT INTO `categories`(`categorie`) VALUES (?)", [$category]);
+    }
+
+
+
+
 
 
 
@@ -315,9 +341,27 @@ class ProductModel extends Database
         return $this->run($sql,[$this->id]);
     }
 
-    public function delete_product(){
+    public function delete_product()
+    {
         $sql = "DELETE FROM `products` WHERE id = ? AND slug = ?";
         return $this->run($sql,[$this->id, $this->slug]);
+    }
+
+    public function insert_product()
+    {
+        $sql = "INSERT INTO `products`(`name`, `description`, `price`, `date`, `slug`, `id_artist`, `id_categorie`, `id_sub_categorie`, `stock`) VALUES (:name,:description,:price,:date,:slug,:id_artist,:id_category,:id_sub_category,:stock)";
+        return $this->run($sql,
+        [
+            ':name' => $this->name,
+            ':description' => $this->description,
+            ':price' => $this->price,
+            ':date' => $this->release,
+            ':slug' => $this->slug,
+            ':id_artist' => $this->id_artist,
+            ':id_category' => $this->id_category,
+            ':id_sub_category' => $this->id_sub_category,
+            ':stock' => $this->stock,
+        ]);
     }
 
     ////Table secondaires //

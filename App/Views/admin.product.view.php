@@ -22,7 +22,7 @@ foreach($params['artists'] as $key => $artist)
     }
 }
 echo '</select>';
-echo '<h3>Selectionner la catégorie/sous-catégorie : </h3><select name="catgory" id="">';
+echo '<h3>Selectionner la catégorie/sous-catégorie : </h3><select name="category" id="">';
 foreach($params['allcategory'] as $category)
 {
     if ($category->sub_categorieid == $params['product']->id_sub_categorie) {

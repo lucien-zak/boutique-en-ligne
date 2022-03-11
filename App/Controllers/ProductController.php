@@ -114,6 +114,8 @@ class ProductController extends ProductModel
         }
     }
 
+    
+
     public function delFavorites($id)
     {   
 

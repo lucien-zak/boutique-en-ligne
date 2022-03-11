@@ -14,9 +14,8 @@ use App\Controllers\CardsController;
 use App\Controllers\CartController;
 use App\Controllers\CommandController;
 use App\Controllers\PayementController;
-use App\Controllers\ReviewsController;
-
 use App\Controllers\ProductController;
+use App\Controllers\ReviewsController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
 
@@ -41,27 +40,27 @@ $router->map('GET', '/product/[a:slug]-[i:id]', function ($slug, $id, ) {
     $product->product($id, $slug);
 });
 
-$router->map( 'POST', '/product/favorite_add/[i:id]', function($id){
+$router->map('POST', '/product/favorite_add/[i:id]', function ($id) {
     $favorite = new ProductController;
     $favorite->addFavorites($id);
 });
 
-$router->map( 'POST', '/product/favorite_del/[i:id]', function($id){
+$router->map('POST', '/product/favorite_del/[i:id]', function ($id) {
     $favorite = new ProductController;
     $favorite->delFavorites($id);
 });
 
-$router->map( 'POST', '/product/reviewadd/[i:id_product]', function($id_product){
+$router->map('POST', '/product/reviewadd/[i:id_product]', function ($id_product) {
     $review = new ReviewsController;
     $review->NewReview($id_product);
 });
 
-$router->map( 'POST', '/product/sub_reviewadd/[i:id_review]', function($id_review){
+$router->map('POST', '/product/sub_reviewadd/[i:id_review]', function ($id_review) {
     $review = new ReviewsController;
     $review->NewSub_review($id_review);
 });
 
-$router->map( 'POST', '/product/review_report/[i:id]', function($id){
+$router->map('POST', '/product/review_report/[i:id]', function ($id) {
     $review = new ReviewsController;
     $review->updateReport($id);
 });
@@ -195,7 +194,7 @@ $router->map('GET', '/account/cart', function () {
 //////////////////////////////ADMIN///////////////////////////////////////////////
 
 $router->map('GET', '/admin', function () {
-    $admin = new AdminController;
+    $admin = new AdminController();
     $admin->home_admin();
 });
 
@@ -214,15 +213,43 @@ $router->map('GET', '/admin/category/[i:id]', function ($id) {
     $admin->category_admin($id);
 });
 
-$router->map('POST', '/admin/subcategory/modify/[i:id]', function ($id) {
-    $product = new AdminController;
-    $product->category_admin_modify($id);
+$router->map('GET', '/admin/category/delete/[i:id]', function ($id) {
+    $admin = new AdminController;
+    $admin->category_admin_delete($id);
 });
 
+$router->map('GET', '/admin/category/delete/[i:id]/confirm', function ($id) {
+    $admin = new AdminController;
+    $admin->category_admin_delete_confirm($id);
+    echo 'Catégorie supprimée';
+    echo "<a href='/admin'>Retour à l'admin</a>";
+});
 
+$router->map('POST', '/admin/category/add', function () {
+    $admin = new AdminController;
+    $category = htmlspecialchars($_REQUEST['category']);
+    $admin->category_admin_add($category);
+    echo 'Catégorie ajoutée';
+    echo "<a href='/admin'>Retour à l'admin</a>";
+});
 
+$router->map('POST', '/admin/sub_category/add', function () {
+    $admin = new AdminController;
+    $id = htmlspecialchars($_REQUEST['category']);
+    $subcategory = htmlspecialchars($_REQUEST['subcategory']);
+    $admin->subcategory_admin_add($id, $subcategory);
+    echo 'Sous-catégorie ajoutée';
+    echo "<a href='/admin'>Retour à l'admin</a>";
+});
 
-
+$router->map('POST', '/admin/subcategory/modify/[i:id]', function ($id) {
+    $product = new AdminController;
+    $category = htmlspecialchars($_REQUEST['category']);
+    $sub_category = htmlspecialchars($_REQUEST[$id]);
+    $product->category_admin_update($id, $category, $sub_category);
+    echo 'Produit modifié';
+    echo "<a href='/admin'>Retour à l'admin</a>";
+});
 
 $router->map('GET', '/admin/product/modify/[a:slug]-[i:id]', function ($slug, $id) {
     $product = new AdminController;
@@ -230,18 +257,29 @@ $router->map('GET', '/admin/product/modify/[a:slug]-[i:id]', function ($slug, $i
 });
 
 $router->map('POST', '/admin/product/update/[a:slug]-[i:id]', function ($slug, $id) {
-$product = New AdminController;
-$product->product_admin_update($slug,$id);
-echo 'Produits modifiés';
-echo '<a href="/admin/products">Retour aux produits</a>';
+    $product = new AdminController;
+    $product->product_admin_update($slug, $id);
+    echo 'Produits modifiés';
+    echo '<a href="/admin/products">Retour aux produits</a>';
+});
+
+$router->map('POST', '/admin/product/add', function () {
+// dump($_REQUEST);
+    $admin = new AdminController;
+    $admin->product_admin_new();
 });
 
 $router->map('GET', '/admin/product/delete/[a:slug]-[i:id]', function ($slug, $id) {
-    $product = New AdminController;
-    $product->product_admin_delete($slug,$id);
+    $product = new AdminController;
+    $product->product_admin_delete($slug, $id);
     echo 'Produits supprimé';
     echo '<a href="/admin/products">Retour aux produits</a>';
-    });
+});
+
+$router->map('GET', '/admin/reviews', function () {
+    $product = new AdminController;
+    
+});
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -251,15 +289,12 @@ $router->map('POST|GET', '/order/delivrery', function () {
     $command->delivery_choice();
 });
 
-$router->map('POST', '/order/verification', function () 
-
-    {
+$router->map('POST', '/order/verification', function () {
     if ($_REQUEST['typedelivery'] == 'Mondial Relay') {
-        $command = New CommandController;
+        $command = new CommandController;
         $command->delivery_setrelay();
-    }
-    else {
-        $command = New CommandController;
+    } else {
+        $command = new CommandController;
         $command->redirect();
     }
 });
