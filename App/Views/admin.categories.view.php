@@ -18,4 +18,14 @@ foreach ($params['allcategory'] as $category) {
     // echo '<td><a href="/admin/product/modify/'.$product->slug.'-'.$product->id.'">Modifier le produit</a></td>';
     // echo '<td><a href="/admin/product/delete/'.$product->slug.'-'.$product->id.'">Supprimer le produit</a></td>';
     echo '</tr>';
+
 }
+echo '</table>';
+
+?>
+
+<h1>Ajouter une catégorie</h1>
+<form action="/admin/category/add" method="post">
+    <input type="text" name="category" id="">
+    <input type="submit" value="Ajouter">
+</form>

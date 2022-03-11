@@ -45,4 +45,6 @@ class Database
     {
         return $this->run("SELECT * FROM `$this->table` ")->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
 }

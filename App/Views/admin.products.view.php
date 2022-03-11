@@ -20,7 +20,7 @@ foreach ($params['products'] as $product)
 }
 echo '</table>';
 echo '<h1>Ajouter un produits</h1>';
-echo '<form action="/admin/product/add" method="post">';
+echo '<form action="/admin/product/add" method="post" enctype="multipart/form-data">';
 echo '<h3>Nom du produit : </h3><input type="text" value="" name="name" id="">';
 echo '<h3>Description du produit : </h3><textarea name="description" id="" cols="30" rows="10"></textarea>';
 echo '<h3>Prix du produit : </h3><input type="float" value="" name="price" id="">';
@@ -34,7 +34,7 @@ foreach($params['artists'] as $key => $artist)
 
 }
 echo '</select>';
-echo '<h3>Selectionner la catégorie/sous-catégorie : </h3><select name="catgory" id="">';
+echo '<h3>Selectionner la catégorie/sous-catégorie : </h3><select name="category" id="">';
 foreach($params['allcategory'] as $category)
 {
     
@@ -42,7 +42,9 @@ foreach($params['allcategory'] as $category)
 
 }
 echo '</select>';
-echo '<br><input type="submit" value="Prévisualiser">';
+echo '<label for="file">Fichier</label>';
+echo '<input type="file" name="file">';
+echo '<br><input type="submit" value="Ajouter un produit">';
 echo '</form>';
 ?>
 
