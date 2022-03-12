@@ -14,6 +14,7 @@ class ProductController extends ProductModel
         $params = ['titre' => $titrepage, 'product' => $product, 'message' => $message, 'css' => 'product'];
         $sub_reviews = $this->displaySub_Reviews();
         $reviews = $this->getReviewsById();
+        $similar = $this->Similar();
         if(!empty($_SESSION['user']))
         {
             $favorites = $this->checkFavorites($_SESSION['user']['id']);
@@ -23,7 +24,7 @@ class ProductController extends ProductModel
             $favorites = false;
         }
         $averageRating = $this->avgRatingProduct($id);
-        $params = ['titre' => $titrepage, 'css' => 'product', 'product' => $product , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
+        $params = ['titre' => $titrepage, 'css' => 'product', 'product' => $product , 'similar' => $similar , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
         
         return AbstractController::render('product', $params);
     }
@@ -135,6 +136,19 @@ class ProductController extends ProductModel
     public function homeItems()
     {
         $moresold = $this->moreSold();
+        
+        foreach($moresold as $product)
+        {
+            $avg = $this->setId($product->id)->avgRatingProduct();
+            if(!isset($product->avg))
+            {
+                $product->avg = $avg;              
+            }
+        }
+
+        $params = ['titre' => 'home' , 'moreSold' => $moresold, 'css' => 'index'];
+        return AbstractController::render('index', $params);
+
     }
 
 }

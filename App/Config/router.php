@@ -25,7 +25,8 @@ $user->remember();
 $router = new AltoRouter;
 
 $router->map('GET', '/', function () {
-    Shop::home();
+    $product = new ProductController;
+    $product->homeItems();
 });
 
 /////////////////////////////////////////////////////////////////////////////
@@ -51,11 +52,13 @@ $router->map('POST', '/product/favorite_del/[i:id]', function ($id) {
 });
 
 $router->map('POST', '/product/reviewadd/[i:id_product]', function ($id_product) {
+    AbstractController::is_connected();
     $review = new ReviewsController;
     $review->NewReview($id_product);
 });
 
 $router->map('POST', '/product/sub_reviewadd/[i:id_review]', function ($id_review) {
+    AbstractController::is_connected();
     $review = new ReviewsController;
     $review->NewSub_review($id_review);
 });
@@ -283,7 +286,7 @@ $router->map('GET', '/admin/reviews', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('POST|GET', '/order/delivrery', function () {
+$router->map('POST', '/order/delivrery', function () {
     AbstractController::is_connected();
     $command = new CommandController;
     $command->delivery_choice();

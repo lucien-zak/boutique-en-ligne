@@ -1,4 +1,5 @@
 <body>
+    <?php dump($params) ?>
     <main>
         <section id="home" class="home">
             <div class="container">
@@ -69,27 +70,31 @@
                 </div>
             </div>
             <div class="content">
+
+                <?php foreach($params['moreSold'] as $product)
+                { ?>
+         
                 <div class="product">
                     <div class="left"></div>
                     <div class="ctn">
                         <div class="top">
-                            <img src="../assets/img/products/bad-8.png" alt="Image product">
+                            <img src="../assets/img/products/<?= $product->slug."-".$product->id ?>.png" alt="Image product">
                         </div>
                         <div class="middle">
-                            <h2>Bad</h2>
-                            <h3>Micheal Jackson</h3>
+                            <h2><?=$product->name?></h2>
+                            <h3><?=$product->artist?></h3>
                             <div class="box">
                                 <div class="rateyo2" id= "rating"
-                                data-rateyo-rating="4"
+                                data-rateyo-rating="<?=$product->avg['stars']?>"
                                 data-rateyo-num-stars="5"
                                 data-rateyo-score="3">
                                 </div>
-                                <h2>(19)</h2>
+                                <h2>(19)</h2>   
                             </div>
                         </div>
                         <div class="bottom">
                         <div class="buttons-container">
-                                <button class="btn btn-primary" onclick="window.location.href='/products'">
+                                <button class="btn btn-primary" onclick="window.location.href='/product/<?= $product->slug .'-'. $product->id ?>'">
                                     <div class="left"></div>
                                     Voir le produit
                                     <div class="right"></div>
@@ -99,7 +104,8 @@
                     </div>
                     <div class="right"></div>
                 </div>
-                <div class="product">
+                <?php } ?>
+                <!-- <div class="product">
                     <div class="left"></div>
                     <div class="ctn">
                         <div class="top">
@@ -158,8 +164,8 @@
                         </div>
                     </div>
                     <div class="right"></div>
-                </div>
-            </div>
+                </div> -->
+            </div> 
         </section>
         <section class="topNewness container vitrine">
             <img class="wave" src="../assets/img/utils/wave-3.svg" id="partners">

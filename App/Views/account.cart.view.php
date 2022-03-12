@@ -90,7 +90,7 @@
                             </div>
                             <h3>Montant total : <?= App\Controllers\CartController::total_product_cart() ?>€</h3>
                             <div class="buttons-container">
-                                <button class="btn btn-primary" onclick="window.location.href='/logout'">
+                                <button class="btn btn-primary" onclick="window.location.href='/account/cart'">
                                     <div class="left"></div>
                                         Passer la commande
                                     <div class="right"></div>

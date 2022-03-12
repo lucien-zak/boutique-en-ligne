@@ -415,9 +415,20 @@ class ProductModel extends Database
 
     protected function moreSold()
     {
-        return $this->run('SELECT *, SUM(`quantity`) as sold FROM `products_command`  GROUP BY `id_product` ORDER BY `sold` DESC LIMIT 3' );
+        return $this->run('SELECT SUM(`products_command`.`quantity`) as sold, 
+        `products`.`slug`, 
+        `products`.`id`,
+        `products`.`name`,
+        `artists`.`artist`
+        FROM `products_command` INNER JOIN `products` ON `products_command`.`id_product` = `products`.`id` INNER JOIN `artists` ON `artists`.`id` = `products`.`id_artist` GROUP BY `products_command`.`id_product` ORDER BY `sold` DESC LIMIT 3')->fetchAll();
     }
 
+    protected function Similar()
+    {
+        return $this->run("SELECT `products`.id, 
+        `products`.`name`, 
+        COUNT(*) as how_many_shared_tags FROM `products` JOIN `products_tags` ON `products_tags`.`id_product` = `products`.`id` AND `products_tags`.`id_tag` IN(SELECT `id_tag` FROM `products_tags` WHERE `id_product` = 8) WHERE `products`.`id` != 8 GROUP BY `products`.`id`, `products`.`name` order by COUNT(*) DESC LIMIT 3" )->fetch();
+    }
 
 
     /**

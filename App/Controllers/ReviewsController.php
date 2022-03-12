@@ -8,7 +8,7 @@ class ReviewsController extends ReviewsModel
 {
 
     public function NewReview($id_product)
-    {
+    { 
         $titrepage = "add Review";
         $comment = htmlspecialchars($_POST['comment']);
         $mark = htmlspecialchars($_POST['rating']);
