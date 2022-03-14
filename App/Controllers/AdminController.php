@@ -37,12 +37,6 @@ class AdminController extends ProductModel
 
     public function product_admin_new(){
         
-        // dump($_SERVER);
-        // dump($_FILES);
-        // dump($_REQUEST);
-        // $filname = $_REQUEST['slug'];
-        // AbstractController::upload_img_products();
-        // die;
         $titrepage = 'Produit';
         $category = explode("/", $_REQUEST['category']);
         $this->setName(htmlspecialchars($_REQUEST['name']))

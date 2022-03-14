@@ -1,5 +1,4 @@
 <?php
-dump($params);
 if (isset($_SESSION['cart'][$params['product']->slug.'-'.$params['product']->id]['quantity'])){
     $stock = $params['product']->stock - $_SESSION['cart'][$params['product']->slug.'-'.$params['product']->id]['quantity'];
 }
