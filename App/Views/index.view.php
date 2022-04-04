@@ -175,15 +175,17 @@
                 </div>
             </div>
             <div class="content">
+                <?php foreach($params['news'] as $new){?>
+            
                 <div class="product">
                     <div class="left"></div>
                     <div class="ctn">
                         <div class="top">
-                            <img src="../assets/img/products/bad-8.png" alt="Image product">
+                            <img src="../assets/img/products/<?= $new->slug."-".$new->id ?>" alt="Image product">
                         </div>
                         <div class="middle">
-                            <h2>Bad</h2>
-                            <h3>Micheal Jackson</h3>
+                            <h2><?=$new->name?></h2>
+                            <h3><?=$new->artist?></h3>  
                             <div class="box">
                                 <div class="rateyo2" id= "rating"
                                 data-rateyo-rating="4"
@@ -205,7 +207,8 @@
                     </div>
                     <div class="right"></div>
                 </div>
-                <div class="product">
+                <?php } ?>
+                <!-- <div class="product">
                     <div class="left"></div>
                     <div class="ctn">
                         <div class="top">
@@ -264,7 +267,7 @@
                         </div>
                     </div>
                     <div class="right"></div>
-                </div>
+                </div> -->
             </div>
         </section>
     </main>

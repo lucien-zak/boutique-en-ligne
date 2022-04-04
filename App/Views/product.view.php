@@ -40,7 +40,7 @@ $sub_reviews = $params['sub_reviews'];
             <form action="/cart/add/<?= $params['product']->slug.'-'.$params['product']->id ?>" method="post">
                 <div class="input-container">
                     <div class="left"></div>
-                    <input id="quantity" value="1" type="number" name="quantity" min="1" max="<?= $params['product']->stock ?>">
+                    <input id="quantity" value="1" type="number" name="quantity" min="0" max="<?= $stock ?>">
                     <div class="right"></div>
                 </div>
                 <input type="text" value="<?= $params['product']->price ?>" name="price" hidden>
