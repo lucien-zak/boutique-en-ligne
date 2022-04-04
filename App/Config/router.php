@@ -92,7 +92,6 @@ $router->map('GET', '/products/category/[a:category]', function ($category) {
 
 $router->map('POST', '/cart/add/[a:slug]-[i:id]', function ($slug, $id) {
     $cart = new CartController;
-    $message = 'test';
     $cart->addProduct();
 });
 

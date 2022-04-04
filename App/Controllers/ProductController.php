@@ -10,15 +10,13 @@ class ProductController extends ProductModel
     {
         $titrepage = 'Produit';
         $product = $this->setId($id)->setSlug($slug)->getProduct();
-        $message = AbstractController::message($code);
-        $params = ['titre' => $titrepage, 'product' => $product, 'message' => $message, 'css' => 'product'];
+        $params = ['titre' => $titrepage, 'product' => $product, 'css' => 'product'];
         $sub_reviews = $this->displaySub_Reviews();
         $reviews = $this->getReviewsById();
         $similar = $this->Similar();
         if(!empty($_SESSION['user']))
         {
             $favorites = $this->checkFavorites($_SESSION['user']['id']);
-
         }
         else{
             $favorites = false;

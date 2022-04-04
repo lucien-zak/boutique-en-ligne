@@ -71,24 +71,27 @@ class AbstractController
         return $sortedlist;
     }
 
-    public static function message($code)
+    /* 
+        $code = int for choose the type of alert message
+
+        0 = successfully
+        1 = failed
+        2 = error
+    */
+
+    public static function alert($type, $message)
     {
-        switch ($code) {
+        switch ($type) {
             case 0:
-                $message = '';
+                return 'succes' . '---' . $message;
                 break;
             case 1:
-                $message = 'Produit ajouté au panier';
+                return 'failed' . '---' . $message;
                 break;
             case 2:
-                $message = 'Wesh Fatima tu fous quoi ?';
-                break;
-            default:
-                $message = "";
-                header('location:/error');
+                return 'error' . '---' . $message;
                 break;
         }
-        return $message;
     }
 
     public static function is_connected()

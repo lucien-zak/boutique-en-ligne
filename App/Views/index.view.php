@@ -1,5 +1,4 @@
 <body>
-    <?php dump($params) ?>
     <main>
         <section id="home" class="home">
             <div class="container">
@@ -10,12 +9,12 @@
                     </div>
                     <p>Vinyl Génération est spécialisé dans le domaine de la vente de Vinyl en tout genres, et pour tout les goûts musicaux.</p>
                     <div class="buttons-container">
-                        <button class="btn btn-primary" onclick="window.location.href='#about'">
+                        <button class="btn btn-primary" id="about-btn">
                             <div class="left"></div>
                             En savoir plus
                             <div class="right"></div>
                         </button>
-                        <button class="btn btn-primary" onclick="window.location.href='/products'">
+                        <button class="btn btn-primary" id="products-btn">
                             <div class="left"></div>
                             Voir nos produits
                             <div class="right"></div>
@@ -46,12 +45,12 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique senectus et netus et malesuada. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. <br><br>Aliquam ultrices sagittis orci a scelerisque purus. Aliquam malesuada bibendum arcu vitae elementum. A cras semper auctor neque vitae tempus. Neque gravida in fermentum et. Ultricies integer quis auctor elit sed vulputate mi sit amet.
                         </p>
                         <div class="buttons-container">
-                            <button class="btn btn-primary" onclick="window.location.href='#about'">
+                            <button id="more-btn" class="btn btn-primary">
                                 <div class="left"></div>
                                 En savoir plus
                                 <div class="right"></div>
                             </button>
-                            <button class="btn btn-primary" onclick="window.location.href='#about'">
+                            <button id="contact-btn" class="btn btn-primary">
                                 <div class="left"></div>
                                 Nous contacter
                                 <div class="right"></div>
@@ -70,7 +69,6 @@
                 </div>
             </div>
             <div class="content">
-
                 <?php foreach($params['moreSold'] as $product)
                 { ?>
          
@@ -105,66 +103,6 @@
                     <div class="right"></div>
                 </div>
                 <?php } ?>
-                <!-- <div class="product">
-                    <div class="left"></div>
-                    <div class="ctn">
-                        <div class="top">
-                            <img src="../assets/img/products/bad-8.png" alt="Image product">
-                        </div>
-                        <div class="middle">
-                            <h2>Bad</h2>
-                            <h3>Micheal Jackson</h3>
-                            <div class="box">
-                                <div class="rateyo2" id= "rating"
-                                data-rateyo-rating="4.5"
-                                data-rateyo-num-stars="5"
-                                data-rateyo-score="3">
-                                </div>
-                                <h2>(29)</h2>
-                            </div>
-                        </div>
-                        <div class="bottom">
-                            <div class="buttons-container">
-                                <button class="btn btn-primary" onclick="window.location.href='/products'">
-                                    <div class="left"></div>
-                                    Voir le produit
-                                    <div class="right"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right"></div>
-                </div>
-                <div class="product">
-                    <div class="left"></div>
-                    <div class="ctn">
-                        <div class="top">
-                            <img src="../assets/img/products/bad-8.png" alt="Image product">
-                        </div>
-                        <div class="middle">
-                            <h2>Bad</h2>
-                            <h3>Micheal Jackson</h3>
-                            <div class="box">
-                                <div class="rateyo2" id= "rating"
-                                data-rateyo-rating="3"
-                                data-rateyo-num-stars="5"
-                                data-rateyo-score="3">
-                                </div>
-                                <h2>(10)</h2>
-                            </div>
-                        </div>
-                        <div class="bottom">
-                            <div class="buttons-container">
-                                <button class="btn btn-primary" onclick="window.location.href='/products'">
-                                    <div class="left"></div>
-                                    Voir le produit
-                                    <div class="right"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right"></div>
-                </div> -->
             </div> 
         </section>
         <section class="topNewness container vitrine">
@@ -195,7 +133,7 @@
                         </div>
                         <div class="bottom">
                             <div class="buttons-container">
-                                <button class="btn btn-primary" onclick="window.location.href='/logout'">
+                                <button class="btn btn-primary products-btn">
                                     <div class="left"></div>
                                     Voir le produit
                                     <div class="right"></div>
@@ -225,7 +163,7 @@
                         </div>
                         <div class="bottom">
                             <div class="buttons-container">
-                                <button class="btn btn-primary" onclick="window.location.href='/products'">
+                                <button class="btn btn-primary products-btn">
                                     <div class="left"></div>
                                     Voir le produit
                                     <div class="right"></div>
@@ -255,7 +193,7 @@
                         </div>
                         <div class="bottom">
                             <div class="buttons-container">
-                                <button class="btn btn-primary" onclick="window.location.href='/products'">
+                                <button class="btn btn-primary products-btn">
                                     <div class="left"></div>
                                     Voir le produit
                                     <div class="right"></div>

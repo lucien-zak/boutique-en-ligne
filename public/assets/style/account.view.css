@@ -121,128 +121,6 @@ i.icon {
 }
 
 /*///////////////////////////////////////////////////////////////////*/
-/* SECTION BUTTON INPUT TEXTENTRY */
-/*///////////////////////////////////////////////////////////////////*/
-div.entry-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 20%;
-}
-
-div.entry-container > div.box {
-    position: relative;
-    background-color: #2B2B2B;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    color: #fff;
-    padding: 0vh;
-    font-family: 'Comfortaa';
-}
-
-div.entry-container > div.box > input, label, select {
-    position: relative;
-    width: 270px;
-    height: 6.28%;
-    background-color: #2B2B2B;
-    text-align: center;
-    padding: 10px;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    font-family: 'Comfortaa-R';
-    color: #fff;
-    font-size: 15px;
-    border: none;
-}
-
-div.entry-container > div.box > input:focus {
-    outline: none;
-}
-
-div.box > div.left:before {
-    position: absolute;
-    content: "";
-    top: 0px;
-    left: 0px;
-    width: 15px ;
-    height: 15px;
-    background: transparent;
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-    z-index: 100;
-}
-
-div.box > div.left:after {
-    position: absolute;
-    content: "";
-    bottom: 0px;
-    left: 0px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-bottom: 2px solid white;
-    border-left: 2px solid white;
-    z-index: 100;
-}
-
-div.box > div.right:before {
-    position: absolute;
-    content: "";
-    top: 0px;
-    right: 0px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-top: 2px solid white;
-    border-right: 2px solid white;
-    z-index: 100;
-}
-
-div.box > div.right:after {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-bottom: 2px solid white;
-    border-right: 2px solid white;
-    z-index: 100;
-}
-
-div.buttons-container > a {
-    text-decoration: none;
-    color: #fff;
-    font-family: 'Comfortaa-R';
-    text-transform: uppercase;
-    font-size: 80%;
-    margin-top: 6%;
-}
-
-div.entry-container > div.container {
-    width: 270px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Comfortaa-R';
-    text-transform: uppercase;
-}
-
-div.entry-container > div.container > div.box {
-    position: relative;
-}
-
-div.entry-container > div.container > div.box > select {
-    width: 125px;
-}
-
-/*///////////////////////////////////////////////////////////////////*/
 /* SECTION BUTTON INPUT FILE */
 /*///////////////////////////////////////////////////////////////////*/
 
@@ -446,6 +324,10 @@ div.options-ctn > h4 {
     margin-bottom: 10%;
 }
 
+div.buttons-container > button.btn {
+    width: 60vw;
+}
+
 #closeBtn {
     color: #ad1a1a;
     cursor: pointer;
@@ -590,7 +472,7 @@ div.options-ctn > h4 {
         font-family: 'Comfortaa-R';
     }
 
-    #popup > div.container > div.ctn > div.entry-container {
+    #popup > div.container > div.content > div.entry-container {
         margin-top: 10%;
         margin-bottom: 10%;
     }
