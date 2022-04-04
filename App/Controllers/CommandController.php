@@ -95,8 +95,19 @@ class CommandController extends CommandModel
     {
         $_SESSION['order']['typedelivery'] = $_REQUEST['typedelivery'];
         $_SESSION['order']['delivery'] = "home";
-        header("location:/order/resume");   
+        header("location:/order/resume");       
     }
+
+    // public function setTotal()
+    // {
+    //     $y=0;
+
+    //     for($i=0; $i<$_SESSION['cart'] ; $i++)
+    //     {
+            
+    //     }
+        
+    // };
 
 
     public function setStripe2()

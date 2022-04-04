@@ -133,8 +133,7 @@ class ProductController extends ProductModel
 
     public function homeItems()
     {
-        $moresold = $this->moreSold();
-        
+        $moresold = $this->moreSold(); 
         foreach($moresold as $product)
         {
             $avg = $this->setId($product->id)->avgRatingProduct();
@@ -143,8 +142,8 @@ class ProductController extends ProductModel
                 $product->avg = $avg;              
             }
         }
-
-        $params = ['titre' => 'home' , 'moreSold' => $moresold, 'css' => 'index'];
+        $news = $this->News();
+        $params = ['titre' => 'home' , 'moreSold' => $moresold, 'news' => $news, 'css' => 'index'];
         return AbstractController::render('index', $params);
 
     }

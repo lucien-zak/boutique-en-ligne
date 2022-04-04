@@ -430,7 +430,13 @@ class ProductModel extends Database
         COUNT(*) as how_many_shared_tags FROM `products` JOIN `products_tags` ON `products_tags`.`id_product` = `products`.`id` AND `products_tags`.`id_tag` IN(SELECT `id_tag` FROM `products_tags` WHERE `id_product` = 8) WHERE `products`.`id` != 8 GROUP BY `products`.`id`, `products`.`name` order by COUNT(*) DESC LIMIT 3" )->fetch();
     }
 
+    protected function News()
+    {
+        return $this->run('SELECT `products`.*,
+        `artists`.`artist` FROM `products` INNER JOIN `artists` ON `products`.`id_artist` = `artists`.`id` ORDER BY `products`.`date` DESC LIMIT 3')->fetchAll();
+    }
 
+    
     /**
      * Get the value of id_artist
      */ 

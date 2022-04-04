@@ -22,7 +22,7 @@
 // }
 
 // echo '<H2>Total du panier : ' . App\Controllers\CartController::total_product_cart() . ' $ </H2>';
-
+dump($_SESSION);
 ?>
 
 
@@ -66,7 +66,7 @@
                                         <div class="right"></div>
                                     </div>
                                     <div class="buttons-container">
-                                        <button class="btn btn-primary" onclick="window.location.href='/logout'">
+                                        <button class="btn btn-primary" onclick="window.location.href='/'">
                                             <div class="left"></div>
                                                 Modifier
                                             <div class="right"></div>
@@ -85,7 +85,7 @@
                                 <hr>
                                 <?php for ($i = 0; count($params['products']) > $i; $i++) { ?>
                                     <h3><?= '[' .  $_SESSION["cart"][$params["products"][$i]->slug . '-' . $params["products"][$i]->id]["quantity"]  . '] ' .  $params['products'][$i]->name . ' - ' . $params['products'][$i]->artist . ' - ' . $params['products'][$i]->price . '€' ?></h3>
-                                    <hr>
+                                    <hr>    
                                 <?php } ?>
                             </div>
                             <h3>Montant total : <?= App\Controllers\CartController::total_product_cart() ?>€</h3>
