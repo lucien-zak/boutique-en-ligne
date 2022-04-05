@@ -34,7 +34,7 @@
                     </a>
                     <?php } ?>
                 </div>
-                <form action="/account/profil" enctype="multipart/form-data" method="POST">
+                <form action="/account/" enctype="multipart/form-data" method="POST">
                     <div class="entry-container">
                          <?php
                             foreach($params['data'] as $adress)

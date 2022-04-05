@@ -24,13 +24,20 @@ class CommandController extends CommandModel
 
     public function delivery_choice()
     {
-
-        $titrepage = 'Votre Livraison';
-        $adress = $this->adress->setId_user($_SESSION['user']['id'])->getAllById_user();
-        // $cards = $this->card->setId_user($_SESSION['user']['id'])->getAllById_user();
-        $params = ['titre' => $titrepage, 'adress' => $adress];
-        return AbstractController::render('order', $params);
-
+        if(!empty($_SESSION['cart']))
+        {
+            $titrepage = 'Votre Livraison';
+            $this->table = 'adresses';
+            $adress = $this->adress->setId_user($_SESSION['user']['id'])->getAllById_user();
+            // $cards = $this->card->setId_user($_SESSION['user']['id'])->getAllById_user();
+            dump($_SESSION);
+            $params = ['titre' => $titrepage, 'adress' => $adress];
+            return AbstractController::render('order', $params);
+        }
+        else {
+            header("location:/products");
+        }
+       
     }
 
     public function delivery_setrelay()
@@ -88,8 +95,19 @@ class CommandController extends CommandModel
     {
         $_SESSION['order']['typedelivery'] = $_REQUEST['typedelivery'];
         $_SESSION['order']['delivery'] = "home";
-        header("location:/order/resume");   
+        header("location:/order/resume");       
     }
+
+    // public function setTotal()
+    // {
+    //     $y=0;
+
+    //     for($i=0; $i<$_SESSION['cart'] ; $i++)
+    //     {
+            
+    //     }
+        
+    // };
 
 
     public function setStripe2()
@@ -124,8 +142,6 @@ class CommandController extends CommandModel
 
     public function newCommand()
     {
-        if(!empty($_SESSION['order']))
-        {
             $date = date("Y-m-d H:i:s");
         // $full_name = $_SESSION['order']['resume']['full_name'];
         $full_name = 'test';
@@ -157,10 +173,7 @@ class CommandController extends CommandModel
 
             $params = ['titre'=>'resume paiement' , 'command'=>$command, 'products'=>$products_command];
             AbstractController::render('payement.resume', $params);
-        }
-        else {
-            header("location:/");
-        }
+       
         
 
         

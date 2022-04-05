@@ -25,26 +25,26 @@ class UserController extends UserModel
         //Ici je set mes instance  pour pouvoir les réutiliser. 
         $this->setFirstname($firstname)->setName($name)->setEmail($email)->setPassword($passwordhashed)->setProfil_img($profil_img);
         if (empty($this->firstname) || empty($this->name) || empty($this->email) || empty($this->password) || empty($passwordRep)) {
-            // $message = "champs vides";'message' =>$message
-            AbstractController::render('register', $params = ['titre' => $titrepage]);
+            $message = "Vous devez remplir le formulaire pour pouvoir continuer.";
+            AbstractController::render('register', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
             exit();
         }
         if ($this->checkEmail() == false) {
-            // $message = "email déjà utilisé";'message' =>$message
-            AbstractController::render('register', $params = ['titre' => $titrepage]);
+            $message = "L'email inscrite est déjà attribué à un compte.";
+            AbstractController::render('register', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
             exit();
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // $message = "L'adresse email est considérée comme invalide.";'message' =>$message
-            AbstractController::render('register', $params = ['titre' => $titrepage]);
+            $message = "L'adresse email est considérée comme invalide.";
+            AbstractController::render('register', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
             exit();
         } elseif ($password !== $passwordRep) {
-            // $message = "Les mots de passe ne sont pas identiques";'message' =>$message
-            AbstractController::render('register', $params = ['titre' => $titrepage]);
+            $message = "Les mots de passe doivent être identique.";
+            AbstractController::render('register', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
             exit();
         } else {
             $this->setUser();
-            // $message = "Bien Inscrit";'message' =>$message
-            AbstractController::render('login', $params = ['titre' => $titrepage]);
+            $message = "Félicitation, vous avez bien été inscrit.";
+            AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(0, $message)]);
         }
     }
 
@@ -80,26 +80,27 @@ class UserController extends UserModel
                             setcookie('auth', $user['0']['id'] . '-----' . sha1($user[0]['email'] . $user[0]['password']), time() + 3600 * 24 * 3, '/', 'boutique', false, true);
                         }
 
-                        header("location:/account");
+                        header('Location:/account');
                         exit();
                     } else {
-                        $message = "mot de passe ou email incorrect";
-                        AbstractController::render('login', $params = ['message' => $message, 'titre' => $titrepage]);
+                        $message = "Votre adresse-email ou votre mot de passe est incorrect.";
+                        AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
                         exit();
                     }
                 } else {
-                    $message = "mot de passe ou email incorrect";
-                    AbstractController::render('login', $params = ['titre' => $titrepage]);
+                    $message = "Votre adresse-email ou votre mot de passe est incorrect.";
+                    AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
+
                     exit();
                 }
             } else {
-                $message = "mauvais format email";
-                AbstractController::render('login', $params = ['titre' => $titrepage]);
+                $message = "Votre adresse-email doit respecter le format : example@example.com.";
+                AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
                 exit();
             }
         } else {
-            $message = "champs vides";
-            AbstractController::render('login', $params = ['titre' => $titrepage]);
+            $message = "Vous devez remplir le formulaire pour pouvoir continuer.";
+            AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
             exit();
         }
     }

@@ -168,98 +168,6 @@ div.input-container {
     padding-top: 4vw;
 }
 
-div.input-container > div.left:before {
-    position: absolute;
-    content: "";
-    top: 0px;
-    left: 0px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-    z-index: 100;
-}
-div.input-container > div.left:after {
-    position: absolute;
-    content: "";
-    bottom: 0px;
-    left: 0px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-bottom: 2px solid white;
-    border-left: 2px solid white;
-    z-index: 100;
-}
-div.input-container > div.right:before {
-    position: absolute;
-    content: "";
-    top: 0px;
-    right: 0px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-top: 2px solid white;
-    border-right: 2px solid white;
-    z-index: 100;
-}
-div.input-container > div.right:after {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-bottom: 2px solid white;
-    border-right: 2px solid white;
-    z-index: 100;
-}
-
-/* ----------------------------------------------------------------------------------------------------------- */
-/* ----------------------------------------------------------------------------------------------------------- */
-/* ----------------------------------------------------------------------------------------------------------- */
-/* ----------------------------------------------------------------------------------------------------------- */
-/* ----------------------------------------------------------------------------------------------------------- */
-
-div.buttons-container > button.button {
-    position: relative;
-    width: 55vw;
-    background-color: #FC7E1F;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-family: 'Comfortaa-R';
-    color: #fff;
-    font-size: 60%;
-    border: none;
-}
-
-div.buttons-container > button.button:before {
-    position: absolute;
-    content: "";
-    top: 5px;
-    left: 5px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-}
-
-div.buttons-container > button.button:after {
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-bottom: 2px solid white;
-    border-right: 2px solid white;
-}
-
 div.rateyo2, div.rateyo {
     margin: 2vh;   
 }
@@ -346,39 +254,6 @@ div.sub-review {
     background-color: #2B2B2B;
 }
 
-#reply-popup, #admin-review-popup {
-    width: 90vw;
-    height: 45vh;
-
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    gap: 4vh;
-    
-    top: 10vh;
-    bottom: 0;
-    z-index: 999;
-    margin: 2vh;
-
-    background-color: #2B2B2B;
-    border: 1px solid white;
-}
-
-button#btn-popup {
-    width: 42vw;
-    font-size: 10px;
-}
-
-#reply-popup > form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 4vh;
-}
-
 div.ctn  {
     display: flex;
     justify-content: space-between;
@@ -386,13 +261,82 @@ div.ctn  {
     gap: 50px;;
 }
 
-#reply-popup > h2 {
-    margin: 0;
+/* ////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////// */
+
+
+#popup {
+    position: fixed;
+    z-index: 100;
+    background: #0e0e0e44;
+    backdrop-filter: blur(10px);
+    top: 0;
+    
+    width: 100%;
+    height: 100%;
+    
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
-#close-btn {
-    font-weight: 100;
+#popup textarea#input {
+    height: 8vh;
+    width: 20vw;
+    padding: 3vh;
 }
+
+#popup div.container {
+    position: relative;
+    width: 30vw;
+    height: 30vh;
+    background-color: #171717;
+    justify-content: flex-start}
+
+#popup div.container div.top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#popup div.container div.top > h2, #popup div.container div.top > h3 {
+    margin-left: 3vh;
+    margin-right: 3vh;
+    font-family: 'Comfortaa-R';
+}
+
+#popup div.container div.content div.entry-container {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#popup div.container div.content {
+    flex-direction: column;
+    gap: 15px;
+}
+
+#closeBtn {
+    color: #ad1a1a;
+    cursor: pointer;
+}
+
+#closeBtn:hover {
+    color: #fa2424;
+}
+
+div.buttons-container { 
+    flex-direction: column;
+}
+
+div.buttons-container > button.btn {
+    width: 15vw;
+}
+
+/* ////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////// */
 
 @media only screen and (min-width : 1224px){
     body {

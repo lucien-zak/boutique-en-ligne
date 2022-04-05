@@ -35,17 +35,17 @@
                             <div class="right"></div>
                         </button>
                         <hr id="line">
-                        <button class="btn btn-primary" onclick="window.location.href='/account/login'">
+                        <button class="btn btn-primary" onclick="window.location.href='/account'">
                             <div class="left"></div>
                                 Mes Commandes
                             <div class="right"></div>
                         </button>
-                        <button class="btn btn-primary" onclick="window.location.href='/account/login'">
+                        <button class="btn btn-primary" onclick="window.location.href='/account/payements'">
                             <div class="left"></div>
                                 Moyen de paiements
                             <div class="right"></div>
                         </button>
-                        <button class="btn btn-primary" onclick="window.location.href='/account/payements'">
+                        <button class="btn btn-primary" onclick="window.location.href='/account'">
                             <div class="left"></div>
                                 Mes Favoris
                             <div class="right"></div>

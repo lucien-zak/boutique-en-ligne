@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+    <script src="../assets/script/script.js"></script>
 </head>
 <body>
 <header id="top">
@@ -28,3 +29,14 @@
         <a href="/account"><i class="color fas fas-hidden fa-user"></i><h4>Compte</h4></a>
     </nav>
 </header>
+
+<?php 
+if(isset($params['alert'])) { 
+
+$alert = explode('---', $params['alert']);
+?>
+<div id="displayAlert" class="<?= $alert[0] ?>">
+    <h3 class="textAlert"><?= $alert[1] ?></h3>
+    <h3 class="closeBtn" onclick="closeBtn('displayAlert')">X</h3>
+</div>
+<?php } ?>

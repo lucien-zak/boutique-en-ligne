@@ -1,4 +1,5 @@
-<?= isset($params['message'])?$params['message']:''; ?>
+<?= isset($params['message'])?$params['message']:'';
+?>
 
 <body>
     <main>
@@ -24,7 +25,7 @@
                             <input type="checkbox" name="remember">
                             <label for="remember"> Se souvenir de moi</label>
                         </div>
-                        <h4 onclick="popupPassword()">Mot de passe oublié ?</h4>
+                        <h4 onclick="popupFrame('popup')">Mot de passe oublié ?</h4>
                     </div>
                     <div class="buttons-container">
                         <button class="btn btn-primary" type="submit">
@@ -48,7 +49,7 @@
                     <h3>Mot de passe oublié ?</h3>
                     <h2 id="closeBtn" onclick="closeBtn('popup')">X</h2>
                 </div>
-                <div class="ctn">
+                <div class="content">
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
@@ -57,7 +58,11 @@
                         </div>
                     </div>
                     <div class="buttons-container">
-                        <button class="button" type="submit">Faire la demande</button>
+                        <button class="btn btn-primary" type="submit">
+                            <div class="left"></div>
+                            Faire la demande
+                            <div class="right"></div>
+                        </button>
                     </div>
                 </div>
                 <div class="right"></div>
@@ -65,5 +70,3 @@
         </div>
     </main>
 </body>
-
-<script src="../assets/script/script.js"></script>
