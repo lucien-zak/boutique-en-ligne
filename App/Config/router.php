@@ -215,14 +215,7 @@ $router->map('GET', '/admin/category/[i:id]', function ($id) {
 
 $router->map('GET', '/admin/category/delete/[i:id]', function ($id) {
     $admin = new AdminController;
-    $admin->category_admin_delete($id);
-});
-
-$router->map('GET', '/admin/category/delete/[i:id]/confirm', function ($id) {
-    $admin = new AdminController;
     $admin->category_admin_delete_confirm($id);
-    echo 'Catégorie supprimée';
-    echo "<a href='/admin'>Retour à l'admin</a>";
 });
 
 $router->map('POST', '/admin/category/add', function () {
@@ -259,8 +252,7 @@ $router->map('GET', '/admin/product/modify/[a:slug]-[i:id]', function ($slug, $i
 $router->map('POST', '/admin/product/update/[a:slug]-[i:id]', function ($slug, $id) {
     $product = new AdminController;
     $product->product_admin_update($slug, $id);
-    echo 'Produits modifiés';
-    echo '<a href="/admin/products">Retour aux produits</a>';
+    header('location:/admin/products');
 });
 
 $router->map('POST', '/admin/product/add', function () {
@@ -272,8 +264,7 @@ $router->map('POST', '/admin/product/add', function () {
 $router->map('GET', '/admin/product/delete/[a:slug]-[i:id]', function ($slug, $id) {
     $product = new AdminController;
     $product->product_admin_delete($slug, $id);
-    echo 'Produits supprimé';
-    echo '<a href="/admin/products">Retour aux produits</a>';
+    header('location:/admin/products');
 });
 
 $router->map('GET', '/admin/reviews', function () {

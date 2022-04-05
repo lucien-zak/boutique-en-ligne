@@ -10,7 +10,7 @@ class AdminController extends ProductModel
     public function home_admin(){
         $titrepage = 'Panel Admin';
         $params = [ 'titre' => $titrepage];
-        return AbstractController::render('admin', $params);
+        return AbstractController::render_admin('admin', $params);
     }
 
     public function products_admin(){
@@ -21,7 +21,7 @@ class AdminController extends ProductModel
         $this->table = 'categories';
         $allcategory = $this->getCategorywithSub();
         $params = ['titre' => $titrepage,'products' => $products,'artists' => $listartist, 'allcategory' => $allcategory];
-        return AbstractController::render('admin.products', $params);
+        return AbstractController::render_admin('admin.products', $params);
     }
 
     public function product_admin($slug,$id){
@@ -32,7 +32,7 @@ class AdminController extends ProductModel
         $allcategory = $this->getCategorywithSub();
         $product = $this->setId($id)->setSlug($slug)->getProduct();
         $params = [ 'titre' => $titrepage, 'product' => $product, 'artists' => $listartist, 'allcategory' => $allcategory];
-        return AbstractController::render('admin.product', $params);
+        return AbstractController::render_admin('admin.product', $params);
     }
 
     public function product_admin_new(){
@@ -51,6 +51,7 @@ class AdminController extends ProductModel
         ->insert_product();
         $filename = substr(str_replace(" ","",htmlspecialchars($_REQUEST['name'])),0,4).'-'.$this->pdo->lastInsertId();
         AbstractController::upload_img_products($filename);
+        header('location:/admin/products');
 
         // dump($category);
         // dump($product);
@@ -109,7 +110,7 @@ class AdminController extends ProductModel
         $this->table = 'categories';
         $allcategory = $this->getAll();
         $params = [ 'titre' => $titrepage, 'allcategory' => $allcategory];
-        return AbstractController::render('admin.categories', $params);
+        return AbstractController::render_admin('admin.categories', $params);
     }
 
     public function category_admin($id){
@@ -118,7 +119,7 @@ class AdminController extends ProductModel
         $categories = $this->getAll();
         $allcategory = $this->getCategorywithSub();
         $params = [ 'titre' => $titrepage, 'id' => $id, 'allcategory' => $allcategory, 'categories' => $categories];
-        return AbstractController::render('admin.category', $params);
+        return AbstractController::render_admin('admin.category', $params);
     }
 
     public function category_admin_update($id, $category,$sub_category){        
@@ -143,12 +144,13 @@ class AdminController extends ProductModel
         $categories = $this->getAll();
         $allcategory = $this->getCategorywithSub();
         $params = [ 'titre' => $titrepage, 'id' => $id, 'allcategory' => $allcategory, 'categories' => $categories];
-        return AbstractController::render('admin.confirmdel.category', $params);
+        header('location:/admin/products');
     }
 
     public function category_admin_delete_confirm($id)
     {        
-        return $this->delete_category($id);
+        $this->delete_category($id);
+        header('location:/admin/categories');
     }
 
     public function category_admin_add($category)

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 class AbstractController
+
 {
 
     public static function render($name, $params = [])
@@ -11,6 +12,13 @@ class AbstractController
         require "../App/Views/$name.view.php";
         require "../App/Views/footer.view.php";
     }
+
+        public static function render_admin($name, $params = [])
+    {
+        require "../App/Views/admin.header.view.php";
+        require "../App/Views/$name.view.php";
+    }
+
 
     public static function upload_img_products($filename)
     {
@@ -54,8 +62,6 @@ class AbstractController
         }
         unlink($filepath); // Delete the temp file
 
-        echo "File uploaded successfully :)";
-    
 }
 
     public static function sort_category($listcategory)

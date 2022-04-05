@@ -23,8 +23,7 @@ foreach ($params['allcategory'] as $subcategory)
 
         }
         echo '</select></td>';
-        echo '<td><input type="submit" name="action" value="Modifier"id=""></td>';
-        echo '<td><input type="submit" name="action" value="Supprimer"id=""></td>';
+        echo '<td><input class="btn" type="submit" name="action" value="Modifier"id=""> <input class="btn" type="submit" name="action" value="Supprimer"id=""></td>';
         echo '</form>';
     }
 }
