@@ -11,6 +11,7 @@ class ReviewsModel extends Database
     protected $report;
     protected $id_user;
     protected $id_product;
+    protected $table = '';
 
     protected function setComment($comment){
         $this->comment = $comment;

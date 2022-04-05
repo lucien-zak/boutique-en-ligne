@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ProductModel;
+use App\Models\ReviewsModel;
 
 class AdminController extends ProductModel
 {
@@ -11,6 +12,14 @@ class AdminController extends ProductModel
         $titrepage = 'Panel Admin';
         $params = [ 'titre' => $titrepage];
         return AbstractController::render_admin('admin', $params);
+    }
+
+    public function reviews_admin(){
+        $titrepage = 'Panel Admin';
+        $reviews = new ReviewsModel;
+        
+        $params = [ 'titre' => $titrepage];
+        return AbstractController::render_admin('admin.reviews', $params);
     }
 
     public function products_admin(){

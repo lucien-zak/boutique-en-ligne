@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\CommandModel;
 use App\Models\UserModel;
 use PDO;
 
@@ -195,6 +196,17 @@ class UserController extends UserModel
             AbstractController::render('account.profil', $params = ['titre' => $titrepage, 'css' => 'account']);
             exit();
         }
+    }
+
+    public function orders()
+    {
+        $commands = new CommandModel;
+        $commands->setId_user($_SESSION['user']['id']);
+        $command = $commands->getAllCommandsByUser();
+        $titre = 'Commandes';
+        $params = ['commands' => $command, 'titre' => $titre];
+        dump($params);
+        AbstractController::render('account.orders',$params);
     }
 
     public function logout() 

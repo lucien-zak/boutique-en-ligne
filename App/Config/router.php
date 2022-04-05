@@ -156,8 +156,9 @@ $router->map('POST', '/account/addresses/add', function () {
 //     Shop::orders();
 // });
 
-$router->map('POST', '/account/orders', function () {
-    $model = new UserController; $model->orders();
+$router->map('GET', '/account/orders', function () {
+    $model = new UserController; 
+    $model->orders();
 });
 
 /////////////////////////////////////////////////////////////////////////////
@@ -271,6 +272,7 @@ $router->map('GET', '/admin/product/delete/[a:slug]-[i:id]', function ($slug, $i
 
 $router->map('GET', '/admin/reviews', function () {
     $product = new AdminController;
+    $product->reviews_admin();
     
 });
 
