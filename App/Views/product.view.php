@@ -39,7 +39,7 @@ $sub_reviews = $params['sub_reviews'];
             <form action="/cart/add/<?= $params['product']->slug.'-'.$params['product']->id ?>" method="post">
                 <div class="input-container">
                     <div class="left"></div>
-                    <input id="quantity" value="1" type="number" name="quantity" min="0" max="<?= $stock ?>">
+                    <?= $stock == 0 ? '' : '<input id="quantity" value="1" type="number" name="quantity" min="0" max="'.$stock.'">'?>
                     <div class="right"></div>
                 </div>
                 <input type="text" value="<?= $params['product']->price ?>" name="price" hidden>
@@ -48,7 +48,8 @@ $sub_reviews = $params['sub_reviews'];
                 <input type="text" value="<?= $params['product']->slug ?>" name="slug" hidden>
                 <input type="text" value="<?= $params['product']->id ?>" name="id" hidden>
                 <div class="buttons-container">
-                    <button class="button" type="submit">Ajouter le produit au panier</button>
+                    <p>Il reste <?= $stock ?> en stock</p>
+                    <?= $stock == 0 ? '<p>Vous ne pouvez pas commander</p>' : '<button class="button" type="submit">Ajouter le produit au panier</button>'?>
                 </div>
             </form>
         </div>
