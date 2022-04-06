@@ -22,7 +22,7 @@
                     echo '<td>'.$params['commands'][$i]->date.'</td>';
                     echo '<td>'.str_replace('null','',$params['commands'][$i]->delivery_adress).'</td>';
                     echo '<td>'.str_replace('null','',$params['commands'][$i]->biling_adress).'</td>';
-                    echo '<td>'.$params['commands'][$i]->four_last.'</td>';
+                    echo '<td> **** **** **** '.$params['commands'][$i]->four_last.'</td>';
                     echo '<td>'.$params['commands'][$i]->products.'</td>';
                     echo '<td>'.round($params['commands'][$i]->total, 2).' € </td>';
                     echo '<td></td>';
