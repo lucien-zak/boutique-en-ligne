@@ -26,7 +26,19 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("response-close").addEventListener("click", function () {
       document.getElementById("popup").style.display = "none";
     });
-  } 
+  } else if(window.location.pathname == "/account/cart") {
+    const quantity = document.getElementById("quantity");
+    const btn = document.getElementById("btn-cart");
+
+    quantity.addEventListener('change', function () {
+        if(quantity.value == 0 && btn.innerHTML == '<div class="left"></div>Modifier<div class="right"></div>') {
+          btn.innerHTML = '<div class="left"></div>Supprimer<div class="right"></div>';
+        } else if(quantity.value > 0 && btn.innerHTML != '<div class="left"></div>Modifier<div class="right"></div>') {
+          btn.innerHTML = '<div class="left"></div>Modifier<div class="right"></div>';
+        }
+        console.log(quantity.value);
+    });
+  }
 });
 
 $(function () {

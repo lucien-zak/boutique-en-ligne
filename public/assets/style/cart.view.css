@@ -282,8 +282,13 @@ div.info > form {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
+    gap: 1vw;
 
     position: relative;
+}
+
+button.btn {
+    font-size: 14px;
 }
 
 div.info > form > div > input.number:focus {

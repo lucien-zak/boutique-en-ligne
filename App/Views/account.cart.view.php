@@ -32,11 +32,11 @@
                                     <form action="/cart/modify/<?= $params['products'][$i]->slug . '-' . $params['products'][$i]->id ?>" method="post">
                                         <div class="quantity-box">
                                             <div class="left"></div>
-                                            <input class="number" type="number" name="quantity" value='<?= $_SESSION["cart"][$params["products"][$i]->slug . '-' . $params["products"][$i]->id]["quantity"] ?>' min="0" max="<?= $params["products"][$i]->stock ?>">
+                                            <input id="quantity" class="number" type="number" name="quantity" value='<?= $_SESSION["cart"][$params["products"][$i]->slug . '-' . $params["products"][$i]->id]["quantity"] ?>' min="0" max="<?= $params["products"][$i]->stock ?>">
                                             <div class="right"></div>
                                         </div>
                                         <div class="buttons-container">
-                                            <button class="btn btn-primary" onclick="window.location.href='/'">
+                                            <button id="btn-cart" class="btn btn-primary" onclick="window.location.href='/'">
                                                 <div class="left"></div>
                                                 Modifier
                                                 <div class="right"></div>
