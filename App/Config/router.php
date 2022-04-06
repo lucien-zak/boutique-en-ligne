@@ -297,7 +297,7 @@ $router->map('GET', '/admin/reviews', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('POST', '/order/delivrery', function () {
+$router->map('GET', '/order/delivrery', function () {
     AbstractController::is_connected();
     $command = new CommandController;
     $command->delivery_choice();

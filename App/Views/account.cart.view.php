@@ -1,11 +1,4 @@
     <div>
-        <form action="/products" method="post">
-            <input type="search" name="search" id="search" placeholder="Your Search">
-        </form>
-        <form action="/order/delivrery" method="post">
-            <input type="submit" id="delivery" value="Choose your delivery">
-        </form>
-
         <?php if ($_SESSION['cart']) { ?>
             <div class="ctn-products">
                 <div class="products-list">
@@ -61,7 +54,7 @@
                             </div>
                             <h3>Montant total : <?= App\Controllers\CartController::total_product_cart() ?>€</h3>
                             <div class="buttons-container">
-                                <button class="btn btn-primary" onclick="window.location.href='/account/cart'">
+                                <button class="btn btn-primary" onclick="window.location.href='/order/delivrery'">
                                     <div class="left"></div>
                                     Passer la commande
                                     <div class="right"></div>

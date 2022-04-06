@@ -30,7 +30,6 @@ class CommandController extends CommandModel
             $this->table = 'adresses';
             $adress = $this->adress->setId_user($_SESSION['user']['id'])->getAllById_user();
             // $cards = $this->card->setId_user($_SESSION['user']['id'])->getAllById_user();
-            dump($_SESSION);
             $params = ['titre' => $titrepage, 'adress' => $adress];
             return AbstractController::render('order', $params);
         }
