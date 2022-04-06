@@ -104,9 +104,28 @@ div.box >  h2, h4 {
     margin-bottom: 1vh;
 }
 
+div.box div.informations {
+    text-align: center;
+}
+
+div.informations div.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 div.content > form {
     font-size: 0;
 }
+
+div.informations > form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    color: #fff;
+}
+
 
 div.content > form > input {
     width: 12%;
@@ -166,10 +185,21 @@ div.input-container {
     padding: 2vw;
     padding-bottom: 4vw;
     padding-top: 4vw;
+    color: #fff;
 }
 
 div.rateyo2, div.rateyo {
     margin: 2vh;   
+}
+
+div.reviews > form {
+    background-color: #2B2B2B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2vh;
+    padding: 3vh;
 }
 
 /* ----------------------------------------------------------------------------------------------------------- */
@@ -331,7 +361,7 @@ div.buttons-container {
 }
 
 div.buttons-container > button.btn {
-    width: 15vw;
+    /* width: 15vw; */
 }
 
 #red {
@@ -380,6 +410,10 @@ div.buttons-container > button.btn {
 
     div.review > h5, h4, div.ctn > h5 {
         margin-top: 2%;
+    }
+
+    div.box div.informations {
+        text-align: left;
     }
 
     #btn {
@@ -433,15 +467,15 @@ div.buttons-container > button.btn {
     }
 
     div.reviews > form {
-        background-color: #2B2B2B;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        margin: 0;
         padding: 3vh;
     }
 
     div.reviews > form > div.input-container {
         width: 90%;
+    }
+
+    button.btn {
+        width: 12vw;
     }
 }
