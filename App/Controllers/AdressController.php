@@ -54,15 +54,20 @@ class AdressController extends AdressModel
         $data = $this->setId_user($id_user)->getAllById_user();
         $nb = $this->checkAddress($id_user);
         $params = ['nb'=>$nb, 'data'=> $data, 'titre' => $titrepage];
-
         return AbstractController::render('account.address', $params);
+    }
+
+    public function currentAdress($type)
+    {
+        $id_user = $_SESSION['user']['id'];
+        $currentAdress = $this->getCurrentAdress($type, $id_user);
+        $params = ['titre' => 'changeAdress', 'data' => $currentAdress ,'css' => 'account'];
+        return AbstractController::render('account.address.update', $params);
     }
 
     public function AdressModify($type)
     {
         $id_user = $_SESSION['user']['id'];
-        $currentAdress = $this->getCurrentAdress($type, $id_user);
-
         $titrepage = "change address";
         $type = htmlspecialchars($_POST['type']);
         $full_name = htmlspecialchars($_POST['full_name']);
@@ -76,7 +81,7 @@ class AdressController extends AdressModel
             if(ctype_digit($postal_code)==true)
             {
                 $this->setType($type)->setFull_name($full_name)->setAdress($adress)->setAdditional_adress($additional_adress)->setPostal_code($postal_code)->setCity($city)->setId_user($id_user);
-                $this->setUserAdress();
+                $this->updateAdress($type);
                 if (isset($_SESSION['continue_path'])) {
                     $url = $_SESSION['continue_path'];
                     header("location:$url");

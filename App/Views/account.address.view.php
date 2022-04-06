@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php dump($params) ?>
+<?php dump($params); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,7 @@
                             foreach($params['data'] as $adress)
                             {
                             ?>
-                            <form action="/account/<?php $adress->type?>" enctype="multipart/form-data" class="adress" method="POST">
+                            <form action="/account/adress/<?= $adress['type']?>" enctype="multipart/form-data" class="adress" method="POST">
                             <?php
                                 echo '
                                 <div class="box profil">
