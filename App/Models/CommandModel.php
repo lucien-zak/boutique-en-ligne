@@ -32,7 +32,7 @@ class CommandModel extends Database
         return $this;
     }
 
-    protected function setId_user($id_user)
+    public function setId_user($id_user)
     {
         $this->id_user = $id_user;
         return $this;
@@ -111,5 +111,18 @@ class CommandModel extends Database
     {
         return $this->run('SELECT * FROM `products_command` INNER JOIN `products` ON `products_command`.`id_product` = `products`.`id` WHERE `products_command`.`num_command` = ?'  , [$this->command_num])->fetchAll();
     }
+
+    public function getAllCommands()
+    {
+
+        return $this->run("SELECT `command`.`id_user`, `command`.`command_num`, `command`.`date`,`command`.`delivery_adress`, `command`.`biling_adress`, `command`.`four_last`, SUM(`price`) AS 'total', COUNT(`products`.`id`) AS 'Product' FROM `command` INNER JOIN `products_command` ON `command`.`command_num` = `products_command`.`num_command` INNER JOIN `products` ON `products_command`.`id_product` = `products`.`id` GROUP BY `products_command`.`num_command` ORDER BY `command`.`date`")->fetchAll();
+    }
+
+    public function getAllCommandsByUser()
+    {
+
+        return $this->run("SELECT command.id_user, command.command_num, command.date, command.delivery_adress, command.biling_adress, command.four_last, SUM(price) AS 'total', COUNT(products.id) AS 'products' FROM `command` INNER JOIN products_command ON command.command_num = products_command.num_command INNER JOIN products ON products_command.id_product = products.id  WHERE command.id_user = ?  GROUP BY products_command.num_command ORDER BY command.date",[$this->id_user])->fetchAll();
+    }
+
 
 }

@@ -42,13 +42,12 @@ class CommandController extends CommandModel
 
     public function delivery_setrelay()
     {
-        $titrepage = 'Vorte point relais';
+        $titrepage = 'Votre point relais';
         $adress = $this->adress->setId_user($_SESSION['user']['id'])->getAllById_user();
         // $cards = $this->card->setId_user($_SESSION['user']['id'])->getAllById_user();
-        $params = ['titre' => $titrepage, 'adress' => $adress];
+        $params = ['titre' => $titrepage, 'adress' => $adress, 'css' => 'after-payement'];
         $_SESSION['order']['delivery'] = "relay";
         $_SESSION['order']['typedelivery'] = "relay";
-        dump($_REQUEST);
         AbstractController::render('mrelay', $params);
     }
 
@@ -65,29 +64,23 @@ class CommandController extends CommandModel
 
     public function resumeOrder()
     {
-        if($this->orderSession()==true)
-        {
+        // if($this->orderSession()==true)
+        // {
             $id_user = $_SESSION['user']['id'];
-            $type = $_SESSION['order']['typedelivery'];  
-            if($_SESSION['order']['delivery']=='home')
+            $type = $_POST['typedelivery'];  
+            if($type != 'Mondial Relay')
             {
                 $adress = $this->adress->getCurrentAdress($type, $id_user);
                 $_SESSION['order']['resume']['adress'] =  $adress->adress;
                 $_SESSION['order']['resume']['zip'] =  $adress->postal_code;
-            }
-            else{
+            }else{
                 $adress = $_REQUEST;
                 $_SESSION['order']['resume']['adress'] = $adress['DeliveryAdress'];   
                 $_SESSION['order']['resume']['zip'] = $adress['DeliveryPostalCode'];
             }
-
             $titrepage = "Resume";
             $params = ['titre' => $titrepage, 'adress' => $adress];
             AbstractController::render('payement', $params);
-        }
-        else{
-            header("location:/error");
-        }
         
     }
     
@@ -171,7 +164,7 @@ class CommandController extends CommandModel
             unset($_SESSION['order']);
             unset($_SESSION['cart']);
 
-            $params = ['titre'=>'resume paiement' , 'command'=>$command, 'products'=>$products_command];
+            $params = ['titre'=>'resume paiement' , 'command'=>$command, 'products'=>$products_command, 'css' => 'after-payement'];
             AbstractController::render('payement.resume', $params);
         
     }

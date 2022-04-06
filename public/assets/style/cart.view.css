@@ -415,6 +415,7 @@ div.list {
         flex-direction: row;
         justify-content: center;
         width: 63vw;
+        gap: 3vh;
     }
 
     div.no-cart {
@@ -432,12 +433,12 @@ div.list {
     }
 
     div.ctn-products div.products-list {
-        width: 100%;
         gap: 2vh;
 
         display: flex;
         align-items: flex-start;
         justify-content: center;
+        flex-direction: column;
     }
 
     div.ctn-products div.recap-list {

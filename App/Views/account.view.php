@@ -35,14 +35,9 @@
                             <div class="right"></div>
                         </button>
                         <hr id="line">
-                        <button class="btn btn-primary" onclick="window.location.href='/account'">
+                        <button class="btn btn-primary" onclick="window.location.href='/account/orders'">
                             <div class="left"></div>
                                 Mes Commandes
-                            <div class="right"></div>
-                        </button>
-                        <button class="btn btn-primary" onclick="window.location.href='/account/payements'">
-                            <div class="left"></div>
-                                Moyen de paiements
                             <div class="right"></div>
                         </button>
                         <button class="btn btn-primary" onclick="window.location.href='/account'">

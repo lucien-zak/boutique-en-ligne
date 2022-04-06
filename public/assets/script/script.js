@@ -1,10 +1,33 @@
-function popupFrame(element) {
-  document.getElementById(element).style.display = "flex";
-}
+document.addEventListener("DOMContentLoaded", function () {
+  console.log(window.location.pathname);
+  
+  if(window.location.pathname == "/") {
+    document.getElementById("about-btn").addEventListener("click", function () {
+      window.location.href = "#about";
+    });
+    document.getElementById("products-btn").addEventListener("click", function () {
+      window.location.href = "/products";
+    });
+    document.getElementById("contact-btn").addEventListener("click", function () {
+      window.location.href = "/contact";
+    });
+  } else if(window.location.pathname == "/product") {
+    const popup = document.querySelectorAll(".response-btn");
 
-function closeBtn(element) {
-  document.getElementById(element).style.display = "none";
-}
+    for (let i = 0; i < popup.length; i++) {
+        popup[i].addEventListener("click", function() {
+        document.getElementById("popup").style.display = "flex";
+        document.getElementById("popup-title").innerHTML = "Répondre à l'avis de "+popup[i].getAttribute("name_util");
+        document.getElementById("form-popup").setAttribute("action", "/product/sub_reviewadd/"+popup[i].getAttribute("id_util"));
+        console.log("/product/sub_reviewadd/"+popup[i].getAttribute("id_util"));
+      });
+    }
+
+    document.getElementById("response-close").addEventListener("click", function () {
+      document.getElementById("popup").style.display = "none";
+    });
+  } 
+});
 
 $(function () {
   $(".rateyo")

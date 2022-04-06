@@ -1,7 +1,3 @@
-* {
-    color: #fff;
-}
-
 body {
     background-color: #131313;
 }
@@ -47,6 +43,8 @@ a.product {
     width: 92vw;
     margin-top: 18px;
     background-color: #2B2B2B;
+    color: #fff;
+
     text-decoration: none;
 
     position: relative;
@@ -195,6 +193,11 @@ button.button:after {
     border-right: 2px solid white;
 }
 
+#red {
+    color: red;
+    font-family: 'Comfortaa-R';
+}
+
 @media only screen and (min-width : 1224px){
     body {
         background-color: #131313;
@@ -231,6 +234,15 @@ button.button:after {
         background-color: #2B2B2B;
         border: none;
         color: #fff;
+    }
+
+    form > #filter:hover {
+        color: #FC7E1F;
+        cursor: pointer;
+    }
+
+    div.filter-list {
+        display: none;
     }
     
     div.product-container {

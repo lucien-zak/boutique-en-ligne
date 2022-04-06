@@ -1,5 +1,4 @@
 * {
-    color: #fff;
     font-family: 'Comfortaa-R';
 }
 
@@ -12,6 +11,7 @@ body {
     padding-bottom: 10vh;
 
     background-color: #131313;
+    color: #fff;
 }
 
 /* ----------------------------------------------------------------------------------------------------------- */
@@ -317,12 +317,12 @@ div.ctn  {
     gap: 15px;
 }
 
-#closeBtn {
+#response-close {
     color: #ad1a1a;
     cursor: pointer;
 }
 
-#closeBtn:hover {
+#response-close:hover {
     color: #fa2424;
 }
 
@@ -334,6 +334,11 @@ div.buttons-container > button.btn {
     width: 15vw;
 }
 
+#red {
+    color: red;
+    font-family: 'Comfortaa-R';
+}
+
 /* ////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////// */
@@ -341,10 +346,9 @@ div.buttons-container > button.btn {
 @media only screen and (min-width : 1224px){
     body {
         padding: 0;
-    }
-
-    div.container {
-        width: 73vw;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 1vw;
     }
 
     body > form {
@@ -353,6 +357,7 @@ div.buttons-container > button.btn {
 
     div.reviews {
         padding-bottom: 6vh;
+        width: 71.7vw;
     }
 
     div.box-review {
@@ -379,5 +384,64 @@ div.buttons-container > button.btn {
 
     #btn {
         cursor: pointer;
+    }
+
+    div.container {
+        width: 40vw;
+        height: 40vh;
+        margin-top: 0;
+    }
+
+    div.desc {
+        width: 30.7vw;
+    }
+
+    div.desc h2 {
+        margin: 2vh;
+    }
+    div.desc p {
+        margin: 2vh;
+        text-align: justify;
+    }
+
+    div.container div.box, div.informations div.content {
+        flex-direction: row;
+
+    }
+
+    div.informations > form, div.informations div.content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2vh;
+    }
+
+    #input {
+        width: 97%;
+    }
+
+    #quantity {
+        padding: 1vw;
+        padding-bottom: 1.6vh;
+        padding-top: 1.6vh;
+        color: #fff;
+    }
+
+    input#quantity::-webkit-outer-spin-button, input#quantity::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    div.reviews > form {
+        background-color: #2B2B2B;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 3vh;
+    }
+
+    div.reviews > form > div.input-container {
+        width: 90%;
     }
 }
