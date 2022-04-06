@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log(window.location.pathname);
+
+  document.getElementById("cart").addEventListener("mouseenter", function() {
+    console.log("Yes")
+  })
   
   if(window.location.pathname == "/") {
     document.getElementById("about-btn").addEventListener("click", function () {
@@ -36,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if(quantity.value > 0 && btn.innerHTML != '<div class="left"></div>Modifier<div class="right"></div>') {
           btn.innerHTML = '<div class="left"></div>Modifier<div class="right"></div>';
         }
-        console.log(quantity.value);
     });
   }
 });
