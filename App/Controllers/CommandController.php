@@ -42,13 +42,12 @@ class CommandController extends CommandModel
 
     public function delivery_setrelay()
     {
-        $titrepage = 'Vorte point relais';
+        $titrepage = 'Votre point relais';
         $adress = $this->adress->setId_user($_SESSION['user']['id'])->getAllById_user();
         // $cards = $this->card->setId_user($_SESSION['user']['id'])->getAllById_user();
-        $params = ['titre' => $titrepage, 'adress' => $adress];
+        $params = ['titre' => $titrepage, 'adress' => $adress, 'css' => 'after-payement'];
         $_SESSION['order']['delivery'] = "relay";
         $_SESSION['order']['typedelivery'] = "relay";
-        dump($_REQUEST);
         AbstractController::render('mrelay', $params);
     }
 
@@ -171,7 +170,7 @@ class CommandController extends CommandModel
             unset($_SESSION['order']);
             unset($_SESSION['cart']);
 
-            $params = ['titre'=>'resume paiement' , 'command'=>$command, 'products'=>$products_command];
+            $params = ['titre'=>'resume paiement' , 'command'=>$command, 'products'=>$products_command, 'css' => 'after-payement'];
             AbstractController::render('payement.resume', $params);
        
         
