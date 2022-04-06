@@ -92,7 +92,7 @@ class AdressController extends AdressModel
             }
             else{
                 $message = 'Code postal invalide';
-                AbstractController::render('account.address.add', $params = ['titre' => $titrepage, 'alert' => AbstractController::alert(2, $message)]);
+                AbstractController::render('account.address.add', $params = ['titre' => $titrepage, 'css'=> 'account', 'alert' => AbstractController::alert(2, $message)]);
                 exit();
             }
         }

@@ -12,7 +12,6 @@ class CommandController extends CommandModel
     public function __construct()
     {
         $this->adress = new AdressModel;
-        $this->card = new CardsModel;
         $this->product = new ProductModel;
     }
 
@@ -29,7 +28,6 @@ class CommandController extends CommandModel
             $titrepage = 'Votre Livraison';
             $this->table = 'adresses';
             $adress = $this->adress->setId_user($_SESSION['user']['id'])->getAllById_user();
-            // $cards = $this->card->setId_user($_SESSION['user']['id'])->getAllById_user();
             dump($_SESSION);
             $params = ['titre' => $titrepage, 'adress' => $adress];
             return AbstractController::render('order', $params);
@@ -90,18 +88,6 @@ class CommandController extends CommandModel
         $_SESSION['order']['delivery'] = "home";
         header("location:/order/resume");       
     }
-
-    // public function setTotal()
-    // {
-    //     $y=0;
-
-    //     for($i=0; $i<$_SESSION['cart'] ; $i++)
-    //     {
-            
-    //     }
-        
-    // };
-
 
     public function setStripe2()
     {
