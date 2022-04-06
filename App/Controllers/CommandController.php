@@ -77,7 +77,7 @@ class CommandController extends CommandModel
                 $_SESSION['order']['resume']['zip'] = $adress['DeliveryPostalCode'];
             }
             $titrepage = "Resume";
-            $params = ['titre' => $titrepage, 'adress' => $adress];
+            $params = ['titre' => $titrepage, 'css'=>'after-payement', 'adress' => $adress];
             AbstractController::render('payement', $params);
         
     }
@@ -93,8 +93,6 @@ class CommandController extends CommandModel
     {
         \Stripe\Stripe::setApiKey('sk_test_51KTkiULE6khc7hP3fAiVe5LCBrZCbIGRxUJoEJ7lEapYq0iz02JL5GF2ataOxyjsLtMtt7lE0m17MJNYZs3bjime00DZwC9S2r');
 
-        $first_name = $_SESSION['user']['firstname'];
-        $last_name = $_SESSION['user']['name'];
         $email = $_SESSION['user']['email'];
         $token = $_POST['stripeToken'];
 

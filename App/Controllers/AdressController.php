@@ -61,7 +61,7 @@ class AdressController extends AdressModel
     {
         $id_user = $_SESSION['user']['id'];
         $currentAdress = $this->getCurrentAdress($type, $id_user);
-        $params = ['titre' => 'changeAdress', 'data' => $currentAdress, 'css' => 'account'];
+        $params = ['titre' => 'changeAdress', 'css' => 'account' ,'data' => $currentAdress ];
         return AbstractController::render('account.address.update', $params);
     }
 

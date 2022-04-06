@@ -10,10 +10,8 @@ session_start();
 use App\Controllers\AbstractController;
 use App\Controllers\AdminController;
 use App\Controllers\AdressController;
-use App\Controllers\CardsController;
 use App\Controllers\CartController;
 use App\Controllers\CommandController;
-use App\Controllers\PayementController;
 use App\Controllers\ProductController;
 use App\Controllers\ReviewsController;
 use App\Controllers\ShopController as Shop;
@@ -268,7 +266,7 @@ $router->map('POST', '/order/verification', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('POST|GET', '/payement', function () {
+$router->map('POST', '/payement', function () {
     $resume = new CommandController;
     $resume->resumeOrder();
 });
