@@ -1,56 +1,42 @@
-
-<?= isset($params['message'])?$params['message']:''; ?>
-
-<!-- <form action="/account/profil" method="POST">
-    <input type="text" name="firstname" >
-    <input type="text" name="name" >
-    <input type="text" name="email" >
-    <input type="password" name="password" >  
-    <input type="password" name="passwordRep" >    
-    <input type="text" name="adress" >
-    <input type="submit">
-</form>
-<a href="/logout">deco</a> -->
-
     <main>
         <section class="home">
             <div class="container">
-                <h3>AJOUT D'UNE ADRESSE</h3>
-                <form action="/account/addresses/add" method="POST">
+                <h3>MODIFIER VOTRE ADRESSE</h3>
+                <form action="/account/adress/update/<?=$params['data']->type?>" method="POST"> 
                     <div class="entry-container">
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="type" placeholder="Nom de l'adresse">
+                            <input type="text" name="type" value= <?=$params['data']->type?> >
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="full_name" placeholder="Nom Complet">
+                            <input type="text" name="full_name" value= <?=$params['data']->full_name?>>
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="adress" placeholder="Votre adresse">
+                            <input type="text" name="adress" value="<?=$params['data']->adress?>">
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="additional_adress" placeholder="Complément d'adresse">
+                            <input type="text" name="additional_adress" value= <?=$params['data']->additional_adress?>>
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="number" name="postal_code" placeholder="Code postal">
+                            <input type="number" name="postal_code" value= <?=$params['data']->postal_code?>>
                             <div class="right"></div>
                         </div>
                         <div class="box">
                             <div class="left"></div>
-                            <input type="text" name="city" placeholder="Ville">
+                            <input type="text" name="city" value= <?=$params['data']->city?>>
                             <div class="right"></div>
                         </div>
                     </div>
                     <div class="buttons-container">
-                        <button class="button" name="submit" type="submit">Ajouter l'adresse</button>
+                        <button class="button" name="submit" type="submit">Modifier l'adresse</button>
                     </div>
                 </form>
             </div>

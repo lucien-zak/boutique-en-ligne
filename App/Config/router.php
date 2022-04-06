@@ -150,9 +150,13 @@ $router->map('POST', '/account/addresses/add', function () {
     $model = new AdressController; $model->NewAdress();
 });
 
-// $router->map('POST', '/account/adress/[a:type]', function ($type) {
-//     $adress = new AdressController; $adress->
-// });
+$router->map('POST', '/account/adress/[a:type]', function ($type) {
+    $adress = new AdressController; $adress->currentAdress($type);
+});
+
+$router->map('POST', '/account/adress/update/[a:type]', function ($type) {
+    $adress = new AdressController; $adress->AdressModify($type);
+});
 
 /////////////////////////////////////////////////////////////////////////////
 
