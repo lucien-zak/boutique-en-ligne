@@ -135,37 +135,44 @@ class CommandController extends CommandModel
 
     public function newCommand()
     {
-            $date = date("Y-m-d H:i:s");
-        // $full_name = $_SESSION['order']['resume']['full_name'];
-        $full_name = 'test';
-        $command_num = rand(1000000000, 99999999999);
-        if($this->checkNum_Command($command_num)>true);
+        if(!empty($_SESSION['order']))
         {
+            $date = date("Y-m-d H:i:s");
+            // $full_name = $_SESSION['order']['resume']['full_name'];
+            $full_name = 'test';
             $command_num = rand(1000000000, 99999999999);
-        }
-        $id_user = $_SESSION['user']['id'];
-        $delivery_adress = $_SESSION['order']['resume']['adress'];
-        $billing_adress = $_SESSION['order']['resume']['adress'];
-        $four_last = $_SESSION['order']['resume']['last4'];
-        $this->setDate($date)->setFull_name($full_name)->setCommand_num($command_num)->setId_user($id_user)->setDelivery_adress($delivery_adress)->setBilling_adress($billing_adress)->setFour_last($four_last);
-        $this->setCommand();
-
-        
-            foreach($_SESSION['cart'] as $key => $product)
+            if($this->checkNum_Command($command_num)>true);
             {
-                $slug_id = explode('-' , $key);
-                $id = $slug_id[1];
-                $this->setId_product($id)->setQuantity($product['quantity'])->setProducts_Command();
-                $this->updateStock($id , $product['quantity']);
+                $command_num = rand(1000000000, 99999999999);
             }
-
-            $products_command = $this->getProducts_CommandByNum();
-            $command = $this->getCommandByNum();
-            unset($_SESSION['order']);
-            unset($_SESSION['cart']);
-
-            $params = ['titre'=>'resume paiement' , 'command'=>$command, 'products'=>$products_command, 'css' => 'after-payement'];
-            AbstractController::render('payement.resume', $params);
+            $id_user = $_SESSION['user']['id'];
+            $delivery_adress = $_SESSION['order']['resume']['adress'];
+            $billing_adress = $_SESSION['order']['resume']['adress'];
+            $four_last = $_SESSION['order']['resume']['last4'];
+            $this->setDate($date)->setFull_name($full_name)->setCommand_num($command_num)->setId_user($id_user)->setDelivery_adress($delivery_adress)->setBilling_adress($billing_adress)->setFour_last($four_last);
+            $this->setCommand();
+    
+            
+                foreach($_SESSION['cart'] as $key => $product)
+                {
+                    $slug_id = explode('-' , $key);
+                    $id = $slug_id[1];
+                    $this->setId_product($id)->setQuantity($product['quantity'])->setProducts_Command();
+                    $this->updateStock($id , $product['quantity']);
+                }
+    
+                $products_command = $this->getProducts_CommandByNum();
+                $command = $this->getCommandByNum();
+                unset($_SESSION['order']);
+                unset($_SESSION['cart']);
+    
+                $params = ['titre'=>'resume paiement' , 'command'=>$command, 'products'=>$products_command, 'css' => 'after-payement'];
+                AbstractController::render('payement.resume', $params);
+        }
+        else{
+            header("location:/");
+        }
+        
         
     }
 
