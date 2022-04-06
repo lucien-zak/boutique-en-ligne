@@ -59,4 +59,17 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("").addEventListener("click", function () {
     window.location.href = "#";
   });
+
+  var x = document.getElementById('livraison') 
+   
+  x.addEventListener('click', function(){
+      if(document.getElementById('mond').checked == true)
+      {
+        getElementById('containere').style.display = "none"
+      }
+      else{
+        getElementById('containere').style.display = "none"
+      }
+  })
+
 });

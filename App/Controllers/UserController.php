@@ -51,58 +51,59 @@ class UserController extends UserModel
     //fonction qui vérifie que l'utilisateur est bien inscrit
     public function login()
     {
-        $email = htmlspecialchars($_POST['email']);
-        $password = htmlspecialchars($_POST['password']);
-        $passwordbdd = $this->checkPassword($email)->fetch(PDO::FETCH_ASSOC);
-        $titrepage = 'login';
-
-        $this->setEmail($email);
-
-        if (!empty($email) && !empty($password)) {
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                if ($this->checkEmail() == false) {
-                    if (password_verify($password, $passwordbdd['password']) == true) {
-                        $this->setPassword($passwordbdd['password']);
-                        $user = $this->checkLogs()->fetchAll(PDO::FETCH_ASSOC);
-
-                        $_SESSION['user']['id'] = $user['0']['id'];
-                        $_SESSION['user']['firstname'] = $user['0']['firstname'];
-                        $_SESSION['user']['name'] = $user['0']['name'];
-                        $_SESSION['user']['email'] = $user['0']['email'];
-                        $_SESSION['user']['profil_img'] = $user['0']['profil_img'];
-                        if (isset($_SESSION["continue_path"])){
-                            $url = $_SESSION["continue_path"];
-                            header("location:".$url."");
+            $email = htmlspecialchars($_POST['email']);
+            $password = htmlspecialchars($_POST['password']);
+            $passwordbdd = $this->checkPassword($email)->fetch(PDO::FETCH_ASSOC);
+            $titrepage = 'login';
+    
+            $this->setEmail($email);
+    
+            if (!empty($email) && !empty($password)) {
+                if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    if ($this->checkEmail() == false) {
+                        if (password_verify($password, $passwordbdd['password']) == true) {
+                            $this->setPassword($passwordbdd['password']);
+                            $user = $this->checkLogs()->fetchAll(PDO::FETCH_ASSOC);
+    
+                            $_SESSION['user']['id'] = $user['0']['id'];
+                            $_SESSION['user']['firstname'] = $user['0']['firstname'];
+                            $_SESSION['user']['name'] = $user['0']['name'];
+                            $_SESSION['user']['email'] = $user['0']['email'];
+                            $_SESSION['user']['profil_img'] = $user['0']['profil_img'];
+                            if (isset($_SESSION["continue_path"])){
+                                $url = $_SESSION["continue_path"];
+                                header("location:".$url."");
+                                exit();
+                            }
+                            
+                            if(isset($_POST['remember'])) {
+                                setcookie('auth', $user['0']['id'] . '-----' . sha1($user[0]['email'] . $user[0]['password']), time() + 3600 * 24 * 3, '/', 'boutique', false, true);
+                            }
+    
+                            header('Location:/account');
+                            exit();
+                        } else {
+                            $message = "Votre adresse-email ou votre mot de passe est incorrect.";
+                            AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
                             exit();
                         }
-                        
-                        if(isset($_POST['remember'])) {
-                            setcookie('auth', $user['0']['id'] . '-----' . sha1($user[0]['email'] . $user[0]['password']), time() + 3600 * 24 * 3, '/', 'boutique', false, true);
-                        }
-
-                        header('Location:/account');
-                        exit();
                     } else {
                         $message = "Votre adresse-email ou votre mot de passe est incorrect.";
                         AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
+    
                         exit();
                     }
                 } else {
-                    $message = "Votre adresse-email ou votre mot de passe est incorrect.";
+                    $message = "Votre adresse-email doit respecter le format : example@example.com.";
                     AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
-
                     exit();
                 }
             } else {
-                $message = "Votre adresse-email doit respecter le format : example@example.com.";
+                $message = "Vous devez remplir le formulaire pour pouvoir continuer.";
                 AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
                 exit();
             }
-        } else {
-            $message = "Vous devez remplir le formulaire pour pouvoir continuer.";
-            AbstractController::render('login', $params = ['titre' => $titrepage, 'css' => 'account', 'alert' => AbstractController::alert(2, $message)]);
-            exit();
-        }
+        
     }
 
     public function profil()
