@@ -10,7 +10,6 @@ session_start();
 use App\Controllers\AbstractController;
 use App\Controllers\AdminController;
 use App\Controllers\AdressController;
-use App\Controllers\CardsController;
 use App\Controllers\CartController;
 use App\Controllers\CommandController;
 use App\Controllers\ProductController;
@@ -160,43 +159,6 @@ $router->map('POST', '/account/adress/update/[a:type]', function ($type) {
 
 /////////////////////////////////////////////////////////////////////////////
 
-// $router->map('GET', '/account/orders', function () {
-//     Shop::orders();
-// });
-
-$router->map('GET', '/account/orders', function () {
-    $model = new UserController; 
-    $model->orders();
-});
-
-/////////////////////////////////////////////////////////////////////////////
-
-$router->map('GET', '/account/payements', function () {
-    $newAddress = new CardsController;
-    $newAddress->AllUserCards();
-});
-
-// $router->map( 'POST', '/account/payements', function(){
-//     $model = new CardsController; $model->AllUserCards();
-// });
-
-$router->map('GET', '/account/payements/add', function () {
-    Shop::payements_add();
-});
-
-$router->map('POST', '/account/payements/add', function () {
-    $model = new CardsController; $model->NewCard();
-});
-
-// $router->map( 'GET', '/account/payements/edit', function(){
-//     Shop::payements_edit();
-// });
-
-$router->map('POST', '/account/payements/edit', function () {
-    $model = new UserController; $model->payements_edit();
-});
-/////////////////////////////////////////////////////////////////////////////
-
 $router->map('GET', '/account/cart', function () {
     $cart = new CartController;
     $cart->cart();
@@ -317,7 +279,7 @@ $router->map('POST', '/order/verification', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('POST|GET', '/payement', function () {
+$router->map('POST', '/payement', function () {
     $resume = new CommandController;
     $resume->resumeOrder();
 });

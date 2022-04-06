@@ -8,12 +8,12 @@
     <title><?= $params['titre'] ?> - Vinyl Génération</title>
     <?php
     if (isset($params['css'])) {
-        echo '<link rel="stylesheet" href="/assets/style/' . $params["css"] . '.view.css">';
+        echo '<link rel="stylesheet" href="../assets/style/' . $params["css"] . '.view.css">';
     }
     ?>
-    <link rel="stylesheet" href="/assets/style/header.style.css">
-    <link rel="stylesheet" href="/assets/style/normalize.css">
-    <link rel="stylesheet" href="/assets/style/footer.style.css">
+    <link rel="stylesheet" href="../assets/style/header.style.css">
+    <link rel="stylesheet" href="../assets/style/normalize.css">
+    <link rel="stylesheet" href="../assets/style/footer.style.css">
     <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
