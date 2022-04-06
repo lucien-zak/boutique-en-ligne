@@ -207,6 +207,19 @@ button.btn {
         cursor: pointer;
     }
 
+    form > .filter-container {
+        display: none;
+        position: absolute;
+        z-index: 1000;
+        background-color: #202020;
+        color: #fff;
+        padding: 2vh;
+        border: solid #fff 2px;
+        right: 1vw;
+        top: 21vh;
+        font-family: 'Comfortaa-R';
+    }
+
     div.filter-list {
         display: none;
     }

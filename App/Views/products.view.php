@@ -2,7 +2,7 @@
     <form action="/products" method="post">
         <input type="search" name="search" id="search" placeholder="Your Search">
         <button id="filter"><i class="fas fa-filter"></i></button>
-        <div class="filter-container">
+        <div id="filterc" class="filter-container">
             <?php foreach ($params['category'] as $key => $value) { 
                 echo '<div><input type="checkbox" id="' . $key . '" name="' . $key . '"'?><?=array_key_exists(str_replace(' ', '_', $key), $_REQUEST) ? 'checked' : ''?> <?php '>';
                 echo '<label for="' . $key . '"> ' . $key . '</label></div>';
