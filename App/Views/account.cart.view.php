@@ -1,4 +1,3 @@
-<body>
     <div>
         <form action="/products" method="post">
             <input type="search" name="search" id="search" placeholder="Your Search">
@@ -84,4 +83,3 @@
         <?php } ?>
     </div>
     </div>
-</body>
