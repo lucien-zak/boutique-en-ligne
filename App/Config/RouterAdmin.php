@@ -10,6 +10,20 @@ $router->map('GET', '/admin', function () {
     $admin->home_admin();
 });
 
+$router->map('GET', '/admin/users', function () {
+    $admin = new AdminController();
+    $admin->users_admin();
+});
+
+$router->map('GET', '/admin/users/delete/[i:id]', function ($id) {
+    $admin = new AdminController();
+    $admin->users_admin_delete($id);
+});
+
+
+
+
+
 $router->map('GET', '/admin/commands', function () {
     $admin = new AdminController();
     $admin->commands_admin();

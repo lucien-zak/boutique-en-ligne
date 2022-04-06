@@ -25,6 +25,7 @@
           <li><a href="/admin/categories">Catégories</a></li>
           <li><a href="/admin/reviews">Avis</a></li>
           <li><a href="/admin/commands">Commandes</a></li>
+          <li><a href="/admin/users">Utilisateurs</a></li>
         </ul>
       </div>
   </div>
@@ -32,6 +33,3 @@
 </header>
 
 <body>
-</body>
-
-</html>

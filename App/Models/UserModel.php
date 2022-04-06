@@ -7,13 +7,15 @@ use App\Config\Database;
 class UserModel extends Database
 {
 
+    protected $id;
     protected $firstname;
     protected $name;
     protected $email;
     protected $password;
     protected $profil_img;
+    protected $table = 'users';
 
-    protected function setId($id){
+    public function setId($id){
         $this->id = $id;
         return $this;
     }
@@ -112,4 +114,13 @@ class UserModel extends Database
     {
         return $this->run("UPDATE `users` SET `firstname`= ?, `name`= ?, `email`= ?, `password`= ?, `profil_img`= ?  WHERE `id`= ? " , [$this->firstname, $this->name, $this->email, $this->password, $this->profil_img, $this->id]);
     }
+
+    public function deleteUser() 
+    {
+        return $this->run("DELETE FROM `users` WHERE `id` = ?", [$this->id]);
+    }
+
+
+
+
 }

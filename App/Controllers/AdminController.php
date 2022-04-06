@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\CommandModel;
 use App\Models\ProductModel;
 use App\Models\ReviewsModel;
+use App\Models\UserModel;
 
 class AdminController extends ProductModel
 {
@@ -70,23 +71,6 @@ class AdminController extends ProductModel
         $filename = substr(str_replace(" ","",htmlspecialchars($_REQUEST['name'])),0,4).'-'.$this->pdo->lastInsertId();
         AbstractController::upload_img_products($filename);
         header('location:/admin/products');
-
-        // dump($category);
-        // dump($product);
-        // // $sub_reviews = $this->displaySub_Reviews();
-        // $reviews = $this->getReviewsById();
-        // if(!empty($_SESSION['user']))
-        // {
-        //     $favorites = $this->checkFavorites($_SESSION['user']['id']);
-
-        // }
-        // else{
-        //     $favorites = false;
-        // }
-        // $averageRating = $this->avgRatingProduct($id);
-        // $params = ['titre' => $titrepage, 'css' => 'product', 'product' => $product , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
-        
-    
     }
 
     public function product_admin_update($slug, $id)
@@ -140,6 +124,22 @@ class AdminController extends ProductModel
         return AbstractController::render_admin('admin.category', $params);
     }
 
+    public function users_admin(){
+        $titrepage = 'Panel Admin Utilisateurs';
+        $user = new UserModel;
+        $users = $user->getAll();
+        $params = [ 'titre' => $titrepage, 'users' => $users];
+        return AbstractController::render_admin('admin.users', $params);
+    }
+
+    public function users_admin_delete($id){
+        $user = new UserModel;
+        $user->setId($id);
+        // dump($user);
+        $user->deleteUser();
+        header('location:/admin/users');
+    }
+
     public function category_admin_update($id, $category,$sub_category){        
         if ($_REQUEST['action'] == 'Modifier'){
             $this->update_subcategory($category, $sub_category, $id);
@@ -147,11 +147,6 @@ class AdminController extends ProductModel
         if ($_REQUEST['action'] == 'Supprimer') {
             $this->delete_subcategory($id);        
         }
-        // $titrepage = 'Panel Admin Catégorie';
-        // $this->table = 'categories';
-        // $allcategory = $this->getCategorywithSub();
-        // $params = [ 'titre' => $titrepage, 'id' => $id, 'allcategory' => $allcategory];
-        // return AbstractController::render('admin.category', $params);
     }
 
 
