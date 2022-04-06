@@ -519,8 +519,17 @@ div.error {
     /* /////////////////////////: */
 
     #cart-recap {
-        width: 40%;
+        display: none;
+        width: 22%;
         height: 40%;
+        position: absolute;
+        z-index: 1000;
+        right: 0;
+        top: 58px;
+    }
+
+    #cart-recap > div.result {
+        background-color: #202020;
     }
 }
 

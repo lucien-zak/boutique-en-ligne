@@ -109,7 +109,7 @@ $sub_reviews = $params['sub_reviews'];
                     </div>
                     <h4><?= $review->comment ?></h4>
                     <div class="ctn">
-                        <h5 class="response-btn" id_util="<?= $review->id ?>" name_util="<?= $review->firstname ?>">Répondre à cette avis</h5>
+                        <h5 class="response-btn" id_util="<?= $review->id ?>" name_util="<?= $review->firstname ?>" name_article="<?= $params['product']->slug . "-" . $params["product"]->id ?>">Répondre à cette avis</h5>
                     </div>
                 </div>
                 <div id="popup">
