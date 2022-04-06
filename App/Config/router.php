@@ -8,7 +8,6 @@ $whoops->register();
 session_start();
 
 use App\Controllers\AbstractController;
-use App\Controllers\AdminController;
 use App\Controllers\AdressController;
 use App\Controllers\CartController;
 use App\Controllers\CommandController;
@@ -16,7 +15,6 @@ use App\Controllers\ProductController;
 use App\Controllers\ReviewsController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
-use App\Models\CommandModel;
 
 $user = new UserController();
 $user->remember();
@@ -29,11 +27,6 @@ $router->map('GET', '/', function () {
 });
 
 /////////////////////////////////////////////////////////////////////////////
-
-$router->map('GET', '/product/[a:slug]-[i:id]-[i:code]', function ($slug, $id, $code = '') {
-    $product = new ProductController;
-    $product->product($id, $slug, $code);
-});
 
 $router->map('GET', '/product/[a:slug]-[i:id]', function ($slug, $id, ) {
     $product = new ProductController;

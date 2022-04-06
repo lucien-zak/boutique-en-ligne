@@ -38,7 +38,7 @@ class AbstractController
             die("The file is empty.");
         }
 
-        if ($fileSize > 3145728) { // 3 MB (1 byte * 1024 * 1024 * 3 (for 3 MB))
+        if ($fileSize > 3145728) { 
             die("The file is too large");
         }
 
@@ -53,15 +53,14 @@ class AbstractController
         }
 
         $extension = $allowedTypes[$filetype];
-        $targetDirectory = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/products"; // __DIR__ is the directory of the current PHP file
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/products"; 
 
         $newFilepath = $targetDirectory . "/" . $filename . "." . 'png';
 
-        if (!copy($filepath, $newFilepath)) { // Copy the file, returns false if failed
+        if (!copy($filepath, $newFilepath)) { 
             die("Can't move file.");
         }
-        unlink($filepath); // Delete the temp file
-
+        unlink($filepath); 
 }
 
     public static function sort_category($listcategory)
@@ -77,13 +76,6 @@ class AbstractController
         return $sortedlist;
     }
 
-    /* 
-        $code = int for choose the type of alert message
-
-        0 = successfully
-        1 = failed
-        2 = error
-    */
 
     public static function alert($type, $message)
     {
