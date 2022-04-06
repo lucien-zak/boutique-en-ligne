@@ -267,7 +267,6 @@ $router->map('POST', '/admin/product/update/[a:slug]-[i:id]', function ($slug, $
 });
 
 $router->map('POST', '/admin/product/add', function () {
-    // dump($_REQUEST);
     $admin = new AdminController;
     $admin->product_admin_new();
 });

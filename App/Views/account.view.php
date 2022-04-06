@@ -1,4 +1,3 @@
-<body>
     <?php if (!isset($_SESSION['user'])) { ?>
         <main>
             <section class="home">
@@ -55,6 +54,3 @@
             </div>
         </main>
     <?php } ?>
-</body>
-
-</html>

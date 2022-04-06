@@ -6,7 +6,6 @@
         document.getElementById("uploadFile").value = this.value;
     };
 </script>
-<body>
     <main>
         <div class="container profil">
             <h3>MODIFICATION DE VOTRE COMPTE</h3>
@@ -57,5 +56,3 @@
             </form>
         </div>
     </main>
-</body>
-</html>

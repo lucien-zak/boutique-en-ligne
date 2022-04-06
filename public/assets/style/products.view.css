@@ -2,14 +2,14 @@ body {
     background-color: #131313;
 }
 
-body > form {
+body>form {
     margin-top: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-form > #search {
+form>#search {
     padding: 4%;
 
     width: 76vw;
@@ -21,7 +21,7 @@ form > #search {
     font-family: 'Comfortaa-R';
 }
 
-form > #filter {
+form>#filter {
     padding: 4%;
     margin-left: 4%;
 
@@ -55,12 +55,12 @@ a.product {
     flex-direction: row;
 }
 
-a.product > .right:before {
+a.product>.right:before {
     position: absolute;
     content: "";
     top: 10px;
     left: 10px;
-    width: 15px ;
+    width: 15px;
     height: 15px;
     background: transparent;
     border-top: 2px solid white;
@@ -68,7 +68,7 @@ a.product > .right:before {
     z-index: 100;
 }
 
-a.product > .right:after {
+a.product>.right:after {
     position: absolute;
     content: "";
     bottom: 10px;
@@ -81,7 +81,7 @@ a.product > .right:after {
     z-index: 100;
 }
 
-a.product > .left:before {
+a.product>.left:before {
     position: absolute;
     content: "";
     top: 10px;
@@ -94,7 +94,7 @@ a.product > .left:before {
     z-index: 100;
 }
 
-a.product > .left:after {
+a.product>.left:after {
     content: "";
     position: absolute;
     bottom: 10px;
@@ -130,13 +130,13 @@ a.product div.content div.info div.box {
     height: 13vh;
 }
 
-a.product div.content > img {
+a.product div.content>img {
     width: 40vw;
     padding-top: 1vh;
     padding-bottom: 1vh;
 }
 
-a.product div.content div.info div.box  > h3, a.product div.content div.info div.box > h2, a.product div.content div.info div.box > h5 {
+a.product div.content div.info div.box>h3, a.product div.content div.info div.box>h2, a.product div.content div.info div.box>h5 {
     margin: 0;
     margin-bottom: 9px;
     font-family: 'Comfortaa-R';
@@ -146,64 +146,30 @@ a.product div.content div.info div.box h2 {
     font-size: 22px;
 }
 
-a.product div.content div.info div.box > h3 {
+a.product div.content div.info div.box>h3 {
     font-size: 12px;
 }
 
-a.product div.content div.info div.box > h5 {
+a.product div.content div.info div.box>h5 {
     font-size: 20px;
 }
 
-button.button {
-    position: relative;
-    width: 100%;
-    background-color: #FC7E1F;
-    text-align: center;
-    font-size: 11px;
-    padding: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-family: 'Comfortaa-R';
-    margin-top: 10px;
-    text-decoration: none;
-    border: none;
-}
-
-button.button:before {
-    position: absolute;
-    content: "";
-    top: 5px;
-    left: 5px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-}
-
-button.button:after {
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 15px;
-    height: 15px;
-    background: transparent;
-    border-bottom: 2px solid white;
-    border-right: 2px solid white;
+button.btn {
+    font-size: 10px;
 }
 
 #red {
     color: red;
     font-family: 'Comfortaa-R';
+    margin: 0;
 }
 
-@media only screen and (min-width : 1224px){
+@media only screen and (min-width : 1224px) {
     body {
         background-color: #131313;
     }
-    
-    body > form {
+
+    body>form {
         width: 100%;
         margin: 0;
         margin-top: 2vh;
@@ -213,8 +179,8 @@ button.button:after {
         justify-content: center;
         gap: 2vh;
     }
-    
-    form > #search {
+
+    form>#search {
         padding: 1%;
 
         width: 88vw;
@@ -224,8 +190,8 @@ button.button:after {
         color: #fff;
         font-family: 'Comfortaa-R';
     }
-    
-    form > #filter {
+
+    form>#filter {
         margin: 0;
 
         padding: 1%;
@@ -236,7 +202,7 @@ button.button:after {
         color: #fff;
     }
 
-    form > #filter:hover {
+    form>#filter:hover {
         color: #FC7E1F;
         cursor: pointer;
     }
@@ -244,7 +210,7 @@ button.button:after {
     div.filter-list {
         display: none;
     }
-    
+
     div.product-container {
         display: flex;
         justify-content: center;
@@ -253,35 +219,35 @@ button.button:after {
         flex-wrap: wrap;
         gap: 2vh;
     }
-    
+
     a.product {
         width: 28vw;
         margin-top: 0;
         background-color: #2B2B2B;
         text-decoration: none;
-    
+
         position: relative;
-    
+
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: row;
     }
-    
-    a.product > .right:before {
+
+    a.product>.right:before {
         position: absolute;
         content: "";
         top: 10px;
         left: 10px;
-        width: 15px ;
+        width: 15px;
         height: 15px;
         background: transparent;
         border-top: 2px solid white;
         border-left: 2px solid white;
         z-index: 100;
     }
-    
-    a.product > .right:after {
+
+    a.product>.right:after {
         position: absolute;
         content: "";
         bottom: 10px;
@@ -293,8 +259,8 @@ button.button:after {
         border-left: 2px solid white;
         z-index: 100;
     }
-    
-    a.product > .left:before {
+
+    a.product>.left:before {
         position: absolute;
         content: "";
         top: 10px;
@@ -306,8 +272,8 @@ button.button:after {
         border-right: 2px solid white;
         z-index: 100;
     }
-    
-    a.product > .left:after {
+
+    a.product>.left:after {
         content: "";
         position: absolute;
         bottom: 10px;
@@ -319,7 +285,7 @@ button.button:after {
         border-right: 2px solid white;
         z-index: 100;
     }
-    
+
     a.product div.content {
         width: 94%;
         display: flex;
@@ -327,47 +293,47 @@ button.button:after {
         align-items: center;
         padding: 2vh;
     }
-    
+
     a.product div.content div.info {
         width: 44%;
-    
+
         display: flex;
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
-    
+
         text-align: left;
     }
-    
+
     a.product div.content div.info div.box {
         height: 13vh;
         margin-bottom: 2vh;
     }
-    
-    a.product div.content > img {
+
+    a.product div.content>img {
         width: 11vw;
         padding-top: 1vh;
         padding-bottom: 1vh;
     }
-    
-    a.product div.content div.info div.box  > h3, a.product div.content div.info div.box > h2, a.product div.content div.info div.box > h5 {
+
+    a.product div.content div.info div.box>h3, a.product div.content div.info div.box>h2, a.product div.content div.info div.box>h5 {
         margin: 0;
         margin-bottom: 9px;
         font-family: 'Comfortaa-R';
     }
-    
+
     a.product div.content div.info div.box h2 {
         font-size: 28px;
     }
-    
-    a.product div.content div.info div.box > h3 {
+
+    a.product div.content div.info div.box>h3 {
         font-size: 16px;
     }
-    
-    a.product div.content div.info div.box > h5 {
+
+    a.product div.content div.info div.box>h5 {
         font-size: 22px;
     }
-    
+
     button.button {
         position: relative;
         width: 100%;
@@ -382,7 +348,7 @@ button.button:after {
         text-decoration: none;
         border: none;
     }
-    
+
     button.button:before {
         position: absolute;
         content: "";
@@ -394,7 +360,7 @@ button.button:after {
         border-top: 2px solid white;
         border-left: 2px solid white;
     }
-    
+
     button.button:after {
         content: "";
         position: absolute;
