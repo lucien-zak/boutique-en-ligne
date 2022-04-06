@@ -24,6 +24,7 @@
           <li><a href="/admin/products">Produits</a></li>
           <li><a href="/admin/categories">Catégories</a></li>
           <li><a href="/admin/reviews">Avis</a></li>
+          <li><a href="/admin/commands">Commandes</a></li>
         </ul>
       </div>
   </div>

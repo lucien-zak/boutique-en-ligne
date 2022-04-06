@@ -10,14 +10,13 @@ session_start();
 use App\Controllers\AbstractController;
 use App\Controllers\AdminController;
 use App\Controllers\AdressController;
-use App\Controllers\CardsController;
 use App\Controllers\CartController;
 use App\Controllers\CommandController;
-use App\Controllers\PayementController;
 use App\Controllers\ProductController;
 use App\Controllers\ReviewsController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
+use App\Models\CommandModel;
 
 $user = new UserController();
 $user->remember();
@@ -75,7 +74,8 @@ $router->map('GET', '/products', function () {
 
 $router->map('POST', '/products', function () {
     $product = new ProductController;
-    if (!array_key_exists('search', $_REQUEST)) {
+    dump($_REQUEST);
+    if ($_REQUEST['search'] == "") {
         $product->productsbycategory();
     } else {
         $product->productsbysearch();
@@ -160,41 +160,13 @@ $router->map('POST', '/account/adress/update/[a:type]', function ($type) {
 
 /////////////////////////////////////////////////////////////////////////////
 
-// $router->map('GET', '/account/orders', function () {
-//     Shop::orders();
-// });
-
 $router->map('GET', '/account/orders', function () {
-    $model = new UserController; 
-    $model->orders();
+    $command = new CommandController;
+    $commands = $command->allUserCommands();
+    dump($commands);
 });
 
-/////////////////////////////////////////////////////////////////////////////
 
-$router->map('GET', '/account/payements', function () {
-    $newAddress = new CardsController;
-    $newAddress->AllUserCards();
-});
-
-// $router->map( 'POST', '/account/payements', function(){
-//     $model = new CardsController; $model->AllUserCards();
-// });
-
-$router->map('GET', '/account/payements/add', function () {
-    Shop::payements_add();
-});
-
-$router->map('POST', '/account/payements/add', function () {
-    $model = new CardsController; $model->NewCard();
-});
-
-// $router->map( 'GET', '/account/payements/edit', function(){
-//     Shop::payements_edit();
-// });
-
-$router->map('POST', '/account/payements/edit', function () {
-    $model = new UserController; $model->payements_edit();
-});
 /////////////////////////////////////////////////////////////////////////////
 
 $router->map('GET', '/account/cart', function () {
@@ -202,90 +174,8 @@ $router->map('GET', '/account/cart', function () {
     $cart->cart();
 });
 
-//////////////////////////////ADMIN///////////////////////////////////////////////
 
-$router->map('GET', '/admin', function () {
-    $admin = new AdminController();
-    $admin->home_admin();
-});
-
-$router->map('GET', '/admin/products', function () {
-    $admin = new AdminController;
-    $admin->products_admin();
-});
-
-$router->map('GET', '/admin/categories', function () {
-    $admin = new AdminController;
-    $admin->categories_admin();
-});
-
-$router->map('GET', '/admin/category/[i:id]', function ($id) {
-    $admin = new AdminController;
-    $admin->category_admin($id);
-});
-
-$router->map('GET', '/admin/category/delete/[i:id]', function ($id) {
-    $admin = new AdminController;
-    $admin->category_admin_delete_confirm($id);
-});
-
-$router->map('POST', '/admin/category/add', function () {
-    $admin = new AdminController;
-    $category = htmlspecialchars($_REQUEST['category']);
-    $admin->category_admin_add($category);
-    echo 'Catégorie ajoutée';
-    echo "<a href='/admin'>Retour à l'admin</a>";
-});
-
-$router->map('POST', '/admin/sub_category/add', function () {
-    $admin = new AdminController;
-    $id = htmlspecialchars($_REQUEST['category']);
-    $subcategory = htmlspecialchars($_REQUEST['subcategory']);
-    $admin->subcategory_admin_add($id, $subcategory);
-    echo 'Sous-catégorie ajoutée';
-    echo "<a href='/admin'>Retour à l'admin</a>";
-});
-
-$router->map('POST', '/admin/subcategory/modify/[i:id]', function ($id) {
-    $product = new AdminController;
-    $category = htmlspecialchars($_REQUEST['category']);
-    $sub_category = htmlspecialchars($_REQUEST[$id]);
-    $product->category_admin_update($id, $category, $sub_category);
-    echo 'Produit modifié';
-    echo "<a href='/admin'>Retour à l'admin</a>";
-});
-
-$router->map('GET', '/admin/product/modify/[a:slug]-[i:id]', function ($slug, $id) {
-    $product = new AdminController;
-    $product->product_admin($slug, $id);
-});
-
-$router->map('POST', '/admin/product/update/[a:slug]-[i:id]', function ($slug, $id) {
-    $product = new AdminController;
-    $product->product_admin_update($slug, $id);
-    header('location:/admin/products');
-});
-
-$router->map('POST', '/admin/product/add', function () {
-    $admin = new AdminController;
-    $admin->product_admin_new();
-});
-
-$router->map('GET', '/admin/product/delete/[a:slug]-[i:id]', function ($slug, $id) {
-    $product = new AdminController;
-    $product->product_admin_delete($slug, $id);
-    header('location:/admin/products');
-});
-
-$router->map('GET', '/admin/reviews', function () {
-    $product = new AdminController;
-    $product->reviews_admin();
-    
-});
-
-/////////////////////////////////////////////////////////////////////////////
-
-$router->map('POST', '/order/delivrery', function () {
+$router->map('GET', '/order/delivrery', function () {
     AbstractController::is_connected();
     $command = new CommandController;
     $command->delivery_choice();
@@ -305,7 +195,7 @@ $router->map('POST', '/order/verification', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('POST|GET', '/payement', function () {
+$router->map('POST', '/payement', function () {
     $resume = new CommandController;
     $resume->resumeOrder();
 });
@@ -347,6 +237,13 @@ $router->map('GET', '/test2', function () {
     $user = new CommandController;
     $user->test();
 });
+
+if (isset($_SESSION['user']['email']) && $_SESSION['user']['email'] == 'admin@admin.fr' )
+{
+    require "../App/Config/RouterAdmin.php";
+}
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 

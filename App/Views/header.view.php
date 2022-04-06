@@ -8,12 +8,12 @@
     <title><?= $params['titre'] ?> - Vinyl Génération</title>
     <?php
     if (isset($params['css'])) {
-        echo '<link rel="stylesheet" href="/assets/style/' . $params["css"] . '.view.css">';
+        echo '<link rel="stylesheet" href="../assets/style/' . $params["css"] . '.view.css">';
     }
     ?>
-    <link rel="stylesheet" href="/assets/style/header.style.css">
-    <link rel="stylesheet" href="/assets/style/normalize.css">
-    <link rel="stylesheet" href="/assets/style/footer.style.css">
+    <link rel="stylesheet" href="../assets/style/header.style.css">
+    <link rel="stylesheet" href="../assets/style/normalize.css">
+    <link rel="stylesheet" href="../assets/style/footer.style.css">
     <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -25,6 +25,16 @@
     <header id="top">
         <h1>Vinyl Génération</h1>
         <nav>
+            <?php
+
+            if (isset($_SESSION['user']['email']) && $_SESSION['user']['email'] == 'admin@admin.fr') {
+            ?>
+                <a href="/admin"><i class="fas fas-hidden fa-home"></i>
+                    <h4>Admin</h4>
+                </a>
+            <?php
+            }
+            ?>
             <a href="/"><i class="fas fas-hidden fa-home"></i>
                 <h4>Accueil</h4>
             </a>
@@ -50,23 +60,22 @@
             <h3 class="closeBtn" onclick="closeBtn('displayAlert')">X</h3>
         </div>
     <?php } ?>
-
-<<<<<<< Updated upstream
-=======
-    <div id="cart-recap">
-        <div class="container result">
-            <div class="left"></div>
-            <div class="list">
-                <h2>Récapitulatif</h2>
-                <hr>
-                <?php foreach ($_SESSION['cart'] as $value) { ?>
-                    <h3><?= $value['name'].' - '.$value['artist'].' total unitaire : '. $value['quantity'] * $value['price'].' Euros'   ?></h3>
-                    <hr> 
-                <?php } ?>
+    <?php
+    if (!empty($_SESSION['cart'])) {
+    ?>
+        <div id="cart-recap">
+            <div class="container result">
+                <div class="left"></div>
+                <div class="list">
+                    <h2>Récapitulatif</h2>
+                    <hr>
+                    <?php foreach ($_SESSION['cart'] as $value) { ?>
+                        <h3><?= $value['name'] . ' - ' . $value['artist'] . ' total unitaire : ' . $value['quantity'] * $value['price'] . ' Euros'   ?></h3>
+                        <hr>
+                    <?php } ?>
+                </div>
+                <h3>Montant total : <?= App\Controllers\CartController::total_product_cart() ?>€</h3>
             </div>
-            <h3>Montant total : <?= App\Controllers\CartController::total_product_cart() ?>€</h3>
         </div>
-    </div>
-
->>>>>>> Stashed changes
-    
+    <?php }
+    ?>

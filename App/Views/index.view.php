@@ -41,7 +41,8 @@
                     </div>
                     <div class="right">
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique senectus et netus et malesuada. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. <br><br>Aliquam ultrices sagittis orci a scelerisque purus. Aliquam malesuada bibendum arcu vitae elementum. A cras semper auctor neque vitae tempus. Neque gravida in fermentum et. Ultricies integer quis auctor elit sed vulputate mi sit amet.
+                        En 2001 à l'heure du téléchargement, deux passionnés amoureux de la galette lancent un site qui met en relation des acheteurs et des vendeurs internationaux de Vinyles et CD neufs et d'occasion. Vynile Génération devient une des premières place de marché dédiée à la musique. La plateforme accessible aux particuliers et aux professionnels grossit, grossit du fait de l’intérêt des collectionneurs.
+                        En tant qu'intermédiaire de confiance Vynile Génération garantit à l’acheteur de recevoir un article conforme, et au vendeur d’être payé.
                         </p>
                         <div class="buttons-container">
                             <button id="more-btn" class="btn btn-primary">
@@ -86,7 +87,6 @@
                                 data-rateyo-num-stars="5"
                                 data-rateyo-score="3">
                                 </div>
-                                <h2>(19)</h2>   
                             </div>
                         </div>
                         <div class="bottom">
@@ -118,7 +118,7 @@
                     <div class="left"></div>
                     <div class="ctn">
                         <div class="top">
-                            <img src="../assets/img/products/<?= $new->slug."-".$new->id ?>" alt="Image product">
+                            <img src="/assets/img/products/<?= $new->slug."-".$new->id ?>.png" alt="Image product">
                         </div>
                         <div class="middle">
                             <h2><?=$new->name?></h2>
@@ -129,12 +129,11 @@
                                 data-rateyo-num-stars="5"
                                 data-rateyo-score="3">
                                 </div>
-                                <h2>(19)</h2>
                             </div>
                         </div>
                         <div class="bottom">
                             <div class="buttons-container">
-                                <button class="btn btn-primary products-btn">
+                            <button class="btn btn-primary" onclick="window.location.href='/product/<?= $new->slug .'-'. $new->id ?>'">
                                     <div class="left"></div>
                                     Voir le produit
                                     <div class="right"></div>

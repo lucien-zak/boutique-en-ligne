@@ -1,9 +1,3 @@
-<?php
-dump($params);
-dump($_REQUEST);
-
-?>
-
 <head>
     <title>Exemple commenté d'une implémentation du Widget Mondial Relay</title>
 

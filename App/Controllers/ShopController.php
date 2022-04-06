@@ -70,13 +70,6 @@ class ShopController
         $params = [ 'titre' => $titrepage];
         return AbstractController::render('account.orders', $params);
     }
-
-    // public static function payement()
-    // {
-    //     $titrepage = 'Transaction';
-    //     $params = [ 'titre' => $titrepage];
-    //     return AbstractController::render('payement', $params);
-    // }
     
     public static function payements()
     {

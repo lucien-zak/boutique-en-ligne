@@ -12,6 +12,7 @@ class CommandModel extends Database
     protected $delivery_adress;
     protected $billing_adress;
     protected $four_last;
+    protected $statut;
   
 
     protected function setDate($date)
@@ -55,6 +56,27 @@ class CommandModel extends Database
         $this->four_last = $four_last;
         return $this;
     }
+
+    /**
+     * Get the value of statut
+     */ 
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set the value of statut
+     *
+     * @return  self
+     */ 
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
 
     public function setCommand()
     {
@@ -115,14 +137,17 @@ class CommandModel extends Database
     public function getAllCommands()
     {
 
-        return $this->run("SELECT `command`.`id_user`, `command`.`command_num`, `command`.`date`,`command`.`delivery_adress`, `command`.`biling_adress`, `command`.`four_last`, SUM(`price`) AS 'total', COUNT(`products`.`id`) AS 'Product' FROM `command` INNER JOIN `products_command` ON `command`.`command_num` = `products_command`.`num_command` INNER JOIN `products` ON `products_command`.`id_product` = `products`.`id` GROUP BY `products_command`.`num_command` ORDER BY `command`.`date`")->fetchAll();
+        return $this->run("SELECT `command`.`id_user`, `command`.`command_num`, `command`.`date`,`command`.`delivery_adress`, `command`.`biling_adress`, `command`.`four_last`, SUM(`price`) AS 'total', COUNT(`products`.`id`) AS 'products', statut FROM `command` INNER JOIN `products_command` ON `command`.`command_num` = `products_command`.`num_command` INNER JOIN `products` ON `products_command`.`id_product` = `products`.`id` GROUP BY `products_command`.`num_command` ORDER BY `command`.`date`")->fetchAll();
     }
 
     public function getAllCommandsByUser()
     {
 
-        return $this->run("SELECT command.id_user, command.command_num, command.date, command.delivery_adress, command.biling_adress, command.four_last, SUM(price) AS 'total', COUNT(products.id) AS 'products' FROM `command` INNER JOIN products_command ON command.command_num = products_command.num_command INNER JOIN products ON products_command.id_product = products.id  WHERE command.id_user = ?  GROUP BY products_command.num_command ORDER BY command.date",[$this->id_user])->fetchAll();
+        return $this->run("SELECT command.id_user, command.command_num, command.date, command.delivery_adress, command.biling_adress, command.four_last, SUM(price) AS 'total', COUNT(products.id), statut AS 'products' FROM `command` INNER JOIN products_command ON command.command_num = products_command.num_command INNER JOIN products ON products_command.id_product = products.id  WHERE command.id_user = ?  GROUP BY products_command.num_command ORDER BY command.date",[$this->id_user])->fetchAll();
     }
 
-
+    public function updateStatutCommand($id, $statut)
+    {
+        return $this->run('UPDATE `command` SET `statut`= ? WHERE `command_num` = ? '  , [$statut,$id]);
+    }
 }

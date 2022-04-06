@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\CommandModel;
 use App\Models\ProductModel;
 use App\Models\ReviewsModel;
 
@@ -20,6 +21,14 @@ class AdminController extends ProductModel
         
         $params = [ 'titre' => $titrepage];
         return AbstractController::render_admin('admin.reviews', $params);
+    }
+
+    public function commands_admin(){
+        $titrepage = 'Panel Admin produits';
+        $command = new CommandModel;
+        $commands = $command->getAllCommands();
+        $params = ['titre' => $titrepage,'commands' => $commands];
+        return AbstractController::render_admin('admin.commands', $params);
     }
 
     public function products_admin(){
@@ -172,18 +181,11 @@ class AdminController extends ProductModel
         return $this->insert_subcategory($id,$subcategory);
     }
 
-
-
-
-
-
-
-        
-    
-
-    
-
-
+    public function updateStatut($id, $statut)
+    {
+        $commands = new CommandModel;
+        $commands->updateStatutCommands($id, $statut);
+    }
 
 }
 
