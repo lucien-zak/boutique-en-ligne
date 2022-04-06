@@ -66,9 +66,7 @@ $sub_reviews = $params['sub_reviews'];
     <div class="box">
         <div class="informations">
             <h2>Description</h2>
-            <p>Lorem ipsum dolor sit amet. Et distinctio mollitia ut voluptates perferendis in dolor dolor. Ea officia sint aut odio repudiandae et aperiam nobis et rerum odit ex vitae deserunt.
-                Hic dignissimos rerum ab inventore dolores qui nihil debitis. Et modi eius non ipsam harum qui impedit voluptatem eum molestiae laborum aut blanditiis cupiditate. Sed dolorum inventore aut unde possimus sit libero voluptatem et minima mollitia hic doloribus internos non cupiditate nisi! Nam tempora illum qui tempora mollitia et quia esse in quibusdam cupiditate id enim culpa ab iste iste.
-                Ut consequatur cupiditate quo natus aliquid aut nostrum exercitationem et cumque cupiditate in impedit illo et enim fugit. Est suscipit sunt At omnis reiciendis est praesentium reprehenderit et dolorum iusto.</p>
+            <p><?= $params['product']->description ?></p>
         </div>
     </div>
     <div class="right"></div>

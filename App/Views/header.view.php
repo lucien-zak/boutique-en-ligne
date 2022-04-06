@@ -51,4 +51,27 @@
         </div>
     <?php } ?>
 
+    <div id="cart-recap">
+        <div class="container result">
+            <div class="left"></div>
+            <div class="list">
+                <h2>Récapitulatif</h2>
+                <hr>
+                <?php foreach ($_SESSION['cart'] as $value) { ?>
+                    <h3><?= $value['name'].' - '.$value['artist'].' total unitaire : '. $value['quantity'] * $value['price'].' Euros'   ?></h3>
+                    <hr> 
+                <?php } ?>
+            </div>
+            <h3>Montant total : <?= App\Controllers\CartController::total_product_cart() ?>€</h3>
+            <div class="buttons-container">
+                <button class="btn btn-primary" onclick="window.location.href='/account/cart'">
+                    <div class="left"></div>
+                    Passer la commande
+                    <div class="right"></div>
+                </button>
+            </div>
+            <div class="right"></div>
+        </div>
+    </div>
+
     

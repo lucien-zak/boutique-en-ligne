@@ -86,7 +86,6 @@
                                 data-rateyo-num-stars="5"
                                 data-rateyo-score="3">
                                 </div>
-                                <h2>(19)</h2>   
                             </div>
                         </div>
                         <div class="bottom">
@@ -129,7 +128,6 @@
                                 data-rateyo-num-stars="5"
                                 data-rateyo-score="3">
                                 </div>
-                                <h2>(19)</h2>
                             </div>
                         </div>
                         <div class="bottom">
