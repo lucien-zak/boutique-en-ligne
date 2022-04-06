@@ -2,7 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(window.location.pathname);
 
   document.getElementById("cart").addEventListener("mouseenter", function() {
-    console.log("Yes")
+    document.getElementById("cart-recap").style.display = "block";
+  })
+  document.getElementById("cart").addEventListener("mouseleave", function() {
+    document.getElementById("cart-recap").style.display = "none";
   })
   
   if(window.location.pathname == "/") {
@@ -15,7 +18,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("contact-btn").addEventListener("click", function () {
       window.location.href = "/contact";
     });
-  } else if(window.location.pathname == "/product") {
+  } else if(window.location.pathname == "/account/cart") {
+    const quantity = document.getElementById("quantity");
+    const btn = document.getElementById("btn-cart");
+
+    quantity.addEventListener('change', function () {
+        if(quantity.value == 0 && btn.innerHTML == '<div class="left"></div>Modifier<div class="right"></div>') {
+          btn.innerHTML = '<div class="left"></div>Supprimer<div class="right"></div>';
+        } else if(quantity.value > 0 && btn.innerHTML != '<div class="left"></div>Modifier<div class="right"></div>') {
+          btn.innerHTML = '<div class="left"></div>Modifier<div class="right"></div>';
+        }
+    });
+  }
+
+  if(document.querySelector(".review")) {
     const popup = document.querySelectorAll(".response-btn");
 
     for (let i = 0; i < popup.length; i++) {
@@ -29,17 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("response-close").addEventListener("click", function () {
       document.getElementById("popup").style.display = "none";
-    });
-  } else if(window.location.pathname == "/account/cart") {
-    const quantity = document.getElementById("quantity");
-    const btn = document.getElementById("btn-cart");
-
-    quantity.addEventListener('change', function () {
-        if(quantity.value == 0 && btn.innerHTML == '<div class="left"></div>Modifier<div class="right"></div>') {
-          btn.innerHTML = '<div class="left"></div>Supprimer<div class="right"></div>';
-        } else if(quantity.value > 0 && btn.innerHTML != '<div class="left"></div>Modifier<div class="right"></div>') {
-          btn.innerHTML = '<div class="left"></div>Modifier<div class="right"></div>';
-        }
     });
   }
 });
