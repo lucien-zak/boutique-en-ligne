@@ -20,28 +20,62 @@ Le symbole "$" commençant une instruction javascript est caractéristique de l'
     <!-- Widget MR -->
     <script src="https://widget.mondialrelay.com/parcelshop-picker/jquery.plugin.mondialrelay.parcelshoppicker.min.js"></script>
   </head>
-
-
-    <div id="containere">
+  <form id="livraison" action="/payement" method="post">
+    <fieldset>
+    <legend>Livraison a domicile</legend>
+    <?php
+    if (!empty($params['adress'])) {
+        for ($i = 0; isset($params['adress'][$i]); $i++) {
+            echo '<input type="radio" name="typedelivery" value='.$params['adress'][$i]['type'].' id="dom">';
+            echo '<label name='.$params['adress'][$i]['type'].' for="dom">'.$params['adress'][$i]['type'].'(+3,99$)</label>';
+        } ?>
+            
+            <a href="/account/addresses"> Ajouter une adresse </a>
+    </fieldset>
+    <fieldset>
+        <legend>Point relais</legend>
+        <input type="radio" id="mond" name="typedelivery" value="Mondial Relay">
+        <label for="mond">Mondial Relay(Gratuit)</label>
+    </fieldset>
+    <div id="containere" style="display:none;">
         <!-- Zone dans laquelle le Widget est chargé -->
-        <div id="Zone_Widget"></div>
-            <form method='post' action="/order/resume">
+        <div id="Zone_Widget" ></div>
                 <textarea hidden id="cb_Nom" name="DeliveryName"></textarea>
                 <textarea hidden id="cb_Adresse" name="DeliveryAdress"></textarea>
                 <textarea hidden id="cb_CP" name="DeliveryPostalCode"></textarea>
                 <textarea hidden id="cb_Ville" name="DeliveryCity"></textarea>
-            <input type="submit">
-            </form>
           </div>
         </div>
     </div>
-    
-  
+    <input type="submit" value="Passer au paiement">
 
+</form>
+<?php
+}
+else {
+    echo '<p>Vous devez au moins enregister une adresse pour la facturation</p>';
+    echo '<a href="/account/addresses"> Ajouter une adresse </a>';
+}
+?>
 </html>
 <script>
 // Initialiser le widget après le chargement complet de la page
 $(document).ready(function() {
+  var map = document.querySelector('#containere')
+  var radio = document.querySelector('#mond')
+  var otherradio = document.querySelectorAll('#dom')
+
+  radio.addEventListener('change', (e) => {
+    map.style.display = 'block';
+  })
+
+  otherradio.forEach(element => {
+    element.addEventListener('change', (e) => {
+    map.style.display = 'none';
+  })
+
+  });
+
   // Charge le widget dans la DIV d'id "Zone_Widget" avec les paramètres indiqués
   $("#Zone_Widget").MR_ParcelShopPicker({
     //
@@ -87,6 +121,7 @@ $(document).ready(function() {
         $("#cb_Ville").html(data.Ville);
         $("#cb_Pays").html(data.Pays);
       }
+
     //
     // Autres paramétrages.
     //
@@ -112,37 +147,4 @@ $(document).ready(function() {
 
 });
 </script>
-
-
-
-
-
-
- <form id="livraison" action="/payement" method="post">
-    <fieldset>
-    <legend>Livraison a domicile</legend>
-    <?php
-    if (!empty($params['adress'])) {
-        for ($i = 0; isset($params['adress'][$i]); $i++) {
-            echo '<input type="radio" name="typedelivery" value='.$params['adress'][$i]['type'].' id="dom">';
-            echo '<label name='.$params['adress'][$i]['type'].' for="dom">'.$params['adress'][$i]['type'].'(+3,99$)</label>';
-        } ?>
-            
-            <a href="/account/addresses"> Ajouter une adresse </a>
-    </fieldset>
-    <fieldset>
-        <legend>Point relais</legend>
-        <input type="radio" id="mond" name="typedelivery" value="Mondial Relay">
-        <label for="mond">Mondial Relay(Gratuit)</label>
-    </fieldset>
-    <input type="submit" value="Passer au paiement">
-
-</form>
-<?php
-}
-else {
-    echo '<p>Vous devez au moins enregister une adresse pour la facturation</p>';
-    echo '<a href="/account/addresses"> Ajouter une adresse </a>';
-}
-?>
 

@@ -19,7 +19,15 @@
                             <h3>Sortie le <?= $params['products'][$i]->date ?></h3>
                             <h5><?= $params['products'][$i]->price ?>€</h5>
                         </div>
-                        <?php if ($params["products"][$i]->stock > 0) { ?>
+                        <?php 
+                            if (isset($_SESSION['cart'][$params['products'][$i]->slug.'-'.$params['products'][$i]->id]['quantity'])){
+                                $stocka = $params['products'][$i]->stock;
+                                $stock = $stocka - $_SESSION['cart'][$params['products'][$i]->slug.'-'.$params['products'][$i]->id]['quantity'];
+                            }
+                            else {
+                                $stock = $params['products'][$i]->stock;
+                            }
+                            if ($stock > 0) { ?>
                             <form action="/cart/add/<?= $params['products'][$i]->slug . '-' . $params['products'][$i]->id ?>" method="post">
                                 <input type="text" value="1" name="quantity" hidden>
                                 <input type="text" value="<?= $params['products'][$i]->price ?>" name="price" hidden>

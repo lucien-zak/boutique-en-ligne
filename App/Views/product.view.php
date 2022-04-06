@@ -4,12 +4,9 @@ if (isset($_SESSION['cart'][$params['product']->slug . '-' . $params['product']-
 } else {
     $stock = $params['product']->stock;
 }
-
 $reviews = $params['reviews'];
 $sub_reviews = $params['sub_reviews'];
 ?>
-
-
 <body>
     <div class="container">
         <div class="left"></div>
