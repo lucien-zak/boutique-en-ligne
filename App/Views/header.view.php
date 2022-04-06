@@ -25,6 +25,17 @@
     <header id="top">
         <h1>Vinyl Génération</h1>
         <nav>
+            <?php
+
+                if (isset($_SESSION['user']['email']) && $_SESSION['user']['email'] == 'admin@admin.fr' )
+                {
+                    ?>
+                    <a href="/admin"><i class="fas fas-hidden fa-home"></i>
+                        <h4>Admin</h4>
+                    </a>
+                    <?php
+                }
+            ?>
             <a href="/"><i class="fas fas-hidden fa-home"></i>
                 <h4>Accueil</h4>
             </a>
@@ -51,6 +62,9 @@
         </div>
     <?php } ?>
 
+    <?php
+    if (!empty($_SESSION['cart'])){
+    ?>
     <div id="cart-recap">
         <div class="container result">
             <div class="left"></div>
@@ -73,5 +87,8 @@
             <div class="right"></div>
         </div>
     </div>
+
+    <?php }
+    ?>
 
     

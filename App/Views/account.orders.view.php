@@ -15,7 +15,7 @@
             <?php 
             
                 for ($i = 0;$i < count($params['commands']); $i++) {
-                    if (count($params['commands']) >= 0) {
+                    if (count($params['commands']) == 0) {
                         echo "<h1>Vous n'avez aucune commande</h1>";
                     } else {
                         echo '<tr>';

@@ -1,5 +1,5 @@
 <?php
 
-require '../App/Config/router.php';
+require '../App/Config/Router.php';
 
 ?>

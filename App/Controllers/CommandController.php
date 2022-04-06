@@ -3,7 +3,6 @@
 namespace App\Controllers;
 use App\Models\CommandModel;
 use App\Models\AdressModel;
-use App\Models\CardsModel;
 use App\Models\ProductModel;
 
 class CommandController extends CommandModel
@@ -17,8 +16,12 @@ class CommandController extends CommandModel
 
     public function allUserCommands()
     {
-        $this->table = 'command';
-        $this->setId_user($_SESSION['user']['id'])->getAllById_user();
+        $command = $this->setId_user($_SESSION['user']['id']);
+        $commands = $command->getAllCommandsByUser();
+        $titre = 'Commandes';
+        $params = ['titre' => $titre, 'commands' => $commands];
+        AbstractController::render('account.orders', $params);
+
     }
 
     public function delivery_choice()
