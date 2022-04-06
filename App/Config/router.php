@@ -150,6 +150,10 @@ $router->map('POST', '/account/addresses/add', function () {
     $model = new AdressController; $model->NewAdress();
 });
 
+$router->map('POST', '/account/adress/[a:type]', function ($type) {
+    $adress = new AdressController; $adress->
+});
+
 /////////////////////////////////////////////////////////////////////////////
 
 // $router->map('GET', '/account/orders', function () {
@@ -259,7 +263,7 @@ $router->map('POST', '/admin/product/update/[a:slug]-[i:id]', function ($slug, $
 });
 
 $router->map('POST', '/admin/product/add', function () {
-// dump($_REQUEST);
+    // dump($_REQUEST);
     $admin = new AdminController;
     $admin->product_admin_new();
 });
@@ -288,21 +292,19 @@ $router->map('POST', '/order/verification', function () {
     if ($_REQUEST['typedelivery'] == 'Mondial Relay') {
         $command = new CommandController;
         $command->delivery_setrelay();
-    } else {
-        $command = new CommandController;
-        $command->redirect();
     }
 });
 
-$router->map('POST|GET', '/order/resume', function () {
-    $resume = new CommandController;
-    $resume->resumeOrder();
-});
+// $router->map('POST|GET', '/order/resume', function () {
+//     $resume = new CommandController;
+//     $resume->resumeOrder();
+// });
 
 /////////////////////////////////////////////////////////////////////////////
 
-$router->map('POST', '/payement', function () {
-    Shop::payement();
+$router->map('POST|GET', '/payement', function () {
+    $resume = new CommandController;
+    $resume->resumeOrder();
 });
 
 $router->map('GET', '/payement/resume', function () {

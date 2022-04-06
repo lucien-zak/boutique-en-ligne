@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php dump($params) ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,11 +35,13 @@
                     </a>
                     <?php } ?>
                 </div>
-                <form action="/account/" enctype="multipart/form-data" method="POST">
                     <div class="entry-container">
                          <?php
                             foreach($params['data'] as $adress)
                             {
+                            ?>
+                            <form action="/account/<?php $adress->type?>" enctype="multipart/form-data" class="adress" method="POST">
+                            <?php
                                 echo '
                                 <div class="box profil">
                                     <div class="left"></div>';
@@ -54,11 +57,11 @@
                                     <button class="button edit" type="submit">Modifier</button>
                                 </div>
                                     <div class="right"></div>
-                                </div>';
+                                </div>
+                            </form>';
                             }
                         ?> 
                     </div>
-                </form>
             </div>
         <?php } ?>
         </section>

@@ -75,4 +75,9 @@ class AdressModel extends Database
         return $this->run("SELECT * FROM adresses WHERE `type`= ? AND `id_user`= ?" , [$type , $id_user])->fetch();
     }
 
+    public function updateAdress() 
+    {
+        return $this->run("UPDATE `adresses` SET `type`= ?, `full_name`= ?, `adress`= ?, `additional_adress`= ?, `postal_code`= ?, `city`= ?, `id_user`= ?  WHERE `id_user`= ? AND `id_user`= ? " , [$this->type, $this->full_name, $this->adress, $this->additional_adress, $this->postal_code, $this->city, $this->id_user]);
+    }
+
 }

@@ -32,9 +32,15 @@ class ShopController
 
     public static function login()
     {
+        if(empty($_SESSION['user']))
+        {
         $titrepage = 'Connexion';
         $params = [ 'titre' => $titrepage, 'css' => 'account'];
         return AbstractController::render('login', $params);
+        }
+        else{
+            header("location:/");   
+        }
     }
     
     public static function rate()
@@ -65,12 +71,12 @@ class ShopController
         return AbstractController::render('account.orders', $params);
     }
 
-    public static function payement()
-    {
-        $titrepage = 'Transaction';
-        $params = [ 'titre' => $titrepage];
-        return AbstractController::render('payement', $params);
-    }
+    // public static function payement()
+    // {
+    //     $titrepage = 'Transaction';
+    //     $params = [ 'titre' => $titrepage];
+    //     return AbstractController::render('payement', $params);
+    // }
     
     public static function payements()
     {
