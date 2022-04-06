@@ -53,25 +53,6 @@ $sub_reviews = $params['sub_reviews'];
                     <h4 id="red">Plus de stock disponible.</h4>
                 <?php } ?>
             </div>
-<<<<<<< Updated upstream
-            <form action="/cart/add/<?= $params['product']->slug.'-'.$params['product']->id ?>" method="post">
-                <div class="input-container">
-                    <div class="left"></div>
-                    <?= $stock == 0 ? '' : '<input id="quantity" value="1" type="number" name="quantity" min="0" max="'.$stock.'">'?>
-                    <div class="right"></div>
-                </div>
-                <input type="text" value="<?= $params['product']->price ?>" name="price" hidden>
-                <input type="text" value="<?= $params['product']->artist ?>" name="artist" hidden>
-                <input type="text" value="<?= $params['product']->name ?>" name="name" hidden>
-                <input type="text" value="<?= $params['product']->slug ?>" name="slug" hidden>
-                <input type="text" value="<?= $params['product']->id ?>" name="id" hidden>
-                <div class="buttons-container">
-                    <p>Il reste <?= $stock ?> en stock</p>
-                    <?= $stock == 0 ? '<p>Vous ne pouvez pas commander</p>' : '<button class="button" type="submit">Ajouter le produit au panier</button>'?>
-                </div>
-            </form>
-=======
->>>>>>> Stashed changes
         </div>
         <div class="right"></div>
     </div>
