@@ -1,7 +1,3 @@
-<?php
-dump($params)
-?>
-<body>
     <main>
         <section id="home" class="home">
             <div class="container">
@@ -152,8 +148,6 @@ dump($params)
             </div>
         </section>
     </main>
-</body>
-</html>
 
 <script>
     $(function () {

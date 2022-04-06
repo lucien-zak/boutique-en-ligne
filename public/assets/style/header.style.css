@@ -513,6 +513,15 @@ div.error {
     div.error {
         background-color: #ad1a1a;
     }
+
+    /* /////////////////////////: */
+    /* /////////////////////////: */
+    /* /////////////////////////: */
+
+    #cart-recap {
+        width: 40%;
+        height: 40%;
+    }
 }
 
 textarea {

@@ -1,7 +1,6 @@
 <?= isset($params['message'])?$params['message']:'';
 ?>
 
-<body>
     <main>
         <section class="home">
             <div class="container">
@@ -69,4 +68,3 @@
             </div>
         </div>
     </main>
-</body>

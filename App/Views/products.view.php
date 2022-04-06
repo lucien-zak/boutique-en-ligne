@@ -1,6 +1,5 @@
 </head>
 
-<body>
     <form action="/products" method="post">
         <input type="search" name="search" id="search" placeholder="Your Search">
         <button id="filter"><i class="fas fa-filter"></i></button>
@@ -53,6 +52,3 @@
             </a>
         <?php } ?>
     </div>
-</body>
-
-</html>
