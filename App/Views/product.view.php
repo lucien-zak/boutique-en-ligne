@@ -4,12 +4,9 @@ if (isset($_SESSION['cart'][$params['product']->slug . '-' . $params['product']-
 } else {
     $stock = $params['product']->stock;
 }
-
 $reviews = $params['reviews'];
 $sub_reviews = $params['sub_reviews'];
 ?>
-
-
 <body>
     <div class="container">
         <div class="left"></div>
@@ -33,7 +30,7 @@ $sub_reviews = $params['sub_reviews'];
                     <div class="rateyo2" id="rating" data-rateyo-rating="<?= $params['rating']['stars'] ?>" data-rateyo-num-stars="5" data-rateyo-score="3">
                     </div>
                 </div>
-                <?php if ($params["product"]->stock > 0) { ?>
+                <?php if ($stock > 0) { ?>
                     <form action="/cart/add/<?= $params['product']->slug . '-' . $params['product']->id ?>" method="post">
                         <input id="quantity" value="1" type="number" name="quantity" min="0" max="<?= $stock ?>">
                         <input type="text" value="<?= $params['product']->price ?>" name="price" hidden>
