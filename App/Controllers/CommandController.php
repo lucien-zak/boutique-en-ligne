@@ -31,7 +31,7 @@ class CommandController extends CommandModel
             $titrepage = 'Votre Livraison';
             $this->table = 'adresses';
             $adress = $this->adress->setId_user($_SESSION['user']['id'])->getAllById_user();
-            $params = ['titre' => $titrepage, 'adress' => $adress];
+            $params = ['titre' => $titrepage, 'css'=>'after-payement', 'adress' => $adress];
             return AbstractController::render('order', $params);
         }
         else {

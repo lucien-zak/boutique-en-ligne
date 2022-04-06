@@ -21,7 +21,7 @@ Le symbole "$" commençant une instruction javascript est caractéristique de l'
     if (!empty($params['adress'])) {
         for ($i = 0; isset($params['adress'][$i]); $i++) {
             echo '<input type="radio" name="typedelivery" value='.$params['adress'][$i]['type'].' id="dom">';
-            echo '<label name='.$params['adress'][$i]['type'].' for="dom">'.$params['adress'][$i]['type'].'(+3,99$)</label>';
+            echo '<label name='.$params['adress'][$i]['type'].' for="dom">'.$params['adress'][$i]['type'].'</label>';
         } ?>
             
             <a href="/account/addresses"> Ajouter une adresse </a>
@@ -29,7 +29,7 @@ Le symbole "$" commençant une instruction javascript est caractéristique de l'
     <fieldset>
         <legend>Point relais</legend>
         <input type="radio" id="mond" name="typedelivery" value="Mondial Relay">
-        <label for="mond">Mondial Relay(Gratuit)</label>
+        <label for="mond">Mondial Relay</label>
     </fieldset>
     <div id="containere" style="display:none;">
         <!-- Zone dans laquelle le Widget est chargé -->

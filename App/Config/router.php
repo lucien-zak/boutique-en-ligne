@@ -233,11 +233,6 @@ $router->map('GET', '/logout', function () {
     $user->logout();
 });
 
-$router->map('GET', '/test2', function () {
-    $user = new CommandController;
-    $user->test();
-});
-
 if (isset($_SESSION['user']['email']) && $_SESSION['user']['email'] == 'admin@admin.fr' )
 {
     require "../App/Config/RouterAdmin.php";
