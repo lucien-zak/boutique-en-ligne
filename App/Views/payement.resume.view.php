@@ -1,8 +1,9 @@
 
-<H1>Merci pour votre commande</H1>
+<body id="resume-command">
+    <h1>Merci pour votre commande</h1>
+    <h2>Votre numero de commande </h2>
+</body>
 
-
-<H2>Votre numero de commande </H2>
 <?php 
-
-dump($params);
+// dump($params);
+?>

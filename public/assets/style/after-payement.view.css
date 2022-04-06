@@ -1,0 +1,34 @@
+body {
+    background-color: #171717;
+}
+
+body.resume-command {
+    background-color: #171717;
+    color: white;
+    font-family: "Comfortaa-R";
+}
+
+.MR-Widget {
+    border: nnone;
+    margin: 0px;
+    width: auto!important;
+}
+
+.MRW-Map {
+    width: 50%!important;
+}
+
+.MR-Widget .MRW-RList {
+    width: 50%;
+}
+
+input {
+    width: 100%;
+    margin: 0;
+    padding: 2vh;
+    font-family: "Comfortaa-R";
+    background: green;
+    color: white;
+    font-weight: 900;
+    border: none;
+}

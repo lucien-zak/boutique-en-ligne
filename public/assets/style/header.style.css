@@ -514,3 +514,7 @@ div.error {
         background-color: #ad1a1a;
     }
 }
+
+textarea {
+    resize: none;
+}

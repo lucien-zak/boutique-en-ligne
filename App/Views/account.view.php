@@ -40,11 +40,6 @@
                                 Mes Commandes
                             <div class="right"></div>
                         </button>
-                        <button class="btn btn-primary" onclick="window.location.href='/account/payements'">
-                            <div class="left"></div>
-                                Moyen de paiements
-                            <div class="right"></div>
-                        </button>
                         <button class="btn btn-primary" onclick="window.location.href='/account'">
                             <div class="left"></div>
                                 Mes Favoris
