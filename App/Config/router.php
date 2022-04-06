@@ -13,11 +13,11 @@ use App\Controllers\AdressController;
 use App\Controllers\CardsController;
 use App\Controllers\CartController;
 use App\Controllers\CommandController;
-use App\Controllers\PayementController;
 use App\Controllers\ProductController;
 use App\Controllers\ReviewsController;
 use App\Controllers\ShopController as Shop;
 use App\Controllers\UserController;
+use App\Models\CommandModel;
 
 $user = new UserController();
 $user->remember();
@@ -204,6 +204,18 @@ $router->map('GET', '/admin', function () {
     $admin = new AdminController();
     $admin->home_admin();
 });
+
+$router->map('GET', '/admin/commands', function () {
+    $admin = new AdminController();
+    $admin->commands_admin();
+});
+
+$router->map('POST', '/admin/commands/update/[i:num]', function ($num) {
+    $admin = new CommandController();
+    $admin->updateStatutCommand($num,$_POST['statut']);
+    header('location:/admin/commands');
+});
+
 
 $router->map('GET', '/admin/products', function () {
     $admin = new AdminController;
