@@ -1,3 +1,6 @@
+<?php
+dump($params)
+?>
 <body>
     <main>
         <section id="home" class="home">
@@ -126,7 +129,7 @@
                             <h3><?=$new->artist?></h3>  
                             <div class="box">
                                 <div class="rateyo2" id= "rating"
-                                data-rateyo-rating="4"
+                                data-rateyo-rating="<?=$new->avg['stars']?>"
                                 data-rateyo-num-stars="5"
                                 data-rateyo-score="3">
                                 </div>
@@ -146,66 +149,6 @@
                     <div class="right"></div>
                 </div>
                 <?php } ?>
-                <!-- <div class="product">
-                    <div class="left"></div>
-                    <div class="ctn">
-                        <div class="top">
-                            <img src="../assets/img/products/bad-8.png" alt="Image product">
-                        </div>
-                        <div class="middle">
-                            <h2>Bad</h2>
-                            <h3>Micheal Jackson</h3>
-                            <div class="box">
-                                <div class="rateyo2" id= "rating"
-                                data-rateyo-rating="4.5"
-                                data-rateyo-num-stars="5"
-                                data-rateyo-score="3">
-                                </div>
-                                <h2>(29)</h2>
-                            </div>
-                        </div>
-                        <div class="bottom">
-                            <div class="buttons-container">
-                                <button class="btn btn-primary products-btn">
-                                    <div class="left"></div>
-                                    Voir le produit
-                                    <div class="right"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right"></div>
-                </div>
-                <div class="product">
-                    <div class="left"></div>
-                    <div class="ctn">
-                        <div class="top">
-                            <img src="../assets/img/products/bad-8.png" alt="Image product">
-                        </div>
-                        <div class="middle">
-                            <h2>Bad</h2>
-                            <h3>Micheal Jackson</h3>
-                            <div class="box">
-                                <div class="rateyo2" id= "rating"
-                                data-rateyo-rating="3"
-                                data-rateyo-num-stars="5"
-                                data-rateyo-score="3">
-                                </div>
-                                <h2>(10)</h2>
-                            </div>
-                        </div>
-                        <div class="bottom">
-                            <div class="buttons-container">
-                                <button class="btn btn-primary products-btn">
-                                    <div class="left"></div>
-                                    Voir le produit
-                                    <div class="right"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right"></div>
-                </div> -->
             </div>
         </section>
     </main>

@@ -1,4 +1,7 @@
 <body>
+  <?php
+  dump($params);
+  ?>
   <div class="container">
     <h2 class="my-4 text-center">Intro To React Course [$50]</h2>
     <form action="/payement/charge" method="POST" id="payment-form">

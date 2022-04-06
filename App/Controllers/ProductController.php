@@ -143,6 +143,14 @@ class ProductController extends ProductModel
             }
         }
         $news = $this->News();
+        foreach($news as $nproduct)
+        {
+            $avg = $this->setId($nproduct->id)->avgRatingProduct();
+            if(!isset($nproduct->avg))
+            {
+                $nproduct->avg = $avg;              
+            }
+        }
         $params = ['titre' => 'home' , 'moreSold' => $moresold, 'news' => $news, 'css' => 'index'];
         return AbstractController::render('index', $params);
 

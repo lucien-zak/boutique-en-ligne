@@ -82,7 +82,7 @@ class CommandController extends CommandModel
 
             $titrepage = "Resume";
             $params = ['titre' => $titrepage, 'adress' => $adress];
-            AbstractController::render('order.resume', $params);
+            AbstractController::render('payement', $params);
         }
         else{
             header("location:/error");
@@ -172,9 +172,6 @@ class CommandController extends CommandModel
 
             $params = ['titre'=>'resume paiement' , 'command'=>$command, 'products'=>$products_command, 'css' => 'after-payement'];
             AbstractController::render('payement.resume', $params);
-       
-        
-
         
     }
 
