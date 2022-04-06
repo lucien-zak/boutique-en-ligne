@@ -1,8 +1,22 @@
 </head>
-
     <form action="/products" method="post">
         <input type="search" name="search" id="search" placeholder="Your Search">
         <button id="filter"><i class="fas fa-filter"></i></button>
+        <div class="filter-container">
+            <?php foreach ($params['category'] as $key => $value) { 
+                echo '<div><input type="checkbox" id="' . $key . '" name="' . $key . '"'?><?=array_key_exists(str_replace(' ', '_', $key), $_REQUEST) ? 'checked' : ''?> <?php '>';
+                echo '<label for="' . $key . '"> ' . $key . '</label></div>';
+                if (!is_array($value)) {
+                    echo '<div><input type="checkbox" id="' . $value . '" name="' . $value . '"'?><?=array_key_exists(str_replace(' ', '_', $value), $_REQUEST) ? 'checked' : ''?> <?php '>';
+                    echo '<label for="' . $value . '"> ' . $value . '</label></div>';
+                } else {
+                    foreach ($value as $value2) {
+                        echo '<div> <input type="checkbox" id="' . $value2 . '" name="' . $value2 . '"'?><?=array_key_exists(str_replace(' ', '_', $value2), $_REQUEST) ? 'checked' : ''?> <?php '>';
+                        echo '<label for="' . $value2 . '"> ' . $value2 . '</label></div>';
+                    }
+                }
+            } ?>
+        </div>
     </form>
     <div class="product-container">
         <?php

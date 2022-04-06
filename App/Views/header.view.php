@@ -51,25 +51,4 @@
         </div>
     <?php } ?>
 
-    <div id="cart-recap">
-        <div class="container result">
-            <div class="left"></div>
-            <div class="list">
-                <h2>Récapitulatif</h2>
-                <hr>
-                <?php for ($i = 0; count($params['products']) > $i; $i++) { ?>
-                    <h3><?= '[' .  $_SESSION["cart"][$params["products"][$i]->slug . '-' . $params["products"][$i]->id]["quantity"]  . '] ' .  $params['products'][$i]->name . ' - ' . $params['products'][$i]->artist . ' - ' . $params['products'][$i]->price . '€' ?></h3>
-                    <hr>
-                <?php } ?>
-            </div>
-            <h3>Montant total : <?= App\Controllers\CartController::total_product_cart() ?>€</h3>
-            <div class="buttons-container">
-                <button class="btn btn-primary" onclick="window.location.href='/account/cart'">
-                    <div class="left"></div>
-                    Passer la commande
-                    <div class="right"></div>
-                </button>
-            </div>
-            <div class="right"></div>
-        </div>
-    </div>
+    
