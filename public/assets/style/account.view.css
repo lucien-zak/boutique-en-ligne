@@ -121,7 +121,11 @@ i.icon {
 }
 
 form.adress {
-    width: 20%;
+    position: relative;
+        background-color: #202020;
+        padding: 2vh;
+        text-align: center;
+    width: 100%;
 }
 
 /*///////////////////////////////////////////////////////////////////*/
@@ -386,6 +390,14 @@ div.buttons-container > button.btn {
         font-weight: bold;
         text-align: left;
     }
+
+    form.adress {
+        position: relative;
+        width: 100%;
+        background-color: #202020;
+        padding: 2vh;
+        text-align: center;
+    }    
 
     div.options-ctn {
         width: 100%;

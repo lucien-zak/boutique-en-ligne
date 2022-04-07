@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("cart-recap").style.display = "none";
   })
 
-  document.getElementById("filter").addEventListener("mouseenter", function() {
-    document.getElementById("filterc").style.display = "block";
-  })
-  document.getElementById("filter").addEventListener("mouseleave", function() {
-    document.getElementById("filterc").style.display = "none";
-  })
+  // document.getElementById("filter").addEventListener("mouseenter", function() {
+  //   document.getElementById("filterc").style.display = "block";
+  // })
+  // document.getElementById("filter").addEventListener("mouseleave", function() {
+  //   document.getElementById("filterc").style.display = "none";
+  // })
   
   if(window.location.pathname == "/") {
     document.getElementById("about-btn").addEventListener("click", function () {

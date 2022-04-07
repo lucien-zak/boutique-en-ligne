@@ -212,7 +212,7 @@ form > .filter-container {
     }
 
     form > .filter-container {
-        display: none;
+        display: block;
         position: absolute;
         z-index: 1000;
         background-color: #202020;
