@@ -1,5 +1,5 @@
 * {
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 body {
@@ -99,7 +99,7 @@ div.box > img {
 }
 
 div.box >  h2, h4 {
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     margin: 0;
     margin-bottom: 1vh;
 }
@@ -334,7 +334,7 @@ div.ctn  {
 #popup div.container div.top > h2, #popup div.container div.top > h3 {
     margin-left: 3vh;
     margin-right: 3vh;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 #popup div.container div.content div.entry-container {
@@ -366,7 +366,7 @@ div.buttons-container > button.btn {
 
 #red {
     color: red;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 /* ////////////////////////////////////////////////////////////// */

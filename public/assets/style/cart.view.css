@@ -24,7 +24,7 @@ form > #search {
     border: none;
 
     color: #fff;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 form > #delivery {
@@ -34,7 +34,7 @@ form > #delivery {
     background-color: #2B2B2B;
     border: none;
     color: #fff;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 form > #delivery::before {
@@ -67,7 +67,7 @@ div.result {
 div.result > h3, h4 {
     margin: 0;
     margin-bottom: 4%;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     text-align: center;
 }
 
@@ -161,7 +161,7 @@ div.container div.content > img {
 div.container div.content div.info div.box  > h3, div.container div.content div.info div.box > h2, div.container div.content div.info div.box > h5 {
     margin: 0;
     margin-bottom: 5px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 div.container div.content div.info div.box h2 {
@@ -184,7 +184,7 @@ button.button {
     padding: 16px;
     padding-top: 15px;
     padding-bottom: 15px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     margin-left: 10%;
     text-decoration: none;
     border: none;
@@ -223,7 +223,7 @@ div.button {
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 div.button > a {
@@ -268,7 +268,7 @@ form > div > input.number {
     padding: 10px;
     padding-top: 18px;
     padding-bottom: 18px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     color: #fff;
     font-size: 15px;
     border: none;
@@ -489,7 +489,7 @@ div.list {
         margin: 0vh;
         margin-top: 1vh;
         margin-bottom: 1vh;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     div.container div.content div.info div.box {
@@ -511,7 +511,7 @@ div.list {
         align-items: center;
         width: 95%;
         margin-bottom: 2vh;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     div.list > h2 {

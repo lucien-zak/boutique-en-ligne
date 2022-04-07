@@ -5,7 +5,7 @@ body {
 body.resume-command {
     background-color: #171717;
     color: white;
-    font-family: "Comfortaa-R";
+    font-family: "Comfortaa";
 }
 
 .MR-Widget {
@@ -26,7 +26,7 @@ input {
     width: 100%;
     margin: 0;
     padding: 2vh;
-    font-family: "Comfortaa-R";
+    font-family: "Comfortaa";
     background: green;
     color: white;
     font-weight: 900;

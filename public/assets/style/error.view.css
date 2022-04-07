@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     src: url(../fonts/Comfortaa-Regular.ttf);
 }
 
@@ -19,7 +19,7 @@
 
         color: #fff;    
         text-align: center;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     div.container > div.error-box {
@@ -54,7 +54,7 @@
         text-align: center;
         padding-top: 15px;
         padding-bottom: 15px;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
         margin-top: 50px;
     }
 

@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     src: url(../fonts/Comfortaa-Regular.ttf);
 }
 
 @font-face {
-    font-family: 'Jetbrain-R';
+    font-family: "Jetbrain";
     src: url(../fonts/JetBrainsMonoNL-Regular.ttf) format('truetype');
 }
 
@@ -16,6 +16,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-family: "Comfortaa";
 }
 
 header {
@@ -93,7 +94,7 @@ div.buttons-container>button.btn {
     padding: 20px;
     padding-top: 15px;
     padding-bottom: 15px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     color: #fff;
     transition-duration: 4s;
 }
@@ -196,7 +197,7 @@ div.entry-container>div.box {
     flex-direction: column;
     color: #fff;
     padding: 0vh;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 div.entry-container>div.box>input, label, select {
@@ -208,7 +209,7 @@ div.entry-container>div.box>input, label, select {
     padding: 10px;
     padding-top: 18px;
     padding-bottom: 18px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     color: #fff;
     font-size: 15px;
     border: none;
@@ -287,7 +288,7 @@ div.box>div.right:after {
 }
 
 #displayAlert>h3 {
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     font-size: 12px;
 }
 
@@ -317,6 +318,10 @@ div.error {
     background-color: #ad1a1a;
 }
 
+#cart-recap {
+    display: none;
+}
+
 /* ------------------------------------- */
 /* ------------------------------------- */
 /* PC VERSION */
@@ -340,7 +345,7 @@ div.error {
         display: inherit;
         margin: 0;
         margin-left: 2vh;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     header>nav {
@@ -353,7 +358,7 @@ div.error {
     header>nav>a {
         color: #fff;
         text-decoration: none;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
         transition-duration: 100ms;
     }
 
@@ -385,7 +390,7 @@ div.error {
         padding: 20px;
         padding-top: 15px;
         padding-bottom: 15px;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
         color: #fff;
         transition-duration: 4s;
     }
@@ -481,7 +486,7 @@ div.error {
     }
 
     #displayAlert>h3 {
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     #displayAlert>h3.textAlert {
