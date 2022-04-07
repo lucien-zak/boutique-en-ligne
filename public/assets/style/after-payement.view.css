@@ -1,10 +1,23 @@
 body {
     background-color: #171717;
-    font-family: "Comfortaa-R";
+    font-family: "Comfortaa";
 }
 
 body#resume-command {
     background-color: #171717;
+    font-family: "Comfortaa";
+    height: 100vh;
+}
+
+fieldset {
+    color: white;
+    margin: 40px;
+}
+
+fieldset a{
+    text-decoration: none;
+    color: #FC7E1F;
+    padding: 40px;
     color: white;
     font-family: "Comfortaa";
 }
