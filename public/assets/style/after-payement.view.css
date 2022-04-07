@@ -1,15 +1,27 @@
 body {
     background-color: #171717;
-}
-
-body.resume-command {
-    background-color: #171717;
-    color: white;
     font-family: "Comfortaa-R";
 }
 
+body#resume-command {
+    background-color: #171717;
+    font-family: "Comfortaa-R";
+    height: 100vh;
+}
+
+fieldset {
+    color: white;
+    margin: 40px;
+}
+
+fieldset a{
+    text-decoration: none;
+    color: #FC7E1F;
+    padding: 40px;
+}
+
 .MR-Widget {
-    border: nnone;
+    border: none;
     margin: 0px;
     width: auto!important;
 }
@@ -24,11 +36,11 @@ body.resume-command {
 
 input {
     width: 100%;
+    color: #171717;
     margin: 0;
     padding: 2vh;
     font-family: "Comfortaa-R";
-    background: green;
-    color: white;
     font-weight: 900;
     border: none;
+    cursor: pointer;
 }
