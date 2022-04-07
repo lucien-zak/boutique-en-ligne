@@ -27,7 +27,7 @@ section.home div.container div.brand-infos div.sub-title {
     color: #a4a4a4;
     font-weight: 300;
     font-size: 1.6em;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     margin: 3vh;
 }
 
@@ -38,7 +38,7 @@ section.home div.container div.brand-infos div.title {
     font-weight: 600;
     font-size: 2em;
     text-shadow: 1vmin 1vmin 0 #27272744;
-    font-family: 'Jetbrain-R';
+    font-family: "Jetbrain";
     margin: 3vh;
 }
 
@@ -46,7 +46,7 @@ section.home div.container div.brand-infos p {
     color: #a4a4a4;
     font-weight: 300;
     font-size: 1.2em;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     margin: 3vh;
     text-align: center;
 }
@@ -152,7 +152,7 @@ div.section-category {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 div.section-category div.section-title {
@@ -217,7 +217,7 @@ section.about div.section-category div.content div.right {
     font-weight: 300;
     width: 95%;
     font-size: 1em;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 section.about div.section-category div.content div.right>p {
@@ -253,7 +253,7 @@ section.vitrine div.content div.product div.ctn {
     flex-direction: column;
     text-align: center;
     color: #fff;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 section.vitrine div.content div.product div.ctn div.top>img {
@@ -311,7 +311,7 @@ section.vitrine div.content div.product div.ctn div.bottom {
         font-weight: 300;
         width: 22em;
         font-size: 1.6em;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
         margin: 0;
     }
 
@@ -326,7 +326,7 @@ section.vitrine div.content div.product div.ctn div.bottom {
         font-weight: 600;
         font-size: 3em;
         text-shadow: 1vmin 1vmin 0 #27272744;
-        font-family: 'Jetbrain-R';
+        font-family: "Jetbrain";
         margin: 0;
     }
 
@@ -335,7 +335,7 @@ section.vitrine div.content div.product div.ctn div.bottom {
         font-weight: 300;
         width: 33em;
         font-size: 1.2em;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
         text-align: left;
         margin: 0;
         margin-top: 2vh;
@@ -396,7 +396,7 @@ section.vitrine div.content div.product div.ctn div.bottom {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     div.section-category div.section-title {
@@ -461,7 +461,7 @@ section.vitrine div.content div.product div.ctn div.bottom {
         font-weight: 300;
         width: 30%;
         font-size: 1.3em;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     section.about div.section-category div.content div.right>p {
@@ -495,7 +495,7 @@ section.vitrine div.content div.product div.ctn div.bottom {
         flex-direction: column;
         text-align: center;
         color: #fff;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     section.vitrine div.content div.product div.ctn div.top>img {

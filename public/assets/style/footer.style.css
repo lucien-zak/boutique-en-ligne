@@ -30,7 +30,7 @@ footer {
         height: 100%;
         color: #797979;
         text-decoration: none;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
 
         display: flex;
         align-items: center;
@@ -67,7 +67,7 @@ footer {
     footer div.container div.ctn-middle > div > h2, footer div.container div.ctn-right > div > h2 {
         color: #FC7E1F;
         font-weight: 1000;
-        font-family: 'Jetbrain-R';
+        font-family: "Jetbrain";
     }
 
     footer div.container div.ctn-middle > div, footer div.container div.ctn-right > div {
@@ -78,7 +78,7 @@ footer {
 
     footer div.container div.ctn-middle > div > a, footer div.container div.ctn-right > div > a {
         text-decoration: none;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
         color: #fff;
         margin: 4px;
     }

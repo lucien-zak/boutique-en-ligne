@@ -18,7 +18,7 @@ form>#search {
     border: none;
 
     color: #fff;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 form>#filter {
@@ -139,7 +139,7 @@ a.product div.content>img {
 a.product div.content div.info div.box>h3, a.product div.content div.info div.box>h2, a.product div.content div.info div.box>h5 {
     margin: 0;
     margin-bottom: 9px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 a.product div.content div.info div.box h2 {
@@ -160,8 +160,12 @@ button.btn {
 
 #red {
     color: red;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     margin: 0;
+}
+
+form > .filter-container {
+    display: none;
 }
 
 @media only screen and (min-width : 1224px) {
@@ -188,7 +192,7 @@ button.btn {
         background-color: #2B2B2B;
         border: none;
         color: #fff;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     form>#filter {
@@ -217,7 +221,7 @@ button.btn {
         border: solid #fff 2px;
         right: 1vw;
         top: 21vh;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     div.filter-list {
@@ -332,7 +336,7 @@ button.btn {
     a.product div.content div.info div.box>h3, a.product div.content div.info div.box>h2, a.product div.content div.info div.box>h5 {
         margin: 0;
         margin-bottom: 9px;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     a.product div.content div.info div.box h2 {
@@ -356,7 +360,7 @@ button.btn {
         padding: 10px;
         padding-top: 18px;
         padding-bottom: 18px;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
         margin-top: 10px;
         text-decoration: none;
         border: none;

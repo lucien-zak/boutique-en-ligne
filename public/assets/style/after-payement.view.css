@@ -5,19 +5,8 @@ body {
 
 body#resume-command {
     background-color: #171717;
-    font-family: "Comfortaa-R";
-    height: 100vh;
-}
-
-fieldset {
     color: white;
-    margin: 40px;
-}
-
-fieldset a{
-    text-decoration: none;
-    color: #FC7E1F;
-    padding: 40px;
+    font-family: "Comfortaa";
 }
 
 .MR-Widget {
@@ -39,7 +28,9 @@ input {
     color: #171717;
     margin: 0;
     padding: 2vh;
-    font-family: "Comfortaa-R";
+    font-family: "Comfortaa";
+    background: green;
+    color: white;
     font-weight: 900;
     border: none;
     cursor: pointer;

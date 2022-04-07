@@ -1,9 +1,9 @@
 @font-face {
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     src: url(../fonts/Comfortaa-Regular.ttf);
 }
 @font-face {
-    font-family: 'Jetbrain-R';
+    font-family: "Jetbrain";
     src: url(../fonts/JetBrainsMonoNL-Regular.ttf) format('truetype');
 }
 
@@ -65,18 +65,18 @@ div.buttons-container {
 }
 
 h3.title {
-    font-family: 'Jetbrain-R';
+    font-family: "Jetbrain";
     font-weight: 10;
     margin-top: 10%;
 }
 
 div.container > h2 {
-    font-family: 'Jetbrain-R';
+    font-family: "Jetbrain";
     font-weight: 10;
 }
 
 h3 {
-    font-family: 'Jetbrain-R';
+    font-family: "Jetbrain";
     font-weight: 10;
 }
 
@@ -133,7 +133,7 @@ div.fileBtn {
     width: 270px;
     text-align: center;
     padding: 10px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 .fileUpload {
@@ -167,7 +167,7 @@ div.buttons-container > button.button {
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
     color: #fff;
     font-size: 20px;
     border: none;
@@ -214,7 +214,7 @@ div.buttons-container > div.button {
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 div.buttons-container > div.button > a {
@@ -284,7 +284,7 @@ div.options-ctn > h4 {
     cursor: pointer;
     margin: 0;
     margin-bottom: 2vh;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 #popup {
@@ -320,7 +320,7 @@ div.options-ctn > h4 {
 #popup > div.container > div.top > h2, #popup > div.container > div.top > h3 {
     margin-left: 3vh;
     margin-right: 3vh;
-    font-family: 'Comfortaa-R';
+    font-family: "Comfortaa";
 }
 
 #popup > div.container > div.ctn > div.entry-container {
@@ -402,7 +402,7 @@ div.buttons-container > button.btn {
     }
 
     div.options-ctn > h4, div.options-ctn > label {
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     div.container > img {
@@ -473,7 +473,7 @@ div.buttons-container > button.btn {
     #popup > div.container > div.top > h2, #popup > div.container > div.top > h3 {
         margin-left: 3vh;
         margin-right: 3vh;
-        font-family: 'Comfortaa-R';
+        font-family: "Comfortaa";
     }
 
     #popup > div.container > div.content > div.entry-container {
