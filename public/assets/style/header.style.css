@@ -187,6 +187,10 @@ div.entry-container {
     margin-bottom: 20%;
 }
 
+div.entry-container-address {
+    margin-bottom: 0%;
+}
+
 div.entry-container>div.box {
     position: relative;
     background-color: #2B2B2B;

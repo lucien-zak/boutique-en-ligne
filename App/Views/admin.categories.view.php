@@ -1,7 +1,4 @@
 <?php
-
-// dump($params);
-
 echo '<h1>Modifier vos Catégories</h1>';
 echo '<table><thead><tr><th>Catégories</th><th>Actions</th></thead>';
 echo '<tbody>';

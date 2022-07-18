@@ -1,7 +1,4 @@
 <?php
-
-// dump($params);
-
 echo '<table><thead><tr><th>Image du produit</th><th>Designation du produit</th><th>Nom du produit</th><th>Artiste</th><th>Descritpion du produit</th><th>En stock</th><th>Catégorie du produit</th><th>Sous-catégorie du produit</th></thead>';
 echo '<tbody>';
 foreach ($params['products'] as $product) {

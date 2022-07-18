@@ -23,7 +23,7 @@ div.container {
     color: #fff;
 
     text-align: left;
-    margin-bottom: 12vh;
+    margin: 0 0 3vh 0;
 }
 
 div.center {
@@ -121,8 +121,11 @@ i.icon {
 }
 
 form.adress {
-    width: 20%;
-}
+    position: relative;
+    width: 60vw;
+    text-align: center;
+    background-color: #202020;
+}   
 
 /*///////////////////////////////////////////////////////////////////*/
 /* SECTION BUTTON INPUT FILE */
@@ -386,6 +389,13 @@ div.buttons-container > button.btn {
         font-weight: bold;
         text-align: left;
     }
+
+    form.adress {
+        position: relative;
+        width: 18vw;
+        background-color: #202020;
+        text-align: center;
+    }    
 
     div.options-ctn {
         width: 100%;

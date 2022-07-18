@@ -1,4 +1,3 @@
-<?php !empty($session) ? dump($_SESSION) : '' ?>
 <main>
     <section class="home">
         <div class="container">

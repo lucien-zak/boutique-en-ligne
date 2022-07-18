@@ -29,7 +29,6 @@
                         <div class="box">
                             <h3><?= $params['products'][$i]->artist ?></h3>
                             <h2><?= $params['products'][$i]->name ?></h2>
-                            <h3>Sortie le <?= $params['products'][$i]->date ?></h3>
                             <h5><?= $params['products'][$i]->price ?>€</h5>
                         </div>
                         <?php 

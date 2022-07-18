@@ -9,7 +9,7 @@
         <h2>Nous n'avons pas trouvé la page que vous recherchez.</h2>
         <div class="buttons-container">
             <div class="button">
-                <a href="/Products" class="">
+                <a href="/" class="">
                     Revenir à la page d'accueil
                 </a>
             </div>

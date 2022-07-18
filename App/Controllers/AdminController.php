@@ -71,8 +71,6 @@ class AdminController extends ProductModel
         AbstractController::upload_img_products($filename);
         header('location:/admin/products');
 
-        // dump($category);
-        // dump($product);
         // // $sub_reviews = $this->displaySub_Reviews();
         // $reviews = $this->getReviewsById();
         // if(!empty($_SESSION['user']))

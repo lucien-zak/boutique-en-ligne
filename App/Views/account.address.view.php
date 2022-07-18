@@ -21,7 +21,7 @@
                     </a>
                     <?php } ?>
                 </div>
-                    <div class="entry-container">
+                    <div class="entry-container entry-container-address">
                          <?php
                             foreach($params['data'] as $adress)
                             {

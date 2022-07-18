@@ -35,8 +35,7 @@ div.product-container {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-
-    padding-bottom: 10vh;
+    margin-bottom: 9.2vh;
 }
 
 a.product {
@@ -220,7 +219,7 @@ form > .filter-container {
         padding: 2vh;
         border: solid #fff 2px;
         right: 1vw;
-        top: 21vh;
+        top: 18vh;
         font-family: "Comfortaa";
     }
 
@@ -235,6 +234,7 @@ form > .filter-container {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 2vh;
+        margin-bottom: 2vh;
     }
 
     a.product {
@@ -323,7 +323,8 @@ form > .filter-container {
     }
 
     a.product div.content div.info div.box {
-        height: 13vh;
+        height: 14vh;
+        width: 12vw;
         margin-bottom: 2vh;
     }
 

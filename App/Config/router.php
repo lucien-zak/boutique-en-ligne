@@ -74,7 +74,6 @@ $router->map('GET', '/products', function () {
 
 $router->map('POST', '/products', function () {
     $product = new ProductController;
-    dump($_REQUEST);
     if ($_REQUEST['search'] == "") {
         $product->productsbycategory();
     } else {
