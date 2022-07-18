@@ -1,0 +1,50 @@
+main {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: #131313;
+}
+
+table {
+    width: 90%;
+    text-align: left;
+    padding: 2vh 3vw;
+    color: #fff;
+    border-collapse: collapse;
+}
+
+table > thead {
+    height: 8vh;
+}
+
+table > tbody > tr {
+    height: 8vh;
+    border-top: 1pt solid white;
+}
+
+td.options {
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button.options {
+    background-color: #FC7E1F;
+    transition-duration: 300ms;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 0.8vh 0.35vw;
+    font-size: 3vh;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+button.options:hover {
+    background-color: #c85904;
+}

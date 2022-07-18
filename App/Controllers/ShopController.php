@@ -63,13 +63,6 @@ class ShopController
         $params = [ 'titre' => $titrepage];
         return AbstractController::render('account.address.add', $params);
     }
-
-    public static function orders()
-    {
-        $titrepage = 'Vos Commandes';
-        $params = [ 'titre' => $titrepage];
-        return AbstractController::render('account.orders', $params);
-    }
     
     public static function payements()
     {

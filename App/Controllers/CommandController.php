@@ -18,10 +18,9 @@ class CommandController extends CommandModel
     {
         $command = $this->setId_user($_SESSION['user']['id']);
         $commands = $command->getAllCommandsByUser();
-        $titre = 'Commandes';
-        $params = ['titre' => $titre, 'commands' => $commands];
+        $titrepage = 'Vos Commandes';
+        $params = ['titre' => $titrepage, 'css' => 'account.order', 'commands' => $commands];
         AbstractController::render('account.orders', $params);
-
     }
 
     public function delivery_choice()

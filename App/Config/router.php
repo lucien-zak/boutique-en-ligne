@@ -163,7 +163,6 @@ $router->map('POST', '/account/adress/update/[a:type]', function ($type) {
 $router->map('GET', '/account/orders', function () {
     $command = new CommandController;
     $commands = $command->allUserCommands();
-    dump($commands);
 });
 
 

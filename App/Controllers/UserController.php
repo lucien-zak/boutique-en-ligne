@@ -199,17 +199,6 @@ class UserController extends UserModel
         }
     }
 
-    public function orders()
-    {
-        $commands = new CommandModel;
-        $commands->setId_user($_SESSION['user']['id']);
-        $command = $commands->getAllCommandsByUser();
-        $titre = 'Commandes';
-        $params = ['commands' => $command, 'titre' => $titre];
-        dump($params);
-        AbstractController::render('account.orders',$params);
-    }
-
     public function logout() 
     {
         if(isset($_COOKIE['auth'])) {

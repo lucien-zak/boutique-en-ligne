@@ -143,7 +143,7 @@ class CommandModel extends Database
     public function getAllCommandsByUser()
     {
 
-        return $this->run("SELECT command.id_user, command.command_num, command.date, command.delivery_adress, command.biling_adress, command.four_last, SUM(price) AS 'total', COUNT(products.id), statut AS 'products' FROM `command` INNER JOIN products_command ON command.command_num = products_command.num_command INNER JOIN products ON products_command.id_product = products.id  WHERE command.id_user = ?  GROUP BY products_command.num_command ORDER BY command.date",[$this->id_user])->fetchAll();
+        return $this->run("SELECT command.id_user, command.command_num, command.date, command.delivery_adress, command.biling_adress, command.four_last, SUM(price) AS 'total', COUNT(products.id) AS 'quantity', statut AS 'products' FROM `command` INNER JOIN products_command ON command.command_num = products_command.num_command INNER JOIN products ON products_command.id_product = products.id  WHERE command.id_user = ?  GROUP BY products_command.num_command ORDER BY command.date",[$this->id_user])->fetchAll();
     }
 
     public function updateStatutCommand($id, $statut)
