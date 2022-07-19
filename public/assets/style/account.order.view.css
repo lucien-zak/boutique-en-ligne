@@ -2,7 +2,35 @@ main {
     display: flex !important;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
     background-color: #131313;
+    color: #fff;
+}
+
+main > div.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    margin-bottom: 2vh;
+}
+
+main > div.pagination > button {
+    border: 2px solid #FC7E1F;
+    color: #FC7E1F;
+    height: 4vh;
+    width: 2vw;
+    transition-duration: 300ms;
+}
+
+main > div.pagination > button:hover {
+    background-color: #FC7E1F;
+    color: #fff;
+}
+
+main > div.pagination > button.active {
+    background-color: #FC7E1F;
 }
 
 table {

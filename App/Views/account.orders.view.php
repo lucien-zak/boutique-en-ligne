@@ -18,7 +18,7 @@
                         if (count($params['commands']) == 0) {
                             echo "<h1>Vous n'avez aucune commande</h1>";
                         } else {
-                            echo '<tr>';
+                            echo '<tr class="orderLine">';
                             echo '<td>'.$params['commands'][$i]->command_num.'</td>';
                             echo '<td>'.$params['commands'][$i]->quantity.'</td>';
                             echo '<td>'.str_replace('null', '', $params['commands'][$i]->delivery_adress).'</td>';
@@ -29,8 +29,8 @@
                             echo '</tr>';
                         }
                     }
-                
                 ?>
         </tbody>
     </table>
+    <div class="pagination"></div>
 </main>
