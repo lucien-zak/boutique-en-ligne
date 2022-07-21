@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const lineCount = lines.length - 1;
     const productNumberPerPage = 5;
     const pageNumber = Math.ceil(lineCount / productNumberPerPage);
-    console.log(pageNumber)
 
     function goToPage(i) {
         for (let j = 0; j < lines.length; j++) {
@@ -28,13 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    let j = 1;
+    let j = 0;
     
     lines.forEach((line) =>  {
         j++;
-        if (i > productNumberPerPage) {
+        if (j > productNumberPerPage) {
             line.style.display = 'none';
         }
+        
     })
 
     

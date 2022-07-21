@@ -10,7 +10,6 @@ class ProductController extends ProductModel
     {
         $titrepage = 'Produit';
         $product = $this->setId($id)->setSlug($slug)->getProduct();
-        $params = ['titre' => $titrepage, 'product' => $product, 'css' => 'product'];
         $sub_reviews = $this->displaySub_Reviews();
         $reviews = $this->getReviewsById();
         $similar = $this->Similar();
@@ -22,7 +21,7 @@ class ProductController extends ProductModel
             $favorites = false;
         }
         $averageRating = $this->avgRatingProduct($id);
-        $params = ['titre' => $titrepage, 'css' => 'product', 'product' => $product , 'similar' => $similar , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
+        $params = ['Page Produit' => $titrepage, 'css' => 'product', 'product' => $product , 'similar' => $similar , 'reviews' => $reviews, 'sub_reviews' => $sub_reviews, 'favorites' => $favorites, 'rating' => $averageRating];
         
         return AbstractController::render('product', $params);
     }
